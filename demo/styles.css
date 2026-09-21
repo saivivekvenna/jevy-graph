@@ -18,7 +18,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 3fr);
   width: 100vw;
   height: 100vh;
 }
@@ -73,8 +73,10 @@ main {
 .busy .plus { animation: spin 900ms linear infinite; }
 
 .drop strong {
-  font-size: 13px;
-  font-weight: 500;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 1.6vw, 28px);
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 .drop small {
