@@ -10,7 +10,8 @@ from .normalize import canonical_entity, normalize_space
 _TABLE_START = re.compile(r"^\s*Table\s+(\d+)\s*:", re.I)
 _NUMBER = re.compile(r"^[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?$")
 _HEADING = re.compile(
-    r"^\s*(?P<number>\d+(?:\.\d+)*)\s+(?P<title>[A-Z][^\n]{1,80}?)\s*$",
+    r"^\s*(?P<number>(?!0\d)\d{1,3}(?:\.\d{1,3})*)\.?\s+"
+    r"(?P<title>[A-Z][^\n]{1,80}?)\s*$",
     re.M,
 )
 _METRIC = re.compile(
@@ -22,7 +23,7 @@ _METRIC = re.compile(
 _QUANTITY = re.compile(
     r"(?<![A-Za-z0-9])(?P<value>\d[\d,]*(?:\.\d+)?(?:\s*million|[KM])?)\s+"
     r"(?P<unit>sentence pairs|sentences|source tokens|target tokens|tokens|GPUs?|"
-    r"steps|hours?|days?|seconds?|layers?|heads?)\b",
+    r"steps|hours?|minutes?|days?|seconds?|layers?|heads?)\b",
     re.I,
 )
 _GPU_COUNT = re.compile(
@@ -493,11 +494,27 @@ def _source_unit_at(text: str, position: int) -> str:
     prefix = text[:position]
     markers: list[tuple[int, str]] = []
     for match in _HEADING.finditer(prefix):
+        if re.search(r"\d\s*$", match.group("title")):
+            continue
         number = match.group("number").replace(".", "_")
         title = _slug(match.group("title")).upper()
         markers.append((match.start(), f"SECTION_{number}_{title}"))
     for match in re.finditer(r"(?m)^Abstract$", prefix):
         markers.append((match.start(), "ABSTRACT"))
+    for match in re.finditer(
+        r"(?im)^Appendix\s+(?P<letter>[A-Z])\.?"
+        r"(?:\s+(?P<title>[^\n]{1,80}))?$",
+        prefix,
+    ):
+        title = _slug(match.group("title") or "").upper()
+        label = f"APPENDIX_{match.group('letter').upper()}"
+        markers.append((match.start(), label + (f"_{title}" if title else "")))
+    for match in re.finditer(
+        r"(?im)^(References|Acknowledgements|Authors' Addresses|"
+        r"Full Copyright Statement)$",
+        prefix,
+    ):
+        markers.append((match.start(), _slug(match.group()).upper()))
     return max(markers, default=(0, "DOCUMENT"), key=lambda item: item[0])[1]
 
 
@@ -570,6 +587,7 @@ def _assignment_frames(text: str, masked: str) -> list[RelationFrame]:
         r"[A-Za-zβϵεα][A-Za-z0-9_]{0,24})\s*=\s*"
         r"(?P<rhs>[+-]?\d[\d,]*(?:\.\d+)?(?:[eE][+-]?\d+)?|"
         r"(?:sin|cos|softmax|max|min)\([^\n=]{1,100}\)(?:\s*[A-Za-z])?)"
+        r"(?![A-Za-z0-9_.*])"
     )
     for index, match in enumerate(pattern.finditer(masked)):
         lhs = normalize_space(match.group("lhs"))
@@ -624,6 +642,8 @@ def _quantity_frames(text: str, masked: str) -> list[RelationFrame]:
         "day": "has_training_duration_days",
         "seconds": "has_duration_seconds",
         "second": "has_duration_seconds",
+        "minutes": "has_duration_minutes",
+        "minute": "has_duration_minutes",
         "layers": "has_layer_count",
         "layer": "has_layer_count",
         "heads": "has_attention_head_count",
@@ -651,6 +671,18 @@ def _quantity_frames(text: str, masked: str) -> list[RelationFrame]:
         ):
             if phrase in lower:
                 return phrase
+        explicit = re.match(
+            r"(?P<subject>.+?)\s+(?:has|have|had|is|are|was|were|uses?|used|"
+            r"contains?|contained|includes?|included|comprises?|comprised|"
+            r"takes?|took|requires?|required|trains?|trained|runs?|ran|"
+            r"lasts?|lasted)\b",
+            normalize_space(prefix),
+            re.I,
+        )
+        if explicit:
+            subject = canonical_entity(explicit.group("subject"))
+            if subject and len(subject.split()) <= 18:
+                return subject
         return "reported system"
 
     for sentence_index, sentence in enumerate(sentences):

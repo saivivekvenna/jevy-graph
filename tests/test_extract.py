@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from jevy_graph.extract import extract_candidates, extract_frames
+from jevy_graph.extract import clean_document, extract_candidates, extract_frames
 from jevy_graph.normalize import canonical_label, find_aliases
 
 
@@ -154,6 +154,82 @@ class ExtractTests(unittest.TestCase):
         self.assertTrue(
             any((claim.source_unit or "").startswith("SECTION_3_") for claim in claims)
         )
+
+    def test_tracks_dotted_and_split_scientific_headings(self) -> None:
+        claims = extract_candidates(
+            "Abstract\nAlpha uses beta.\n1.\nIntroduction\nGamma uses delta.\n"
+            "2.1. Results\nEpsilon uses zeta."
+        )
+        units = {
+            (claim.subject, claim.source_unit)
+            for claim in claims
+            if claim.predicate == "uses"
+        }
+        self.assertIn(("Alpha", "ABSTRACT"), units)
+        self.assertIn(("Gamma", "SECTION_1_INTRODUCTION"), units)
+        self.assertIn(("Epsilon", "SECTION_2_1_RESULTS"), units)
+
+    def test_tracks_gutenberg_chapters_and_removes_license(self) -> None:
+        text = (
+            "Project metadata has restrictions.\n"
+            "*** START OF THE PROJECT GUTENBERG EBOOK SAMPLE ***\n"
+            "CHAPTER I. Arrival\nAlice entered Wonderland.\n"
+            "*** END OF THE PROJECT GUTENBERG EBOOK SAMPLE ***\n"
+            "The license permits redistribution."
+        )
+        cleaned = clean_document(text)
+        self.assertNotIn("restrictions", cleaned)
+        self.assertNotIn("redistribution", cleaned)
+        claims = extract_candidates(text)
+        arrival = next(item for item in claims if item.predicate == "entered")
+        self.assertEqual(arrival.source_unit, "CHAPTER_1_ARRIVAL")
+
+    def test_does_not_parse_abnf_repetition_as_numeric_assignment(self) -> None:
+        claims = extract_candidates('dur-second = 1*DIGIT "S"')
+        self.assertFalse(any(claim.predicate == "equals" for claim in claims))
+
+    def test_uses_explicit_measurement_subject_outside_ml(self) -> None:
+        claims = extract_candidates(
+            "Standard time in the Netherlands was 19 minutes and 32.13 seconds ahead."
+        )
+        triples = {(item.subject, item.predicate, item.object) for item in claims}
+        self.assertIn(
+            ("Standard time in the Netherlands", "has_duration_minutes", "19"),
+            triples,
+        )
+        self.assertIn(
+            ("Standard time in the Netherlands", "has_duration_seconds", "32.13"),
+            triples,
+        )
+
+    def test_tracks_appendices_and_named_back_matter(self) -> None:
+        claims = extract_candidates(
+            "Appendix A. Grammar\nAlpha uses beta.\n"
+            "Authors' Addresses\nGamma uses delta."
+        )
+        units = {
+            (claim.subject, claim.source_unit)
+            for claim in claims
+            if claim.predicate == "uses"
+        }
+        self.assertIn(("Alpha", "APPENDIX_A_GRAMMAR"), units)
+        self.assertIn(("Gamma", "AUTHORS_ADDRESSES"), units)
+
+    def test_rejects_discourse_fragments_as_entities(self) -> None:
+        candidates = extract_candidates("Here emerged a model. In fact, paint mixed colors.")
+        self.assertFalse(
+            any(item.subject.casefold() in {"here", "in fact"} for item in candidates)
+        )
+
+    def test_normalizes_common_open_verb_gerunds(self) -> None:
+        predicates = {
+            item.predicate
+            for item in extract_candidates(
+                "Viruses are invading cells. People were tumbling into one another."
+            )
+        }
+        self.assertIn("invades", predicates)
+        self.assertIn("tumbles_into", predicates)
 
     def test_preserves_decimal_benchmark_measurement(self) -> None:
         claims = extract_candidates("Our model achieves a BLEU score of 41.8.")

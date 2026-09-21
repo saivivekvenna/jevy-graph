@@ -336,7 +336,9 @@ _BAD_STANDALONE = re.compile(
 _BAD_ENTITY_START = re.compile(
     rf"^(?:{_MODALS}|do|does|did|is|are|was|were|be|been|being|previously|"
     r"highly|usually|typically|when|before|after|as|if|unless|hereunto|"
-    r"therein|thereof|whereof)\b|^(?:left|right)\s*\)",
+    r"therein|thereof|whereof|here|once|yet)\b|"
+    r"^(?:in\s+fact|for\s+(?:example|instance)|about\s+in\s+all\s+directions)\b|"
+    r"^(?:left|right)\s*\)",
     re.I,
 )
 _GENERIC_VERB_STOP = {
@@ -477,6 +479,9 @@ _IRREGULAR_VERBS = {
     "respecting": "respects",
     "receiving": "receives",
     "arising": "arises_from",
+    "invading": "invades",
+    "occurring": "occurs",
+    "tumbling": "tumbles",
 }
 _ACTION_VERBS = {
     "appoint",
@@ -614,6 +619,23 @@ def _right_actions(value: str) -> tuple[str, ...]:
 
 def clean_document(text: str) -> str:
     """Remove common PDF extraction noise while preserving paragraph boundaries."""
+    gutenberg_start = re.search(
+        r"(?m)^\*{3}\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK.*$",
+        text,
+        re.I,
+    )
+    if gutenberg_start:
+        gutenberg_end = re.search(
+            r"(?m)^\*{3}\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK.*$",
+            text[gutenberg_start.end() :],
+            re.I,
+        )
+        end = (
+            gutenberg_start.end() + gutenberg_end.start()
+            if gutenberg_end
+            else len(text)
+        )
+        text = text[gutenberg_start.end() : end]
     text = unicodedata.normalize("NFKC", text)
     text = re.sub(r"(?<=\w)-\s*\n\s*(?=\w)", "", text)
     text = re.sub(r"(?<=[a-z])-\s+(?=[a-z])", "", text)
@@ -624,19 +646,49 @@ def clean_document(text: str) -> str:
         repeated_header = (
             line
             and counts[line.casefold()] >= 3
-            and (line.isupper() or "literal print" in line.casefold())
+            and (
+                line.isupper()
+                or "literal print" in line.casefold()
+                or bool(re.search(r"\brfc\s+\d+\b", line, re.I))
+                or "standards track [page" in line.casefold()
+            )
         )
         if re.fullmatch(r"\d{1,4}", line) or repeated_header:
             continue
         lines.append(line)
 
+    stitched_lines: list[str] = []
+    line_index = 0
+    while line_index < len(lines):
+        line = lines[line_index]
+        standalone_number = re.fullmatch(r"(\d+(?:\.\d+)*)\.", line)
+        if standalone_number:
+            next_index = line_index + 1
+            while next_index < len(lines) and not lines[next_index]:
+                next_index += 1
+            if (
+                next_index < len(lines)
+                and re.fullmatch(r"[A-Z][^.!?]{1,80}", lines[next_index])
+            ):
+                stitched_lines.append(
+                    f"{standalone_number.group(1)}. {lines[next_index]}"
+                )
+                line_index = next_index + 1
+                continue
+        stitched_lines.append(line)
+        line_index += 1
+
     paragraphs: list[str] = []
     current: list[str] = []
     heading = re.compile(
         r"^(?:Abstract|Acknowledgements|References|"
-        r"\d+(?:\.\d+)*\s+[A-Z][^\n]{1,80})$"
+        r"Authors' Addresses|Full Copyright Statement|"
+        r"Appendix\s+[A-Z]\.?(?:\s+[^\n]{1,80})?|"
+        r"\d+(?:\.\d+)*\.?\s+[A-Z][^\n]{1,80}|"
+        r"CHAPTER\s+[IVXLC]+\.?(?:\s+[^\n]{1,80})?)$",
+        re.I,
     )
-    for line in lines:
+    for line in stitched_lines:
         if line and heading.fullmatch(line):
             if current:
                 paragraphs.append(normalize_space(" ".join(current)))
@@ -704,13 +756,41 @@ def _source_markers(text: str) -> list[tuple[int, str]]:
             label = f"{parent}_SECTION_{section}"
         markers.append((match.start(), label))
     for match in re.finditer(
-        r"(?m)^(Abstract|(?P<number>\d+(?:\.\d+)*)\s+"
-        r"(?P<title>[A-Z][^\n]{1,80}))$",
+        r"(?m)^(Abstract|(?P<number>(?!0\d)\d{1,3}(?:\.\d{1,3})*)\.?\s+"
+        r"(?P<title>[A-Z][^\n]{1,80})|"
+        r"CHAPTER\s+(?P<chapter>[IVXLC]+)\.?(?:\s+(?P<chapter_title>[^\n]{1,80}))?|"
+        r"Appendix\s+(?P<appendix>[A-Z])\.?(?:\s+(?P<appendix_title>[^\n]{1,80}))?|"
+        r"(?P<named>References|Acknowledgements|Authors' Addresses|"
+        r"Full Copyright Statement))$",
         text,
+        re.I,
     ):
-        if match.group(1) == "Abstract":
+        if match.group(1).casefold() == "abstract":
             label = "ABSTRACT"
+        elif match.group("chapter"):
+            chapter = _roman_number(match.group("chapter"))
+            title = re.sub(
+                r"[^A-Z0-9]+",
+                "_",
+                (match.group("chapter_title") or "").upper(),
+            ).strip("_")
+            label = f"CHAPTER_{chapter}" + (f"_{title}" if title else "")
+        elif match.group("appendix"):
+            title = re.sub(
+                r"[^A-Z0-9]+",
+                "_",
+                (match.group("appendix_title") or "").upper(),
+            ).strip("_")
+            label = f"APPENDIX_{match.group('appendix').upper()}" + (
+                f"_{title}" if title else ""
+            )
+        elif match.group("named"):
+            label = re.sub(
+                r"[^A-Z0-9]+", "_", match.group("named").upper()
+            ).strip("_")
         else:
+            if re.search(r"\d\s*$", match.group("title")):
+                continue
             number = match.group("number").replace(".", "_")
             title = re.sub(
                 r"[^A-Z0-9]+", "_", match.group("title").upper()
