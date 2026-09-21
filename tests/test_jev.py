@@ -4,6 +4,7 @@ import unittest
 
 from jevy_graph.jev import (
     JevClient,
+    _http_error_message,
     _triple_options,
     build_choice_request,
     build_verification_request,
@@ -28,6 +29,15 @@ def frame() -> RelationFrame:
 
 
 class JevTests(unittest.TestCase):
+    def test_explains_payment_required_error(self) -> None:
+        self.assertEqual(
+            _http_error_message(402),
+            "Jev has no available credits. Add credits in the TypeSafe console, then retry.",
+        )
+        self.assertEqual(
+            _http_error_message(500), "Jev request failed with HTTP 500"
+        )
+
     def test_single_option_frame_skips_choice_request(self) -> None:
         custom_frame = RelationFrame(
             ("Attention mechanisms",),

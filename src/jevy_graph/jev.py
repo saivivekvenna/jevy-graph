@@ -25,6 +25,12 @@ class JevError(RuntimeError):
     pass
 
 
+def _http_error_message(status: int) -> str:
+    if status == 402:
+        return "Jev has no available credits. Add credits in the TypeSafe console, then retry."
+    return f"Jev request failed with HTTP {status}"
+
+
 def _candidate(frame: RelationFrame, triple: tuple[str, str, str]) -> CandidateTriple:
     subject, predicate, object_ = triple
     return CandidateTriple(
@@ -521,7 +527,7 @@ class JevClient:
                 return result
             except urllib.error.HTTPError as error:
                 if error.code not in {429, 529} or attempt + 1 == self.attempts:
-                    raise JevError(f"Jev request failed with HTTP {error.code}") from error
+                    raise JevError(_http_error_message(error.code)) from error
             except urllib.error.URLError as error:
                 if attempt + 1 == self.attempts:
                     raise JevError(f"Could not reach Jev: {error.reason}") from error
