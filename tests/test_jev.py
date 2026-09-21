@@ -31,7 +31,7 @@ class JevTests(unittest.TestCase):
         request = build_choice_request([frame()])
         question = request["questions"]["f0_triple"]
         self.assertEqual(question["type"], "choice")
-        self.assertIn("none", question["criteria"])
+        self.assertNotIn("none", question["criteria"])
         self.assertEqual(question["instructions"]["modality"], "shall")
 
     def test_parses_selected_complete_triple(self) -> None:
@@ -59,20 +59,20 @@ class JevTests(unittest.TestCase):
         self.assertEqual(result[0].modality, "shall")
         self.assertEqual(result[0].selection_probability, 0.76)
 
-    def test_none_choice_drops_unsupported_frame(self) -> None:
-        result = parse_choice_answers(
-            [frame()],
-            {
-                "answers": {
-                    "f0_triple": {
-                        "choice": "none",
-                        "confidence": 0.9,
-                        "probabilities": {"none": 0.9},
+    def test_rejects_non_candidate_choice(self) -> None:
+        with self.assertRaisesRegex(Exception, "invalid choice"):
+            parse_choice_answers(
+                [frame()],
+                {
+                    "answers": {
+                        "f0_triple": {
+                            "choice": "none",
+                            "confidence": 0.9,
+                            "probabilities": {"none": 0.9},
+                        }
                     }
-                }
-            },
-        )
-        self.assertEqual(result, [])
+                },
+            )
 
     def test_verification_treats_normative_modality_as_valid(self) -> None:
         candidate = CandidateTriple(

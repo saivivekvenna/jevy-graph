@@ -174,9 +174,6 @@ def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
                 _triple_options(frame)
             )
         }
-        criteria["none"] = {
-            "meaning": "No candidate precisely captures an asserted relationship."
-        }
         questions[f"f{index}_triple"] = {
             "type": "choice",
             "instructions": {
@@ -191,14 +188,20 @@ def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
                     "preserved separately. Prefer exact, self-contained entity boundaries. "
                     "Use type only for class membership and equivalent_to for definitions, "
                     "symbols, quantities, or two names for the same thing. "
-                    "Choose none only if every candidate is unsupported or malformed."
+                    "Choose the best available boundary and predicate combination. "
+                    "A separate verification pass will reject unsupported triples."
                 ),
             },
             "criteria": criteria,
         }
     return {
         "model": MODEL,
-        "state": {"task": "Select one source-grounded RDF triple per relation frame."},
+        "state": {
+            "task": (
+                "Select the best source-grounded RDF triple for every atomic relation "
+                "frame. Do not perform support filtering in this pass."
+            )
+        },
         "questions": questions,
     }
 
@@ -215,8 +218,6 @@ def parse_choice_answers(
         if not isinstance(answer, dict):
             raise JevError(f"Jev omitted a choice for frame {index}")
         choice = answer.get("choice")
-        if choice == "none":
-            continue
         if not isinstance(choice, str) or not choice.startswith("t"):
             raise JevError(f"Jev returned an invalid choice for frame {index}")
         try:
