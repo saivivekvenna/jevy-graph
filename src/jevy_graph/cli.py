@@ -5,54 +5,8 @@ import os
 import sys
 from pathlib import Path
 
-from .extract import extract_candidates, extract_frames
+from .compiler import Thresholds, compile_text
 from .jev import JevClient, JevError
-from .models import VerifiedTriple
-from .normalize import graphable_node
-from .rdf import render_turtle
-
-
-def _deduplicate(
-    items: list[VerifiedTriple],
-    seen: set[tuple[str, str, str, str, str, str]] | None = None,
-) -> list[VerifiedTriple]:
-    """Collapse only duplicate interpretations of the same source occurrence."""
-    result: list[VerifiedTriple] = []
-    if seen is None:
-        seen = set()
-    for item in items:
-        candidate = item.candidate
-        key = (
-            candidate.subject.casefold(),
-            candidate.predicate,
-            candidate.object.casefold(),
-            candidate.evidence.casefold(),
-            candidate.modality or "",
-            candidate.polarity,
-        )
-        if key not in seen:
-            seen.add(key)
-            result.append(item)
-    return result
-
-
-def _accepted(item: VerifiedTriple, support: float, entity: float, joint: float) -> bool:
-    origin_floors = {
-        "semantic": (0.45, 0.10, 0.70),
-        "pattern": (0.45, 0.10, 0.70),
-        "modal": (0.45, 0.10, 0.70),
-        "open_verb": (0.50, 0.20, 0.80),
-    }
-    origin_support, origin_entity, origin_joint = origin_floors.get(
-        item.candidate.origin, origin_floors["pattern"]
-    )
-    return (
-        graphable_node(item.candidate.subject)
-        and graphable_node(item.candidate.object)
-        and item.support >= max(support, origin_support)
-        and item.entity_quality >= max(entity, origin_entity)
-        and item.support + item.entity_quality >= max(joint, origin_joint)
-    )
 
 
 def _load_dotenv(path: Path = Path(".env")) -> None:
@@ -115,38 +69,32 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("--joint-threshold must be between 0 and 2")
 
     text = _read_text(args.input)
-    frames = extract_frames(text)
-    runtime_stats = ""
-    if args.no_verify:
-        candidates = extract_candidates(text)
-        verified = [VerifiedTriple(candidate, 1.0, 1.0) for candidate in candidates]
-    else:
+    client = None
+    if not args.no_verify:
         _load_dotenv()
         api_key = os.environ.get("TYPESAFE_API_KEY", "")
         if not api_key:
             raise SystemExit("TYPESAFE_API_KEY is missing; set it in the environment or .env")
-        try:
-            client = JevClient(api_key)
-            verified = client.score(frames)
-            candidates = [item.candidate for item in verified]
-            runtime_stats = f" singletons={client.singleton_selections}"
-        except JevError as error:
-            raise SystemExit(str(error)) from error
+        client = JevClient(api_key)
 
-    accepted = _deduplicate([
-        item
-        for item in verified
-        if _accepted(item, args.threshold, args.entity_threshold, args.joint_threshold)
-    ])
-    output = render_turtle(text, accepted)
+    try:
+        result = compile_text(
+            text,
+            client=client,
+            thresholds=Thresholds(
+                args.threshold, args.entity_threshold, args.joint_threshold
+            ),
+        )
+    except JevError as error:
+        raise SystemExit(str(error)) from error
     if args.output:
-        Path(args.output).write_text(output, encoding="utf-8")
+        Path(args.output).write_text(result.turtle, encoding="utf-8")
     else:
-        sys.stdout.write(output)
+        sys.stdout.write(result.turtle)
 
     print(
-        f"frames={len(frames)} resolved={len(candidates)} accepted={len(accepted)}"
-        f"{runtime_stats}",
+        f"frames={result.frames} resolved={result.resolved} accepted={result.accepted}"
+        f" singletons={result.singletons}",
         file=sys.stderr,
     )
     return 0

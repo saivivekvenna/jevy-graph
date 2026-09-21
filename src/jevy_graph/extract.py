@@ -993,6 +993,15 @@ def _relation_hits(clause: str) -> list[RelationHit]:
     for pattern in _STATIC_RELATIONS:
         for match in pattern.expression.finditer(clause):
             modality, polarity = _modal_and_polarity(match.group())
+            if modality is None:
+                prefix = re.search(
+                    rf"\b(?P<modal>{_MODALS})\s+(?P<negative>not\s+)?$",
+                    clause[: match.start()],
+                    re.I,
+                )
+                if prefix:
+                    modality = prefix.group("modal").casefold()
+                    polarity = "negative" if prefix.group("negative") else "positive"
             proposed.append(
                 RelationHit(
                     match.start(),
@@ -1990,8 +1999,8 @@ def extract_frames(text: str) -> list[RelationFrame]:
     ]
 
 
-def extract_candidates(text: str) -> list[CandidateTriple]:
-    """Return the deterministic first choice from each relation frame."""
+def candidates_from_frames(frames: list[RelationFrame]) -> list[CandidateTriple]:
+    """Return the deterministic first choice from relation frames."""
     return [
         CandidateTriple(
             subject=canonical_entity(frame.subject_options[0]),
@@ -2011,5 +2020,10 @@ def extract_candidates(text: str) -> list[CandidateTriple]:
             origin=frame.origin,
             context=frame.context,
         )
-        for frame in extract_frames(text)
+        for frame in frames
     ]
+
+
+def extract_candidates(text: str) -> list[CandidateTriple]:
+    """Return deterministic candidates without calling Jev."""
+    return candidates_from_frames(extract_frames(text))

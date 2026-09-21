@@ -14,7 +14,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from xml.etree import ElementTree
 
-from .cli import _accepted, _deduplicate, _load_dotenv
+from .cli import _load_dotenv
+from .compiler import select
 from .extract import extract_frames
 from .jev import JevClient, JevError
 
@@ -120,14 +121,7 @@ class DemoHandler(SimpleHTTPRequestHandler):
             seen: set[tuple[str, str, str, str, str, str]] = set()
             claim_count = 0
             for verified_batch in client.iter_score_batches(frames):
-                accepted = _deduplicate(
-                    [
-                        item
-                        for item in verified_batch
-                        if _accepted(item, 0.45, 0.10, 0.70)
-                    ],
-                    seen,
-                )
+                accepted = select(verified_batch, seen=seen)
                 for item in accepted:
                     candidate = item.candidate
                     predicate = candidate.predicate
