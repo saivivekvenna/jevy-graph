@@ -44,6 +44,14 @@ class CliTests(unittest.TestCase):
             _accepted(VerifiedTriple(candidate, 0.99, 0.99), 0.45, 0.10, 0.70)
         )
 
+    def test_rejects_bare_document_heading_nodes(self) -> None:
+        candidate = CandidateTriple(
+            "SECTION 3", "relates_to", "Congress", "evidence", 0, 0, 8
+        )
+        self.assertFalse(
+            _accepted(VerifiedTriple(candidate, 0.99, 0.99), 0.45, 0.10, 0.70)
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -17,27 +17,14 @@ const cy = cytoscape({
     {
       selector: "node",
       style: {
-        "background-color": "#111",
+        "background-color": "#fff",
         "border-color": "#111",
         "border-width": 1,
         color: "#111",
-        content: "",
-        "font-family": "Inter, -apple-system, sans-serif",
-        "font-size": 12,
-        "font-weight": 600,
-        height: 9,
-        width: 9,
-        padding: 0,
-        shape: "ellipse",
-        "text-halign": "center",
-        "text-valign": "center"
-      }
-    },
-    {
-      selector: "node.hub, node.labeled, node.focused",
-      style: {
-        "background-color": "#fff",
         content: "data(label)",
+        "font-family": "Inter, -apple-system, sans-serif",
+        "font-size": 11,
+        "font-weight": 600,
         height: "data(height)",
         width: "data(width)",
         padding: 6,
@@ -132,7 +119,6 @@ function scheduleStreamFormat(requestId) {
   streamFrame = window.requestAnimationFrame(() => {
     streamFrame = null;
     if (requestId !== activeRequest || selectedNodeId) return;
-    updateLabels();
     cy.fit(cy.elements(), 54);
   });
 }
@@ -184,22 +170,12 @@ function addClaim(claim, index, requestId) {
   scheduleStreamFormat(requestId);
 }
 
-function updateLabels() {
-  cy.nodes().removeClass("hub");
-  if (selectedNodeId) return;
-  [...cy.nodes()]
-    .sort((left, right) => right.degree(false) - left.degree(false))
-    .slice(0, 8)
-    .forEach((node) => node.addClass("hub"));
-}
-
 function finishGraph() {
   const preserveOverview = () => {
     selectedNodeId = null;
     overviewPositions = new Map(
       cy.nodes().map((node) => [node.id(), { ...node.position() }])
     );
-    updateLabels();
     cy.fit(cy.elements(), 48);
   };
   cy.layout({
@@ -280,7 +256,7 @@ function handleFiles(files) {
 
 function focus(edge) {
   const neighborhood = edge.connectedNodes().union(edge);
-  cy.elements().addClass("faded").removeClass("focused labeled hub");
+  cy.elements().addClass("faded").removeClass("focused");
   neighborhood.removeClass("faded").addClass("focused");
   setSourceText(edge.data("evidence"));
 }
@@ -322,24 +298,23 @@ function focusNode(node, zoom = false) {
   const allEdges = [...node.connectedEdges()];
   const edges = cy.collection(allEdges);
   const neighborhood = edges.union(edges.connectedNodes()).union(node);
-  const labeledNeighbors = neighborhood.nodes().not(node);
-  cy.elements().addClass("hidden").removeClass("focused labeled hub");
+  const neighbors = neighborhood.nodes().not(node);
+  cy.elements().addClass("hidden").removeClass("focused");
   neighborhood.removeClass("hidden faded");
   node.addClass("focused");
-  labeledNeighbors.addClass("labeled");
   neighborhood.edges().removeClass("faded hidden");
 
   setSourceText(`${node.data("label")} · ${allEdges.length} relationships`);
   if (zoom) {
     cy.stop();
-    const neighbors = [...labeledNeighbors];
+    const positionedNeighbors = [...neighbors];
     cy.batch(() => {
       node.position({ x: 0, y: 0 });
       let offset = 0;
       let radius = 360;
-      while (offset < neighbors.length) {
+      while (offset < positionedNeighbors.length) {
         const capacity = Math.max(8, Math.floor((Math.PI * 2 * radius) / 230));
-        const ring = neighbors.slice(offset, offset + capacity);
+        const ring = positionedNeighbors.slice(offset, offset + capacity);
         ring.forEach((neighbor, index) => {
           const angle = -Math.PI / 2 + (Math.PI * 2 * index) / ring.length;
           neighbor.position({
@@ -361,15 +336,12 @@ function restoreOverview() {
 
 function clearFocus() {
   cy.elements().removeClass("faded focused hidden");
-  cy.nodes().removeClass("labeled");
   if (selectedNodeId) {
     const selected = cy.$id(selectedNodeId);
     if (selected.length) {
       focusNode(selected);
       return;
     }
-  } else {
-    updateLabels();
   }
   setSourceText("Hover over an edge or leaf node to see its source sentence.");
 }

@@ -18,6 +18,11 @@ _DOUBLE = re.compile(
     r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)[eE][+-]?\d+"
 )
 _NODE_WORD = re.compile(r"[A-Za-z0-9][A-Za-z0-9'’./+_-]*")
+_BARE_HEADING = re.compile(
+    r"^(?:sections?|articles?|chapters?|parts?|appendices|appendix)"
+    r"(?:[\s._-]*(?:\d+|[IVXLC]+))?$",
+    re.IGNORECASE,
+)
 MAX_NODE_WORDS = 14
 MAX_NODE_CHARACTERS = 160
 
@@ -67,6 +72,7 @@ def graphable_node(value: str) -> bool:
     return bool(
         value
         and words
+        and not _BARE_HEADING.fullmatch(value)
         and len(words) <= MAX_NODE_WORDS
         and len(value) <= MAX_NODE_CHARACTERS
     )
