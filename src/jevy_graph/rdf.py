@@ -95,6 +95,17 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
                 f"    jevy:normalizedEndOffset {candidate.end} ;",
                 f'    jevy:polarity "{candidate.polarity}" ;',
                 f'    jevy:modality "{candidate.modality or "none"}" ;',
+                *(
+                    [f'    jevy:sourceUnit "{_escape(candidate.source_unit)}" ;']
+                    if candidate.source_unit
+                    else []
+                ),
+                *(
+                    [f'    jevy:condition "{_escape(candidate.condition)}" ;']
+                    if candidate.condition
+                    else []
+                ),
+                f'    jevy:extractionOrigin "{candidate.origin}" ;',
                 "    jevy:selectionConfidence "
                 f'"{candidate.selection_confidence:.6f}"^^xsd:decimal ;',
                 "    jevy:selectionProbability "

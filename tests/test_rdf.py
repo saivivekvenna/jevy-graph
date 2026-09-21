@@ -54,6 +54,22 @@ class RdfTests(unittest.TestCase):
         turtle = render_turtle("The System has 42.", [VerifiedTriple(candidate, 0.9, 0.9)])
         self.assertIn('rdf:object "42"^^xsd:integer', turtle)
 
+    def test_renders_source_unit_and_condition(self) -> None:
+        candidate = CandidateTriple(
+            "Congress",
+            "acts",
+            "vacancy",
+            "If a vacancy occurs, Congress acts.",
+            0,
+            0,
+            35,
+            source_unit="ARTICLE_1_SECTION_2",
+            condition="If a vacancy occurs",
+        )
+        turtle = render_turtle("text", [VerifiedTriple(candidate, 0.9, 0.9)])
+        self.assertIn('jevy:sourceUnit "ARTICLE_1_SECTION_2"', turtle)
+        self.assertIn('jevy:condition "If a vacancy occurs"', turtle)
+
 
 if __name__ == "__main__":
     unittest.main()

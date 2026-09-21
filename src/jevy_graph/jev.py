@@ -35,14 +35,27 @@ def _normalize_components(
         subject,
         flags=re.I,
     )
+    subject = re.sub(
+        r"\s+(?:shall|must|may|might|can|could|will|would|should)\b.*$",
+        "",
+        subject,
+        flags=re.I,
+    )
     if predicate == "encoded_with":
         subject = re.sub(
             r"\s+(?:is|are|was|were)\s+encoded$", "", subject, flags=re.I
         )
     subject = re.sub(r"^Model\s+The\s+", "", subject, flags=re.I)
-    if re.search(
+    if predicate != "type" and re.search(
         r"\b(?:computes?|contained|containing|contains?|uses?|using|requires?|"
         r"produces?|provides?|employs?|encoded)\b",
+        subject,
+        re.I,
+    ):
+        return None
+    if re.match(
+        r"^(?:at\s+least|of\s+whom|in\s+a\s+manner|between|hereunto|"
+        r"therein|thereof|whereof|if|unless)\b",
         subject,
         re.I,
     ):
@@ -77,6 +90,8 @@ def _normalize_components(
         return None
     if not subject or not object_:
         return None
+    if len(predicate) < 3 or predicate in {"gunn", "jared"}:
+        return None
     return subject, predicate, object_
 
 
@@ -99,6 +114,7 @@ def _triple_options(
         )
         for value in frame.object_options
     )
+    action_prefix = canonical_label(frame.object_options[0]).split()[0].casefold()
     passive_with = bool(
         re.search(
             r"\b(?:is|are|was|were|be|been|being)\s+used\s+"
@@ -127,6 +143,11 @@ def _triple_options(
             re.match(r"^(?:(?:in\s+)?conjunction\s+with|with)\s+", raw_object, re.I)
         )
         if has_power_to and predicate in {"has", "possesses"}:
+            continue
+        if predicate in {"authorized_to", "has_right_to"} and (
+            not raw_object.split()
+            or raw_object.split()[0].casefold() != action_prefix
+        ):
             continue
         if encoded_using and predicate != "encoded_with":
             continue
@@ -243,6 +264,9 @@ def parse_choice_answers(
                 object_kind=object_kind(object_),
                 selection_confidence=confidence,
                 selection_probability=probability,
+                source_unit=frame.source_unit,
+                condition=frame.condition,
+                origin=frame.origin,
             )
         )
     return candidates
@@ -354,8 +378,9 @@ class JevClient:
         self.attempts = attempts
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
+        eligible = [frame for frame in frames if _triple_options(frame)]
         return _parallel_batches(
-            _batches(frames, self.choice_batch_size),
+            _batches(eligible, self.choice_batch_size),
             self._resolve_batch,
             self.max_workers,
         )

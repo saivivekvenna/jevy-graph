@@ -16,12 +16,15 @@ source-grounded output.
    subjects, objects, actions, and inherited list structures.
 4. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
    triple candidates per relation frame.
-5. Ask Jev a comparative `Choice` question, including `none`, for every frame.
+5. Ask Jev a comparative `Choice` question for every frame.
 6. Verify selected triples with parallel `Noul` questions for exact support and
-   entity quality. Network batches run concurrently.
+   entity quality. Apply stricter evidence floors to open-verb discoveries than
+   to deterministic semantic and grammatical patterns. Network batches run
+   concurrently.
 7. Emit Turtle with evidence, calibrated scores, modality, polarity, normalized
-   offsets, stable predicates, and conservative literal typing. Negated claims
-   are reified without asserting their positive triples.
+   offsets, source units, conditions, extraction origin, stable predicates, and
+   conservative literal typing. Negated claims are reified without asserting
+   their positive triples.
 
 ## Run
 
@@ -44,9 +47,12 @@ printf 'Alice founded Acme. Acme is located in Toronto.' \
 
 Each accepted relationship is emitted together with an `rdf:Statement` carrying
 its source clause, selection scores, support probability, entity-quality
-probability, modality, and polarity. The default support and entity thresholds
-are `0.65` and `0.40`; change them with `--threshold` and
-`--entity-threshold`.
+probability, modality, and polarity. The default acceptance floors are `0.45`
+support, `0.10` entity quality, and `0.70` combined; change them with
+`--threshold`, `--entity-threshold`, and `--joint-threshold`. The combined score
+keeps precise action-valued claims without accepting candidates that are weak
+on both support and boundaries. Open-verb discoveries additionally require
+`0.50` support, `0.20` entity quality, and `0.80` combined.
 
 ## Test
 
@@ -62,6 +68,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 - local pronoun recovery and conservative entity normalization
 - concurrent Jev selection and verification
 - Turtle output with provenance, modality, polarity, and typed numeric literals
+- source-unit, condition, and extraction-origin metadata
 - recall fixtures for legal, scientific, and general prose
 
 Binary PDF parsing and external knowledge-base linking are not bundled. Supply

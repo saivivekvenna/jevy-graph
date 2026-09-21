@@ -13,6 +13,54 @@ def triples(text: str) -> set[tuple[str, str, str]]:
 
 
 class RecallEvaluationTests(unittest.TestCase):
+    def test_preserves_source_unit_and_condition(self) -> None:
+        candidates = extract_candidates(
+            "Article. I.\nSection. 2. If vacancies occur, Congress shall fill seats."
+        )
+        claim = next(candidate for candidate in candidates if candidate.predicate == "fills")
+        self.assertEqual(claim.source_unit, "ARTICLE_1_SECTION_2")
+        self.assertEqual(claim.condition, "If vacancies occur")
+
+    def test_joins_sentence_across_pdf_page_break(self) -> None:
+        actual = triples(
+            "The accused shall enjoy the right to a public trial and to be\n\n"
+            "informed of the accusation."
+        )
+        self.assertIn(("accused", "has_right_to", "be informed of the accusation"), actual)
+
+    def test_expands_secure_rights_and_warrant_requirements(self) -> None:
+        actual = triples(
+            "The right of the people to be secure in their persons, houses, papers, "
+            "and effects, against unreasonable searches and seizures, shall not be "
+            "violated, and no Warrants shall issue, but upon probable cause, supported "
+            "by Oath or affirmation, and particularly describing the place to be "
+            "searched, and the persons or things to be seized."
+        )
+        secure = {
+            object_
+            for subject, predicate, object_ in actual
+            if subject == "people" and predicate == "has_right_to"
+        }
+        self.assertEqual(len(secure), 4)
+        self.assertIn(("Warrants", "issues_upon", "probable cause"), actual)
+        self.assertIn(("probable cause", "supported_by", "Oath or affirmation"), actual)
+
+    def test_expands_modal_action_list(self) -> None:
+        actual = triples(
+            "No State shall, without consent, lay a duty, keep troops, enter an "
+            "agreement, or engage in war."
+        )
+        predicates = {predicate for subject, predicate, _ in actual if subject == "State"}
+        self.assertTrue({"lays", "keep", "enter", "engage"} <= predicates)
+
+    def test_links_repeal_to_containing_provision(self) -> None:
+        actual = triples(
+            "Amendment XXI.\nSection 1. The eighteenth article is hereby repealed."
+        )
+        self.assertIn(
+            ("AMENDMENT_21_SECTION_1", "repeals", "eighteenth article"), actual
+        )
+
     def test_expands_purpose_clause_into_atomic_claims(self) -> None:
         actual = triples(
             "We the People, in Order to form a more perfect Union, establish Justice, "
@@ -76,6 +124,12 @@ class RecallEvaluationTests(unittest.TestCase):
             ("right of the people to keep and bear Arms", "type", "infringed"),
         }
         self.assertEqual(expected - actual, set())
+
+    def test_stops_right_action_before_unpunctuated_modal(self) -> None:
+        actual = triples(
+            "The right of citizens to vote shall not be denied or abridged by a State."
+        )
+        self.assertIn(("citizens", "has_right_to", "vote"), actual)
 
     def test_expands_elliptical_passive_list(self) -> None:
         candidates = extract_candidates(

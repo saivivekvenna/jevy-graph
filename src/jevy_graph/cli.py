@@ -11,6 +11,43 @@ from .models import VerifiedTriple
 from .rdf import render_turtle
 
 
+def _deduplicate(items: list[VerifiedTriple]) -> list[VerifiedTriple]:
+    """Collapse only duplicate interpretations of the same source occurrence."""
+    result: list[VerifiedTriple] = []
+    seen: set[tuple[str, str, str, str, str, str]] = set()
+    for item in items:
+        candidate = item.candidate
+        key = (
+            candidate.subject.casefold(),
+            candidate.predicate,
+            candidate.object.casefold(),
+            candidate.evidence.casefold(),
+            candidate.modality or "",
+            candidate.polarity,
+        )
+        if key not in seen:
+            seen.add(key)
+            result.append(item)
+    return result
+
+
+def _accepted(item: VerifiedTriple, support: float, entity: float, joint: float) -> bool:
+    origin_floors = {
+        "semantic": (0.45, 0.10, 0.70),
+        "pattern": (0.45, 0.10, 0.70),
+        "modal": (0.45, 0.10, 0.70),
+        "open_verb": (0.50, 0.20, 0.80),
+    }
+    origin_support, origin_entity, origin_joint = origin_floors.get(
+        item.candidate.origin, origin_floors["pattern"]
+    )
+    return (
+        item.support >= max(support, origin_support)
+        and item.entity_quality >= max(entity, origin_entity)
+        and item.support + item.entity_quality >= max(joint, origin_joint)
+    )
+
+
 def _load_dotenv(path: Path = Path(".env")) -> None:
     if not path.is_file():
         return
@@ -32,14 +69,20 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--threshold",
         type=float,
-        default=0.65,
-        help="minimum exact-triple support probability (default: 0.65)",
+        default=0.45,
+        help="minimum exact-triple support probability (default: 0.45)",
     )
     parser.add_argument(
         "--entity-threshold",
         type=float,
-        default=0.40,
-        help="minimum RDF node-label quality probability (default: 0.40)",
+        default=0.10,
+        help="minimum RDF node-label quality probability (default: 0.10)",
+    )
+    parser.add_argument(
+        "--joint-threshold",
+        type=float,
+        default=0.70,
+        help="minimum support plus entity-quality score (default: 0.70)",
     )
     parser.add_argument(
         "--no-verify",
@@ -61,6 +104,8 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("--threshold must be between 0 and 1")
     if not 0 <= args.entity_threshold <= 1:
         raise SystemExit("--entity-threshold must be between 0 and 1")
+    if not 0 <= args.joint_threshold <= 2:
+        raise SystemExit("--joint-threshold must be between 0 and 2")
 
     text = _read_text(args.input)
     frames = extract_frames(text)
@@ -78,12 +123,11 @@ def main(argv: list[str] | None = None) -> int:
         except JevError as error:
             raise SystemExit(str(error)) from error
 
-    accepted = [
+    accepted = _deduplicate([
         item
         for item in verified
-        if item.support >= args.threshold
-        and item.entity_quality >= args.entity_threshold
-    ]
+        if _accepted(item, args.threshold, args.entity_threshold, args.joint_threshold)
+    ])
     output = render_turtle(text, accepted)
     if args.output:
         Path(args.output).write_text(output, encoding="utf-8")
