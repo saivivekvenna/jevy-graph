@@ -86,6 +86,50 @@ class JevTests(unittest.TestCase):
         result = parse_resolution_answers([custom_frame], response)
         self.assertEqual(result[0].object, "lay and collect Taxes")
 
+    def test_canonicalizes_selected_entity_labels(self) -> None:
+        custom_frame = RelationFrame(
+            ("The Congress",),
+            ("has",),
+            ("the sole authority",),
+            "The Congress has the sole authority.",
+            "The Congress has the sole authority.",
+            0,
+            0,
+            36,
+        )
+        response = {
+            "answers": {
+                "f0_subject": {"choice": "s0"},
+                "f0_predicate": {"choice": "p0"},
+                "f0_object": {"choice": "o0"},
+            }
+        }
+        result = parse_resolution_answers([custom_frame], response)
+        self.assertEqual(
+            (result[0].subject, result[0].object), ("Congress", "sole authority")
+        )
+
+    def test_normalizes_used_with_complement(self) -> None:
+        custom_frame = RelationFrame(
+            ("Attention mechanisms",),
+            ("used_with",),
+            ("in conjunction with recurrent networks",),
+            "Attention mechanisms are used in conjunction with recurrent networks.",
+            "Attention mechanisms are used in conjunction with recurrent networks.",
+            0,
+            0,
+            70,
+        )
+        response = {
+            "answers": {
+                "f0_subject": {"choice": "s0"},
+                "f0_predicate": {"choice": "p0"},
+                "f0_object": {"choice": "o0"},
+            }
+        }
+        result = parse_resolution_answers([custom_frame], response)
+        self.assertEqual(result[0].object, "recurrent networks")
+
 
 if __name__ == "__main__":
     unittest.main()

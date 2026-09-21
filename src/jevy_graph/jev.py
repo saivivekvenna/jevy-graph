@@ -10,6 +10,7 @@ from dataclasses import asdict
 from typing import TypeVar
 
 from .models import CandidateTriple, RelationFrame, VerifiedTriple
+from .normalize import canonical_label
 
 API_URL = "https://api.typesafe.ai/v1/systemone"
 T = TypeVar("T")
@@ -105,8 +106,19 @@ def parse_resolution_answers(
         )
         if subject is None or predicate is None or object_ is None:
             continue
+        subject = canonical_label(subject)
+        object_ = canonical_label(object_)
         if predicate == "authorized_to":
-            object_ = re.sub(r"^(?:the\s+)?power\s+to\s+", "", object_, flags=re.I)
+            object_ = re.sub(
+                r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", "", object_, flags=re.I
+            )
+            object_ = re.sub(r"^to\s+", "", object_, flags=re.I)
+        elif predicate == "used_with":
+            object_ = re.sub(
+                r"^(?:(?:in\s+)?conjunction\s+with|with)\s+", "", object_, flags=re.I
+            )
+        if not subject or not object_ or re.match(r"^(?:no|not|without)\b", object_, re.I):
+            continue
         candidates.append(
             CandidateTriple(
                 subject=subject,
@@ -194,6 +206,7 @@ class JevClient:
         *,
         timeout: float = 30.0,
         batch_size: int = 40,
+        resolution_batch_size: int = 10,
         attempts: int = 3,
     ) -> None:
         if not api_key:
@@ -201,6 +214,7 @@ class JevClient:
         self.api_key = api_key
         self.timeout = timeout
         self.batch_size = batch_size
+        self.resolution_batch_size = resolution_batch_size
         self.attempts = attempts
 
     def verify(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:
@@ -211,7 +225,7 @@ class JevClient:
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
         candidates: list[CandidateTriple] = []
-        for batch in _batches(frames, self.batch_size):
+        for batch in _batches(frames, self.resolution_batch_size):
             payload = self._post(build_resolution_request(batch))
             candidates.extend(parse_resolution_answers(batch, payload))
         return candidates

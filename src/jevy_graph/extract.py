@@ -34,13 +34,16 @@ _RELATIONS: tuple[RelationPattern, ...] = (
     RelationPattern(re.compile(r"\b(?:founds?|founded|founding)\b", re.I), ("founded", "created")),
     RelationPattern(re.compile(r"\b(?:has|have|had)\b", re.I), ("has", "possesses", "authorized_to")),
     RelationPattern(re.compile(r"\b(?:inhibits?|inhibited|inhibiting)\b", re.I), ("inhibits", "decreases_activity_of")),
-    RelationPattern(re.compile(r"\b(?:knows?|knew|known)\b", re.I), ("knows", "aware_of")),
+    RelationPattern(re.compile(r"\b(?:knows?|knew)\b", re.I), ("knows", "aware_of")),
     RelationPattern(re.compile(r"\b(?:owns?|owned|owning)\b", re.I), ("owns", "possesses")),
     RelationPattern(re.compile(r"\b(?:produces?|produced|producing)\b", re.I), ("produces", "creates")),
     RelationPattern(re.compile(r"\b(?:provides?|provided|providing)\b", re.I), ("provides", "supplies")),
     RelationPattern(re.compile(r"\b(?:requires?|required|requiring)\b", re.I), ("requires", "depends_on")),
     RelationPattern(re.compile(r"\b(?:supports?|supported|supporting)\b", re.I), ("supports", "enables")),
-    RelationPattern(re.compile(r"\b(?:uses?|used|using)\b", re.I), ("uses", "applies")),
+    RelationPattern(
+        re.compile(r"\b(?:uses?|used|using)\b", re.I),
+        ("uses", "applies", "used_with"),
+    ),
 )
 
 _TYPE_RELATION = re.compile(r"\b(?:is|are|was|were)\s+(?:an?|the)\b", re.I)
@@ -53,12 +56,16 @@ _BAD_ENTITY = re.compile(
     r"^(?:he|she|it|they|we|i|you|this|that|these|those|who|which|there)$", re.I
 )
 _TRAILING_AUXILIARY = re.compile(
-    r"\s+(?:(?:do|does|did|can|could|will|would|shall|may|might|must|should|has|have|had)"
+    r"\s+(?:(?:do|does|did|can|could|will|would|shall|may|might|must|should|has|have|had|is|are|was|were|be|been|being)"
     r"(?:\s+not|\s+n't)?|not)$",
     re.I,
 )
 _TRAILING_FUNCTION_WORD = re.compile(
     r"\s+(?:a|an|the|and|or|to|of|in|on|for|with|by|from)$", re.I
+)
+_LEADING_COMPLEMENT = re.compile(
+    r"^(?:(?:in\s+)?conjunction\s+with|with|to|of|in|on|for|by|from)\s+",
+    re.I,
 )
 _PRONOUN = re.compile(r"^(?:he|she|it|they|this|that|these|those)$", re.I)
 _CAPITALIZED = re.compile(
@@ -94,7 +101,12 @@ def _valid_entity(value: str) -> bool:
     if not value or _BAD_ENTITY.fullmatch(value):
         return False
     words = value.split()
-    return len(words) <= 14 and any(character.isalnum() for character in value)
+    return (
+        len(words) <= 14
+        and not _BAD_ENTITY.fullmatch(words[0])
+        and not _BAD_ENTITY.fullmatch(words[-1])
+        and any(character.isalnum() for character in value)
+    )
 
 
 def _unique(values: list[str], limit: int = 48) -> tuple[str, ...]:
@@ -123,11 +135,20 @@ def _subject_options(
     values = [canonical_label(primary, aliases)]
     segment = re.split(r"[,;:]|\b(?:and|but)\b", normalize_space(value), flags=re.I)[-1]
     tokens = _tokens(segment)
+    values.extend(
+        canonical_label(match.group(), aliases)
+        for match in _CAPITALIZED.finditer(segment)
+    )
     for width in range(min(14, len(tokens)), 0, -1):
         phrase = " ".join(tokens[-width:])
         values.extend((phrase, canonical_label(phrase, aliases)))
         without_auxiliary = _TRAILING_AUXILIARY.sub("", phrase)
         values.extend((without_auxiliary, canonical_label(without_auxiliary, aliases)))
+
+    for width in range(1, min(8, len(tokens)) + 1):
+        for offset in range(0, len(tokens) - width + 1):
+            phrase = " ".join(tokens[offset : offset + width])
+            values.extend((phrase, canonical_label(phrase, aliases)))
 
     if _PRONOUN.fullmatch(primary):
         values.extend(reversed(context_entities))
@@ -137,6 +158,9 @@ def _subject_options(
 def _object_options(value: str, aliases: dict[str, str]) -> tuple[str, ...]:
     primary = _trim_right(value)
     values = [canonical_label(primary, aliases)]
+    complement = _LEADING_COMPLEMENT.sub("", primary)
+    if complement != primary:
+        values.extend((complement, canonical_label(complement, aliases)))
     tokens = _tokens(value)
     for width in range(1, min(16, len(tokens)) + 1):
         phrase = " ".join(tokens[:width])
@@ -146,6 +170,16 @@ def _object_options(value: str, aliases: dict[str, str]) -> tuple[str, ...]:
         without_power = re.sub(r"^(?:the\s+)?power\s+to\s+", "", phrase, flags=re.I)
         if without_power != phrase:
             values.extend((without_power, canonical_label(without_power, aliases)))
+    for width in range(1, min(14, len(tokens)) + 1):
+        phrase = " ".join(tokens[-width:])
+        if not _TRAILING_FUNCTION_WORD.search(phrase):
+            values.extend((phrase, canonical_label(phrase, aliases)))
+    for width in range(1, min(8, len(tokens)) + 1):
+        for offset in range(0, len(tokens) - width + 1):
+            phrase = " ".join(tokens[offset : offset + width])
+            if _TRAILING_FUNCTION_WORD.search(phrase):
+                continue
+            values.extend((phrase, canonical_label(phrase, aliases)))
     return _unique(values)
 
 

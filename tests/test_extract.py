@@ -43,6 +43,17 @@ class ExtractTests(unittest.TestCase):
         self.assertIn("authorized_to", frame.predicate_options)
         self.assertIn("lay and collect Taxes", frame.object_options)
 
+    def test_enumerates_internal_subject_and_object_spans(self) -> None:
+        frame = extract_frames(
+            "Attention mechanisms are used in conjunction with recurrent networks."
+        )[0]
+        self.assertIn("Attention mechanisms", frame.subject_options)
+        self.assertIn("used_with", frame.predicate_options)
+        self.assertIn("recurrent networks", frame.object_options)
+
+    def test_does_not_treat_known_as_knows(self) -> None:
+        self.assertEqual(extract_frames("The values are known outputs."), [])
+
     def test_joins_hard_wrapped_pdf_text(self) -> None:
         candidate = extract_candidates("Acme con-\ntains three divisions.")[0]
         self.assertEqual(

@@ -1,10 +1,21 @@
 # jevy-graph
 
-A minimal compiler from plain text to source-grounded RDF. It extracts a small,
-deterministic set of candidate relations and asks Jev to verify them in batches.
+A minimal compiler from plain text to source-grounded RDF. It deterministically
+builds a bounded lattice of entity boundaries and normalized predicates, asks
+Jev to select the best combination, then verifies the resulting claims.
 
-The project is an MVP: it favors inspectable behavior and conservative output
-over broad language coverage.
+The project is an MVP: it favors inspectable behavior, fast batches, and
+conservative output over broad language coverage.
+
+## Pipeline
+
+1. Normalize text and document-declared acronyms.
+2. Detect relation-bearing clauses with deterministic patterns.
+3. Enumerate up to 48 subject and 48 object spans per relation, including modal
+   forms such as `Congress shall` and their canonical alternatives.
+4. Ask Jev `Choice` questions to select a subject, predicate, and object.
+5. Ask Jev two independent `Noul` questions for support and factuality.
+6. Emit accepted triples as Turtle with source evidence and probabilities.
 
 ## Run
 
@@ -38,9 +49,9 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ## Current scope
 
 - UTF-8 plain text input
-- conservative, inspectable relation patterns
+- bounded deterministic span and predicate lattices
 - document-declared acronym normalization
-- batched Jev verification
+- batched Jev resolution and verification
 - Turtle output with provenance
 
 PDF parsing, coreference resolution, open-ended predicate discovery, and global
