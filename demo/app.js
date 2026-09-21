@@ -4,6 +4,9 @@ const fileInput = document.querySelector("#file-input");
 const sourceText = document.querySelector("#source-text");
 
 let activeRequest = 0;
+let selectedNodeId = null;
+let selectedPage = 0;
+let overviewPositions = new Map();
 
 const cy = cytoscape({
   container: document.querySelector("#cy"),
@@ -31,17 +34,19 @@ const cy = cytoscape({
       }
     },
     {
-      selector: "node.hub, node.detailed, node.focused",
+      selector: "node.hub, node.labeled, node.focused",
       style: {
         "background-color": "#fff",
         content: "data(label)",
-        height: 22,
+        height: "data(height)",
         width: "data(width)",
         padding: 6,
         shape: "round-rectangle",
         "text-background-color": "#fff",
         "text-background-opacity": 0.92,
         "text-background-padding": 3,
+        "text-max-width": 160,
+        "text-wrap": "wrap",
         "z-index": 11
       }
     },
@@ -82,7 +87,8 @@ const cy = cytoscape({
         "z-index": 11
       }
     },
-    { selector: ".faded", style: { opacity: 0.08 } }
+    { selector: ".faded", style: { opacity: 0 } },
+    { selector: ".hidden", style: { display: "none" } }
   ],
   layout: { name: "preset" }
 });
@@ -118,19 +124,30 @@ function addClaim(claim, index, requestId) {
   if (requestId !== activeRequest) return;
   const subjectId = idFor(claim.subject);
   const objectId = idFor(claim.object);
-  const widthFor = (label) => Math.min(150, Math.max(44, label.length * 5.6));
+  const widthFor = (label) => Math.min(180, Math.max(54, label.length * 5.6));
+  const heightFor = (label) => Math.min(64, Math.max(24, Math.ceil(label.length / 28) * 11));
 
   if (cy.$id(subjectId).empty()) {
     cy.add({
       group: "nodes",
-      data: { id: subjectId, label: claim.subject, width: widthFor(claim.subject) },
+      data: {
+        id: subjectId,
+        label: claim.subject,
+        width: widthFor(claim.subject),
+        height: heightFor(claim.subject)
+      },
       position: position(claim.subject, 0)
     });
   }
   if (cy.$id(objectId).empty()) {
     cy.add({
       group: "nodes",
-      data: { id: objectId, label: claim.object, width: widthFor(claim.object) },
+      data: {
+        id: objectId,
+        label: claim.object,
+        width: widthFor(claim.object),
+        height: heightFor(claim.object)
+      },
       position: position(claim.object, index)
     });
   }
@@ -150,23 +167,30 @@ function addClaim(claim, index, requestId) {
 }
 
 function updateLabels() {
-  cy.nodes().removeClass("hub detailed");
-  if (cy.zoom() >= 0.72) {
-    cy.nodes().addClass("detailed");
-    return;
-  }
+  cy.nodes().removeClass("hub");
+  if (selectedNodeId) return;
   [...cy.nodes()]
     .sort((left, right) => right.degree(false) - left.degree(false))
-    .slice(0, 12)
+    .slice(0, 8)
     .forEach((node) => node.addClass("hub"));
 }
 
 function finishGraph() {
-  const count = cy.nodes().length;
+  const showPrimaryNeighborhood = () => {
+    overviewPositions = new Map(
+      cy.nodes().map((node) => [node.id(), { ...node.position() }])
+    );
+    const primary = [...cy.nodes()].sort(
+      (left, right) => right.degree(false) - left.degree(false)
+    )[0];
+    if (!primary) return;
+    selectedNodeId = primary.id();
+    selectedPage = 0;
+    focusNode(primary, true);
+  };
   cy.layout({
     name: "cose",
-    animate: count < 450,
-    animationDuration: 650,
+    animate: false,
     componentSpacing: 90,
     coolingFactor: 0.92,
     fit: true,
@@ -176,14 +200,17 @@ function finishGraph() {
     nodeRepulsion: 180000,
     numIter: 700,
     padding: 48,
-    randomize: true
+    randomize: true,
+    stop: () => window.setTimeout(showPrimaryNeighborhood, 1000)
   }).run();
-  window.setTimeout(updateLabels, 700);
 }
 
 async function compile(file) {
   activeRequest += 1;
   const requestId = activeRequest;
+  selectedNodeId = null;
+  selectedPage = 0;
+  overviewPositions = new Map();
   cy.elements().remove();
   document.querySelector("#cy").dataset.claims = "0";
   sourceText.textContent = "Hover over an edge to see its source sentence.";
@@ -239,35 +266,85 @@ function handleFiles(files) {
 
 function focus(edge) {
   const neighborhood = edge.connectedNodes().union(edge);
-  cy.elements().addClass("faded").removeClass("focused");
+  cy.elements().addClass("faded").removeClass("focused labeled hub");
   neighborhood.removeClass("faded").addClass("focused");
   sourceText.textContent = edge.data("evidence");
 }
 
 function focusNode(node, zoom = false) {
-  const neighborhood = node.closedNeighborhood();
-  cy.elements().addClass("faded").removeClass("focused");
-  neighborhood.removeClass("faded");
-  neighborhood.nodes().addClass("focused");
-  neighborhood.edges().removeClass("faded");
+  const pageSize = 6;
+  const allEdges = [...node.connectedEdges()];
+  const pageCount = Math.max(1, Math.ceil(allEdges.length / pageSize));
+  selectedPage %= pageCount;
+  const start = selectedPage * pageSize;
+  const pageEdges = cy.collection(allEdges.slice(start, start + pageSize));
+  const neighborhood = pageEdges.union(pageEdges.connectedNodes()).union(node);
+  const labeledNeighbors = neighborhood.nodes().not(node);
+  cy.elements().addClass("hidden").removeClass("focused labeled hub");
+  neighborhood.removeClass("hidden faded");
+  node.addClass("focused");
+  labeledNeighbors.addClass("labeled");
+  neighborhood.edges().removeClass("faded hidden");
+
+  const end = Math.min(start + pageSize, allEdges.length);
+  sourceText.textContent = allEdges.length > pageSize
+    ? `${node.data("label")} · ${start + 1}–${end} of ${allEdges.length} relationships · click again for more`
+    : `${node.data("label")} · ${allEdges.length} relationships`;
   if (zoom) {
-    cy.animate({ fit: { eles: neighborhood, padding: 90 } }, { duration: 320 });
+    cy.stop();
+    const width = cy.width();
+    const height = cy.height();
+    const center = { x: width / 2, y: height / 2 };
+    const radiusX = Math.max(220, width * 0.31);
+    const radiusY = Math.max(200, height * 0.31);
+    const neighbors = [...labeledNeighbors];
+    cy.viewport({ zoom: 1, pan: { x: 0, y: 0 } });
+    cy.batch(() => {
+      node.position(center);
+      neighbors.forEach((neighbor, index) => {
+        const angle = -Math.PI / 2 + (Math.PI * 2 * index) / neighbors.length;
+        neighbor.position({
+          x: center.x + Math.cos(angle) * radiusX,
+          y: center.y + Math.sin(angle) * radiusY
+        });
+      });
+    });
   }
 }
 
+function restoreOverview() {
+  cy.nodes().positions((node) => overviewPositions.get(node.id()) || node.position());
+}
+
 function clearFocus() {
-  cy.elements().removeClass("faded focused");
+  cy.elements().removeClass("faded focused hidden");
+  cy.nodes().removeClass("labeled");
+  if (selectedNodeId) {
+    const selected = cy.$id(selectedNodeId);
+    if (selected.length) {
+      focusNode(selected);
+      return;
+    }
+  } else {
+    updateLabels();
+  }
   sourceText.textContent = "Hover over an edge to see its source sentence.";
 }
 
 cy.on("mouseover", "edge", (event) => focus(event.target));
 cy.on("mouseout", "edge", clearFocus);
-cy.on("mouseover", "node", (event) => focusNode(event.target));
-cy.on("mouseout", "node", clearFocus);
 cy.on("tap", "edge", (event) => focus(event.target));
-cy.on("tap", "node", (event) => focusNode(event.target, true));
+cy.on("tap", "node", (event) => {
+  const nodeId = event.target.id();
+  selectedPage = nodeId === selectedNodeId ? selectedPage + 1 : 0;
+  selectedNodeId = nodeId;
+  focusNode(event.target, true);
+});
 cy.on("tap", (event) => {
   if (event.target === cy) {
+    selectedNodeId = null;
+    selectedPage = 0;
+    restoreOverview();
     clearFocus();
     cy.animate(
       { fit: { eles: cy.elements(), padding: 48 } },
@@ -275,7 +352,6 @@ cy.on("tap", (event) => {
     );
   }
 });
-cy.on("zoom", updateLabels);
 
 fileInput.addEventListener("change", (event) => handleFiles(event.target.files));
 
