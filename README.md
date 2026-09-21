@@ -16,7 +16,7 @@ source-grounded output.
    subjects, objects, actions, and inherited list structures.
 4. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
    triple candidates per relation frame.
-5. Ask Jev a comparative `Choice` question for every frame.
+5. Ask Jev a comparative `Choice` question for every ambiguous frame.
 6. Verify selected triples with parallel `Noul` questions for exact support and
    entity quality. Apply stricter evidence floors to open-verb discoveries than
    to deterministic semantic and grammatical patterns. Network batches run
@@ -25,6 +25,11 @@ source-grounded output.
    offsets, source units, conditions, extraction origin, stable predicates, and
    conservative literal typing. Negated claims are reified without asserting
    their positive triples.
+
+Frames with only one valid normalized triple bypass comparative selection but
+still receive full support and entity-quality verification. Ambiguous choices
+are sent in batches of 32, verification in batches of 64, with up to twelve
+requests in flight.
 
 ## Run
 

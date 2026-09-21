@@ -7,7 +7,7 @@ import urllib.error
 import urllib.request
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from itertools import product
 from typing import TypeVar
 
@@ -22,6 +22,25 @@ R = TypeVar("R")
 
 class JevError(RuntimeError):
     pass
+
+
+def _candidate(frame: RelationFrame, triple: tuple[str, str, str]) -> CandidateTriple:
+    subject, predicate, object_ = triple
+    return CandidateTriple(
+        subject=subject,
+        predicate=predicate,
+        object=object_,
+        evidence=frame.evidence,
+        sentence_index=frame.sentence_index,
+        start=frame.start,
+        end=frame.end,
+        modality=frame.modality,
+        polarity=frame.polarity,
+        object_kind=object_kind(object_),
+        source_unit=frame.source_unit,
+        condition=frame.condition,
+        origin=frame.origin,
+    )
 
 
 def _normalize_components(
@@ -251,22 +270,10 @@ def parse_choice_answers(
         except (IndexError, KeyError, TypeError, ValueError) as error:
             raise JevError(f"Jev returned an unknown choice for frame {index}") from error
         candidates.append(
-            CandidateTriple(
-                subject=subject,
-                predicate=predicate,
-                object=object_,
-                evidence=frame.evidence,
-                sentence_index=frame.sentence_index,
-                start=frame.start,
-                end=frame.end,
-                modality=frame.modality,
-                polarity=frame.polarity,
-                object_kind=object_kind(object_),
+            replace(
+                _candidate(frame, (subject, predicate, object_)),
                 selection_confidence=confidence,
                 selection_probability=probability,
-                source_unit=frame.source_unit,
-                condition=frame.condition,
-                origin=frame.origin,
             )
         )
     return candidates
@@ -363,9 +370,9 @@ class JevClient:
         api_key: str,
         *,
         timeout: float = 30.0,
-        choice_batch_size: int = 8,
+        choice_batch_size: int = 32,
         verification_batch_size: int = 64,
-        max_workers: int = 4,
+        max_workers: int = 12,
         attempts: int = 3,
     ) -> None:
         if not api_key:
@@ -376,14 +383,33 @@ class JevClient:
         self.verification_batch_size = verification_batch_size
         self.max_workers = max_workers
         self.attempts = attempts
+        self.singleton_selections = 0
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
-        eligible = [frame for frame in frames if _triple_options(frame)]
-        return _parallel_batches(
-            _batches(eligible, self.choice_batch_size),
+        resolved: dict[int, CandidateTriple] = {}
+        pending_indexes: list[int] = []
+        pending_frames: list[RelationFrame] = []
+        eligible_index = 0
+        for frame in frames:
+            options = _triple_options(frame)
+            if not options:
+                continue
+            if len(options) == 1:
+                resolved[eligible_index] = _candidate(frame, options[0])
+                self.singleton_selections += 1
+            else:
+                pending_indexes.append(eligible_index)
+                pending_frames.append(frame)
+            eligible_index += 1
+
+        selected = _parallel_batches(
+            _batches(pending_frames, self.choice_batch_size),
             self._resolve_batch,
             self.max_workers,
         )
+        for index, candidate in zip(pending_indexes, selected, strict=True):
+            resolved[index] = candidate
+        return [resolved[index] for index in range(eligible_index)]
 
     def verify(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:
         return _parallel_batches(

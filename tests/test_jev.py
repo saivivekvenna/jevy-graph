@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from jevy_graph.jev import (
+    JevClient,
     _triple_options,
     build_choice_request,
     build_verification_request,
@@ -27,6 +28,27 @@ def frame() -> RelationFrame:
 
 
 class JevTests(unittest.TestCase):
+    def test_single_option_frame_skips_choice_request(self) -> None:
+        custom_frame = RelationFrame(
+            ("Attention mechanisms",),
+            ("uses", "applies", "used_with"),
+            ("in conjunction with recurrent networks", "recurrent networks"),
+            "Attention mechanisms are used in conjunction with recurrent networks.",
+            "Attention mechanisms are used in conjunction with recurrent networks.",
+            0,
+            0,
+            70,
+        )
+
+        class NoNetworkClient(JevClient):
+            def _post(self, payload: dict[str, object]) -> dict[str, object]:
+                raise AssertionError("single-option resolution made a network request")
+
+        client = NoNetworkClient("test")
+        result = client.resolve([custom_frame])
+        self.assertEqual(len(result), 1)
+        self.assertEqual(client.singleton_selections, 1)
+
     def test_builds_comparative_choice_over_complete_candidates(self) -> None:
         request = build_choice_request([frame()])
         question = request["questions"]["f0_triple"]

@@ -109,6 +109,7 @@ def main(argv: list[str] | None = None) -> int:
 
     text = _read_text(args.input)
     frames = extract_frames(text)
+    runtime_stats = ""
     if args.no_verify:
         candidates = extract_candidates(text)
         verified = [VerifiedTriple(candidate, 1.0, 1.0) for candidate in candidates]
@@ -118,8 +119,10 @@ def main(argv: list[str] | None = None) -> int:
         if not api_key:
             raise SystemExit("TYPESAFE_API_KEY is missing; set it in the environment or .env")
         try:
-            verified = JevClient(api_key).score(frames)
+            client = JevClient(api_key)
+            verified = client.score(frames)
             candidates = [item.candidate for item in verified]
+            runtime_stats = f" singletons={client.singleton_selections}"
         except JevError as error:
             raise SystemExit(str(error)) from error
 
@@ -135,7 +138,8 @@ def main(argv: list[str] | None = None) -> int:
         sys.stdout.write(output)
 
     print(
-        f"frames={len(frames)} resolved={len(candidates)} accepted={len(accepted)}",
+        f"frames={len(frames)} resolved={len(candidates)} accepted={len(accepted)}"
+        f"{runtime_stats}",
         file=sys.stderr,
     )
     return 0
