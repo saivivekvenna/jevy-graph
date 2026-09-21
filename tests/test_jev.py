@@ -57,7 +57,10 @@ class JevTests(unittest.TestCase):
         target = options.index(("Congress", "authorized_to", "lay Taxes"))
         choice = f"t{target}"
         request = build_choice_request([frame()])
-        self.assertEqual(request["questions"]["f0_triple"]["type"], "choice")
+        question = request["questions"]["f0_triple"]
+        self.assertEqual(question["type"], "choice")
+        self.assertNotIn("modality", question["criteria"][choice])
+        self.assertEqual(question["instructions"]["modality"], "shall")
         result = parse_choice_answers(
             [frame()],
             {

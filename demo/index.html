@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
     <title>Jevy Graph</title>
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=10" />
   </head>
   <body>
     <main>
@@ -18,6 +18,16 @@
 
       <section class="output" aria-label="Generated knowledge graph">
         <div id="cy"></div>
+        <dl class="graph-stats" aria-label="Graph statistics" aria-live="polite">
+          <div>
+            <dt>Edges</dt>
+            <dd id="edge-count">0</dd>
+          </div>
+          <div>
+            <dt>Nodes</dt>
+            <dd id="node-count">0</dd>
+          </div>
+        </dl>
         <div id="graph-tooltip" role="status"></div>
         <footer>
           <p id="source-text">Hover over an edge or leaf node to see its source sentence.</p>
@@ -30,6 +40,6 @@
     <script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-layout-utilities@1.1.1/cytoscape-layout-utilities.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
-    <script src="app.js?v=21"></script>
+    <script src="app.js?v=22"></script>
   </body>
 </html>

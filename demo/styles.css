@@ -100,6 +100,38 @@ main {
   min-height: 0;
 }
 
+.graph-stats {
+  display: flex;
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 20;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  pointer-events: none;
+}
+
+.graph-stats div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.graph-stats dt {
+  font-size: clamp(20px, 1.5vw, 26px);
+  line-height: 1.15;
+}
+
+.graph-stats dd {
+  margin: 0;
+  font-size: clamp(22px, 1.7vw, 30px);
+  line-height: 1;
+}
+
 #graph-tooltip {
   position: absolute;
   top: 0;
@@ -168,6 +200,12 @@ footer p::after { content: "”"; }
   }
 
   .output { grid-template-rows: minmax(0, 1fr) auto; }
+
+  .graph-stats {
+    top: 14px;
+    right: 16px;
+    gap: 4px;
+  }
 
   footer {
     min-height: 120px;

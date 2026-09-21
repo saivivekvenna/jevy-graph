@@ -7,7 +7,7 @@ import urllib.error
 import urllib.request
 from collections.abc import Callable, Iterator
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from dataclasses import asdict, replace
+from dataclasses import replace
 from itertools import product
 from threading import Lock
 from typing import TypeVar
@@ -217,8 +217,6 @@ def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
                 "subject": subject,
                 "predicate": predicate,
                 "object": object_,
-                "modality": frame.modality or "unmodalized",
-                "polarity": frame.polarity,
             }
             for option_index, (subject, predicate, object_) in enumerate(
                 _triple_options(frame)
@@ -294,7 +292,17 @@ def build_verification_request(
 ) -> dict[str, object]:
     questions: dict[str, object] = {}
     for index, candidate in enumerate(candidates):
-        candidate_data = asdict(candidate)
+        candidate_data = {
+            "subject": candidate.subject,
+            "predicate": candidate.predicate,
+            "object": candidate.object,
+            "evidence": candidate.evidence,
+            "context": candidate.context,
+            "modality": candidate.modality or "unmodalized",
+            "polarity": candidate.polarity,
+            "condition": candidate.condition,
+            "origin": candidate.origin,
+        }
         if candidate.polarity == "negative":
             support_question = (
                 "Does the evidence explicitly deny, prohibit, or negate this exact "
@@ -409,17 +417,25 @@ class JevClient:
         self._stats_lock = Lock()
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
+        candidates, singleton_count = self._resolve_frames(frames)
+        self.singleton_selections += singleton_count
+        return candidates
+
+    def _resolve_frames(
+        self, frames: list[RelationFrame]
+    ) -> tuple[list[CandidateTriple], int]:
         resolved: dict[int, CandidateTriple] = {}
         pending_indexes: list[int] = []
         pending_frames: list[RelationFrame] = []
         eligible_index = 0
+        singleton_count = 0
         for frame in frames:
             options = _triple_options(frame)
             if not options:
                 continue
             if len(options) == 1:
                 resolved[eligible_index] = _candidate(frame, options[0])
-                self.singleton_selections += 1
+                singleton_count += 1
             else:
                 pending_indexes.append(eligible_index)
                 pending_frames.append(frame)
@@ -432,7 +448,7 @@ class JevClient:
         )
         for index, candidate in zip(pending_indexes, selected, strict=True):
             resolved[index] = candidate
-        return [resolved[index] for index in range(eligible_index)]
+        return [resolved[index] for index in range(eligible_index)], singleton_count
 
     def verify(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:
         return _parallel_batches(
@@ -465,32 +481,10 @@ class JevClient:
     def _score_frame_batch(
         self, frames: list[RelationFrame]
     ) -> list[VerifiedTriple]:
-        resolved: dict[int, CandidateTriple] = {}
-        pending_indexes: list[int] = []
-        pending_frames: list[RelationFrame] = []
-        eligible_index = 0
-        singleton_count = 0
-        for frame in frames:
-            options = _triple_options(frame)
-            if not options:
-                continue
-            if len(options) == 1:
-                resolved[eligible_index] = _candidate(frame, options[0])
-                singleton_count += 1
-            else:
-                pending_indexes.append(eligible_index)
-                pending_frames.append(frame)
-            eligible_index += 1
-
+        candidates, singleton_count = self._resolve_frames(frames)
         if singleton_count:
             with self._stats_lock:
                 self.singleton_selections += singleton_count
-        if pending_frames:
-            selected = self._resolve_batch(pending_frames)
-            for index, candidate in zip(pending_indexes, selected, strict=True):
-                resolved[index] = candidate
-
-        candidates = [resolved[index] for index in range(eligible_index)]
         verified: list[VerifiedTriple] = []
         for batch in _batches(candidates, self.verification_batch_size):
             verified.extend(self._verify_batch(batch))

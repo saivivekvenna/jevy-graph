@@ -1,15 +1,17 @@
 const drop = document.querySelector("#drop");
-const detail = document.querySelector("#drop-detail");
 const fileInput = document.querySelector("#file-input");
+const graph = document.querySelector("#cy");
 const sourceText = document.querySelector("#source-text");
 const tooltip = document.querySelector("#graph-tooltip");
+const edgeCount = document.querySelector("#edge-count");
+const nodeCount = document.querySelector("#node-count");
 
 let activeRequest = 0;
 let selectedNodeId = null;
 let overviewPositions = new Map();
 
 const cy = cytoscape({
-  container: document.querySelector("#cy"),
+  container: graph,
   elements: [],
   minZoom: 0.12,
   maxZoom: 3,
@@ -111,7 +113,6 @@ function idFor(value) {
 }
 
 function streamPosition(index) {
-  const graph = document.querySelector("#cy");
   const width = Math.max(600, graph.clientWidth);
   const height = Math.max(500, graph.clientHeight);
   const angle = index * Math.PI * (3 - Math.sqrt(5));
@@ -131,6 +132,11 @@ function scheduleStreamFormat(requestId) {
     if (requestId !== activeRequest || selectedNodeId) return;
     cy.fit(cy.elements(), 54);
   });
+}
+
+function updateGraphStats() {
+  edgeCount.textContent = String(cy.edges().length);
+  nodeCount.textContent = String(cy.nodes().length);
 }
 
 function addClaim(claim, index, requestId) {
@@ -175,7 +181,7 @@ function addClaim(claim, index, requestId) {
       evidence: claim.evidence
     }
   });
-  document.querySelector("#cy").dataset.claims = String(cy.edges().length);
+  updateGraphStats();
 
   scheduleStreamFormat(requestId);
 }
@@ -217,11 +223,10 @@ async function compile(file) {
   selectedNodeId = null;
   overviewPositions = new Map();
   cy.elements().remove();
+  updateGraphStats();
   tooltip.classList.remove("visible");
-  document.querySelector("#cy").dataset.claims = "0";
   setSourceText("Hover over an edge or leaf node to see its source sentence.");
   drop.classList.add("busy");
-  detail.textContent = "PDF, TXT, DOCX";
 
   try {
     const response = await fetch("/api/compile", {
@@ -291,7 +296,6 @@ function tooltipText(edge) {
 function showTooltip(text, renderedPosition) {
   tooltip.textContent = text;
   tooltip.classList.add("visible");
-  const graph = document.querySelector("#cy");
   const width = tooltip.offsetWidth;
   const height = tooltip.offsetHeight;
   const left = Math.max(

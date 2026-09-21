@@ -8,9 +8,22 @@ version = "0.1.0"
 description = "A small, source-grounded text-to-RDF compiler verified by Jev."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 authors = [{ name = "Sai Venna" }]
+keywords = ["knowledge-graph", "rdf", "information-extraction", "jev"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/saivivekvenna/jevy-graph"
+Issues = "https://github.com/saivivekvenna/jevy-graph/issues"
+Source = "https://github.com/saivivekvenna/jevy-graph"
 
 [project.scripts]
 jevy-graph = "jevy_graph.cli:main"

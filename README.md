@@ -1,103 +1,159 @@
-# jevy-graph
+# Jevy Graph
 
-A minimal compiler from plain text to source-grounded RDF. It deterministically
-builds a bounded lattice of entity boundaries and normalized predicates, asks
-Jev to select the best combination, then verifies the resulting claims.
+[![CI](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml)
 
-The project is an MVP: it favors inspectable behavior, parallel batches, and
-source-grounded output.
+Jevy Graph compiles documents into source-grounded RDF. It discovers atomic
+relations locally, asks [Jev](https://typesafe.ai/) to resolve ambiguous entity
+boundaries and predicates, verifies every selected claim, and emits Turtle with
+evidence and provenance.
 
-## Pipeline
+The compiler is designed for high-recall extraction from ordinary prose,
+scientific papers, legal text, tables, measurements, and equations. It does not
+require an ontology or a document-specific schema.
 
-1. Inspect layout-preserving PDF text for tables, equations, assignments,
-   measurements, page boundaries, and scientific section headings.
-2. Compile table cells and explicit measurements into atomic frames with stable
-   predicates, typed values, row/header context, and cell-level provenance.
-3. Clean the remaining prose, preserve paragraph boundaries, and normalize
-   document-declared acronyms and harmless entity variants.
-4. Split prose into sentences and semicolon-delimited clauses.
-5. Discover explicit, passive, modal, and negated relations; expand coordinated
-   subjects, objects, actions, and inherited list structures.
-6. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
-   triple candidates per relation frame.
-7. Ask Jev a comparative `Choice` question for every ambiguous frame.
-8. Verify selected triples with parallel `Noul` questions for exact support and
-   entity quality. Apply stricter evidence floors to open-verb discoveries than
-   to deterministic semantic and grammatical patterns. Network batches run
-   concurrently.
-9. Emit Turtle with evidence, calibrated scores, modality, polarity, normalized
-   offsets, source units, table/page locators, conditions, extraction origin,
-   stable predicates, and conservative literal typing. Negated claims are
-   reified without asserting their positive triples.
+## Features
 
-Frames with only one valid normalized triple bypass comparative selection but
-still receive full support and entity-quality verification. Ambiguous choices
-are sent in batches of 24, verification in batches of 40, with up to twelve
-requests in flight. The bounded batches keep dense table evidence below API
-payload limits without serializing the document pipeline.
+- Multiple atomic claims from one sentence, clause, list, or table row
+- Normalized entities and stable predicates without external entity linking
+- Modality, negation, conditions, sections, pages, and evidence spans preserved
+- Jev selection and verification streamed in parallel batches
+- RDF statements with calibrated support and entity-quality scores
+- CLI, Python API, and a real-time Cytoscape demo
+- No runtime Python dependencies
 
-## Run
+## How it works
 
-Requires Python 3.11 or newer.
-
-```bash
-python -m pip install -e .
-cp .env.example .env
-# Add your TypeSafe key to .env.
-
-jevy-graph input.txt -o graph.ttl
+```text
+document
+  -> deterministic clause, table, equation, and measurement extraction
+  -> bounded subject / predicate / object candidates
+  -> Jev candidate selection
+  -> Jev support and boundary verification
+  -> thresholding and deduplication
+  -> source-grounded RDF/Turtle
 ```
 
-For a deterministic smoke test without an API call:
+Jev never invents free-form graph text. It chooses among candidates generated
+from the document, then independently scores the selected relationship. Frames
+with one valid interpretation skip the selection call but are still verified.
+
+## Quick start
+
+Jevy Graph requires Python 3.11 or newer and a TypeSafe API key.
+
+```bash
+git clone https://github.com/saivivekvenna/jevy-graph.git
+cd jevy-graph
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+cp .env.example .env
+```
+
+Add your key to `.env`:
+
+```dotenv
+TYPESAFE_API_KEY=your-key-here
+```
+
+Compile UTF-8 text to Turtle:
+
+```bash
+jevy-graph document.txt -o graph.ttl
+```
+
+For a local-only extraction smoke test that does not call Jev:
 
 ```bash
 printf 'Alice founded Acme. Acme is located in Toronto.' \
   | jevy-graph --no-verify
 ```
 
-Each accepted relationship is emitted together with an `rdf:Statement` carrying
-its source clause, selection scores, support probability, entity-quality
-probability, modality, and polarity. The default acceptance floors are `0.45`
-support, `0.10` entity quality, and `0.70` combined; change them with
-`--threshold`, `--entity-threshold`, and `--joint-threshold`. The combined score
-keeps precise action-valued claims without accepting candidates that are weak
-on both support and boundaries. Open-verb discoveries additionally require
-`0.50` support, `0.20` entity quality, and `0.80` combined.
+## Demo
 
-## Test
+The demo accepts PDF, DOCX, Markdown, CSV, and plain-text files. Verified claims
+appear in the graph as their Jev batches finish.
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
+jevy-graph-demo
 ```
 
-## Demo interface
+Open <http://localhost:8080/demo/>. PDF support requires `pdftotext`, available
+from Poppler (`brew install poppler` on macOS or `apt install poppler-utils` on
+Debian and Ubuntu).
 
-A monochrome graph demo lives in [`demo/`](demo/). It sends file uploads to the
-real compiler, adds verified claims as they arrive, and shows the source
-sentence for every hovered edge. Run it locally with:
+The API key stays on the server and is never sent to the browser.
+
+## Python API
+
+```python
+import os
+
+from jevy_graph import Thresholds, compile_text
+from jevy_graph.jev import JevClient
+
+client = JevClient(os.environ["TYPESAFE_API_KEY"])
+result = compile_text(
+    "Alice founded Acme.",
+    client=client,
+    thresholds=Thresholds(support=0.45, entity=0.10, joint=0.70),
+)
+
+print(result.turtle)
+print(result.accepted)
+```
+
+Omit `client` for deterministic, unverified extraction.
+
+## RDF model
+
+Each accepted positive relationship is emitted as a direct semantic edge and
+as an `rdf:Statement` carrying its provenance:
+
+```turtle
+<urn:jevy:entity:alice-...> <urn:jevy:relation:founded> <urn:jevy:entity:acme-...> .
+
+<urn:jevy:claim:...> a rdf:Statement ;
+    rdf:subject <urn:jevy:entity:alice-...> ;
+    rdf:predicate <urn:jevy:relation:founded> ;
+    rdf:object <urn:jevy:entity:acme-...> ;
+    jevy:evidence "Alice founded Acme." ;
+    jevy:support "0.950000"^^xsd:decimal ;
+    jevy:entityQuality "0.910000"^^xsd:decimal .
+```
+
+Negative claims are reified with `jevy:polarity "negative"` without asserting
+the positive edge. Numeric values are emitted as typed literals when possible.
+
+## Scope
+
+The CLI reads UTF-8 text. The demo additionally converts PDF and DOCX uploads.
+The extractor handles ordinary prose, legal lists, scientific sections,
+layout-preserving tables, assignments, equations, and measurements.
+
+External knowledge-base linking, ontology alignment, OCR, and scanned PDFs are
+out of scope. Entity normalization is intentionally conservative unless the
+document explicitly declares an alias.
+
+## Development
 
 ```bash
-PYTHONPATH=src python3 -m jevy_graph.demo_server
+python -m unittest discover -s tests -q
 ```
 
-Then open <http://localhost:8080/demo/>. PDF, DOCX, and UTF-8 text-like files are
-supported. The Jev API key remains in the server-side `.env` file.
+Pull requests should include a focused regression test for behavior changes.
+Keep extraction deterministic and keep API credentials out of fixtures, logs,
+and commits.
 
-## Current scope
+## Privacy and security
 
-- UTF-8 plain text input
-- layout-aware table, equation, assignment, and benchmark-value extraction
-- scientific and legal source-section detection without schema crossover
-- open modal and morphological predicate discovery
-- coordination and legal-list expansion
-- local pronoun recovery and conservative entity normalization
-- concurrent Jev selection and verification
-- Turtle output with provenance, modality, polarity, and typed numeric literals
-- source-unit, page/table locator, condition, and extraction-origin metadata
-- recall fixtures for legal, scientific, and general prose
+The demo binds to `127.0.0.1` by default and is intended for local use. Document
+text used in Jev decisions is sent to TypeSafe's API. Review TypeSafe's policies
+before processing sensitive material, and add authentication plus upload
+hardening before exposing the demo server publicly.
 
-The CLI expects UTF-8 text extracted from PDFs; the demo server also accepts
-binary PDFs through the system `pdftotext` utility. Repeated headers, page
-numbers, and hard wraps are cleaned automatically. External knowledge-base
-linking remains out of scope, and entity linking stays conservative unless the
-document declares an alias explicitly.
+Never commit `.env`; it is ignored by Git.
+
+## License
+
+[MIT](LICENSE)

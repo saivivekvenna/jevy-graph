@@ -6,18 +6,8 @@ import sys
 from pathlib import Path
 
 from .compiler import Thresholds, compile_text
+from .config import load_dotenv
 from .jev import JevClient, JevError
-
-
-def _load_dotenv(path: Path = Path(".env")) -> None:
-    if not path.is_file():
-        return
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        name, value = line.split("=", 1)
-        os.environ.setdefault(name.strip(), value.strip().strip('"').strip("'"))
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -71,7 +61,7 @@ def main(argv: list[str] | None = None) -> int:
     text = _read_text(args.input)
     client = None
     if not args.no_verify:
-        _load_dotenv()
+        load_dotenv()
         api_key = os.environ.get("TYPESAFE_API_KEY", "")
         if not api_key:
             raise SystemExit("TYPESAFE_API_KEY is missing; set it in the environment or .env")

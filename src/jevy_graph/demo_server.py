@@ -14,8 +14,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from xml.etree import ElementTree
 
-from .cli import _load_dotenv
 from .compiler import select
+from .config import load_dotenv
 from .extract import extract_frames
 from .jev import JevClient, JevError
 
@@ -107,12 +107,8 @@ class DemoHandler(SimpleHTTPRequestHandler):
             text = extract_upload(payload, filename)
             if not text.strip():
                 raise ValueError("The document contains no extractable text.")
-            self._event({"type": "stage", "stage": "extract"})
 
             frames = extract_frames(text)
-            self._event(
-                {"type": "stage", "stage": "candidates", "frames": len(frames)}
-            )
             api_key = os.environ.get("TYPESAFE_API_KEY", "")
             if not api_key:
                 raise ValueError("TYPESAFE_API_KEY is missing from the server environment.")
@@ -135,15 +131,10 @@ class DemoHandler(SimpleHTTPRequestHandler):
                                 "predicate": predicate,
                                 "object": candidate.object,
                                 "evidence": candidate.evidence,
-                                "sourceUnit": candidate.source_unit,
-                                "support": item.support,
                             },
                         }
                     )
                     claim_count += 1
-                self._event(
-                    {"type": "stage", "stage": "verified", "claims": claim_count}
-                )
             self._event({"type": "done", "claims": claim_count})
         except (BrokenPipeError, ConnectionResetError):
             return
@@ -160,7 +151,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--port", type=int, default=8080)
     args = parser.parse_args(argv)
 
-    _load_dotenv()
+    load_dotenv()
     repository_root = Path(__file__).resolve().parents[2]
     handler = partial(DemoHandler, directory=str(repository_root))
     server = ThreadingHTTPServer((args.host, args.port), handler)
