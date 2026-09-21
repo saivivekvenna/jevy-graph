@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jevy-graph"
+version = "0.1.0"
+description = "A small, source-grounded text-to-RDF compiler verified by Jev."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sai Venna" }]
+dependencies = []
+
+[project.scripts]
+jevy-graph = "jevy_graph.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jevy_graph"]
+
