@@ -5,16 +5,19 @@ import re
 import time
 import urllib.error
 import urllib.request
-from collections.abc import Iterable
+from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
+from dataclasses import asdict
 from itertools import product
 from typing import TypeVar
 
 from .models import CandidateTriple, RelationFrame, VerifiedTriple
-from .normalize import canonical_label
+from .normalize import canonical_entity, canonical_label, object_kind
 
 API_URL = "https://api.typesafe.ai/v1/systemone"
 MODEL = "jev-1.13.0"
 T = TypeVar("T")
+R = TypeVar("R")
 
 
 class JevError(RuntimeError):
@@ -24,7 +27,7 @@ class JevError(RuntimeError):
 def _normalize_components(
     subject: str, predicate: str, object_: str
 ) -> tuple[str, str, str] | None:
-    subject = canonical_label(subject)
+    subject = canonical_entity(subject)
     subject = re.sub(
         r"\s+(?:do|does|did|can|could|will|would|shall|may|might|must|should|"
         r"has|have|had|is|are|was|were|be|been|being)$",
@@ -44,9 +47,11 @@ def _normalize_components(
         re.I,
     ):
         return None
-    object_ = canonical_label(object_)
+
+    raw_object = canonical_label(object_)
+    object_ = canonical_entity(object_)
     if predicate in {"has", "possesses"} and re.match(
-        r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", object_, re.I
+        r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", raw_object, re.I
     ):
         predicate = "authorized_to"
     if predicate == "authorized_to":
@@ -62,20 +67,21 @@ def _normalize_components(
         object_ = re.sub(
             r"^(?:successfully\s+)?(?:in|for)\s+", "", object_, flags=re.I
         )
-    object_ = canonical_label(object_)
+    object_ = canonical_entity(object_)
+
     if predicate == "authorized_to" and object_.casefold() in {"power", "sole power"}:
         return None
     if predicate in {"has", "possesses"} and re.match(
         r"^(?:to|been|become)\b", object_, re.I
     ):
         return None
-    if not subject or not object_ or re.match(r"^(?:no|not|without)\b", object_, re.I):
+    if not subject or not object_:
         return None
     return subject, predicate, object_
 
 
 def _triple_options(
-    frame: RelationFrame, limit: int = 16
+    frame: RelationFrame, limit: int = 32
 ) -> tuple[tuple[str, str, str], ...]:
     indexes = product(
         range(len(frame.subject_options)),
@@ -153,118 +159,177 @@ def _triple_options(
     return tuple(options)
 
 
-def build_scoring_request(frames: list[RelationFrame]) -> dict[str, object]:
-    state_frames = [
-        {
-            "id": f"f{index}",
-            "context": frame.context,
-            "evidence": frame.evidence,
-        }
-        for index, frame in enumerate(frames)
-    ]
+def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
     questions: dict[str, object] = {}
-    for frame_index, frame in enumerate(frames):
-        for option_index, (subject, predicate, object_) in enumerate(
-            _triple_options(frame)
-        ):
-            shared = {
-                "evidence_id": f"f{frame_index}",
-                "candidate": {
-                    "subject": subject,
-                    "predicate": predicate,
-                    "object": object_,
-                },
+    for index, frame in enumerate(frames):
+        criteria: dict[str, object] = {
+            f"t{option_index}": {
+                "subject": subject,
+                "predicate": predicate,
+                "object": object_,
+                "modality": frame.modality or "unmodalized",
+                "polarity": frame.polarity,
             }
-            questions[f"f{frame_index}_t{option_index}_support"] = {
-                "type": "noul",
-                "instructions": {
-                    **shared,
-                    "question": (
-                        "Does the referenced evidence explicitly assert exactly this "
-                        "relationship as a factual claim? Answer no for wrong or incomplete "
-                        "boundaries, wrong direction, negation, modality, or relationships "
-                        "requiring an unstated inference."
-                    ),
-                },
-            }
-            questions[f"f{frame_index}_t{option_index}_entities"] = {
-                "type": "noul",
-                "instructions": {
-                    **shared,
-                    "question": (
-                        "Are both the subject and object self-contained, meaningful RDF node "
-                        "labels rather than pronouns, deictic phrases, headings, fragments, "
-                        "or clauses containing the relation itself?"
-                    ),
-                },
-            }
+            for option_index, (subject, predicate, object_) in enumerate(
+                _triple_options(frame)
+            )
+        }
+        criteria["none"] = {
+            "meaning": "No candidate precisely captures an asserted relationship."
+        }
+        questions[f"f{index}_triple"] = {
+            "type": "choice",
+            "instructions": {
+                "context": frame.context,
+                "evidence": frame.evidence,
+                "modality": frame.modality or "unmodalized",
+                "polarity": frame.polarity,
+                "question": (
+                    "Which complete RDF triple most precisely captures the relation signaled "
+                    "by the evidence? Legal, normative, hypothetical, and scientific modal "
+                    "statements are valid assertions when their modality and polarity are "
+                    "preserved separately. Prefer exact, self-contained entity boundaries. "
+                    "Use type only for class membership and equivalent_to for definitions, "
+                    "symbols, quantities, or two names for the same thing. "
+                    "Choose none only if every candidate is unsupported or malformed."
+                ),
+            },
+            "criteria": criteria,
+        }
     return {
         "model": MODEL,
-        "state": {
-            "task": "Score complete source-grounded RDF triple candidates.",
-            "frames": state_frames,
-        },
+        "state": {"task": "Select one source-grounded RDF triple per relation frame."},
         "questions": questions,
     }
 
 
-def parse_scoring_answers(
+def parse_choice_answers(
     frames: list[RelationFrame], response: dict[str, object]
+) -> list[CandidateTriple]:
+    answers = response.get("answers")
+    if not isinstance(answers, dict):
+        raise JevError("Jev response did not contain an answers object")
+    candidates: list[CandidateTriple] = []
+    for index, frame in enumerate(frames):
+        answer = answers.get(f"f{index}_triple")
+        if not isinstance(answer, dict):
+            raise JevError(f"Jev omitted a choice for frame {index}")
+        choice = answer.get("choice")
+        if choice == "none":
+            continue
+        if not isinstance(choice, str) or not choice.startswith("t"):
+            raise JevError(f"Jev returned an invalid choice for frame {index}")
+        try:
+            subject, predicate, object_ = _triple_options(frame)[int(choice[1:])]
+            confidence = float(answer["confidence"])
+            probabilities = answer["probabilities"]
+            if not isinstance(probabilities, dict):
+                raise TypeError
+            probability = float(probabilities[choice])
+        except (IndexError, KeyError, TypeError, ValueError) as error:
+            raise JevError(f"Jev returned an unknown choice for frame {index}") from error
+        candidates.append(
+            CandidateTriple(
+                subject=subject,
+                predicate=predicate,
+                object=object_,
+                evidence=frame.evidence,
+                sentence_index=frame.sentence_index,
+                start=frame.start,
+                end=frame.end,
+                modality=frame.modality,
+                polarity=frame.polarity,
+                object_kind=object_kind(object_),
+                selection_confidence=confidence,
+                selection_probability=probability,
+            )
+        )
+    return candidates
+
+
+def build_verification_request(
+    candidates: list[CandidateTriple],
+) -> dict[str, object]:
+    questions: dict[str, object] = {}
+    for index, candidate in enumerate(candidates):
+        candidate_data = asdict(candidate)
+        if candidate.polarity == "negative":
+            support_question = (
+                "Does the evidence explicitly deny, prohibit, or negate this exact "
+                "subject-predicate-object relationship? Answer yes when phrases such as "
+                "no, not, or never negate the relationship. The candidate intentionally "
+                "records that negative assertion rather than claiming the positive triple."
+            )
+        else:
+            support_question = (
+                "Does the evidence explicitly assert this exact relationship with the "
+                "recorded modality? A law saying shall, may, or must is an explicit "
+                "normative assertion, not a reason to reject it."
+            )
+        questions[f"c{index}_support"] = {
+            "type": "noul",
+            "instructions": {
+                "candidate": candidate_data,
+                "question": support_question,
+            },
+        }
+        questions[f"c{index}_entities"] = {
+            "type": "noul",
+            "instructions": {
+                "candidate": candidate_data,
+                "question": (
+                    "Are the subject and object precise, self-contained graph values rather "
+                    "than headings, unresolved pronouns, relation-bearing clauses, or random "
+                    "fragments? Quantities and actions are allowed as values."
+                ),
+            },
+        }
+    return {
+        "model": MODEL,
+        "state": {"task": "Verify selected source-grounded RDF triples."},
+        "questions": questions,
+    }
+
+
+def parse_verification_answers(
+    candidates: list[CandidateTriple], response: dict[str, object]
 ) -> list[VerifiedTriple]:
     answers = response.get("answers")
     if not isinstance(answers, dict):
         raise JevError("Jev response did not contain an answers object")
-
     verified: list[VerifiedTriple] = []
-    for frame_index, frame in enumerate(frames):
-        best: VerifiedTriple | None = None
-        for option_index, (subject, predicate, object_) in enumerate(
-            _triple_options(frame)
+    for index, candidate in enumerate(candidates):
+        support_answer = answers.get(f"c{index}_support")
+        entities_answer = answers.get(f"c{index}_entities")
+        if not isinstance(support_answer, dict) or not isinstance(
+            entities_answer, dict
         ):
-            support_answer = answers.get(
-                f"f{frame_index}_t{option_index}_support"
-            )
-            entities_answer = answers.get(
-                f"f{frame_index}_t{option_index}_entities"
-            )
-            if not isinstance(support_answer, dict) or not isinstance(
-                entities_answer, dict
-            ):
-                raise JevError(
-                    f"Jev omitted candidate {option_index} for frame {frame_index}"
-                )
-            try:
-                support = float(support_answer["noul"])
-                entity_quality = float(entities_answer["noul"])
-            except (KeyError, TypeError, ValueError) as error:
-                raise JevError(
-                    f"Jev returned an invalid candidate score for frame {frame_index}"
-                ) from error
-            item = VerifiedTriple(
-                CandidateTriple(
-                    subject=subject,
-                    predicate=predicate,
-                    object=object_,
-                    evidence=frame.evidence,
-                    sentence_index=frame.sentence_index,
-                    start=frame.start,
-                    end=frame.end,
-                ),
-                support,
-                entity_quality,
-            )
-            if best is None or min(item.support, item.entity_quality) > min(
-                best.support, best.entity_quality
-            ):
-                best = item
-        if best is not None:
-            verified.append(best)
+            raise JevError(f"Jev omitted verification answers for candidate {index}")
+        try:
+            support = float(support_answer["noul"])
+            entity_quality = float(entities_answer["noul"])
+        except (KeyError, TypeError, ValueError) as error:
+            raise JevError(
+                f"Jev returned an invalid verification score for candidate {index}"
+            ) from error
+        verified.append(VerifiedTriple(candidate, support, entity_quality))
     return verified
 
 
-def _batches(items: list[T], size: int) -> Iterable[list[T]]:
-    for start in range(0, len(items), size):
-        yield items[start : start + size]
+def _batches(items: list[T], size: int) -> list[list[T]]:
+    return [items[start : start + size] for start in range(0, len(items), size)]
+
+
+def _parallel_batches(
+    batches: list[list[T]],
+    worker: Callable[[list[T]], list[R]],
+    max_workers: int,
+) -> list[R]:
+    if not batches:
+        return []
+    with ThreadPoolExecutor(max_workers=min(max_workers, len(batches))) as executor:
+        results = list(executor.map(worker, batches))
+    return [item for batch in results for item in batch]
 
 
 class JevClient:
@@ -273,22 +338,46 @@ class JevClient:
         api_key: str,
         *,
         timeout: float = 30.0,
-        batch_size: int = 16,
+        choice_batch_size: int = 8,
+        verification_batch_size: int = 64,
+        max_workers: int = 4,
         attempts: int = 3,
     ) -> None:
         if not api_key:
             raise ValueError("api_key must not be empty")
         self.api_key = api_key
         self.timeout = timeout
-        self.batch_size = batch_size
+        self.choice_batch_size = choice_batch_size
+        self.verification_batch_size = verification_batch_size
+        self.max_workers = max_workers
         self.attempts = attempts
 
+    def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
+        return _parallel_batches(
+            _batches(frames, self.choice_batch_size),
+            self._resolve_batch,
+            self.max_workers,
+        )
+
+    def verify(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:
+        return _parallel_batches(
+            _batches(candidates, self.verification_batch_size),
+            self._verify_batch,
+            self.max_workers,
+        )
+
     def score(self, frames: list[RelationFrame]) -> list[VerifiedTriple]:
-        verified: list[VerifiedTriple] = []
-        for batch in _batches(frames, self.batch_size):
-            payload = self._post(build_scoring_request(batch))
-            verified.extend(parse_scoring_answers(batch, payload))
-        return verified
+        return self.verify(self.resolve(frames))
+
+    def _resolve_batch(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
+        return parse_choice_answers(frames, self._post(build_choice_request(frames)))
+
+    def _verify_batch(
+        self, candidates: list[CandidateTriple]
+    ) -> list[VerifiedTriple]:
+        return parse_verification_answers(
+            candidates, self._post(build_verification_request(candidates))
+        )
 
     def _post(self, payload: dict[str, object]) -> dict[str, object]:
         body = json.dumps(payload, separators=(",", ":")).encode()
@@ -302,7 +391,6 @@ class JevClient:
             },
             method="POST",
         )
-
         for attempt in range(self.attempts):
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout) as response:
@@ -317,5 +405,4 @@ class JevClient:
                 if attempt + 1 == self.attempts:
                     raise JevError(f"Could not reach Jev: {error.reason}") from error
             time.sleep(0.25 * (2**attempt))
-
         raise JevError("Jev request failed")

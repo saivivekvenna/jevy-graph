@@ -13,6 +13,8 @@ class RelationFrame:
     sentence_index: int
     start: int
     end: int
+    modality: str | None = None
+    polarity: str = "positive"
 
 
 @dataclass(frozen=True, slots=True)
@@ -24,6 +26,11 @@ class CandidateTriple:
     sentence_index: int
     start: int
     end: int
+    modality: str | None = None
+    polarity: str = "positive"
+    object_kind: str = "entity"
+    selection_confidence: float = 1.0
+    selection_probability: float = 1.0
 
 
 @dataclass(frozen=True, slots=True)

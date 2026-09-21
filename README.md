@@ -4,21 +4,24 @@ A minimal compiler from plain text to source-grounded RDF. It deterministically
 builds a bounded lattice of entity boundaries and normalized predicates, asks
 Jev to select the best combination, then verifies the resulting claims.
 
-The project is an MVP: it favors inspectable behavior, fast batches, and
-conservative output over broad language coverage.
+The project is an MVP: it favors inspectable behavior, parallel batches, and
+source-grounded output.
 
 ## Pipeline
 
-1. Normalize text and document-declared acronyms.
-2. Detect relation-bearing clauses with deterministic patterns.
-3. Enumerate up to 48 subject and 48 object spans per relation, including modal
-   forms such as `Congress shall` and their canonical alternatives.
-4. Rank and normalize up to 16 complete subject-predicate-object candidates.
-5. Ask parallel Jev `Noul` questions for exact support and entity-span quality
-   in a single scoring pass.
-6. Keep the highest-scoring candidate for each relation occurrence when its
-   support and entity-quality probabilities pass the configured thresholds.
-7. Emit accepted triples as Turtle with source evidence and support probability.
+1. Clean PDF-extracted text, preserve paragraph boundaries, and normalize
+   document-declared acronyms and harmless entity variants.
+2. Split text into sentences and semicolon-delimited clauses.
+3. Discover explicit, passive, modal, and negated relations; expand coordinated
+   subjects, objects, actions, and inherited list structures.
+4. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
+   triple candidates per relation frame.
+5. Ask Jev a comparative `Choice` question, including `none`, for every frame.
+6. Verify selected triples with parallel `Noul` questions for exact support and
+   entity quality. Network batches run concurrently.
+7. Emit Turtle with evidence, calibrated scores, modality, polarity, normalized
+   offsets, stable predicates, and conservative literal typing. Negated claims
+   are reified without asserting their positive triples.
 
 ## Run
 
@@ -40,9 +43,10 @@ printf 'Alice founded Acme. Acme is located in Toronto.' \
 ```
 
 Each accepted relationship is emitted together with an `rdf:Statement` carrying
-its source sentence, exact-support probability, and entity-quality probability.
-Their default thresholds are `0.80` and `0.35`; change them with `--threshold`
-and `--entity-threshold`.
+its source clause, selection scores, support probability, entity-quality
+probability, modality, and polarity. The default support and entity thresholds
+are `0.65` and `0.40`; change them with `--threshold` and
+`--entity-threshold`.
 
 ## Test
 
@@ -53,10 +57,14 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ## Current scope
 
 - UTF-8 plain text input
-- bounded deterministic span and predicate lattices
-- document-declared acronym normalization
-- batched Jev resolution and verification
-- Turtle output with provenance
+- open modal and morphological predicate discovery
+- coordination and legal-list expansion
+- local pronoun recovery and conservative entity normalization
+- concurrent Jev selection and verification
+- Turtle output with provenance, modality, polarity, and typed numeric literals
+- recall fixtures for legal, scientific, and general prose
 
-PDF parsing, coreference resolution, open-ended predicate discovery, and global
-entity linking are intentionally outside this first MVP.
+Binary PDF parsing and external knowledge-base linking are not bundled. Supply
+UTF-8 text extracted from PDFs; repeated headers, page numbers, and hard wraps
+are cleaned automatically. Entity linking remains conservative unless the
+document declares an alias explicitly.

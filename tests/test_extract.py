@@ -36,15 +36,53 @@ class ExtractTests(unittest.TestCase):
     def test_negation_is_not_part_of_subject(self) -> None:
         candidates = extract_candidates("Acme did not acquire Beta.")
         self.assertEqual(candidates[0].subject, "Acme")
+        self.assertEqual(candidates[0].polarity, "negative")
 
     def test_enumerates_boundary_and_predicate_options(self) -> None:
         frame = extract_frames(
             "The Congress shall have Power to lay and collect Taxes."
         )[0]
         self.assertIn("Congress", frame.subject_options)
-        self.assertIn("Congress shall", frame.subject_options)
         self.assertIn("authorized_to", frame.predicate_options)
-        self.assertIn("lay and collect Taxes", frame.object_options)
+        self.assertEqual(frame.modality, "shall")
+
+    def test_expands_coordinated_actions(self) -> None:
+        candidates = extract_candidates(
+            "Congress shall have Power to lay and collect Taxes."
+        )
+        triples = {(item.predicate, item.object) for item in candidates}
+        self.assertIn(("authorized_to", "lay Taxes"), triples)
+        self.assertIn(("authorized_to", "collect Taxes"), triples)
+
+    def test_discovers_general_modal_relations(self) -> None:
+        candidates = extract_candidates(
+            "Legislative Powers shall be vested in Congress. "
+            "Congress shall consist of a Senate and House of Representatives."
+        )
+        triples = {(item.subject, item.predicate, item.object) for item in candidates}
+        self.assertIn(("Legislative Powers", "vested_in", "Congress"), triples)
+        self.assertIn(("Congress", "consists_of", "Senate"), triples)
+        self.assertIn(
+            ("Congress", "consists_of", "House of Representatives"), triples
+        )
+
+    def test_inherits_authority_across_semicolon_list(self) -> None:
+        candidates = extract_candidates(
+            "Congress shall have Power to collect Taxes; to borrow Money; "
+            "to regulate Commerce."
+        )
+        actions = {
+            item.object
+            for item in candidates
+            if item.predicate == "authorized_to"
+        }
+        self.assertTrue({"collect Taxes", "borrow Money", "regulate Commerce"} <= actions)
+
+    def test_normalizes_quantified_entities(self) -> None:
+        candidates = extract_candidates(
+            "Each Senator shall have one Vote. A Senator has an office."
+        )
+        self.assertTrue(all(item.subject == "Senator" for item in candidates))
 
     def test_enumerates_internal_subject_and_object_spans(self) -> None:
         frame = extract_frames(
@@ -74,6 +112,18 @@ class ExtractTests(unittest.TestCase):
             (candidate.subject, candidate.predicate, candidate.object),
             ("Acme", "contains", "three divisions"),
         )
+
+    def test_does_not_extract_verb_from_hyphenated_noun(self) -> None:
+        frames = extract_frames(
+            "Additive attention computes compatibility using a feed-forward network."
+        )
+        predicates = {
+            predicate for frame in frames for predicate in frame.predicate_options
+        }
+        self.assertNotIn("feed", predicates)
+
+    def test_rejects_numeric_table_fragment_as_subject(self) -> None:
+        self.assertEqual(extract_frames("8 after training for 3."), [])
 
 
 if __name__ == "__main__":

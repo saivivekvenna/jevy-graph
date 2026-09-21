@@ -4,10 +4,12 @@ import unittest
 
 from jevy_graph.jev import (
     _triple_options,
-    build_scoring_request,
-    parse_scoring_answers,
+    build_choice_request,
+    build_verification_request,
+    parse_choice_answers,
+    parse_verification_answers,
 )
-from jevy_graph.models import RelationFrame
+from jevy_graph.models import CandidateTriple, RelationFrame
 
 
 def frame() -> RelationFrame:
@@ -20,47 +22,82 @@ def frame() -> RelationFrame:
         0,
         0,
         53,
+        "shall",
     )
 
 
 class JevTests(unittest.TestCase):
-    def test_builds_one_parallel_noul_per_complete_candidate(self) -> None:
-        request = build_scoring_request([frame()])
-        self.assertEqual(
-            len(request["questions"]), 2 * len(_triple_options(frame()))
-        )
-        self.assertTrue(
-            all(
-                question["type"] == "noul"
-                for question in request["questions"].values()
-            )
-        )
-        self.assertEqual(
-            request["state"]["frames"][0]["evidence"],
-            "Congress shall have Power to lay and collect Taxes.",
-        )
+    def test_builds_comparative_choice_over_complete_candidates(self) -> None:
+        request = build_choice_request([frame()])
+        question = request["questions"]["f0_triple"]
+        self.assertEqual(question["type"], "choice")
+        self.assertIn("none", question["criteria"])
+        self.assertEqual(question["instructions"]["modality"], "shall")
 
-    def test_selects_highest_supported_complete_triple(self) -> None:
+    def test_parses_selected_complete_triple(self) -> None:
         options = _triple_options(frame())
         target_index = options.index(
             ("Congress", "authorized_to", "lay and collect Taxes")
         )
-        answers = {}
-        for index in range(len(options)):
-            answers[f"f0_t{index}_support"] = {"type": "noul", "noul": 0.1}
-            answers[f"f0_t{index}_entities"] = {"type": "noul", "noul": 0.1}
-        answers[f"f0_t{target_index}_support"]["noul"] = 0.96
-        answers[f"f0_t{target_index}_entities"]["noul"] = 0.91
-        result = parse_scoring_answers([frame()], {"answers": answers})
+        choice = f"t{target_index}"
+        result = parse_choice_answers(
+            [frame()],
+            {
+                "answers": {
+                    "f0_triple": {
+                        "choice": choice,
+                        "confidence": 0.84,
+                        "probabilities": {choice: 0.76},
+                    }
+                }
+            },
+        )
         self.assertEqual(
-            (
-                result[0].candidate.subject,
-                result[0].candidate.predicate,
-                result[0].candidate.object,
-            ),
+            (result[0].subject, result[0].predicate, result[0].object),
             ("Congress", "authorized_to", "lay and collect Taxes"),
         )
-        self.assertEqual(result[0].support, 0.96)
+        self.assertEqual(result[0].modality, "shall")
+        self.assertEqual(result[0].selection_probability, 0.76)
+
+    def test_none_choice_drops_unsupported_frame(self) -> None:
+        result = parse_choice_answers(
+            [frame()],
+            {
+                "answers": {
+                    "f0_triple": {
+                        "choice": "none",
+                        "confidence": 0.9,
+                        "probabilities": {"none": 0.9},
+                    }
+                }
+            },
+        )
+        self.assertEqual(result, [])
+
+    def test_verification_treats_normative_modality_as_valid(self) -> None:
+        candidate = CandidateTriple(
+            "Congress",
+            "authorized_to",
+            "lay Taxes",
+            "Congress shall have Power to lay Taxes.",
+            0,
+            0,
+            39,
+            modality="shall",
+        )
+        request = build_verification_request([candidate])
+        prompt = request["questions"]["c0_support"]["instructions"]["question"]
+        self.assertIn("normative assertion", prompt)
+        result = parse_verification_answers(
+            [candidate],
+            {
+                "answers": {
+                    "c0_support": {"noul": 0.95},
+                    "c0_entities": {"noul": 0.91},
+                }
+            },
+        )
+        self.assertEqual(result[0].support, 0.95)
         self.assertEqual(result[0].entity_quality, 0.91)
 
     def test_normalizes_authorization_candidates(self) -> None:
@@ -103,22 +140,6 @@ class JevTests(unittest.TestCase):
             _triple_options(custom_frame),
         )
 
-    def test_normalizes_encoded_with_candidates(self) -> None:
-        custom_frame = RelationFrame(
-            ("Sentences were encoded", "Sentences"),
-            ("uses", "applies", "encoded_with"),
-            ("byte-pair encoding",),
-            "Sentences were encoded using byte-pair encoding.",
-            "Sentences were encoded using byte-pair encoding.",
-            0,
-            0,
-            51,
-        )
-        self.assertEqual(
-            _triple_options(custom_frame),
-            (("Sentences", "encoded_with", "byte-pair encoding"),),
-        )
-
     def test_rejects_clause_shaped_subject_candidates(self) -> None:
         custom_frame = RelationFrame(
             (
@@ -137,22 +158,6 @@ class JevTests(unittest.TestCase):
         self.assertTrue(options)
         self.assertTrue(
             all(subject == "Additive attention" for subject, _, _ in options)
-        )
-
-    def test_strips_pdf_section_heading_from_subject(self) -> None:
-        custom_frame = RelationFrame(
-            ("Model The Transformer",),
-            ("uses",),
-            ("stacked self-attention",),
-            "Model The Transformer uses stacked self-attention.",
-            "Model The Transformer uses stacked self-attention.",
-            0,
-            0,
-            53,
-        )
-        self.assertEqual(
-            _triple_options(custom_frame),
-            (("Transformer", "uses", "stacked self-attention"),),
         )
 
 

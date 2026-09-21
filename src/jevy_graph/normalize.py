@@ -8,6 +8,12 @@ _ACRONYM = re.compile(
     r"\b([A-Z][A-Za-z0-9'-]*(?:\s+[A-Za-z][A-Za-z0-9'-]*){1,7})"
     r"\s*\(([A-Z][A-Z0-9-]{1,11})\)"
 )
+_LEADING_QUANTIFIER = re.compile(
+    r"^(?:each|every|any|all|either|neither|such|no)\s+", re.IGNORECASE
+)
+_INTEGER = re.compile(r"[+-]?\d[\d,]*")
+_DECIMAL = re.compile(r"[+-]?(?:\d[\d,]*\.\d+|\.\d+)")
+_PERCENT = re.compile(r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)\s*%")
 
 
 def normalize_space(value: str) -> str:
@@ -32,3 +38,29 @@ def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
     if aliases and value.casefold() in aliases:
         return aliases[value.casefold()]
     return value
+
+
+def canonical_entity(value: str, aliases: dict[str, str] | None = None) -> str:
+    """Normalize harmless surface variation without inventing an entity link."""
+    value = canonical_label(value, aliases)
+    value = _LEADING_QUANTIFIER.sub("", value)
+    value = re.sub(r"^(?:thereof|hereof)\s+", "", value, flags=re.IGNORECASE)
+    return normalize_space(value)
+
+
+def object_kind(value: str) -> str:
+    """Classify values that are safe to encode as RDF literals."""
+    value = normalize_space(value)
+    if _INTEGER.fullmatch(value):
+        return "integer"
+    if _DECIMAL.fullmatch(value):
+        return "decimal"
+    if _PERCENT.fullmatch(value):
+        return "percent"
+    if (
+        len(value) >= 2
+        and value[0] == value[-1]
+        and value[0] in {'"', "'", "“", "”"}
+    ):
+        return "string"
+    return "entity"

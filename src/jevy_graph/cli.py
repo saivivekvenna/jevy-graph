@@ -32,14 +32,14 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--threshold",
         type=float,
-        default=0.80,
-        help="minimum exact-triple support probability (default: 0.80)",
+        default=0.65,
+        help="minimum exact-triple support probability (default: 0.65)",
     )
     parser.add_argument(
         "--entity-threshold",
         type=float,
-        default=0.35,
-        help="minimum RDF node-label quality probability (default: 0.35)",
+        default=0.40,
+        help="minimum RDF node-label quality probability (default: 0.40)",
     )
     parser.add_argument(
         "--no-verify",
