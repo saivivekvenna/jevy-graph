@@ -5,7 +5,6 @@ const sourceText = document.querySelector("#source-text");
 
 let activeRequest = 0;
 let selectedNodeId = null;
-let selectedPage = 0;
 let overviewPositions = new Map();
 
 const cy = cytoscape({
@@ -185,7 +184,6 @@ function finishGraph() {
     )[0];
     if (!primary) return;
     selectedNodeId = primary.id();
-    selectedPage = 0;
     focusNode(primary, true);
   };
   cy.layout({
@@ -209,7 +207,6 @@ async function compile(file) {
   activeRequest += 1;
   const requestId = activeRequest;
   selectedNodeId = null;
-  selectedPage = 0;
   overviewPositions = new Map();
   cy.elements().remove();
   document.querySelector("#cy").dataset.claims = "0";
@@ -272,13 +269,9 @@ function focus(edge) {
 }
 
 function focusNode(node, zoom = false) {
-  const pageSize = 6;
   const allEdges = [...node.connectedEdges()];
-  const pageCount = Math.max(1, Math.ceil(allEdges.length / pageSize));
-  selectedPage %= pageCount;
-  const start = selectedPage * pageSize;
-  const pageEdges = cy.collection(allEdges.slice(start, start + pageSize));
-  const neighborhood = pageEdges.union(pageEdges.connectedNodes()).union(node);
+  const edges = cy.collection(allEdges);
+  const neighborhood = edges.union(edges.connectedNodes()).union(node);
   const labeledNeighbors = neighborhood.nodes().not(node);
   cy.elements().addClass("hidden").removeClass("focused labeled hub");
   neighborhood.removeClass("hidden faded");
@@ -286,29 +279,29 @@ function focusNode(node, zoom = false) {
   labeledNeighbors.addClass("labeled");
   neighborhood.edges().removeClass("faded hidden");
 
-  const end = Math.min(start + pageSize, allEdges.length);
-  sourceText.textContent = allEdges.length > pageSize
-    ? `${node.data("label")} · ${start + 1}–${end} of ${allEdges.length} relationships · click again for more`
-    : `${node.data("label")} · ${allEdges.length} relationships`;
+  sourceText.textContent = `${node.data("label")} · ${allEdges.length} relationships`;
   if (zoom) {
     cy.stop();
-    const width = cy.width();
-    const height = cy.height();
-    const center = { x: width / 2, y: height / 2 };
-    const radiusX = Math.max(220, width * 0.31);
-    const radiusY = Math.max(200, height * 0.31);
     const neighbors = [...labeledNeighbors];
-    cy.viewport({ zoom: 1, pan: { x: 0, y: 0 } });
     cy.batch(() => {
-      node.position(center);
-      neighbors.forEach((neighbor, index) => {
-        const angle = -Math.PI / 2 + (Math.PI * 2 * index) / neighbors.length;
-        neighbor.position({
-          x: center.x + Math.cos(angle) * radiusX,
-          y: center.y + Math.sin(angle) * radiusY
+      node.position({ x: 0, y: 0 });
+      let offset = 0;
+      let radius = 360;
+      while (offset < neighbors.length) {
+        const capacity = Math.max(8, Math.floor((Math.PI * 2 * radius) / 230));
+        const ring = neighbors.slice(offset, offset + capacity);
+        ring.forEach((neighbor, index) => {
+          const angle = -Math.PI / 2 + (Math.PI * 2 * index) / ring.length;
+          neighbor.position({
+            x: Math.cos(angle) * radius,
+            y: Math.sin(angle) * radius
+          });
         });
-      });
+        offset += ring.length;
+        radius += 280;
+      }
     });
+    window.setTimeout(() => cy.fit(neighborhood, 100), 150);
   }
 }
 
@@ -335,15 +328,12 @@ cy.on("mouseover", "edge", (event) => focus(event.target));
 cy.on("mouseout", "edge", clearFocus);
 cy.on("tap", "edge", (event) => focus(event.target));
 cy.on("tap", "node", (event) => {
-  const nodeId = event.target.id();
-  selectedPage = nodeId === selectedNodeId ? selectedPage + 1 : 0;
-  selectedNodeId = nodeId;
+  selectedNodeId = event.target.id();
   focusNode(event.target, true);
 });
 cy.on("tap", (event) => {
   if (event.target === cy) {
     selectedNodeId = null;
-    selectedPage = 0;
     restoreOverview();
     clearFocus();
     cy.animate(
