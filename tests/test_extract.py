@@ -125,6 +125,43 @@ class ExtractTests(unittest.TestCase):
     def test_rejects_numeric_table_fragment_as_subject(self) -> None:
         self.assertEqual(extract_frames("8 after training for 3."), [])
 
+    def test_extracts_layout_table_cells_as_typed_claims(self) -> None:
+        text = (
+            "2 Results\n\n"
+            "Table 7: Evaluation results\n\n"
+            "Model        Accuracy\n"
+            "Alpha        91.5\n\n\n"
+            "3 Conclusion\n"
+        )
+        claim = next(
+            item
+            for item in extract_candidates(text)
+            if item.subject == "Alpha" and item.predicate == "has_accuracy"
+        )
+        self.assertEqual(claim.object, "91.5")
+        self.assertEqual(claim.object_kind, "decimal")
+        self.assertEqual(claim.source_locator, "Table 7")
+
+    def test_scientific_sections_do_not_become_amendments(self) -> None:
+        claims = extract_candidates(
+            "3 Model Architecture\n\nThe Transformer uses attention. "
+            "As described in Section 5.3, it trains quickly."
+        )
+        self.assertTrue(claims)
+        self.assertTrue(
+            all(not (claim.source_unit or "").startswith("AMENDMENT_None") for claim in claims)
+        )
+        self.assertTrue(
+            any((claim.source_unit or "").startswith("SECTION_3_") for claim in claims)
+        )
+
+    def test_preserves_decimal_benchmark_measurement(self) -> None:
+        claims = extract_candidates("Our model achieves a BLEU score of 41.8.")
+        self.assertIn(
+            ("model", "has_bleu", "41.8"),
+            {(item.subject, item.predicate, item.object) for item in claims},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

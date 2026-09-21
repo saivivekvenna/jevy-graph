@@ -38,8 +38,11 @@ def _candidate(frame: RelationFrame, triple: tuple[str, str, str]) -> CandidateT
         polarity=frame.polarity,
         object_kind=object_kind(object_),
         source_unit=frame.source_unit,
+        source_locator=frame.source_locator,
+        source_page=frame.source_page,
         condition=frame.condition,
         origin=frame.origin,
+        context=frame.context,
     )
 
 
@@ -292,6 +295,18 @@ def build_verification_request(
                 "no, not, or never negate the relationship. The candidate intentionally "
                 "records that negative assertion rather than claiming the positive triple."
             )
+        elif candidate.origin == "table":
+            support_question = (
+                "Does the table row support this exact cell relationship when interpreted "
+                "using the ordered headers and parsed-row context? The row identifier may "
+                "name its explicit configuration cells. Blank cells inherit from the base "
+                "row only when the caption explicitly says unlisted values are identical."
+            )
+        elif candidate.origin == "equation":
+            support_question = (
+                "Does the displayed equation or assignment explicitly equate this exact "
+                "left-hand symbol with this value or expression?"
+            )
         else:
             support_question = (
                 "Does the evidence explicitly assert this exact relationship with the "
@@ -370,8 +385,8 @@ class JevClient:
         api_key: str,
         *,
         timeout: float = 30.0,
-        choice_batch_size: int = 32,
-        verification_batch_size: int = 64,
+        choice_batch_size: int = 24,
+        verification_batch_size: int = 40,
         max_workers: int = 12,
         attempts: int = 3,
     ) -> None:

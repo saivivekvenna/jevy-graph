@@ -12,6 +12,7 @@ from .normalize import (
     normalize_space,
     object_kind,
 )
+from .structured import extract_structured_frames, mask_table_bodies
 
 
 @dataclass(frozen=True, slots=True)
@@ -631,7 +632,17 @@ def clean_document(text: str) -> str:
 
     paragraphs: list[str] = []
     current: list[str] = []
+    heading = re.compile(
+        r"^(?:Abstract|Acknowledgements|References|"
+        r"\d+(?:\.\d+)*\s+[A-Z][^\n]{1,80})$"
+    )
     for line in lines:
+        if line and heading.fullmatch(line):
+            if current:
+                paragraphs.append(normalize_space(" ".join(current)))
+                current = []
+            paragraphs.append(line)
+            continue
         if line:
             current.append(line)
         elif current:
@@ -664,7 +675,7 @@ def _roman_number(value: str) -> int:
 
 def _source_markers(text: str) -> list[tuple[int, str]]:
     """Infer document-local provision labels without assuming a legal schema."""
-    markers: list[tuple[int, str]] = [(0, "DOCUMENT")]
+    markers: list[tuple[int, str]] = [(-1, "DOCUMENT")]
     article: int | None = None
     amendment: int | None = None
     expression = re.compile(
@@ -683,6 +694,8 @@ def _source_markers(text: str) -> list[tuple[int, str]]:
             label = f"AMENDMENT_{amendment}"
         else:
             section = int(match.group(3) or match.group(4))
+            if article is None and amendment is None:
+                continue
             parent = (
                 f"ARTICLE_{article}"
                 if article is not None
@@ -690,6 +703,21 @@ def _source_markers(text: str) -> list[tuple[int, str]]:
             )
             label = f"{parent}_SECTION_{section}"
         markers.append((match.start(), label))
+    for match in re.finditer(
+        r"(?m)^(Abstract|(?P<number>\d+(?:\.\d+)*)\s+"
+        r"(?P<title>[A-Z][^\n]{1,80}))$",
+        text,
+    ):
+        if match.group(1) == "Abstract":
+            label = "ABSTRACT"
+        else:
+            number = match.group("number").replace(".", "_")
+            title = re.sub(
+                r"[^A-Z0-9]+", "_", match.group("title").upper()
+            ).strip("_")
+            label = f"SECTION_{number}_{title}"
+        markers.append((match.start(), label))
+    markers.sort()
     return markers
 
 
@@ -1483,11 +1511,23 @@ def _semantic_frames(clause: Clause, aliases: dict[str, str]) -> list[RelationFr
 
 def extract_frames(text: str) -> list[RelationFrame]:
     """Build relation frames from clauses using open modal and verb discovery."""
-    prepared = clean_document(text)
+    prose_text = mask_table_bodies(text)
+    prepared = clean_document(prose_text)
     aliases = find_aliases(prepared)
-    clauses = _clauses(text)
-    frames: list[RelationFrame] = []
+    clauses = _clauses(prose_text)
+    frames: list[RelationFrame] = extract_structured_frames(text)
     seen: set[tuple[str, str, str, int, str, str]] = set()
+    for frame in frames:
+        seen.add(
+            (
+                canonical_entity(frame.subject_options[0]).casefold(),
+                "/".join(frame.predicate_options),
+                canonical_entity(frame.object_options[0]).casefold(),
+                frame.sentence_index,
+                frame.modality or "",
+                frame.polarity,
+            )
+        )
     recent_subjects: tuple[str, ...] = ()
     carried_authority = False
     authority_subjects: tuple[str, ...] = ()
@@ -1777,8 +1817,11 @@ def extract_candidates(text: str) -> list[CandidateTriple]:
             polarity=frame.polarity,
             object_kind=object_kind(frame.object_options[0]),
             source_unit=frame.source_unit,
+            source_locator=frame.source_locator,
+            source_page=frame.source_page,
             condition=frame.condition,
             origin=frame.origin,
+            context=frame.context,
         )
         for frame in extract_frames(text)
     ]

@@ -54,6 +54,25 @@ class RdfTests(unittest.TestCase):
         turtle = render_turtle("The System has 42.", [VerifiedTriple(candidate, 0.9, 0.9)])
         self.assertIn('rdf:object "42"^^xsd:integer', turtle)
 
+    def test_renders_scientific_number_and_structured_provenance(self) -> None:
+        candidate = CandidateTriple(
+            subject="Transformer big",
+            predicate="has_training_cost_flops",
+            object="2.3e19",
+            evidence="Transformer big | training cost | 2.3e19",
+            sentence_index=1,
+            start=0,
+            end=42,
+            object_kind="double",
+            source_unit="TABLE_2",
+            source_locator="Table 2",
+            source_page=7,
+        )
+        turtle = render_turtle("table", [VerifiedTriple(candidate, 1.0, 1.0)])
+        self.assertIn('rdf:object "2.3e19"^^xsd:double', turtle)
+        self.assertIn('jevy:sourceLocator "Table 2"', turtle)
+        self.assertIn("jevy:sourcePage 7", turtle)
+
     def test_renders_source_unit_and_condition(self) -> None:
         candidate = CandidateTriple(
             "Congress",

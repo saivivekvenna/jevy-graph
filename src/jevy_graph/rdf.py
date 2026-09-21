@@ -35,6 +35,8 @@ def _object_value(value: str, kind: str) -> str:
         return f'"{value.replace(",", "")}"^^xsd:integer'
     if kind == "decimal":
         return f'"{value.replace(",", "")}"^^xsd:decimal'
+    if kind == "double":
+        return f'"{value.replace(",", "")}"^^xsd:double'
     if kind in {"percent", "string"}:
         return f'"{_escape(value.strip("\\\"\'“”"))}"'
     return _resource("entity", value)
@@ -98,6 +100,16 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
                 *(
                     [f'    jevy:sourceUnit "{_escape(candidate.source_unit)}" ;']
                     if candidate.source_unit
+                    else []
+                ),
+                *(
+                    [f'    jevy:sourceLocator "{_escape(candidate.source_locator)}" ;']
+                    if candidate.source_locator
+                    else []
+                ),
+                *(
+                    [f"    jevy:sourcePage {candidate.source_page} ;"]
+                    if candidate.source_page is not None
                     else []
                 ),
                 *(

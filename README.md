@@ -9,27 +9,32 @@ source-grounded output.
 
 ## Pipeline
 
-1. Clean PDF-extracted text, preserve paragraph boundaries, and normalize
+1. Inspect layout-preserving PDF text for tables, equations, assignments,
+   measurements, page boundaries, and scientific section headings.
+2. Compile table cells and explicit measurements into atomic frames with stable
+   predicates, typed values, row/header context, and cell-level provenance.
+3. Clean the remaining prose, preserve paragraph boundaries, and normalize
    document-declared acronyms and harmless entity variants.
-2. Split text into sentences and semicolon-delimited clauses.
-3. Discover explicit, passive, modal, and negated relations; expand coordinated
+4. Split prose into sentences and semicolon-delimited clauses.
+5. Discover explicit, passive, modal, and negated relations; expand coordinated
    subjects, objects, actions, and inherited list structures.
-4. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
+6. Enumerate up to 64 subject and object spans and rank up to 32 complete RDF
    triple candidates per relation frame.
-5. Ask Jev a comparative `Choice` question for every ambiguous frame.
-6. Verify selected triples with parallel `Noul` questions for exact support and
+7. Ask Jev a comparative `Choice` question for every ambiguous frame.
+8. Verify selected triples with parallel `Noul` questions for exact support and
    entity quality. Apply stricter evidence floors to open-verb discoveries than
    to deterministic semantic and grammatical patterns. Network batches run
    concurrently.
-7. Emit Turtle with evidence, calibrated scores, modality, polarity, normalized
-   offsets, source units, conditions, extraction origin, stable predicates, and
-   conservative literal typing. Negated claims are reified without asserting
-   their positive triples.
+9. Emit Turtle with evidence, calibrated scores, modality, polarity, normalized
+   offsets, source units, table/page locators, conditions, extraction origin,
+   stable predicates, and conservative literal typing. Negated claims are
+   reified without asserting their positive triples.
 
 Frames with only one valid normalized triple bypass comparative selection but
 still receive full support and entity-quality verification. Ambiguous choices
-are sent in batches of 32, verification in batches of 64, with up to twelve
-requests in flight.
+are sent in batches of 24, verification in batches of 40, with up to twelve
+requests in flight. The bounded batches keep dense table evidence below API
+payload limits without serializing the document pipeline.
 
 ## Run
 
@@ -68,12 +73,14 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ## Current scope
 
 - UTF-8 plain text input
+- layout-aware table, equation, assignment, and benchmark-value extraction
+- scientific and legal source-section detection without schema crossover
 - open modal and morphological predicate discovery
 - coordination and legal-list expansion
 - local pronoun recovery and conservative entity normalization
 - concurrent Jev selection and verification
 - Turtle output with provenance, modality, polarity, and typed numeric literals
-- source-unit, condition, and extraction-origin metadata
+- source-unit, page/table locator, condition, and extraction-origin metadata
 - recall fixtures for legal, scientific, and general prose
 
 Binary PDF parsing and external knowledge-base linking are not bundled. Supply

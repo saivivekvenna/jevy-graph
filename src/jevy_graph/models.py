@@ -16,6 +16,8 @@ class RelationFrame:
     modality: str | None = None
     polarity: str = "positive"
     source_unit: str | None = None
+    source_locator: str | None = None
+    source_page: int | None = None
     condition: str | None = None
     origin: str = "pattern"
 
@@ -35,8 +37,11 @@ class CandidateTriple:
     selection_confidence: float = 1.0
     selection_probability: float = 1.0
     source_unit: str | None = None
+    source_locator: str | None = None
+    source_page: int | None = None
     condition: str | None = None
     origin: str = "pattern"
+    context: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

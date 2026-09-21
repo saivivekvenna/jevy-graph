@@ -14,6 +14,9 @@ _LEADING_QUANTIFIER = re.compile(
 _INTEGER = re.compile(r"[+-]?\d[\d,]*")
 _DECIMAL = re.compile(r"[+-]?(?:\d[\d,]*\.\d+|\.\d+)")
 _PERCENT = re.compile(r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)\s*%")
+_DOUBLE = re.compile(
+    r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)[eE][+-]?\d+"
+)
 
 
 def normalize_space(value: str) -> str:
@@ -33,7 +36,13 @@ def find_aliases(text: str) -> dict[str, str]:
 
 
 def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
-    value = normalize_space(value).strip(" \t\n\r.,;:!?()[]{}\"'“”‘’•")
+    value = normalize_space(value).strip(" \t\n\r.,;:!?\"'“”‘’•")
+    if (
+        len(value) >= 2
+        and (value[0], value[-1]) in {("(", ")"), ("[", "]"), ("{", "}")}
+        and value[1:-1].count(value[0]) == value[1:-1].count(value[-1])
+    ):
+        value = value[1:-1].strip()
     value = re.sub(r"^(?:a|an|the)\s+", "", value, flags=re.IGNORECASE)
     if aliases and value.casefold() in aliases:
         return aliases[value.casefold()]
@@ -57,6 +66,8 @@ def object_kind(value: str) -> str:
         return "decimal"
     if _PERCENT.fullmatch(value):
         return "percent"
+    if _DOUBLE.fullmatch(value):
+        return "double"
     if (
         len(value) >= 2
         and value[0] == value[-1]
