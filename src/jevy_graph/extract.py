@@ -206,7 +206,9 @@ _PASSIVE = re.compile(
     r"provided|established|called|accused|convicted|attainted|questioned|"
     r"diminished|increased|denied|abridged|construed|taxed|vacated|entitled|"
     r"apportioned|bound|directed|obliged|presented|approved|disapproved|entered|"
-    r"reconsidered|sent|published|suspended|assembled)"
+    r"reconsidered|sent|published|suspended|assembled|infringed|repealed|"
+    r"imposed|inflicted|discharged|assumed|paid|enforced|executed|counted|"
+    r"compelled|taken|subjected|formed|erected|joined|obliged)"
     r"(?:\s+(?P<prep>in|by|of|to|from|into|upon|on|with|for|as))?\b",
     re.I,
 )
@@ -238,6 +240,34 @@ _GENERIC_ACTIVE = re.compile(
     r"\b(?P<verb>[A-Za-z][A-Za-z'-]*(?:ed|ing|ates|izes|ifies|ects|uces|"
     r"ains|ires))"
     r"(?:\s+(?P<prep>in|on|by|of|to|from|into|upon|with|for|as|around))?\b",
+    re.I,
+)
+_RIGHT_TO = re.compile(
+    r"\b(?:the\s+)?right\s+of\s+(?P<holder>.+?)"
+    r"(?:\s+[A-Za-z'-]+ly)?\s+to\s+(?P<actions>.+?)"
+    rf"(?=,\s*(?:{_MODALS})\b|[.;]|$)",
+    re.I,
+)
+_PURPOSE = re.compile(
+    r"^(?P<subject>.+?)\s+in\s+[Oo]rder\s+to\s+(?P<purposes>.+?),\s*"
+    r"do\s+(?P<declaration>ordain\s+and\s+establish)\s+(?P<object>.+)$",
+    re.I,
+)
+_NECESSARY_TO = re.compile(
+    r"^(?P<subject>[^,]+),\s*being\s+necessary\s+to\s+(?P<object>[^,]+)",
+    re.I,
+)
+_NO_LAW = re.compile(
+    rf"^(?P<subject>.+?)\s+(?P<modal>{_MODALS})\s+make\s+no\s+law\s+"
+    r"respecting\s+(?P<respecting>.+?)(?:,\s*or\s+prohibiting\s+"
+    r"(?P<prohibiting>.+))?$",
+    re.I,
+)
+_NEITHER_EXISTS = re.compile(
+    r"^Neither\s+(?P<first>.+?)\s+nor\s+(?P<second>.+?)"
+    r"(?:,\s*except\s+(?P<exception>.+?))?,\s*"
+    rf"(?P<modal>{_MODALS})\s+(?P<verb>exist|remain|apply)\s+"
+    r"(?P<object>.+)$",
     re.I,
 )
 _SENTENCE = re.compile(r"[^.!?\n]+(?:[.!?]+|\n|$)")
@@ -299,6 +329,7 @@ _GENERIC_VERB_STOP = {
     "during",
     "being",
     "hundred",
+    "regulated",
 }
 _MODAL_VERB_STOP = {
     "after",
@@ -407,6 +438,15 @@ _IRREGULAR_VERBS = {
     "averaging": "averages",
     "relating": "relates_to",
     "consisting": "consists_of",
+    "abridging": "abridges",
+    "denying": "denies",
+    "giving": "gives",
+    "imposing": "imposes",
+    "inflicting": "inflicts",
+    "prohibiting": "prohibits",
+    "respecting": "respects",
+    "receiving": "receives",
+    "arising": "arises_from",
 }
 _ACTION_VERBS = {
     "appoint",
@@ -427,13 +467,56 @@ _ACTION_VERBS = {
     "maintain",
     "make",
     "organize",
+    "pay",
     "promote",
     "provide",
     "punish",
     "raise",
     "regulate",
     "support",
+    "bear",
+    "form",
+    "insure",
+    "keep",
+    "petition",
+    "assemble",
+    "secure",
 }
+
+
+def _action_phrases(value: str) -> tuple[str, ...]:
+    """Split coordinated action phrases while retaining each verb."""
+    verbs = "|".join(sorted(_ACTION_VERBS, key=len, reverse=True))
+    shared_object = re.fullmatch(
+        rf"(?P<first>{verbs})\s+and\s+(?P<second>{verbs})\s+(?P<object>.+)",
+        normalize_space(value).strip(" ,"),
+        re.I,
+    )
+    if shared_object:
+        object_ = shared_object.group("object").strip(" ,")
+        return (
+            f"{shared_object.group('first')} {object_}",
+            f"{shared_object.group('second')} {object_}",
+        )
+    matches = list(
+        re.finditer(
+            rf"(?:^|,\s*|\s+and\s+|\s+or\s+)(?:to\s+)?"
+            rf"(?P<verb>{verbs})\b",
+            normalize_space(value),
+            re.I,
+        )
+    )
+    if not matches:
+        return ()
+    phrases: list[str] = []
+    normalized = normalize_space(value)
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(normalized)
+        phrase = normalize_space(f"{match.group('verb')} {normalized[match.end():end]}")
+        phrase = phrase.strip(" ,")
+        if phrase:
+            phrases.append(phrase)
+    return tuple(phrases)
 
 
 def clean_document(text: str) -> str:
@@ -697,7 +780,10 @@ def _valid_entity(value: str) -> bool:
             len(canonical_words) == 1
             and _BAD_STANDALONE.fullmatch(canonical_words[0])
         )
-        and not _BAD_ENTITY.fullmatch(words[0])
+        and not (
+            _BAD_ENTITY.fullmatch(words[0])
+            and not re.match(r"^we\s+the\b", value, re.I)
+        )
         and not _BAD_ENTITY.fullmatch(words[-1])
         and not _BAD_ENTITY_START.match(value)
         and any(character.isalnum() for character in value)
@@ -880,6 +966,149 @@ def _object_branches(value: str, predicate: str) -> tuple[str, ...]:
     return _split_list(primary)
 
 
+def _semantic_frames(clause: Clause, aliases: dict[str, str]) -> list[RelationFrame]:
+    """Emit exact frames for semantic structures that surface parsing obscures."""
+    frames: list[RelationFrame] = []
+    seen: set[tuple[str, str, str, str, str]] = set()
+
+    def add(
+        subject: str,
+        predicate: str,
+        object_: str,
+        *,
+        modality: str | None = None,
+        polarity: str = "positive",
+    ) -> None:
+        subject = canonical_entity(subject, aliases)
+        object_ = canonical_entity(object_, aliases)
+        key = (
+            subject.casefold(),
+            predicate,
+            object_.casefold(),
+            modality or "",
+            polarity,
+        )
+        if key in seen or not _valid_entity(subject) or not _valid_entity(object_):
+            return
+        seen.add(key)
+        frames.append(
+            RelationFrame(
+                subject_options=(subject,),
+                predicate_options=(predicate,),
+                object_options=(object_,),
+                evidence=clause.text,
+                context=clause.context,
+                sentence_index=clause.sentence_index,
+                start=clause.start,
+                end=clause.end,
+                modality=modality,
+                polarity=polarity,
+            )
+        )
+
+    purpose = _PURPOSE.match(clause.text)
+    if purpose:
+        declaration_object = re.sub(
+            r"^(?:this|that)\s+", "", purpose.group("object"), flags=re.I
+        )
+        add(
+            purpose.group("subject"),
+            "ordains_and_establishes",
+            declaration_object,
+        )
+        purpose_subject = re.sub(
+            r"\s+for\s+.+$", "", declaration_object, flags=re.I
+        )
+        for action in _action_phrases(purpose.group("purposes")):
+            add(purpose_subject, "has_purpose", action)
+
+    necessary = _NECESSARY_TO.match(clause.text)
+    if necessary:
+        add(
+            necessary.group("subject"),
+            "necessary_to",
+            necessary.group("object"),
+        )
+
+    no_law = _NO_LAW.match(clause.text)
+    if no_law:
+        add(
+            no_law.group("subject"),
+            "respects",
+            no_law.group("respecting"),
+            modality=no_law.group("modal").casefold(),
+            polarity="negative",
+        )
+        if no_law.group("prohibiting"):
+            add(
+                no_law.group("subject"),
+                "prohibits",
+                no_law.group("prohibiting"),
+                modality=no_law.group("modal").casefold(),
+                polarity="negative",
+            )
+
+    first_passive = _PASSIVE.search(clause.text)
+    if first_passive and first_passive.group("modal") and ", nor " in clause.text.lower():
+        for segment in re.split(r",\s*nor\s+", clause.text, flags=re.I)[1:]:
+            elliptical = re.fullmatch(
+                r"(?P<subject>.+?)\s+"
+                r"(?P<verb>required|imposed|inflicted|denied|abridged|taken)\.?",
+                normalize_space(segment),
+                re.I,
+            )
+            if elliptical:
+                add(
+                    elliptical.group("subject"),
+                    "type",
+                    elliptical.group("verb").casefold(),
+                    modality=first_passive.group("modal").casefold(),
+                    polarity=(
+                        "negative" if first_passive.group("negative") else "positive"
+                    ),
+                )
+
+    neither = _NEITHER_EXISTS.match(clause.text)
+    if neither:
+        object_ = re.sub(r"^within\s+", "", neither.group("object"), flags=re.I)
+        for subject in (neither.group("first"), neither.group("second")):
+            add(
+                subject,
+                "exists_in",
+                object_,
+                modality=neither.group("modal").casefold(),
+                polarity="negative",
+            )
+        if neither.group("exception"):
+            add(
+                neither.group("second"),
+                "has_exception",
+                re.sub(r"^as\s+", "", neither.group("exception"), flags=re.I),
+            )
+
+    for right in _RIGHT_TO.finditer(clause.text):
+        holder = right.group("holder")
+        actions = _action_phrases(right.group("actions"))
+        for action in actions or (right.group("actions"),):
+            add(holder, "has_right_to", action)
+        passive = re.search(
+            rf",\s*(?P<modal>{_MODALS})\s+(?P<negative>not\s+)?be\s+"
+            r"(?P<verb>denied|abridged|infringed)\b",
+            clause.text[right.end() :],
+            re.I,
+        )
+        if passive:
+            right_label = normalize_space(right.group())
+            add(
+                right_label,
+                "type",
+                passive.group("verb").casefold(),
+                modality=passive.group("modal").casefold(),
+                polarity="negative" if passive.group("negative") else "positive",
+            )
+    return frames
+
+
 def extract_frames(text: str) -> list[RelationFrame]:
     """Build relation frames from clauses using open modal and verb discovery."""
     prepared = clean_document(text)
@@ -890,12 +1119,60 @@ def extract_frames(text: str) -> list[RelationFrame]:
     recent_subjects: tuple[str, ...] = ()
     carried_authority = False
     authority_subjects: tuple[str, ...] = ()
+    active_sentence = -1
+    sentence_subjects: tuple[str, ...] = ()
+    sentence_predicates: tuple[str, ...] = ()
+    sentence_modality: str | None = None
+    sentence_polarity = "positive"
 
     for clause in clauses:
+        if clause.sentence_index != active_sentence:
+            active_sentence = clause.sentence_index
+            sentence_subjects = ()
+            sentence_predicates = ()
+            sentence_modality = None
+            sentence_polarity = "positive"
         if re.match(r"^(?:Section|Article|Amendment)\b", clause.text, re.I):
             carried_authority = False
             authority_subjects = ()
+
+        semantic_frames = _semantic_frames(clause, aliases)
+        for semantic in semantic_frames:
+            key = (
+                canonical_entity(semantic.subject_options[0]).casefold(),
+                "/".join(semantic.predicate_options),
+                canonical_entity(semantic.object_options[0]).casefold(),
+                semantic.sentence_index,
+                semantic.modality or "",
+                semantic.polarity,
+            )
+            if key not in seen:
+                seen.add(key)
+                frames.append(semantic)
+
+        if _PURPOSE.match(clause.text) or _NEITHER_EXISTS.match(clause.text):
+            continue
+
         hits = _relation_hits(clause.text)
+        authority_hit = next(
+            (hit for hit in hits if hit.predicates[0] == "authorized_to"), None
+        )
+        if authority_hit:
+            action_verbs = "|".join(sorted(_ACTION_VERBS, key=len, reverse=True))
+            for match in re.finditer(
+                rf"\bto\s+(?P<verb>{action_verbs})\b", clause.text, re.I
+            ):
+                candidate_hit = RelationHit(
+                    match.start(),
+                    match.start() + 2,
+                    ("authorized_to",),
+                    authority_hit.modality,
+                    authority_hit.polarity,
+                    5,
+                )
+                if not _overlaps(candidate_hit, hits):
+                    hits.append(candidate_hit)
+            hits.sort(key=lambda item: item.start)
         continuation = re.match(r"^(?:and\s+)?to\s+", clause.text, re.I)
         if carried_authority and continuation:
             hits = [
@@ -908,6 +1185,17 @@ def extract_frames(text: str) -> list[RelationFrame]:
                     5,
                 )
             ]
+        elif continuation and sentence_subjects and sentence_predicates:
+            hits = [
+                RelationHit(
+                    continuation.start(),
+                    continuation.end(),
+                    sentence_predicates,
+                    sentence_modality,
+                    sentence_polarity,
+                    5,
+                )
+            ]
         if not hits:
             continue
 
@@ -917,7 +1205,25 @@ def extract_frames(text: str) -> list[RelationFrame]:
         clause_subjects: tuple[str, ...] = ()
         for hit_index, hit in enumerate(hits):
             subject_text = clause.text[prior_hit_end : hit.start]
-            if clause_subjects and re.match(
+            inherits_sentence_subject = bool(
+                sentence_subjects
+                and (
+                    (
+                        clause.continuation
+                        and re.match(r"^(?:and|or|nor|to)\b", clause.text, re.I)
+                    )
+                    or (hit_index > 0 and hit.modality is None and hit.priority <= 1)
+                    or (
+                        hit_index > 0
+                        and re.search(
+                            r"(?:,|\b)(?:and|or|nor)\s*$", subject_text, re.I
+                        )
+                    )
+                )
+            )
+            if inherits_sentence_subject:
+                raw_subjects = sentence_subjects
+            elif clause_subjects and re.match(
                 r"^\s*,?\s*and\s+(?:by|with|after|before|in|on|at|from)\b",
                 subject_text,
                 re.I,
@@ -964,6 +1270,11 @@ def extract_frames(text: str) -> list[RelationFrame]:
                     if not object_options:
                         continue
                     polarity = hit.polarity
+                    modality = hit.modality
+                    if inherits_sentence_subject:
+                        modality = modality or sentence_modality
+                        if polarity == "positive" and sentence_polarity == "negative":
+                            polarity = "negative"
                     if re.match(r"^(?:no|not|never)\b", subject_branch, re.I) or re.match(
                         r"^(?:no|not|never)\b", object_branch, re.I
                     ) or re.search(
@@ -979,7 +1290,7 @@ def extract_frames(text: str) -> list[RelationFrame]:
                         "/".join(hit.predicates),
                         canonical_entity(object_options[0]).casefold(),
                         clause.sentence_index,
-                        hit.modality or "",
+                        modality or "",
                         polarity,
                     )
                     if key in seen:
@@ -995,10 +1306,15 @@ def extract_frames(text: str) -> list[RelationFrame]:
                             sentence_index=clause.sentence_index,
                             start=clause.start,
                             end=clause.end,
-                            modality=hit.modality,
+                            modality=modality,
                             polarity=polarity,
                         )
                     )
+            if subjects and not sentence_subjects and hit.modality:
+                sentence_subjects = subjects[:1]
+                sentence_predicates = hit.predicates
+                sentence_modality = hit.modality
+                _, sentence_polarity = _modal_and_polarity(clause.text)
             if primary_predicate == "authorized_to":
                 carried_authority = True
                 if subjects:
@@ -1012,7 +1328,19 @@ def extract_frames(text: str) -> list[RelationFrame]:
             first_subjects = _subject_options(subject_text, aliases, context_entities)
             if first_subjects and not _PRONOUN.fullmatch(first_subjects[0]):
                 recent_subjects = first_subjects[:4]
-    return frames
+    return [
+        frame
+        for frame in frames
+        if not (
+            frame.predicate_options[0] == "makes"
+            and canonical_entity(frame.object_options[0]).casefold() == "law"
+            and re.search(
+                r"\bmake\s+no\s+law\s+(?:respecting|prohibiting|abridging)\b",
+                frame.evidence,
+                re.I,
+            )
+        )
+    ]
 
 
 def extract_candidates(text: str) -> list[CandidateTriple]:
