@@ -5,10 +5,11 @@ import re
 import time
 import urllib.error
 import urllib.request
-from collections.abc import Callable
-from concurrent.futures import ThreadPoolExecutor
+from collections.abc import Callable, Iterator
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, replace
 from itertools import product
+from threading import Lock
 from typing import TypeVar
 
 from .models import CandidateTriple, RelationFrame, VerifiedTriple
@@ -399,6 +400,7 @@ class JevClient:
         self.max_workers = max_workers
         self.attempts = attempts
         self.singleton_selections = 0
+        self._stats_lock = Lock()
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
         resolved: dict[int, CandidateTriple] = {}
@@ -435,6 +437,58 @@ class JevClient:
 
     def score(self, frames: list[RelationFrame]) -> list[VerifiedTriple]:
         return self.verify(self.resolve(frames))
+
+    def iter_score_batches(
+        self, frames: list[RelationFrame]
+    ) -> Iterator[list[VerifiedTriple]]:
+        """Yield independently verified frame batches as they actually complete."""
+        batches = _batches(frames, self.choice_batch_size)
+        if not batches:
+            return
+        with ThreadPoolExecutor(
+            max_workers=min(self.max_workers, len(batches))
+        ) as executor:
+            futures = [
+                executor.submit(self._score_frame_batch, batch) for batch in batches
+            ]
+            for future in as_completed(futures):
+                verified = future.result()
+                if verified:
+                    yield verified
+
+    def _score_frame_batch(
+        self, frames: list[RelationFrame]
+    ) -> list[VerifiedTriple]:
+        resolved: dict[int, CandidateTriple] = {}
+        pending_indexes: list[int] = []
+        pending_frames: list[RelationFrame] = []
+        eligible_index = 0
+        singleton_count = 0
+        for frame in frames:
+            options = _triple_options(frame)
+            if not options:
+                continue
+            if len(options) == 1:
+                resolved[eligible_index] = _candidate(frame, options[0])
+                singleton_count += 1
+            else:
+                pending_indexes.append(eligible_index)
+                pending_frames.append(frame)
+            eligible_index += 1
+
+        if singleton_count:
+            with self._stats_lock:
+                self.singleton_selections += singleton_count
+        if pending_frames:
+            selected = self._resolve_batch(pending_frames)
+            for index, candidate in zip(pending_indexes, selected, strict=True):
+                resolved[index] = candidate
+
+        candidates = [resolved[index] for index in range(eligible_index)]
+        verified: list[VerifiedTriple] = []
+        for batch in _batches(candidates, self.verification_batch_size):
+            verified.extend(self._verify_batch(batch))
+        return verified
 
     def _resolve_batch(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
         return parse_choice_answers(frames, self._post(build_choice_request(frames)))

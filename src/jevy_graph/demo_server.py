@@ -7,7 +7,6 @@ import os
 import shutil
 import subprocess
 import tempfile
-import time
 import urllib.parse
 import zipfile
 from functools import partial
@@ -118,34 +117,40 @@ class DemoHandler(SimpleHTTPRequestHandler):
                 raise ValueError("TYPESAFE_API_KEY is missing from the server environment.")
 
             client = JevClient(api_key)
-            verified = client.score(frames)
-            accepted = _deduplicate(
-                [item for item in verified if _accepted(item, 0.45, 0.10, 0.70)]
-            )
-            self._event(
-                {"type": "stage", "stage": "verified", "claims": len(accepted)}
-            )
-            for index, item in enumerate(accepted):
-                candidate = item.candidate
-                predicate = candidate.predicate
-                if candidate.polarity == "negative":
-                    predicate = f"not {predicate}"
-                self._event(
-                    {
-                        "type": "claim",
-                        "claim": {
-                            "subject": candidate.subject,
-                            "predicate": predicate,
-                            "object": candidate.object,
-                            "evidence": candidate.evidence,
-                            "sourceUnit": candidate.source_unit,
-                            "support": item.support,
-                        },
-                    }
+            seen: set[tuple[str, str, str, str, str, str]] = set()
+            claim_count = 0
+            for verified_batch in client.iter_score_batches(frames):
+                accepted = _deduplicate(
+                    [
+                        item
+                        for item in verified_batch
+                        if _accepted(item, 0.45, 0.10, 0.70)
+                    ],
+                    seen,
                 )
-                if index % 4 == 3:
-                    time.sleep(0.018)
-            self._event({"type": "done", "claims": len(accepted)})
+                for item in accepted:
+                    candidate = item.candidate
+                    predicate = candidate.predicate
+                    if candidate.polarity == "negative":
+                        predicate = f"not {predicate}"
+                    self._event(
+                        {
+                            "type": "claim",
+                            "claim": {
+                                "subject": candidate.subject,
+                                "predicate": predicate,
+                                "object": candidate.object,
+                                "evidence": candidate.evidence,
+                                "sourceUnit": candidate.source_unit,
+                                "support": item.support,
+                            },
+                        }
+                    )
+                    claim_count += 1
+                self._event(
+                    {"type": "stage", "stage": "verified", "claims": claim_count}
+                )
+            self._event({"type": "done", "claims": claim_count})
         except (BrokenPipeError, ConnectionResetError):
             return
         except (JevError, OSError, ValueError) as error:

@@ -137,10 +137,6 @@ function scheduleStreamFormat(requestId) {
   });
 }
 
-function nextPaint() {
-  return new Promise((resolve) => window.requestAnimationFrame(resolve));
-}
-
 function addClaim(claim, index, requestId) {
   if (requestId !== activeRequest) return;
   const subjectId = idFor(claim.subject);
@@ -198,16 +194,13 @@ function updateLabels() {
 }
 
 function finishGraph() {
-  const showPrimaryNeighborhood = () => {
+  const preserveOverview = () => {
+    selectedNodeId = null;
     overviewPositions = new Map(
       cy.nodes().map((node) => [node.id(), { ...node.position() }])
     );
-    const primary = [...cy.nodes()].sort(
-      (left, right) => right.degree(false) - left.degree(false)
-    )[0];
-    if (!primary) return;
-    selectedNodeId = primary.id();
-    focusNode(primary, true);
+    updateLabels();
+    cy.fit(cy.elements(), 48);
   };
   cy.layout({
     name: "cose",
@@ -222,7 +215,7 @@ function finishGraph() {
     numIter: 700,
     padding: 48,
     randomize: true,
-    stop: () => window.setTimeout(showPrimaryNeighborhood, 1000)
+    stop: preserveOverview
   }).run();
 }
 
@@ -265,7 +258,6 @@ async function compile(file) {
         if (event.type === "claim") {
           addClaim(event.claim, claimIndex, requestId);
           claimIndex += 1;
-          if (claimIndex % 3 === 0) await nextPaint();
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {

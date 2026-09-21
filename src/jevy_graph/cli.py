@@ -12,10 +12,14 @@ from .normalize import graphable_node
 from .rdf import render_turtle
 
 
-def _deduplicate(items: list[VerifiedTriple]) -> list[VerifiedTriple]:
+def _deduplicate(
+    items: list[VerifiedTriple],
+    seen: set[tuple[str, str, str, str, str, str]] | None = None,
+) -> list[VerifiedTriple]:
     """Collapse only duplicate interpretations of the same source occurrence."""
     result: list[VerifiedTriple] = []
-    seen: set[tuple[str, str, str, str, str, str]] = set()
+    if seen is None:
+        seen = set()
     for item in items:
         candidate = item.candidate
         key = (

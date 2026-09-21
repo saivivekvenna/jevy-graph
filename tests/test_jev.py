@@ -10,7 +10,7 @@ from jevy_graph.jev import (
     parse_choice_answers,
     parse_verification_answers,
 )
-from jevy_graph.models import CandidateTriple, RelationFrame
+from jevy_graph.models import CandidateTriple, RelationFrame, VerifiedTriple
 
 
 def frame() -> RelationFrame:
@@ -48,6 +48,31 @@ class JevTests(unittest.TestCase):
         result = client.resolve([custom_frame])
         self.assertEqual(len(result), 1)
         self.assertEqual(client.singleton_selections, 1)
+
+    def test_streams_verified_batches_without_waiting_for_global_score(self) -> None:
+        custom_frame = RelationFrame(
+            ("Toronto",),
+            ("type",),
+            ("city",),
+            "Toronto is a city.",
+            "Toronto is a city.",
+            0,
+            0,
+            18,
+        )
+
+        class LocalClient(JevClient):
+            def _verify_batch(
+                self, candidates: list[CandidateTriple]
+            ) -> list[VerifiedTriple]:
+                return [
+                    VerifiedTriple(candidate, 0.9, 0.9) for candidate in candidates
+                ]
+
+        client = LocalClient("test", choice_batch_size=1, max_workers=2)
+        batches = list(client.iter_score_batches([custom_frame, custom_frame]))
+        self.assertEqual([len(batch) for batch in batches], [1, 1])
+        self.assertEqual(client.singleton_selections, 2)
 
     def test_builds_comparative_choice_over_complete_candidates(self) -> None:
         request = build_choice_request([frame()])
