@@ -23,8 +23,8 @@ const cy = cytoscape({
         color: "#111",
         content: "",
         "font-family": "Inter, -apple-system, sans-serif",
-        "font-size": 9,
-        "font-weight": 500,
+        "font-size": 12,
+        "font-weight": 600,
         height: 9,
         width: 9,
         padding: 0,
@@ -86,6 +86,8 @@ const cy = cytoscape({
         "background-color": "#111",
         "border-color": "#111",
         color: "#fff",
+        "text-background-color": "#111",
+        "text-background-opacity": 1,
         "z-index": 11
       }
     },
@@ -143,8 +145,9 @@ function addClaim(claim, index, requestId) {
   if (requestId !== activeRequest) return;
   const subjectId = idFor(claim.subject);
   const objectId = idFor(claim.object);
-  const widthFor = (label) => Math.min(180, Math.max(54, label.length * 5.6));
-  const heightFor = (label) => Math.min(64, Math.max(24, Math.ceil(label.length / 28) * 11));
+  const widthFor = (label) => Math.min(220, Math.max(68, label.length * 7));
+  const heightFor = (label) =>
+    Math.min(84, Math.max(32, Math.ceil(label.length / 26) * 15));
 
   if (cy.$id(subjectId).empty()) {
     cy.add({
@@ -231,7 +234,7 @@ async function compile(file) {
   cy.elements().remove();
   tooltip.classList.remove("visible");
   document.querySelector("#cy").dataset.claims = "0";
-  sourceText.textContent = "Hover over an edge to see its source sentence.";
+  setSourceText("Hover over an edge or leaf node to see its source sentence.");
   drop.classList.add("busy");
   detail.textContent = "PDF, TXT, DOCX";
 
@@ -272,7 +275,7 @@ async function compile(file) {
       if (done) break;
     }
   } catch (error) {
-    sourceText.textContent = error.message || "The document could not be compiled.";
+    setSourceText(error.message || "The document could not be compiled.");
   } finally {
     if (requestId === activeRequest) drop.classList.remove("busy");
   }
@@ -287,7 +290,14 @@ function focus(edge) {
   const neighborhood = edge.connectedNodes().union(edge);
   cy.elements().addClass("faded").removeClass("focused labeled hub");
   neighborhood.removeClass("faded").addClass("focused");
-  sourceText.textContent = edge.data("evidence");
+  setSourceText(edge.data("evidence"));
+}
+
+function setSourceText(text) {
+  sourceText.textContent = text;
+  sourceText.classList.toggle("long", text.length > 260);
+  sourceText.classList.toggle("very-long", text.length > 440);
+  window.requestAnimationFrame(() => cy.resize());
 }
 
 function tooltipText(edge) {
@@ -298,8 +308,16 @@ function showTooltip(text, renderedPosition) {
   tooltip.textContent = text;
   tooltip.classList.add("visible");
   const graph = document.querySelector("#cy");
-  const left = Math.max(16, Math.min(renderedPosition.x + 18, graph.clientWidth - 420));
-  const top = Math.max(16, Math.min(renderedPosition.y + 18, graph.clientHeight - 100));
+  const width = tooltip.offsetWidth;
+  const height = tooltip.offsetHeight;
+  const left = Math.max(
+    16,
+    Math.min(renderedPosition.x + 18, graph.clientWidth - width - 16)
+  );
+  const top = Math.max(
+    16,
+    Math.min(renderedPosition.y + 18, graph.clientHeight - height - 16)
+  );
   tooltip.style.transform = `translate(${left}px, ${top}px)`;
 }
 
@@ -319,7 +337,7 @@ function focusNode(node, zoom = false) {
   labeledNeighbors.addClass("labeled");
   neighborhood.edges().removeClass("faded hidden");
 
-  sourceText.textContent = `${node.data("label")} · ${allEdges.length} relationships`;
+  setSourceText(`${node.data("label")} · ${allEdges.length} relationships`);
   if (zoom) {
     cy.stop();
     const neighbors = [...labeledNeighbors];
@@ -361,7 +379,7 @@ function clearFocus() {
   } else {
     updateLabels();
   }
-  sourceText.textContent = "Hover over an edge to see its source sentence.";
+  setSourceText("Hover over an edge or leaf node to see its source sentence.");
 }
 
 cy.on("mouseover", "edge", (event) => {
@@ -376,13 +394,28 @@ cy.on("mouseout", "edge", () => {
   clearFocus();
 });
 cy.on("mouseover", "node", (event) => {
-  event.target.addClass("hovered");
-  showTooltip(event.target.data("label"), event.renderedPosition);
+  const node = event.target;
+  const edges = node.connectedEdges();
+  node.addClass("hovered");
+  if (edges.length === 1) {
+    const edge = edges[0];
+    focus(edge);
+    showTooltip(tooltipText(edge), event.renderedPosition);
+  } else {
+    showTooltip(node.data("label"), event.renderedPosition);
+  }
 });
 cy.on("mousemove", "node", (event) => {
-  showTooltip(event.target.data("label"), event.renderedPosition);
+  const edges = event.target.connectedEdges();
+  showTooltip(
+    edges.length === 1 ? tooltipText(edges[0]) : event.target.data("label"),
+    event.renderedPosition
+  );
 });
-cy.on("mouseout", "node", hideTooltip);
+cy.on("mouseout", "node", (event) => {
+  hideTooltip();
+  if (event.target.connectedEdges().length === 1) clearFocus();
+});
 cy.on("tap", "edge", (event) => focus(event.target));
 cy.on("tap", "node", (event) => {
   selectedNodeId = event.target.id();
