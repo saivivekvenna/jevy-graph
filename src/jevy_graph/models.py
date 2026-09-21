@@ -24,10 +24,14 @@ class CandidateTriple:
     sentence_index: int
     start: int
     end: int
+    resolution_confidence: float = 1.0
+    resolution_probability: float = 1.0
 
 
 @dataclass(frozen=True, slots=True)
 class VerifiedTriple:
     candidate: CandidateTriple
     support: float
+    direction: float
     factuality: float
+    entity_quality: float

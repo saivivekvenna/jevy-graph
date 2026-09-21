@@ -13,9 +13,13 @@ conservative output over broad language coverage.
 2. Detect relation-bearing clauses with deterministic patterns.
 3. Enumerate up to 48 subject and 48 object spans per relation, including modal
    forms such as `Congress shall` and their canonical alternatives.
-4. Ask Jev `Choice` questions to select a subject, predicate, and object.
-5. Ask Jev two independent `Noul` questions for support and factuality.
-6. Emit accepted triples as Turtle with source evidence and probabilities.
+4. Rank and normalize up to 96 complete subject-predicate-object candidates.
+5. Ask one Jev `Choice` question to select a complete triple, retaining its
+   probability and confidence. The API model version is pinned for repeatable
+   evaluations.
+6. Ask four independent Jev `Noul` questions for explicit support, direction,
+   factuality, and entity-label quality.
+7. Emit accepted triples as Turtle with source evidence and probabilities.
 
 ## Run
 
@@ -37,8 +41,9 @@ printf 'Alice founded Acme. Acme is located in Toronto.' \
 ```
 
 Each accepted relationship is emitted together with an `rdf:Statement` carrying
-its source sentence and Jev support/factuality probabilities. The default
-threshold is `0.80`; change it with `--threshold`.
+its source sentence and all Jev decision scores. Support, direction, and
+factuality default to `0.80`; entity quality defaults to `0.35`. Change them
+with `--threshold` and `--entity-threshold`.
 
 ## Test
 

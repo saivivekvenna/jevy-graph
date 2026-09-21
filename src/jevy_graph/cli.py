@@ -33,7 +33,19 @@ def _parser() -> argparse.ArgumentParser:
         "--threshold",
         type=float,
         default=0.80,
-        help="minimum Jev support and factuality probability (default: 0.80)",
+        help="minimum Jev support, direction, and factuality probability (default: 0.80)",
+    )
+    parser.add_argument(
+        "--entity-threshold",
+        type=float,
+        default=0.35,
+        help="minimum entity-label quality probability (default: 0.35)",
+    )
+    parser.add_argument(
+        "--resolution-confidence",
+        type=float,
+        default=0.25,
+        help="minimum confidence for Jev's joint triple choice (default: 0.25)",
     )
     parser.add_argument(
         "--no-verify",
@@ -53,19 +65,29 @@ def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     if not 0 <= args.threshold <= 1:
         raise SystemExit("--threshold must be between 0 and 1")
+    if not 0 <= args.entity_threshold <= 1:
+        raise SystemExit("--entity-threshold must be between 0 and 1")
+    if not 0 <= args.resolution_confidence <= 1:
+        raise SystemExit("--resolution-confidence must be between 0 and 1")
 
     text = _read_text(args.input)
     frames = extract_frames(text)
     if args.no_verify:
         candidates = extract_candidates(text)
-        verified = [VerifiedTriple(candidate, 1.0, 1.0) for candidate in candidates]
+        verified = [
+            VerifiedTriple(candidate, 1.0, 1.0, 1.0, 1.0)
+            for candidate in candidates
+        ]
     else:
         _load_dotenv()
         api_key = os.environ.get("TYPESAFE_API_KEY", "")
         if not api_key:
             raise SystemExit("TYPESAFE_API_KEY is missing; set it in the environment or .env")
         try:
-            client = JevClient(api_key)
+            client = JevClient(
+                api_key,
+                resolution_confidence=args.resolution_confidence,
+            )
             candidates = client.resolve(frames)
             verified = client.verify(candidates)
         except JevError as error:
@@ -74,7 +96,10 @@ def main(argv: list[str] | None = None) -> int:
     accepted = [
         item
         for item in verified
-        if item.support >= args.threshold and item.factuality >= args.threshold
+        if item.support >= args.threshold
+        and item.direction >= args.threshold
+        and item.factuality >= args.threshold
+        and item.entity_quality >= args.entity_threshold
     ]
     output = render_turtle(text, accepted)
     if args.output:

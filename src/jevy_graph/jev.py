@@ -7,12 +7,14 @@ import urllib.error
 import urllib.request
 from collections.abc import Iterable
 from dataclasses import asdict
+from itertools import product
 from typing import TypeVar
 
 from .models import CandidateTriple, RelationFrame, VerifiedTriple
 from .normalize import canonical_label
 
 API_URL = "https://api.typesafe.ai/v1/systemone"
+MODEL = "jev-1.13.0"
 T = TypeVar("T")
 
 
@@ -20,74 +22,164 @@ class JevError(RuntimeError):
     pass
 
 
-def _choice_criteria(prefix: str, options: tuple[str, ...]) -> dict[str, str]:
-    criteria = {f"{prefix}{index}": option for index, option in enumerate(options)}
-    criteria["none"] = "No candidate is a precise, supported answer."
-    return criteria
+def _normalize_components(
+    subject: str, predicate: str, object_: str
+) -> tuple[str, str, str] | None:
+    subject = canonical_label(subject)
+    subject = re.sub(
+        r"\s+(?:do|does|did|can|could|will|would|shall|may|might|must|should|"
+        r"has|have|had|is|are|was|were|be|been|being)$",
+        "",
+        subject,
+        flags=re.I,
+    )
+    object_ = canonical_label(object_)
+    if predicate in {"has", "possesses"} and re.match(
+        r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", object_, re.I
+    ):
+        predicate = "authorized_to"
+    if predicate == "authorized_to":
+        object_ = re.sub(
+            r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", "", object_, flags=re.I
+        )
+        object_ = re.sub(r"^to\s+", "", object_, flags=re.I)
+    elif predicate == "used_with":
+        object_ = re.sub(
+            r"^(?:(?:in\s+)?conjunction\s+with|with)\s+", "", object_, flags=re.I
+        )
+    object_ = canonical_label(object_)
+    if predicate == "authorized_to" and object_.casefold() in {"power", "sole power"}:
+        return None
+    if not subject or not object_ or re.match(r"^(?:no|not|without)\b", object_, re.I):
+        return None
+    return subject, predicate, object_
+
+
+def _triple_options(
+    frame: RelationFrame, limit: int = 96
+) -> tuple[tuple[str, str, str], ...]:
+    indexes = product(
+        range(len(frame.subject_options)),
+        range(len(frame.predicate_options)),
+        range(len(frame.object_options)),
+    )
+    ranked = sorted(indexes, key=lambda item: (sum(item), max(item), item))
+    options: list[tuple[str, str, str]] = []
+    seen: set[tuple[str, str, str]] = set()
+    has_power_to = any(
+        re.match(
+            r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+",
+            canonical_label(value),
+            re.I,
+        )
+        for value in frame.object_options
+    )
+    passive_with = bool(
+        re.search(
+            r"\b(?:is|are|was|were|be|been|being)\s+used\s+"
+            r"(?:(?:in\s+)?conjunction\s+with|with)\b",
+            frame.evidence,
+            re.I,
+        )
+    )
+    for subject_index, predicate_index, object_index in ranked:
+        predicate = frame.predicate_options[predicate_index]
+        raw_object = canonical_label(frame.object_options[object_index])
+        is_with_complement = bool(
+            re.match(r"^(?:(?:in\s+)?conjunction\s+with|with)\s+", raw_object, re.I)
+        )
+        if has_power_to and predicate in {"has", "possesses"}:
+            continue
+        if passive_with and predicate != "used_with":
+            continue
+        if predicate == "used_with" and not is_with_complement:
+            continue
+        if predicate in {"uses", "applies"} and is_with_complement:
+            continue
+        normalized = _normalize_components(
+            frame.subject_options[subject_index],
+            predicate,
+            frame.object_options[object_index],
+        )
+        if normalized is None:
+            continue
+        key = tuple(value.casefold() for value in normalized)
+        if key in seen:
+            continue
+        seen.add(key)
+        options.append(normalized)
+        if len(options) == limit:
+            break
+    return tuple(options)
 
 
 def build_resolution_request(frames: list[RelationFrame]) -> dict[str, object]:
     questions: dict[str, object] = {}
     for index, frame in enumerate(frames):
-        shared = {"context": frame.context, "evidence": frame.evidence}
-        questions[f"f{index}_subject"] = {
-            "type": "choice",
-            "instructions": {
-                **shared,
-                "question": (
-                    "Which option is the minimal complete semantic subject of the relation "
-                    "expressed in `evidence`? Exclude determiners, modal verbs, and auxiliaries."
-                ),
-            },
-            "criteria": _choice_criteria("s", frame.subject_options),
+        options = _triple_options(frame)
+        criteria: dict[str, object] = {
+            f"t{option_index}": {
+                "subject": subject,
+                "predicate": predicate,
+                "object": object_,
+            }
+            for option_index, (subject, predicate, object_) in enumerate(options)
         }
-        questions[f"f{index}_predicate"] = {
-            "type": "choice",
-            "instructions": {
-                **shared,
-                "question": (
-                    "Which normalized predicate most precisely represents the relation "
-                    "expressed in `evidence`?"
-                ),
-            },
-            "criteria": _choice_criteria("p", frame.predicate_options),
+        criteria["none"] = {
+            "meaning": "No candidate triple is precisely and explicitly supported."
         }
-        questions[f"f{index}_object"] = {
+        questions[f"f{index}_triple"] = {
             "type": "choice",
             "instructions": {
-                **shared,
+                "context": frame.context,
+                "evidence": frame.evidence,
                 "question": (
-                    "Which option is the minimal complete semantic object of the relation "
-                    "expressed in `evidence`? Include necessary complements but no extra claim."
+                    "Which complete subject-predicate-object triple most precisely captures "
+                    "one relationship explicitly asserted by `evidence`? Select `none` if "
+                    "every option has a wrong boundary, meaning, direction, or factual status."
                 ),
             },
-            "criteria": _choice_criteria("o", frame.object_options),
+            "criteria": criteria,
         }
     return {
-        "model": "jev-latest",
+        "model": MODEL,
         "state": {"task": "Resolve deterministic knowledge graph candidate lattices."},
         "questions": questions,
     }
 
 
-def _selected_option(
-    answer: object, options: tuple[str, ...], prefix: str, frame_index: int
-) -> str | None:
+def _selected_triple(
+    answer: object,
+    options: tuple[tuple[str, str, str], ...],
+    frame_index: int,
+    minimum_confidence: float,
+) -> tuple[tuple[str, str, str], float, float] | None:
     if not isinstance(answer, dict):
         raise JevError(f"Jev omitted a resolution answer for frame {frame_index}")
     choice = answer.get("choice")
     if choice == "none":
         return None
-    if not isinstance(choice, str) or not choice.startswith(prefix):
+    if not isinstance(choice, str) or not choice.startswith("t"):
         raise JevError(f"Jev returned an invalid resolution answer for frame {frame_index}")
     try:
-        return options[int(choice[len(prefix) :])]
-    except (ValueError, IndexError) as error:
+        selected = options[int(choice[1:])]
+        confidence = float(answer["confidence"])
+        probabilities = answer["probabilities"]
+        if not isinstance(probabilities, dict):
+            raise TypeError
+        probability = float(probabilities[choice])
+    except (KeyError, TypeError, ValueError, IndexError) as error:
         raise JevError(f"Jev returned an unknown option for frame {frame_index}") from error
+    if confidence < minimum_confidence:
+        return None
+    return selected, confidence, probability
 
 
 def parse_resolution_answers(
-    frames: list[RelationFrame], response: dict[str, object]
+    frames: list[RelationFrame],
+    response: dict[str, object],
+    *,
+    minimum_confidence: float = 0.0,
 ) -> list[CandidateTriple]:
     answers = response.get("answers")
     if not isinstance(answers, dict):
@@ -95,30 +187,15 @@ def parse_resolution_answers(
 
     candidates: list[CandidateTriple] = []
     for index, frame in enumerate(frames):
-        subject = _selected_option(
-            answers.get(f"f{index}_subject"), frame.subject_options, "s", index
+        selected = _selected_triple(
+            answers.get(f"f{index}_triple"),
+            _triple_options(frame),
+            index,
+            minimum_confidence,
         )
-        predicate = _selected_option(
-            answers.get(f"f{index}_predicate"), frame.predicate_options, "p", index
-        )
-        object_ = _selected_option(
-            answers.get(f"f{index}_object"), frame.object_options, "o", index
-        )
-        if subject is None or predicate is None or object_ is None:
+        if selected is None:
             continue
-        subject = canonical_label(subject)
-        object_ = canonical_label(object_)
-        if predicate == "authorized_to":
-            object_ = re.sub(
-                r"^(?:(?:the\s+)?sole\s+)?power\s+to\s+", "", object_, flags=re.I
-            )
-            object_ = re.sub(r"^to\s+", "", object_, flags=re.I)
-        elif predicate == "used_with":
-            object_ = re.sub(
-                r"^(?:(?:in\s+)?conjunction\s+with|with)\s+", "", object_, flags=re.I
-            )
-        if not subject or not object_ or re.match(r"^(?:no|not|without)\b", object_, re.I):
-            continue
+        (subject, predicate, object_), confidence, probability = selected
         candidates.append(
             CandidateTriple(
                 subject=subject,
@@ -128,6 +205,8 @@ def parse_resolution_answers(
                 sentence_index=frame.sentence_index,
                 start=frame.start,
                 end=frame.end,
+                resolution_confidence=confidence,
+                resolution_probability=probability,
             )
         )
     return candidates
@@ -142,13 +221,27 @@ def build_request(candidates: list[CandidateTriple]) -> dict[str, object]:
             "instructions": {
                 "candidate": candidate_data,
                 "question": (
-                    "Does `evidence` directly support the candidate subject-predicate-object "
-                    "relationship, with the same meaning and direction?"
+                    "Does `evidence` explicitly state this exact subject-predicate-object "
+                    "relationship without requiring an unstated inference?"
                 ),
             },
             "criteria": {
                 "true": "The evidence directly states or clearly entails this exact relationship.",
-                "false": "The relationship is absent, reversed, merely associated, or needs unstated assumptions.",
+                "false": "The relationship is absent, merely associated, or needs unstated assumptions.",
+            },
+        }
+        questions[f"c{index}_direction"] = {
+            "type": "noul",
+            "instructions": {
+                "candidate": candidate_data,
+                "question": (
+                    "Does the candidate preserve the relationship direction in `evidence`, "
+                    "with the source or actor as subject and its target or value as object?"
+                ),
+            },
+            "criteria": {
+                "true": "The subject and object occupy the correct semantic roles.",
+                "false": "The roles are reversed, displaced, or attached to the wrong phrase.",
             },
         }
         questions[f"c{index}_factual"] = {
@@ -165,8 +258,22 @@ def build_request(candidates: list[CandidateTriple]) -> dict[str, object]:
                 "false": "It is negated, hypothetical, conditional, questioned, desired, or only possible.",
             },
         }
+        questions[f"c{index}_entities"] = {
+            "type": "noul",
+            "instructions": {
+                "candidate": candidate_data,
+                "question": (
+                    "Are both candidate entities self-contained, meaningful knowledge-graph "
+                    "nodes rather than pronouns, deictic labels, headings, fragments, or clauses?"
+                ),
+            },
+            "criteria": {
+                "true": "Both labels identify clear entities, concepts, quantities, or actions.",
+                "false": "Either label is vague, referential, malformed, or not independently meaningful.",
+            },
+        }
     return {
-        "model": "jev-latest",
+        "model": MODEL,
         "state": {"task": "Verify source-grounded knowledge graph candidates."},
         "questions": questions,
     }
@@ -182,15 +289,29 @@ def parse_answers(
     verified: list[VerifiedTriple] = []
     for index, candidate in enumerate(candidates):
         support_answer = answers.get(f"c{index}_support")
+        direction_answer = answers.get(f"c{index}_direction")
         factual_answer = answers.get(f"c{index}_factual")
-        if not isinstance(support_answer, dict) or not isinstance(factual_answer, dict):
+        entities_answer = answers.get(f"c{index}_entities")
+        if not all(
+            isinstance(answer, dict)
+            for answer in (
+                support_answer,
+                direction_answer,
+                factual_answer,
+                entities_answer,
+            )
+        ):
             raise JevError(f"Jev response omitted answers for candidate {index}")
         try:
             support = float(support_answer["noul"])
+            direction = float(direction_answer["noul"])
             factuality = float(factual_answer["noul"])
+            entity_quality = float(entities_answer["noul"])
         except (KeyError, TypeError, ValueError) as error:
             raise JevError(f"Jev returned an invalid answer for candidate {index}") from error
-        verified.append(VerifiedTriple(candidate, support, factuality))
+        verified.append(
+            VerifiedTriple(candidate, support, direction, factuality, entity_quality)
+        )
     return verified
 
 
@@ -205,8 +326,9 @@ class JevClient:
         api_key: str,
         *,
         timeout: float = 30.0,
-        batch_size: int = 40,
-        resolution_batch_size: int = 10,
+        batch_size: int = 20,
+        resolution_batch_size: int = 5,
+        resolution_confidence: float = 0.25,
         attempts: int = 3,
     ) -> None:
         if not api_key:
@@ -215,6 +337,7 @@ class JevClient:
         self.timeout = timeout
         self.batch_size = batch_size
         self.resolution_batch_size = resolution_batch_size
+        self.resolution_confidence = resolution_confidence
         self.attempts = attempts
 
     def verify(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:
@@ -227,7 +350,13 @@ class JevClient:
         candidates: list[CandidateTriple] = []
         for batch in _batches(frames, self.resolution_batch_size):
             payload = self._post(build_resolution_request(batch))
-            candidates.extend(parse_resolution_answers(batch, payload))
+            candidates.extend(
+                parse_resolution_answers(
+                    batch,
+                    payload,
+                    minimum_confidence=self.resolution_confidence,
+                )
+            )
         return candidates
 
     def _verify_batch(self, candidates: list[CandidateTriple]) -> list[VerifiedTriple]:

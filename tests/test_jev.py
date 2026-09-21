@@ -29,40 +29,67 @@ def frame() -> RelationFrame:
 
 
 class JevTests(unittest.TestCase):
-    def test_builds_two_atomic_questions_per_candidate(self) -> None:
+    def test_builds_four_atomic_questions_per_candidate(self) -> None:
         request = build_request([candidate()])
-        self.assertEqual(set(request["questions"]), {"c0_support", "c0_factual"})
+        self.assertEqual(
+            set(request["questions"]),
+            {"c0_support", "c0_direction", "c0_factual", "c0_entities"},
+        )
 
     def test_parses_probabilities(self) -> None:
         response = {
             "answers": {
                 "c0_support": {"type": "noul", "noul": 0.95},
+                "c0_direction": {"type": "noul", "noul": 0.93},
                 "c0_factual": {"type": "noul", "noul": 0.9},
+                "c0_entities": {"type": "noul", "noul": 0.92},
             }
         }
         result = parse_answers([candidate()], response)
         self.assertEqual(result[0].support, 0.95)
+        self.assertEqual(result[0].direction, 0.93)
         self.assertEqual(result[0].factuality, 0.9)
+        self.assertEqual(result[0].entity_quality, 0.92)
 
     def test_builds_resolution_choices(self) -> None:
         request = build_resolution_request([frame()])
-        self.assertEqual(
-            set(request["questions"]),
-            {"f0_subject", "f0_predicate", "f0_object"},
+        self.assertEqual(set(request["questions"]), {"f0_triple"})
+        criteria = request["questions"]["f0_triple"]["criteria"]
+        self.assertTrue(
+            any(
+                option.get("subject") == "Congress"
+                and option.get("predicate") == "authorized_to"
+                and option.get("object") == "lay and collect Taxes"
+                for option in criteria.values()
+                if isinstance(option, dict)
+            )
         )
 
     def test_parses_resolved_components(self) -> None:
+        request = build_resolution_request([frame()])
+        criteria = request["questions"]["f0_triple"]["criteria"]
+        choice = next(
+            key
+            for key, option in criteria.items()
+            if isinstance(option, dict)
+            and option.get("subject") == "Congress"
+            and option.get("predicate") == "authorized_to"
+            and option.get("object") == "lay and collect Taxes"
+        )
         response = {
             "answers": {
-                "f0_subject": {"type": "choice", "choice": "s0"},
-                "f0_predicate": {"type": "choice", "choice": "p1"},
-                "f0_object": {"type": "choice", "choice": "o0"},
+                "f0_triple": {
+                    "type": "choice",
+                    "choice": choice,
+                    "confidence": 0.8,
+                    "probabilities": {choice: 0.6},
+                }
             }
         }
         result = parse_resolution_answers([frame()], response)
         self.assertEqual(
             (result[0].subject, result[0].predicate, result[0].object),
-            ("Congress", "authorized_to", "Power"),
+            ("Congress", "authorized_to", "lay and collect Taxes"),
         )
 
     def test_normalizes_power_to_for_authorization(self) -> None:
@@ -78,9 +105,11 @@ class JevTests(unittest.TestCase):
         )
         response = {
             "answers": {
-                "f0_subject": {"choice": "s0"},
-                "f0_predicate": {"choice": "p0"},
-                "f0_object": {"choice": "o0"},
+                "f0_triple": {
+                    "choice": "t0",
+                    "confidence": 0.9,
+                    "probabilities": {"t0": 0.9},
+                },
             }
         }
         result = parse_resolution_answers([custom_frame], response)
@@ -99,9 +128,11 @@ class JevTests(unittest.TestCase):
         )
         response = {
             "answers": {
-                "f0_subject": {"choice": "s0"},
-                "f0_predicate": {"choice": "p0"},
-                "f0_object": {"choice": "o0"},
+                "f0_triple": {
+                    "choice": "t0",
+                    "confidence": 0.9,
+                    "probabilities": {"t0": 0.9},
+                },
             }
         }
         result = parse_resolution_answers([custom_frame], response)
@@ -122,13 +153,30 @@ class JevTests(unittest.TestCase):
         )
         response = {
             "answers": {
-                "f0_subject": {"choice": "s0"},
-                "f0_predicate": {"choice": "p0"},
-                "f0_object": {"choice": "o0"},
+                "f0_triple": {
+                    "choice": "t0",
+                    "confidence": 0.9,
+                    "probabilities": {"t0": 0.9},
+                },
             }
         }
         result = parse_resolution_answers([custom_frame], response)
         self.assertEqual(result[0].object, "recurrent networks")
+
+    def test_rejects_low_confidence_resolution(self) -> None:
+        response = {
+            "answers": {
+                "f0_triple": {
+                    "choice": "t0",
+                    "confidence": 0.1,
+                    "probabilities": {"t0": 0.2},
+                }
+            }
+        }
+        self.assertEqual(
+            parse_resolution_answers([frame()], response, minimum_confidence=0.25),
+            [],
+        )
 
 
 if __name__ == "__main__":

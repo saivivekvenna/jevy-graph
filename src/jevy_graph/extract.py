@@ -32,7 +32,13 @@ _RELATIONS: tuple[RelationPattern, ...] = (
     RelationPattern(re.compile(r"\b(?:develops?|developed|developing)\b", re.I), ("developed", "created")),
     RelationPattern(re.compile(r"\b(?:employs?|employed|employing)\b", re.I), ("employs", "uses")),
     RelationPattern(re.compile(r"\b(?:founds?|founded|founding)\b", re.I), ("founded", "created")),
-    RelationPattern(re.compile(r"\b(?:has|have|had)\b", re.I), ("has", "possesses", "authorized_to")),
+    RelationPattern(
+        re.compile(
+            r"\b(?:has|have|had)\b(?!\s+(?:been|become|becomes|becoming)\b)",
+            re.I,
+        ),
+        ("has", "possesses", "authorized_to"),
+    ),
     RelationPattern(re.compile(r"\b(?:inhibits?|inhibited|inhibiting)\b", re.I), ("inhibits", "decreases_activity_of")),
     RelationPattern(re.compile(r"\b(?:knows?|knew)\b", re.I), ("knows", "aware_of")),
     RelationPattern(re.compile(r"\b(?:owns?|owned|owning)\b", re.I), ("owns", "possesses")),
@@ -54,6 +60,11 @@ _LEADING = re.compile(
 )
 _BAD_ENTITY = re.compile(
     r"^(?:he|she|it|they|we|i|you|this|that|these|those|who|which|there)$", re.I
+)
+_BAD_STANDALONE = re.compile(
+    r"^(?:a|an|the|and|or|to|of|in|on|for|with|by|from|shall|will|would|"
+    r"can|could|may|might|must|should|is|are|was|were|be|been|being)$",
+    re.I,
 )
 _TRAILING_AUXILIARY = re.compile(
     r"\s+(?:(?:do|does|did|can|could|will|would|shall|may|might|must|should|has|have|had|is|are|was|were|be|been|being)"
@@ -103,6 +114,7 @@ def _valid_entity(value: str) -> bool:
     words = value.split()
     return (
         len(words) <= 14
+        and not (len(words) == 1 and _BAD_STANDALONE.fullmatch(value))
         and not _BAD_ENTITY.fullmatch(words[0])
         and not _BAD_ENTITY.fullmatch(words[-1])
         and any(character.isalnum() for character in value)

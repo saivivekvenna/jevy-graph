@@ -11,10 +11,14 @@ class RdfTests(unittest.TestCase):
         candidate = CandidateTriple(
             "Alice", "founded", "Acme", "Alice founded Acme.", 0, 0, 19
         )
-        turtle = render_turtle("Alice founded Acme.", [VerifiedTriple(candidate, 0.95, 0.9)])
+        turtle = render_turtle(
+            "Alice founded Acme.",
+            [VerifiedTriple(candidate, 0.95, 0.94, 0.9, 0.93)],
+        )
         self.assertIn("rdf:Statement", turtle)
         self.assertIn('jevy:evidence "Alice founded Acme."', turtle)
         self.assertIn('jevy:support "0.950000"^^xsd:decimal', turtle)
+        self.assertIn('jevy:direction "0.940000"^^xsd:decimal', turtle)
 
 
 if __name__ == "__main__":

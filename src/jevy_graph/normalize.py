@@ -27,9 +27,8 @@ def find_aliases(text: str) -> dict[str, str]:
 
 
 def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
-    value = normalize_space(value).strip(" \t\n\r.,;:!?()[]{}\"'“”‘’")
+    value = normalize_space(value).strip(" \t\n\r.,;:!?()[]{}\"'“”‘’•")
     value = re.sub(r"^(?:a|an|the)\s+", "", value, flags=re.IGNORECASE)
     if aliases and value.casefold() in aliases:
         return aliases[value.casefold()]
     return value
-

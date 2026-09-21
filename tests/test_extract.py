@@ -54,6 +54,17 @@ class ExtractTests(unittest.TestCase):
     def test_does_not_treat_known_as_knows(self) -> None:
         self.assertEqual(extract_frames("The values are known outputs."), [])
 
+    def test_does_not_treat_perfect_auxiliary_as_possession(self) -> None:
+        frames = extract_frames("Attention mechanisms have become widely used.")
+        predicates = {
+            predicate for frame in frames for predicate in frame.predicate_options
+        }
+        self.assertNotIn("has", predicates)
+
+    def test_strips_pdf_bullet_from_entity(self) -> None:
+        candidate = extract_candidates("• The encoder contains self-attention layers.")[0]
+        self.assertEqual(candidate.subject, "encoder")
+
     def test_joins_hard_wrapped_pdf_text(self) -> None:
         candidate = extract_candidates("Acme con-\ntains three divisions.")[0]
         self.assertEqual(
