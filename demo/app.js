@@ -2,6 +2,7 @@ const drop = document.querySelector("#drop");
 const detail = document.querySelector("#drop-detail");
 const fileInput = document.querySelector("#file-input");
 const sourceText = document.querySelector("#source-text");
+const tooltip = document.querySelector("#graph-tooltip");
 
 let activeRequest = 0;
 let selectedNodeId = null;
@@ -69,11 +70,13 @@ const cy = cytoscape({
         label: "data(label)",
         color: "#111",
         "font-family": "ui-monospace, SFMono-Regular, Menlo, monospace",
-        "font-size": 8,
+        "font-size": 11,
         "text-background-color": "#fff",
         "text-background-opacity": 1,
         "text-background-padding": 4,
-        "text-rotation": "autorotate",
+        "text-max-width": 180,
+        "text-rotation": "none",
+        "text-wrap": "wrap",
         "z-index": 10
       }
     },
@@ -84,6 +87,13 @@ const cy = cytoscape({
         "border-color": "#111",
         color: "#fff",
         "z-index": 11
+      }
+    },
+    {
+      selector: "node.hovered",
+      style: {
+        "border-width": 3,
+        "z-index": 20
       }
     },
     { selector: ".faded", style: { opacity: 0 } },
@@ -101,22 +111,32 @@ function idFor(value) {
   return `n-${(hash >>> 0).toString(36)}`;
 }
 
-function unit(value) {
-  let hash = 0;
-  for (const character of value) {
-    hash = (Math.imul(hash, 31) + character.charCodeAt(0)) | 0;
-  }
-  return ((hash >>> 0) % 10000) / 10000;
-}
-
-function position(label, index) {
+function streamPosition(index) {
   const graph = document.querySelector("#cy");
   const width = Math.max(600, graph.clientWidth);
   const height = Math.max(500, graph.clientHeight);
+  const angle = index * Math.PI * (3 - Math.sqrt(5));
+  const radius = 54 * Math.sqrt(index);
   return {
-    x: width * (0.06 + unit(`${label}:x:${index}`) * 0.88),
-    y: height * (0.06 + unit(`${label}:y:${index}`) * 0.88)
+    x: width / 2 + Math.cos(angle) * radius,
+    y: height / 2 + Math.sin(angle) * radius
   };
+}
+
+let streamFrame = null;
+
+function scheduleStreamFormat(requestId) {
+  if (streamFrame !== null) return;
+  streamFrame = window.requestAnimationFrame(() => {
+    streamFrame = null;
+    if (requestId !== activeRequest || selectedNodeId) return;
+    updateLabels();
+    cy.fit(cy.elements(), 54);
+  });
+}
+
+function nextPaint() {
+  return new Promise((resolve) => window.requestAnimationFrame(resolve));
 }
 
 function addClaim(claim, index, requestId) {
@@ -135,7 +155,7 @@ function addClaim(claim, index, requestId) {
         width: widthFor(claim.subject),
         height: heightFor(claim.subject)
       },
-      position: position(claim.subject, 0)
+      position: streamPosition(cy.nodes().length)
     });
   }
   if (cy.$id(objectId).empty()) {
@@ -147,7 +167,7 @@ function addClaim(claim, index, requestId) {
         width: widthFor(claim.object),
         height: heightFor(claim.object)
       },
-      position: position(claim.object, index)
+      position: streamPosition(cy.nodes().length)
     });
   }
   cy.add({
@@ -162,7 +182,7 @@ function addClaim(claim, index, requestId) {
   });
   document.querySelector("#cy").dataset.claims = String(cy.edges().length);
 
-  if (index < 30) cy.fit(undefined, 42);
+  scheduleStreamFormat(requestId);
 }
 
 function updateLabels() {
@@ -209,6 +229,7 @@ async function compile(file) {
   selectedNodeId = null;
   overviewPositions = new Map();
   cy.elements().remove();
+  tooltip.classList.remove("visible");
   document.querySelector("#cy").dataset.claims = "0";
   sourceText.textContent = "Hover over an edge to see its source sentence.";
   drop.classList.add("busy");
@@ -241,6 +262,7 @@ async function compile(file) {
         if (event.type === "claim") {
           addClaim(event.claim, claimIndex, requestId);
           claimIndex += 1;
+          if (claimIndex % 3 === 0) await nextPaint();
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {
@@ -266,6 +288,24 @@ function focus(edge) {
   cy.elements().addClass("faded").removeClass("focused labeled hub");
   neighborhood.removeClass("faded").addClass("focused");
   sourceText.textContent = edge.data("evidence");
+}
+
+function tooltipText(edge) {
+  return `${edge.source().data("label")} — ${edge.data("label")} → ${edge.target().data("label")}`;
+}
+
+function showTooltip(text, renderedPosition) {
+  tooltip.textContent = text;
+  tooltip.classList.add("visible");
+  const graph = document.querySelector("#cy");
+  const left = Math.max(16, Math.min(renderedPosition.x + 18, graph.clientWidth - 420));
+  const top = Math.max(16, Math.min(renderedPosition.y + 18, graph.clientHeight - 100));
+  tooltip.style.transform = `translate(${left}px, ${top}px)`;
+}
+
+function hideTooltip() {
+  tooltip.classList.remove("visible");
+  cy.nodes().removeClass("hovered");
 }
 
 function focusNode(node, zoom = false) {
@@ -324,8 +364,25 @@ function clearFocus() {
   sourceText.textContent = "Hover over an edge to see its source sentence.";
 }
 
-cy.on("mouseover", "edge", (event) => focus(event.target));
-cy.on("mouseout", "edge", clearFocus);
+cy.on("mouseover", "edge", (event) => {
+  focus(event.target);
+  showTooltip(tooltipText(event.target), event.renderedPosition);
+});
+cy.on("mousemove", "edge", (event) => {
+  showTooltip(tooltipText(event.target), event.renderedPosition);
+});
+cy.on("mouseout", "edge", () => {
+  hideTooltip();
+  clearFocus();
+});
+cy.on("mouseover", "node", (event) => {
+  event.target.addClass("hovered");
+  showTooltip(event.target.data("label"), event.renderedPosition);
+});
+cy.on("mousemove", "node", (event) => {
+  showTooltip(event.target.data("label"), event.renderedPosition);
+});
+cy.on("mouseout", "node", hideTooltip);
 cy.on("tap", "edge", (event) => focus(event.target));
 cy.on("tap", "node", (event) => {
   selectedNodeId = event.target.id();
