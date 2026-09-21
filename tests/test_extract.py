@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from jevy_graph.extract import extract_candidates
+from jevy_graph.extract import extract_candidates, extract_frames
 from jevy_graph.normalize import canonical_label, find_aliases
 
 
@@ -33,6 +33,22 @@ class ExtractTests(unittest.TestCase):
     def test_negation_is_not_part_of_subject(self) -> None:
         candidates = extract_candidates("Acme did not acquire Beta.")
         self.assertEqual(candidates[0].subject, "Acme")
+
+    def test_enumerates_boundary_and_predicate_options(self) -> None:
+        frame = extract_frames(
+            "The Congress shall have Power to lay and collect Taxes."
+        )[0]
+        self.assertIn("Congress", frame.subject_options)
+        self.assertIn("Congress shall", frame.subject_options)
+        self.assertIn("authorized_to", frame.predicate_options)
+        self.assertIn("lay and collect Taxes", frame.object_options)
+
+    def test_joins_hard_wrapped_pdf_text(self) -> None:
+        candidate = extract_candidates("Acme con-\ntains three divisions.")[0]
+        self.assertEqual(
+            (candidate.subject, candidate.predicate, candidate.object),
+            ("Acme", "contains", "three divisions"),
+        )
 
 
 if __name__ == "__main__":

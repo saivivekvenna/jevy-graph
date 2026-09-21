@@ -5,7 +5,7 @@ import os
 import sys
 from pathlib import Path
 
-from .extract import extract_candidates
+from .extract import extract_candidates, extract_frames
 from .jev import JevClient, JevError
 from .models import VerifiedTriple
 from .rdf import render_turtle
@@ -55,8 +55,9 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("--threshold must be between 0 and 1")
 
     text = _read_text(args.input)
-    candidates = extract_candidates(text)
+    frames = extract_frames(text)
     if args.no_verify:
+        candidates = extract_candidates(text)
         verified = [VerifiedTriple(candidate, 1.0, 1.0) for candidate in candidates]
     else:
         _load_dotenv()
@@ -64,7 +65,9 @@ def main(argv: list[str] | None = None) -> int:
         if not api_key:
             raise SystemExit("TYPESAFE_API_KEY is missing; set it in the environment or .env")
         try:
-            verified = JevClient(api_key).verify(candidates)
+            client = JevClient(api_key)
+            candidates = client.resolve(frames)
+            verified = client.verify(candidates)
         except JevError as error:
             raise SystemExit(str(error)) from error
 
@@ -80,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
         sys.stdout.write(output)
 
     print(
-        f"candidates={len(candidates)} accepted={len(accepted)}",
+        f"frames={len(frames)} resolved={len(candidates)} accepted={len(accepted)}",
         file=sys.stderr,
     )
     return 0
@@ -88,4 +91,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
