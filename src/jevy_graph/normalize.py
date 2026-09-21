@@ -17,6 +17,9 @@ _PERCENT = re.compile(r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)\s*%")
 _DOUBLE = re.compile(
     r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)[eE][+-]?\d+"
 )
+_NODE_WORD = re.compile(r"[A-Za-z0-9][A-Za-z0-9'’./+_-]*")
+MAX_NODE_WORDS = 14
+MAX_NODE_CHARACTERS = 160
 
 
 def normalize_space(value: str) -> str:
@@ -55,6 +58,18 @@ def canonical_entity(value: str, aliases: dict[str, str] | None = None) -> str:
     value = _LEADING_QUANTIFIER.sub("", value)
     value = re.sub(r"^(?:thereof|hereof)\s+", "", value, flags=re.IGNORECASE)
     return normalize_space(value)
+
+
+def graphable_node(value: str) -> bool:
+    """Return whether a value is compact enough to be an RDF graph node."""
+    value = canonical_entity(value)
+    words = _NODE_WORD.findall(value)
+    return bool(
+        value
+        and words
+        and len(words) <= MAX_NODE_WORDS
+        and len(value) <= MAX_NODE_CHARACTERS
+    )
 
 
 def object_kind(value: str) -> str:

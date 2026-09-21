@@ -54,6 +54,36 @@ class ExtractTests(unittest.TestCase):
         self.assertIn(("authorized_to", "lay Taxes"), triples)
         self.assertIn(("authorized_to", "collect Taxes"), triples)
 
+    def test_atomizes_long_authority_clause_into_compact_nodes(self) -> None:
+        candidates = extract_candidates(
+            "Congress shall have Power to provide for organizing, arming, and "
+            "disciplining, the Militia, and for governing such Part of them as may "
+            "be employed in the Service of the United States, reserving authority "
+            "to the States."
+        )
+        actions = {
+            item.object for item in candidates if item.predicate == "authorized_to"
+        }
+        self.assertTrue(
+            {"organize Militia", "arm Militia", "discipline Militia"} <= actions
+        )
+        self.assertTrue(all(len(action.split()) <= 14 for action in actions))
+
+    def test_compacts_relative_detail_in_authority_node(self) -> None:
+        candidates = extract_candidates(
+            "Congress shall have Power to exercise exclusive Legislation in all "
+            "Cases whatsoever, over such District (not exceeding ten Miles square) "
+            "as may become the Seat of Government."
+        )
+        actions = {
+            item.object for item in candidates if item.predicate == "authorized_to"
+        }
+        self.assertIn(
+            "exercise exclusive Legislation in all Cases whatsoever, over such District",
+            actions,
+        )
+        self.assertTrue(all(len(action.split()) <= 14 for action in actions))
+
     def test_discovers_general_modal_relations(self) -> None:
         candidates = extract_candidates(
             "Legislative Powers shall be vested in Congress. "

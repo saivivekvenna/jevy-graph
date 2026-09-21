@@ -29,6 +29,21 @@ class CliTests(unittest.TestCase):
             _accepted(VerifiedTriple(candidate, 0.65, 0.45), 0.45, 0.10, 0.70)
         )
 
+    def test_rejects_paragraph_shaped_nodes(self) -> None:
+        candidate = CandidateTriple(
+            "Congress",
+            "authorized_to",
+            "exercise exclusive legislation in all cases whatsoever over a district "
+            "that may become the seat of the government of the United States",
+            "evidence",
+            0,
+            0,
+            8,
+        )
+        self.assertFalse(
+            _accepted(VerifiedTriple(candidate, 0.99, 0.99), 0.45, 0.10, 0.70)
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

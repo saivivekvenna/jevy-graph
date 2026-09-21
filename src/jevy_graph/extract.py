@@ -7,8 +7,10 @@ from dataclasses import dataclass
 
 from .models import CandidateTriple, RelationFrame
 from .normalize import (
+    MAX_NODE_WORDS,
     canonical_entity,
     find_aliases,
+    graphable_node,
     normalize_space,
     object_kind,
 )
@@ -567,6 +569,105 @@ def _action_phrases(value: str) -> tuple[str, ...]:
     return tuple(phrases)
 
 
+def _gerund_base(value: str) -> str:
+    irregular = {
+        "arming": "arm",
+        "disciplining": "discipline",
+        "governing": "govern",
+        "organizing": "organize",
+    }
+    word = value.casefold()
+    if word in irregular:
+        return irregular[word]
+    stem = word[:-3] if word.endswith("ing") else word
+    if len(stem) > 2 and stem[-1:] == stem[-2:-1]:
+        stem = stem[:-1]
+    if stem.endswith(("at", "iz", "lin")):
+        stem += "e"
+    return stem
+
+
+def _compact_action(value: str) -> str:
+    """Remove subordinate detail while preserving the main action boundary."""
+    value = normalize_space(value).strip(" ,")
+    value = re.sub(r"\([^()]*\)", "", value)
+    value = re.split(
+        r"\s+(?=(?:as\s+(?:may|shall|must|can|could|will|would|should)|"
+        r"(?:purchased|chosen|employed|prescribed|required)\s+by)\b)",
+        value,
+        maxsplit=1,
+        flags=re.I,
+    )[0]
+    value = re.split(
+        r",\s*(?=(?:by|reserving|provided|except|unless|which|who|that)\b)",
+        value,
+        maxsplit=1,
+        flags=re.I,
+    )[0]
+    return canonical_entity(value)
+
+
+def _compact_authority_actions(value: str) -> tuple[str, ...]:
+    """Atomize long power clauses into compact action-valued graph nodes."""
+    value = normalize_space(value).strip(" ,")
+    punishment = re.match(
+        r"^provide\s+for\s+(?:the\s+)?Punishment\s+of\s+(?P<object>.+)$",
+        value,
+        re.I,
+    )
+    if punishment:
+        action = f"punish {canonical_entity(punishment.group('object'))}"
+        return (action,) if graphable_node(action) else ()
+
+    gerunds = re.match(
+        r"^provide\s+for\s+"
+        r"(?P<gerunds>[A-Za-z'-]+ing(?:\s*,\s*[A-Za-z'-]+ing)*"
+        r"\s*,?\s*and\s+[A-Za-z'-]+ing)\s*,\s*"
+        r"(?P<object>[^,]+)(?P<tail>.*)$",
+        value,
+        re.I,
+    )
+    if gerunds:
+        object_ = canonical_entity(gerunds.group("object"))
+        actions = [
+            f"{_gerund_base(word)} {object_}"
+            for word in re.findall(r"[A-Za-z'-]+ing", gerunds.group("gerunds"), re.I)
+        ]
+        governing = re.search(
+            r"\band\s+for\s+(?P<verb>[A-Za-z'-]+ing)\s+"
+            r"(?P<object>.+?)(?=\s+as\s+(?:may|shall)\b|,|$)",
+            gerunds.group("tail"),
+            re.I,
+        )
+        if governing:
+            governed = canonical_entity(governing.group("object"))
+            if re.fullmatch(r"(?:such\s+)?Part\s+of\s+them", governed, re.I):
+                governed = f"part of {object_}"
+            actions.append(f"{_gerund_base(governing.group('verb'))} {governed}")
+        return tuple(action for action in actions if graphable_node(action))
+
+    shared_verb = re.match(
+        r"^(?P<verb>[A-Za-z'-]+)\s+(?P<first>[^,]+),\s*and\s+"
+        r"(?P<second>.+)$",
+        value,
+        re.I,
+    )
+    if shared_verb and not re.match(
+        r"(?:to\s+)?(?:" + "|".join(sorted(_ACTION_VERBS)) + r")\b",
+        shared_verb.group("second"),
+        re.I,
+    ):
+        actions = tuple(
+            _compact_action(f"{shared_verb.group('verb')} {object_}")
+            for object_ in (shared_verb.group("first"), shared_verb.group("second"))
+        )
+        if all(graphable_node(action) for action in actions):
+            return actions
+
+    compact = _compact_action(value)
+    return (compact,) if graphable_node(compact) else ()
+
+
 def _right_actions(value: str) -> tuple[str, ...]:
     """Atomize common coordinated right descriptions."""
     value = normalize_space(value).strip(" ,")
@@ -1063,7 +1164,7 @@ def _valid_entity(value: str) -> bool:
     words = value.split()
     canonical_words = canonical_entity(value).split()
     return (
-        len(words) <= 64
+        graphable_node(value)
         and not (len(words) == 1 and _BAD_STANDALONE.fullmatch(value))
         and not (
             len(canonical_words) == 1
@@ -1159,7 +1260,7 @@ def _object_options(value: str, aliases: dict[str, str]) -> tuple[str, ...]:
             if not _TRAILING_FUNCTION_WORD.search(phrase):
                 values.extend((phrase, canonical_entity(phrase, aliases)))
     options = _unique(values)
-    if re.match(r"^(?:be|have|do)\s+", primary, re.I):
+    if graphable_node(primary) and re.match(r"^(?:be|have|do)\s+", primary, re.I):
         primary = normalize_space(primary)
         options = (primary,) + tuple(
             option for option in options if option.casefold() != primary.casefold()
@@ -1230,6 +1331,10 @@ def _object_branches(value: str, predicate: str) -> tuple[str, ...]:
         if all(actions):
             return tuple(actions)
     if predicate == "authorized_to":
+        if len(primary.split()) > MAX_NODE_WORDS:
+            compact_actions = _compact_authority_actions(primary)
+            if compact_actions:
+                return compact_actions
         action = re.match(
             r"^(?P<first>[A-Za-z'-]+)\s+and\s+(?P<second>[A-Za-z'-]+)\s+"
             r"(?P<objects>.+)$",
@@ -1674,6 +1779,9 @@ def extract_frames(text: str) -> list[RelationFrame]:
                 if not _overlaps(candidate_hit, hits):
                     hits.append(candidate_hit)
             hits.sort(key=lambda item: item.start)
+            # Verbs inside a granted power describe that power's action, not a
+            # second subject relation. The authority frames atomize them below.
+            hits = [hit for hit in hits if hit.predicates == ("authorized_to",)]
         continuation = re.match(r"^(?:and\s+)?to\s+", clause.text, re.I)
         if carried_authority and continuation:
             hits = [

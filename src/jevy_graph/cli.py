@@ -8,6 +8,7 @@ from pathlib import Path
 from .extract import extract_candidates, extract_frames
 from .jev import JevClient, JevError
 from .models import VerifiedTriple
+from .normalize import graphable_node
 from .rdf import render_turtle
 
 
@@ -42,7 +43,9 @@ def _accepted(item: VerifiedTriple, support: float, entity: float, joint: float)
         item.candidate.origin, origin_floors["pattern"]
     )
     return (
-        item.support >= max(support, origin_support)
+        graphable_node(item.candidate.subject)
+        and graphable_node(item.candidate.object)
+        and item.support >= max(support, origin_support)
         and item.entity_quality >= max(entity, origin_entity)
         and item.support + item.entity_quality >= max(joint, origin_joint)
     )
