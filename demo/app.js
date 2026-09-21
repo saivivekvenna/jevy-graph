@@ -32,8 +32,12 @@ const cy = cytoscape({
         "text-background-color": "#fff",
         "text-background-opacity": 0.92,
         "text-background-padding": 3,
+        "text-halign": "center",
+        "text-justification": "center",
         "text-max-width": 160,
+        "text-valign": "center",
         "text-wrap": "wrap",
+        "line-height": 1.15,
         "z-index": 11
       }
     },
@@ -91,6 +95,12 @@ const cy = cytoscape({
   layout: { name: "preset" }
 });
 
+cy.layoutUtilities({
+  componentSpacing: 120,
+  desiredAspectRatio: 1.5,
+  polyominoGridSizeFactor: 0.75
+});
+
 function idFor(value) {
   let hash = 2166136261;
   for (const character of value.toLowerCase()) {
@@ -105,7 +115,7 @@ function streamPosition(index) {
   const width = Math.max(600, graph.clientWidth);
   const height = Math.max(500, graph.clientHeight);
   const angle = index * Math.PI * (3 - Math.sqrt(5));
-  const radius = 54 * Math.sqrt(index);
+  const radius = 150 * Math.sqrt(index);
   return {
     x: width / 2 + Math.cos(angle) * radius,
     y: height / 2 + Math.sin(angle) * radius
@@ -179,18 +189,24 @@ function finishGraph() {
     cy.fit(cy.elements(), 48);
   };
   cy.layout({
-    name: "cose",
-    animate: false,
-    componentSpacing: 90,
-    coolingFactor: 0.92,
-    fit: true,
-    gravity: 0.12,
-    idealEdgeLength: 90,
-    nodeOverlap: 24,
-    nodeRepulsion: 180000,
-    numIter: 700,
-    padding: 48,
+    name: "fcose",
+    quality: "proof",
     randomize: true,
+    animate: false,
+    fit: true,
+    padding: 64,
+    nodeDimensionsIncludeLabels: true,
+    uniformNodeDimensions: false,
+    packComponents: true,
+    nodeSeparation: 110,
+    nodeRepulsion: () => 16000,
+    idealEdgeLength: () => 170,
+    edgeElasticity: () => 0.2,
+    tilingPaddingHorizontal: 70,
+    tilingPaddingVertical: 70,
+    gravity: 0.12,
+    gravityRange: 4.5,
+    initialEnergyOnIncremental: 0.5,
     stop: preserveOverview
   }).run();
 }
