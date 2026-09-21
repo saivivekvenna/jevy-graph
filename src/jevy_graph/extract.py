@@ -48,12 +48,18 @@ _LEADING = re.compile(
 _BAD_ENTITY = re.compile(
     r"^(?:he|she|it|they|we|i|you|this|that|these|those|who|which|there)$", re.I
 )
+_TRAILING_AUXILIARY = re.compile(
+    r"\s+(?:(?:do|does|did|can|could|will|would|may|might|must|should|has|have|had)"
+    r"(?:\s+not|\s+n't)?|not)$",
+    re.I,
+)
 
 
 def _trim_left(value: str) -> str:
     value = _LEADING.sub("", normalize_space(value))
     value = re.split(r"[;:]", value)[-1]
     value = re.split(r"\b(?:and|but)\b", value, flags=re.I)[-1]
+    value = _TRAILING_AUXILIARY.sub("", value)
     return canonical_label(value)
 
 
@@ -117,4 +123,3 @@ def extract_candidates(text: str) -> list[CandidateTriple]:
                 )
             )
     return candidates
-

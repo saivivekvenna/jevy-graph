@@ -30,6 +30,10 @@ class ExtractTests(unittest.TestCase):
     def test_rejects_pronoun_subject(self) -> None:
         self.assertEqual(extract_candidates("It uses RDF."), [])
 
+    def test_negation_is_not_part_of_subject(self) -> None:
+        candidates = extract_candidates("Acme did not acquire Beta.")
+        self.assertEqual(candidates[0].subject, "Acme")
+
 
 if __name__ == "__main__":
     unittest.main()
