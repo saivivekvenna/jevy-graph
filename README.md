@@ -70,6 +70,19 @@ on both support and boundaries. Open-verb discoveries additionally require
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
+## Demo interface
+
+A monochrome graph demo lives in [`demo/`](demo/). It sends file uploads to the
+real compiler, adds verified claims as they arrive, and shows the source
+sentence for every hovered edge. Run it locally with:
+
+```bash
+PYTHONPATH=src python3 -m jevy_graph.demo_server
+```
+
+Then open <http://localhost:8080/demo/>. PDF, DOCX, and UTF-8 text-like files are
+supported. The Jev API key remains in the server-side `.env` file.
+
 ## Current scope
 
 - UTF-8 plain text input
@@ -83,7 +96,8 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 - source-unit, page/table locator, condition, and extraction-origin metadata
 - recall fixtures for legal, scientific, and general prose
 
-Binary PDF parsing and external knowledge-base linking are not bundled. Supply
-UTF-8 text extracted from PDFs; repeated headers, page numbers, and hard wraps
-are cleaned automatically. Entity linking remains conservative unless the
+The CLI expects UTF-8 text extracted from PDFs; the demo server also accepts
+binary PDFs through the system `pdftotext` utility. Repeated headers, page
+numbers, and hard wraps are cleaned automatically. External knowledge-base
+linking remains out of scope, and entity linking stays conservative unless the
 document declares an alias explicitly.

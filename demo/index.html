@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Jevy Graph</title>
+    <link rel="stylesheet" href="styles.css?v=4" />
+  </head>
+  <body>
+    <main>
+      <label class="drop" id="drop" for="file-input">
+        <input id="file-input" type="file" accept=".pdf,.txt,.md,.csv,.docx" />
+        <span class="plus" aria-hidden="true"></span>
+        <strong>Drop document</strong>
+        <small id="drop-detail">PDF, TXT, DOCX</small>
+      </label>
+
+      <section class="output" aria-label="Generated knowledge graph">
+        <div id="cy"></div>
+        <footer>
+          <p id="source-text">Hover over an edge to see its source sentence.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+    <script src="app.js?v=4"></script>
+  </body>
+</html>

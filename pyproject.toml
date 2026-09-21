@@ -14,7 +14,7 @@ dependencies = []
 
 [project.scripts]
 jevy-graph = "jevy_graph.cli:main"
+jevy-graph-demo = "jevy_graph.demo_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/jevy_graph"]
-
