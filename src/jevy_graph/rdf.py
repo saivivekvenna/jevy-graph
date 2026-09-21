@@ -66,11 +66,7 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
                 f"    prov:wasDerivedFrom {document} ;",
                 f'    jevy:evidence "{_escape(candidate.evidence)}" ;',
                 f"    jevy:sentenceIndex {candidate.sentence_index} ;",
-                f'    jevy:resolutionConfidence "{candidate.resolution_confidence:.6f}"^^xsd:decimal ;',
-                f'    jevy:resolutionProbability "{candidate.resolution_probability:.6f}"^^xsd:decimal ;',
                 f'    jevy:support "{item.support:.6f}"^^xsd:decimal ;',
-                f'    jevy:direction "{item.direction:.6f}"^^xsd:decimal ;',
-                f'    jevy:factuality "{item.factuality:.6f}"^^xsd:decimal ;',
                 f'    jevy:entityQuality "{item.entity_quality:.6f}"^^xsd:decimal .',
                 "",
             ]

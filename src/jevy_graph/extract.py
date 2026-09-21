@@ -48,7 +48,7 @@ _RELATIONS: tuple[RelationPattern, ...] = (
     RelationPattern(re.compile(r"\b(?:supports?|supported|supporting)\b", re.I), ("supports", "enables")),
     RelationPattern(
         re.compile(r"\b(?:uses?|used|using)\b", re.I),
-        ("uses", "applies", "used_with"),
+        ("uses", "applies", "used_with", "used_for", "encoded_with"),
     ),
 )
 
@@ -63,7 +63,8 @@ _BAD_ENTITY = re.compile(
 )
 _BAD_STANDALONE = re.compile(
     r"^(?:a|an|the|and|or|to|of|in|on|for|with|by|from|shall|will|would|"
-    r"can|could|may|might|must|should|is|are|was|were|be|been|being)$",
+    r"can|could|may|might|must|should|is|are|was|were|be|been|being|"
+    r"first|second|third|another|one|all|each)$",
     re.I,
 )
 _TRAILING_AUXILIARY = re.compile(
@@ -112,9 +113,14 @@ def _valid_entity(value: str) -> bool:
     if not value or _BAD_ENTITY.fullmatch(value):
         return False
     words = value.split()
+    canonical_words = canonical_label(value).split()
     return (
         len(words) <= 14
         and not (len(words) == 1 and _BAD_STANDALONE.fullmatch(value))
+        and not (
+            len(canonical_words) == 1
+            and _BAD_STANDALONE.fullmatch(canonical_words[0])
+        )
         and not _BAD_ENTITY.fullmatch(words[0])
         and not _BAD_ENTITY.fullmatch(words[-1])
         and any(character.isalnum() for character in value)
