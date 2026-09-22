@@ -1,23 +1,26 @@
 from __future__ import annotations
 
+import http.client
 import json
 import random
 import re
 import time
-import urllib.error
-import urllib.request
 from collections.abc import Callable, Iterator
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from dataclasses import dataclass, replace
 from functools import lru_cache
-from threading import Lock
+from threading import Lock, local
 from typing import TypeVar
+from urllib.parse import urlsplit
 
 from .models import CandidateTriple, RelationFrame, VerifiedTriple
 from .normalize import canonical_entity, canonical_label, object_kind
 
 API_URL = "https://api.typesafe.ai/v1/systemone"
 MODEL = "jev-1.13.0"
+# Conservative transport budget, not a token estimate. Oversized questions are
+# handled by the API; multi-question batches split without dropping candidates.
+MAX_REQUEST_BYTES = 120_000
 T = TypeVar("T")
 R = TypeVar("R")
 
@@ -139,8 +142,13 @@ def _ranked_indexes(sizes: tuple[int, int, int]) -> Iterator[tuple[int, int, int
         return
     for total in range(sum(sizes) - 2):
         shell = []
-        for subject in range(max(0, total - sizes[1] - sizes[2] + 2), min(sizes[0], total + 1)):
-            for predicate in range(max(0, total - subject - sizes[2] + 1), min(sizes[1], total - subject + 1)):
+        for subject in range(
+            max(0, total - sizes[1] - sizes[2] + 2), min(sizes[0], total + 1)
+        ):
+            for predicate in range(
+                max(0, total - subject - sizes[2] + 1),
+                min(sizes[1], total - subject + 1),
+            ):
                 object_ = total - subject - predicate
                 shell.append((subject, predicate, object_))
         yield from sorted(shell, key=lambda item: (max(item), item))
@@ -151,7 +159,11 @@ def _triple_options(
     frame: RelationFrame, limit: int = 32
 ) -> tuple[tuple[str, str, str], ...]:
     ranked = _ranked_indexes(
-        (len(frame.subject_options), len(frame.predicate_options), len(frame.object_options))
+        (
+            len(frame.subject_options),
+            len(frame.predicate_options),
+            len(frame.object_options),
+        )
     )
     options: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str, str]] = set()
@@ -229,7 +241,9 @@ def _triple_options(
     return tuple(options)
 
 
-def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
+def build_choice_request(
+    frames: list[RelationFrame], *, compact: bool = False
+) -> dict[str, object]:
     questions: dict[str, object] = {}
     for index, frame in enumerate(frames):
         criteria: dict[str, object] = {
@@ -262,6 +276,19 @@ def build_choice_request(frames: list[RelationFrame]) -> dict[str, object]:
             },
             "criteria": criteria,
         }
+        if compact:
+            fixed = {
+                name: next(iter(values))
+                for name in ("subject", "predicate", "object")
+                if len(values := {triple[name] for triple in criteria.values()}) == 1
+            }
+            if fixed:
+                instructions = questions[f"f{index}_triple"]["instructions"]
+                instructions["fixed_fields"] = fixed
+                instructions["question"] += " Each candidate inherits these fixed fields."
+                for triple in criteria.values():
+                    for name in fixed:
+                        del triple[name]
     return {
         "model": MODEL,
         "state": {
@@ -424,20 +451,40 @@ class JevClient:
         verification_batch_size: int = 40,
         max_workers: int = 12,
         attempts: int = 6,
+        compact: bool = False,
+        requests_per_second: float = 24.0,
     ) -> None:
         if not api_key:
             raise ValueError("api_key must not be empty")
         if min(choice_batch_size, verification_batch_size, max_workers, attempts) < 1:
             raise ValueError("batch sizes, workers, and attempts must be positive")
+        if requests_per_second <= 0:
+            raise ValueError("requests_per_second must be positive")
         self.api_key = api_key
         self.timeout = timeout
         self.choice_batch_size = choice_batch_size
         self.verification_batch_size = verification_batch_size
         self.max_workers = max_workers
         self.attempts = attempts
+        self.compact = compact
         self.singleton_selections = 0
         self.usage = Usage()
         self._stats_lock = Lock()
+        self._connections = local()
+        self.rate_limit_detail = None
+        self._request_interval = 1.0 / requests_per_second
+        self._next_request_at = 0.0
+
+    def _wait_for_request(self) -> None:
+        """Space requests across workers instead of bursting into rate limits."""
+        while True:
+            with self._stats_lock:
+                now = time.monotonic()
+                delay = self._next_request_at - now
+                if delay <= 0:
+                    self._next_request_at = now + self._request_interval
+                    return
+            time.sleep(delay)
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
         candidates, singleton_count = self._resolve_frames(frames)
@@ -509,13 +556,16 @@ class JevClient:
             while pending:
                 done, _ = wait(pending, return_when=FIRST_COMPLETED)
                 # Observe failures before scheduling more paid requests.
-                completed = [(pending.pop(future), future.result()) for future in done]
+                completed = [
+                    (pending.pop(future), future.result()) for future in done
+                ]
                 for index, verified in completed:
                     yield index, verified
                     next_batch = next(batches, None)
                     if next_batch is not None:
                         next_index, batch = next_batch
-                        pending[executor.submit(self._score_frame_batch, batch)] = next_index
+                        future = executor.submit(self._score_frame_batch, batch)
+                        pending[future] = next_index
         finally:
             executor.shutdown(wait=True, cancel_futures=True)
 
@@ -532,53 +582,85 @@ class JevClient:
         return verified
 
     def _resolve_batch(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
-        return parse_choice_answers(frames, self._post(build_choice_request(frames)))
+        payload = build_choice_request(frames, compact=self.compact)
+        if len(frames) > 1 and len(json.dumps(payload).encode()) > MAX_REQUEST_BYTES:
+            return [
+                candidate
+                for batch in _batches(frames, (len(frames) + 1) // 2)
+                for candidate in self._resolve_batch(batch)
+            ]
+        return parse_choice_answers(frames, self._post(payload))
 
     def _verify_batch(
         self, candidates: list[CandidateTriple]
     ) -> list[VerifiedTriple]:
-        return parse_verification_answers(
-            candidates, self._post(build_verification_request(candidates))
-        )
+        payload = build_verification_request(candidates)
+        if len(candidates) > 1 and len(json.dumps(payload).encode()) > MAX_REQUEST_BYTES:
+            return [
+                item
+                for batch in _batches(candidates, (len(candidates) + 1) // 2)
+                for item in self._verify_batch(batch)
+            ]
+        return parse_verification_answers(candidates, self._post(payload))
 
     def _post(self, payload: dict[str, object]) -> dict[str, object]:
         body = json.dumps(payload, separators=(",", ":")).encode()
-        request = urllib.request.Request(
-            API_URL,
-            data=body,
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json",
-                "User-Agent": "jevy-graph/0.1",
-            },
-            method="POST",
-        )
+        url = urlsplit(API_URL)
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": "jevy-graph/0.1",
+        }
         for attempt in range(self.attempts):
+            self._wait_for_request()
             with self._stats_lock:
                 self.usage.requests += 1
                 self.usage.retries += int(attempt > 0)
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                    result = json.load(response)
-                if not isinstance(result, dict):
-                    raise JevError("Jev returned a non-object response")
-                usage = result.get("usage", {})
-                with self._stats_lock:
-                    self.usage.input_tokens += usage.get("input_tokens", 0)
-                    self.usage.output_tokens += usage.get("output_tokens", 0)
-                return result
-            except urllib.error.HTTPError as error:
-                if error.code not in {429, 529} or attempt + 1 == self.attempts:
-                    raise JevError(_http_error_message(error.code)) from error
-                retry_after = 0.0
-                try:
-                    retry_after = float(error.headers.get("Retry-After", "0"))
-                except (AttributeError, TypeError, ValueError):
-                    pass
-            except urllib.error.URLError as error:
+                connection = getattr(self._connections, "connection", None)
+                if connection is None:
+                    connection = http.client.HTTPSConnection(
+                        url.netloc, timeout=self.timeout
+                    )
+                    self._connections.connection = connection
+                connection.request("POST", url.path, body, headers)
+                response = connection.getresponse()
+                data = response.read()
+                if response.status != 200:
+                    if response.status == 429:
+                        try:
+                            self.rate_limit_detail = json.loads(data).get("detail")
+                        except (ValueError, AttributeError):
+                            pass
+                    if (
+                        response.status not in {429, 529}
+                        or attempt + 1 == self.attempts
+                    ):
+                        raise JevError(_http_error_message(response.status))
+                    try:
+                        retry_after = float(response.getheader("Retry-After", "0"))
+                    except ValueError:
+                        retry_after = 0.0
+                else:
+                    result = json.loads(data)
+                    if not isinstance(result, dict):
+                        raise JevError("Jev returned a non-object response")
+                    usage = result.get("usage", {})
+                    with self._stats_lock:
+                        self.usage.input_tokens += usage.get("input_tokens", 0)
+                        self.usage.output_tokens += usage.get("output_tokens", 0)
+                    return result
+            except (OSError, http.client.HTTPException) as error:
+                if connection is not None:
+                    connection.close()
+                self._connections.connection = None
                 if attempt + 1 == self.attempts:
-                    raise JevError(f"Could not reach Jev: {error.reason}") from error
+                    raise JevError(f"Could not reach Jev: {error}") from error
                 retry_after = 0.0
             backoff = max(retry_after, min(8.0, 0.5 * (2**attempt)))
+            with self._stats_lock:
+                self._next_request_at = max(
+                    self._next_request_at, time.monotonic() + backoff
+                )
             time.sleep(backoff + random.uniform(0.0, backoff * 0.25))
         raise JevError("Jev request failed")

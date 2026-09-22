@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 import unicodedata
 from collections import Counter
+from collections.abc import Iterable, Iterator
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -925,12 +926,22 @@ def _condition(value: str) -> str | None:
 def _clauses(text: str) -> list[Clause]:
     prepared = clean_document(text)
     markers = _source_markers(prepared)
+    marker_index = 0
+    source_marker = markers[0]
     clauses: list[Clause] = []
     sentence_index = 0
     for sentence_match in _SENTENCE.finditer(prepared):
         sentence = normalize_space(sentence_match.group())
         if not sentence:
             continue
+        while (
+            marker_index + 1 < len(markers)
+            and markers[marker_index + 1][0] <= sentence_match.start()
+        ):
+            marker_index += 1
+            # Preserve the original max() behavior for duplicate offsets.
+            if markers[marker_index][0] > source_marker[0]:
+                source_marker = markers[marker_index]
         parts = list(re.finditer(r"(?:^|;|—)\s*([^;—]+)", sentence))
         for part_index, part in enumerate(parts):
             clause = normalize_space(part.group(1))
@@ -944,10 +955,7 @@ def _clauses(text: str) -> list[Clause]:
                     start=sentence_match.start() + part.start(1),
                     end=sentence_match.start() + part.end(1),
                     continuation=part_index > 0,
-                    source_unit=max(
-                        (item for item in markers if item[0] <= sentence_match.start()),
-                        key=lambda item: item[0],
-                    )[1],
+                    source_unit=source_marker[1],
                     condition=_condition(sentence),
                 )
             )
@@ -1192,7 +1200,7 @@ def _valid_entity(value: str) -> bool:
     )
 
 
-def _unique(values: list[str], limit: int = 64) -> tuple[str, ...]:
+def _unique(values: Iterable[str], limit: int = 64) -> tuple[str, ...]:
     result: list[str] = []
     seen: set[str] = set()
     for value in values:
@@ -1216,68 +1224,84 @@ def _subject_options(
     aliases: dict[str, str],
     context_entities: tuple[str, ...],
 ) -> tuple[str, ...]:
+    return tuple(
+        value
+        for value in _unique(_subject_values(value, aliases, context_entities))
+        if not re.match(r"^\d+(?:\.\d+)?(?:\s+|$)", value)
+    )
+
+
+def _subject_values(
+    value: str,
+    aliases: dict[str, str],
+    context_entities: tuple[str, ...],
+) -> Iterator[str]:
     primary = _trim_left(value)
-    values = [canonical_entity(primary, aliases)]
+    yield canonical_entity(primary, aliases)
     segment = re.split(
         r"[,;:]|\b(?:and|but)\b", normalize_space(value), flags=re.I
     )[-1]
     tokens = _tokens(segment)
-    values.extend(
+    yield from (
         canonical_entity(match.group(), aliases)
         for match in _CAPITALIZED.finditer(value)
     )
     for width in range(min(14, len(tokens)), 0, -1):
         phrase = " ".join(tokens[-width:])
-        values.extend((phrase, canonical_entity(phrase, aliases)))
+        yield phrase
+        yield canonical_entity(phrase, aliases)
         without_auxiliary = _TRAILING_AUXILIARY.sub("", phrase)
-        values.extend(
-            (without_auxiliary, canonical_entity(without_auxiliary, aliases))
-        )
+        yield without_auxiliary
+        yield canonical_entity(without_auxiliary, aliases)
     for width in range(1, min(8, len(tokens)) + 1):
         for offset in range(len(tokens) - width + 1):
             phrase = " ".join(tokens[offset : offset + width])
-            values.extend((phrase, canonical_entity(phrase, aliases)))
+            yield phrase
+            yield canonical_entity(phrase, aliases)
     if not primary or _PRONOUN.fullmatch(primary):
-        values.extend(context_entities)
-    return tuple(
-        value
-        for value in _unique(values)
-        if not re.match(r"^\d+(?:\.\d+)?(?:\s+|$)", value)
-    )
+        yield from context_entities
 
 
 def _object_options(value: str, aliases: dict[str, str]) -> tuple[str, ...]:
     primary = _trim_right(value)
-    values = [canonical_entity(primary, aliases)]
-    complement = _LEADING_COMPLEMENT.sub("", primary)
-    if complement != primary:
-        values.extend((complement, canonical_entity(complement, aliases)))
-    tokens = _tokens(value)
-    for width in range(1, min(18, len(tokens)) + 1):
-        phrase = " ".join(tokens[:width])
-        if not _TRAILING_FUNCTION_WORD.search(phrase):
-            values.extend((phrase, canonical_entity(phrase, aliases)))
-        without_power = re.sub(
-            r"^(?:the\s+)?power\s+to\s+", "", phrase, flags=re.I
-        )
-        if without_power != phrase:
-            values.extend((without_power, canonical_entity(without_power, aliases)))
-    for width in range(1, min(14, len(tokens)) + 1):
-        phrase = " ".join(tokens[-width:])
-        if not _TRAILING_FUNCTION_WORD.search(phrase):
-            values.extend((phrase, canonical_entity(phrase, aliases)))
-    for width in range(1, min(8, len(tokens)) + 1):
-        for offset in range(len(tokens) - width + 1):
-            phrase = " ".join(tokens[offset : offset + width])
-            if not _TRAILING_FUNCTION_WORD.search(phrase):
-                values.extend((phrase, canonical_entity(phrase, aliases)))
-    options = _unique(values)
+    options = _unique(_object_values(value, primary, aliases))
     if graphable_node(primary) and re.match(r"^(?:be|have|do)\s+", primary, re.I):
         primary = normalize_space(primary)
         options = (primary,) + tuple(
             option for option in options if option.casefold() != primary.casefold()
         )
     return options[:64]
+
+
+def _object_values(value: str, primary: str, aliases: dict[str, str]) -> Iterator[str]:
+    yield canonical_entity(primary, aliases)
+    complement = _LEADING_COMPLEMENT.sub("", primary)
+    if complement != primary:
+        yield complement
+        yield canonical_entity(complement, aliases)
+    tokens = _tokens(value)
+    for width in range(1, min(18, len(tokens)) + 1):
+        phrase = " ".join(tokens[:width])
+        if not _TRAILING_FUNCTION_WORD.search(phrase):
+            yield phrase
+            yield canonical_entity(phrase, aliases)
+        without_power = re.sub(
+            r"^(?:the\s+)?power\s+to\s+", "", phrase, flags=re.I
+        )
+        if without_power != phrase:
+            yield without_power
+            yield canonical_entity(without_power, aliases)
+    for width in range(1, min(14, len(tokens)) + 1):
+        phrase = " ".join(tokens[-width:])
+        if not _TRAILING_FUNCTION_WORD.search(phrase):
+            yield phrase
+            yield canonical_entity(phrase, aliases)
+    for width in range(1, min(8, len(tokens)) + 1):
+        for offset in range(len(tokens) - width + 1):
+            phrase = " ".join(tokens[offset : offset + width])
+            if not _TRAILING_FUNCTION_WORD.search(phrase):
+                yield phrase
+                yield canonical_entity(phrase, aliases)
 
 
 def _context_entities(text: str) -> tuple[str, ...]:

@@ -74,7 +74,14 @@ printf 'Alice founded Acme. Acme is located in Toronto.' \
 The demo accepts PDF, DOCX, Markdown, CSV, and plain-text files. Normal uploads
 stream verified claims as their Jev batches finish. Documents that produce at
 least 2,000 relation frames use larger compute batches and mount the completed
-graph once, avoiding browser rendering work during compilation.
+graph once. Selection and verification overlap across batches; every emitted
+claim still passes both support and entity-boundary checks. Large uploads send
+fixed candidate fields once per question instead of repeating them in every
+option. No candidate options are removed by this encoding.
+
+Starting a new upload cancels the previous request. Already running Jev calls
+may finish, but pending batches stop when the server detects the disconnect.
+The final API event includes Jev-reported token usage and request/retry counts.
 
 ```bash
 jevy-graph-demo
@@ -146,6 +153,40 @@ python -m unittest discover -s tests -q
 Pull requests should include a focused regression test for behavior changes.
 Keep extraction deterministic and keep API credentials out of fixtures, logs,
 and commits.
+
+### Performance checks
+
+Use a new process to measure a first upload. No graph layout or browser rendering
+is included; extraction, Jev processing, and final filtering are timed separately.
+The benchmark writes source-grounded claims and metrics to the ignored `out/`
+directory. `--live` makes paid API calls; without it only extraction is measured.
+
+```bash
+PYTHONPATH=src python scripts/benchmark.py document.pdf \
+  --live --compact --workers 12 --batch-size 48 --output out/benchmark.json
+```
+
+Use `--sample 512` for a bounded comparison, or `--reference` to run selection
+for all frames before verification. Frame and candidate hashes allow checking
+that an optimization preserves the entire deterministic candidate set.
+
+Measured locally on September 21, 2026 (first upload, Python 3.14):
+
+| Document / configuration | Accepted claims | Compute time | Reported input tokens |
+| --- | ---: | ---: | ---: |
+| Odyssey PDF, original implementation | ~5,150 | ~75.3s | Not recorded |
+| Odyssey PDF, pipelined, original question format | 5,164 | 49.1s | 21,417,219 |
+| Odyssey PDF, compact fixed fields and paced requests | 5,123 | 45.3s | 19,178,128 |
+| Constitution PDF, normal streaming configuration | 449 | 3.84s | 1,221,971 |
+
+All Odyssey configurations used 14,881 frames. The optimized extractor produced
+identical frame and candidate hashes to the original. The 45.3s run included
+23 rate-limit retries, so network conditions and account limits materially
+affect timing. Model decisions vary between calls: claim counts are a regression
+signal, not proof of complete coverage or correctness. The full uncompressed and
+compact runs shared 3,950 exact claims, so matching volumes should not be read as
+identical outputs. Ten-second processing of
+the full Odyssey has not been demonstrated with verification preserved.
 
 ## Privacy and security
 

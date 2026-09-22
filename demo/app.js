@@ -9,6 +9,7 @@ const MEDIUM_GRAPH_NODES = 900;
 const LARGE_GRAPH_NODES = 2500;
 
 let activeRequest = 0;
+let uploadController = null;
 let selectedNodeId = null;
 let overviewPositions = new Map();
 
@@ -275,6 +276,8 @@ function finishGraph(requestId) {
 }
 
 async function compile(file) {
+  uploadController?.abort();
+  uploadController = new AbortController();
   activeRequest += 1;
   const requestId = activeRequest;
   selectedNodeId = null;
@@ -301,6 +304,7 @@ async function compile(file) {
         "Content-Type": "application/octet-stream",
         "X-Filename": encodeURIComponent(file.name)
       },
+      signal: uploadController.signal,
       body: file
     });
     if (!response.ok || !response.body) throw new Error(await response.text());
@@ -336,6 +340,7 @@ async function compile(file) {
       throw new Error("The compilation stream ended before completion.");
     }
   } catch (error) {
+    if (requestId !== activeRequest || error.name === "AbortError") return;
     setSourceText(error.message || "The document could not be compiled.");
     if (requestId === activeRequest) drop.classList.remove("busy");
   }

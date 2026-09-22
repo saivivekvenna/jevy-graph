@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import unittest
+import json
+from http.client import RemoteDisconnected
 from itertools import product
 from threading import Event, Lock
+from unittest.mock import Mock, patch
 
 from jevy_graph.jev import (
     JevClient,
@@ -30,6 +33,56 @@ def frame() -> RelationFrame:
 
 
 class JevTests(unittest.TestCase):
+    def test_transport_reuses_connection_and_records_provider_usage(self) -> None:
+        response = Mock(status=200)
+        response.read.return_value = json.dumps({
+            "answers": {}, "usage": {"input_tokens": 20, "output_tokens": 3}
+        }).encode()
+        connection = Mock()
+        connection.getresponse.return_value = response
+        with patch("jevy_graph.jev.http.client.HTTPSConnection", return_value=connection) as factory:
+            client = JevClient("test")
+            client._post({})
+            client._post({})
+        self.assertEqual(factory.call_count, 1)
+        self.assertEqual(connection.request.call_count, 2)
+        self.assertEqual(client.usage.requests, 2)
+        self.assertEqual(client.usage.input_tokens, 40)
+        self.assertEqual(client.usage.output_tokens, 6)
+
+    def test_transport_reconnects_after_closed_socket(self) -> None:
+        stale = Mock()
+        stale.getresponse.side_effect = RemoteDisconnected("closed")
+        response = Mock(status=200)
+        response.read.return_value = b'{"answers": {}}'
+        fresh = Mock()
+        fresh.getresponse.return_value = response
+        with patch("jevy_graph.jev.http.client.HTTPSConnection", side_effect=[stale, fresh]):
+            with patch("jevy_graph.jev.time.sleep"), patch.object(JevClient, "_wait_for_request"):
+                client = JevClient("test", attempts=2)
+                client._post({})
+        stale.close.assert_called_once()
+        self.assertEqual(client.usage.retries, 1)
+
+    def test_payment_errors_are_not_retried(self) -> None:
+        response = Mock(status=402)
+        response.read.return_value = b'{}'
+        connection = Mock()
+        connection.getresponse.return_value = response
+        with patch("jevy_graph.jev.http.client.HTTPSConnection", return_value=connection):
+            client = JevClient("test")
+            with self.assertRaisesRegex(Exception, "no available credits"):
+                client._post({})
+        self.assertEqual(client.usage.requests, 1)
+
+    def test_compact_candidates_reconstruct_every_original_triple(self) -> None:
+        source = RelationFrame(("Alice", "Bob"), ("founded",), ("Acme", "Acme Labs"), "Alice founded Acme Labs.", "Alice founded Acme Labs.", 0, 0, 23)
+        original = build_choice_request([source])["questions"]["f0_triple"]["criteria"]
+        compact = build_choice_request([source], compact=True)["questions"]["f0_triple"]
+        fixed = compact["instructions"]["fixed_fields"]
+        rebuilt = {key: {**fixed, **value} for key, value in compact["criteria"].items()}
+        self.assertEqual(original, rebuilt)
+
     def test_ranked_options_preserve_original_cartesian_order(self) -> None:
         for sizes in product(range(5), repeat=3):
             expected = sorted(
@@ -74,6 +127,21 @@ class JevTests(unittest.TestCase):
         client = LocalClient("test", choice_batch_size=1, max_workers=1)
         with self.assertRaisesRegex(RuntimeError, "failed request"):
             client.score([frame()] * 10)
+        self.assertEqual(client.calls, 1)
+
+    def test_closing_stream_stops_pending_batches(self) -> None:
+        class LocalClient(JevClient):
+            calls = 0
+
+            def _score_frame_batch(self, frames):
+                self.calls += 1
+                candidate = CandidateTriple("Alice", "founded", "Acme", "Alice founded Acme.", 0, 0, 19)
+                return [VerifiedTriple(candidate, 0.9, 0.9)]
+
+        client = LocalClient("test", choice_batch_size=1, max_workers=1)
+        batches = client.iter_score_batches([frame()] * 10)
+        next(batches)
+        batches.close()
         self.assertEqual(client.calls, 1)
 
     def test_explains_payment_required(self) -> None:

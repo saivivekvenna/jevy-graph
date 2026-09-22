@@ -7,8 +7,11 @@ import os
 import shutil
 import subprocess
 import tempfile
+import time
 import urllib.parse
 import zipfile
+from contextlib import closing
+from dataclasses import asdict
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -118,37 +121,45 @@ class DemoHandler(SimpleHTTPRequestHandler):
             bulk = len(frames) >= BULK_GRAPH_FRAME_THRESHOLD
             client = JevClient(
                 api_key,
-                choice_batch_size=32 if bulk else 24,
+                choice_batch_size=48 if bulk else 24,
                 verification_batch_size=48 if bulk else 40,
-                max_workers=8 if bulk else 12,
+                max_workers=12,
+                compact=bulk,
             )
             seen: set[tuple[str, str, str, str, str, str]] = set()
             claim_count = 0
-            verified_batches = (
-                [client.score(frames)] if bulk else client.iter_score_batches(frames)
-            )
             graph: list[dict[str, str]] = []
-            for verified_batch in verified_batches:
-                accepted = select(verified_batch, seen=seen)
-                for item in accepted:
-                    candidate = item.candidate
-                    predicate = candidate.predicate
-                    if candidate.polarity == "negative":
-                        predicate = f"not {predicate}"
-                    claim = {
-                        "subject": candidate.subject,
-                        "predicate": predicate,
-                        "object": candidate.object,
-                        "evidence": candidate.evidence,
-                    }
-                    if bulk:
-                        graph.append(claim)
-                    else:
-                        self._event({"type": "claim", "claim": claim})
-                    claim_count += 1
+            last_heartbeat = time.monotonic()
+            with closing(client.iter_score_batches(frames)) as verified_batches:
+                for verified_batch in verified_batches:
+                    if bulk and time.monotonic() - last_heartbeat >= 1.0:
+                        # Blank NDJSON lines detect a cancelled upload without
+                        # streaming graph data or scheduling a browser layout.
+                        self.wfile.write(b"\n")
+                        self.wfile.flush()
+                        last_heartbeat = time.monotonic()
+                    accepted = select(verified_batch, seen=seen)
+                    for item in accepted:
+                        candidate = item.candidate
+                        predicate = candidate.predicate
+                        if candidate.polarity == "negative":
+                            predicate = f"not {predicate}"
+                        claim = {
+                            "subject": candidate.subject,
+                            "predicate": predicate,
+                            "object": candidate.object,
+                            "evidence": candidate.evidence,
+                        }
+                        if bulk:
+                            graph.append(claim)
+                        else:
+                            self._event({"type": "claim", "claim": claim})
+                        claim_count += 1
             if bulk:
                 self._event({"type": "graph", "claims": graph})
-            self._event({"type": "done", "claims": claim_count})
+            self._event({
+                "type": "done", "claims": claim_count, "usage": asdict(client.usage)
+            })
         except (BrokenPipeError, ConnectionResetError):
             return
         except (JevError, OSError, ValueError) as error:
