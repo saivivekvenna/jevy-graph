@@ -5,6 +5,17 @@ const sourceText = document.querySelector("#source-text");
 const tooltip = document.querySelector("#graph-tooltip");
 const edgeCount = document.querySelector("#edge-count");
 const nodeCount = document.querySelector("#node-count");
+const timerRow = document.createElement("div");
+timerRow.setAttribute("aria-live", "off");
+timerRow.title = "Upload to backend completion, excluding final graph layout";
+const timerLabel = document.createElement("dt");
+timerLabel.textContent = "Elapsed";
+const elapsedTime = document.createElement("dd");
+elapsedTime.id = "elapsed-time";
+elapsedTime.textContent = "0.0s";
+elapsedTime.style.fontVariantNumeric = "tabular-nums";
+timerRow.append(timerLabel, elapsedTime);
+document.querySelector(".graph-stats").append(timerRow);
 const MEDIUM_GRAPH_NODES = 900;
 const LARGE_GRAPH_NODES = 2500;
 
@@ -280,6 +291,18 @@ async function compile(file) {
   uploadController = new AbortController();
   activeRequest += 1;
   const requestId = activeRequest;
+  const startedAt = performance.now();
+  const updateTimer = () => {
+    if (requestId === activeRequest) {
+      elapsedTime.textContent = `${((performance.now() - startedAt) / 1000).toFixed(1)}s`;
+    }
+  };
+  elapsedTime.textContent = "0.0s";
+  const timer = window.setInterval(updateTimer, 100);
+  const stopTimer = () => {
+    window.clearInterval(timer);
+    updateTimer();
+  };
   selectedNodeId = null;
   overviewPositions = new Map();
   pendingClaims = [];
@@ -316,6 +339,7 @@ async function compile(file) {
 
     while (requestId === activeRequest) {
       const { value, done } = await reader.read();
+      if (requestId !== activeRequest) break;
       buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
       const lines = buffer.split("\n");
       buffer = lines.pop() || "";
@@ -329,6 +353,7 @@ async function compile(file) {
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {
+          stopTimer();
           receivedDone = true;
           streamFinished = true;
           scheduleRender(requestId);
@@ -343,6 +368,9 @@ async function compile(file) {
     if (requestId !== activeRequest || error.name === "AbortError") return;
     setSourceText(error.message || "The document could not be compiled.");
     if (requestId === activeRequest) drop.classList.remove("busy");
+  } finally {
+    window.clearInterval(timer);
+    if (!streamFinished) updateTimer();
   }
 }
 
