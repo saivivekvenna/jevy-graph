@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import unittest
+from itertools import product
+from threading import Event, Lock
 
 from jevy_graph.jev import (
     JevClient,
     _http_error_message,
+    _ranked_indexes,
     _triple_options,
     build_choice_request,
     parse_choice_answers,
@@ -27,6 +30,52 @@ def frame() -> RelationFrame:
 
 
 class JevTests(unittest.TestCase):
+    def test_ranked_options_preserve_original_cartesian_order(self) -> None:
+        for sizes in product(range(5), repeat=3):
+            expected = sorted(
+                product(*(range(size) for size in sizes)),
+                key=lambda item: (sum(item), max(item), item),
+            )
+            self.assertEqual(list(_ranked_indexes(sizes)), expected)
+
+    def test_pipeline_verifies_before_all_selection_finishes(self) -> None:
+        verification_started = Event()
+        counter_lock = Lock()
+
+        class LocalClient(JevClient):
+            calls = 0
+
+            def _resolve_batch(self, frames):
+                with counter_lock:
+                    self.calls += 1
+                    call = self.calls
+                if call == 2:
+                    if not verification_started.wait(2):
+                        raise AssertionError("verification waited for all selections")
+                return [CandidateTriple("Alice", "founded", "Acme", "Alice founded Acme.", 0, 0, 19)]
+
+            def _verify_batch(self, candidates):
+                verification_started.set()
+                return [VerifiedTriple(c, 0.9, 0.9) for c in candidates]
+
+        multi = RelationFrame(("Alice", "Bob"), ("founded",), ("Acme",), "Alice founded Acme.", "Alice founded Acme.", 0, 0, 19)
+        result = LocalClient("test", choice_batch_size=1, max_workers=2).score([multi, multi])
+        self.assertEqual(len(result), 2)
+        self.assertTrue(verification_started.is_set())
+
+    def test_pipeline_stops_scheduling_after_failure(self) -> None:
+        class LocalClient(JevClient):
+            calls = 0
+
+            def _score_frame_batch(self, frames):
+                self.calls += 1
+                raise RuntimeError("failed request")
+
+        client = LocalClient("test", choice_batch_size=1, max_workers=1)
+        with self.assertRaisesRegex(RuntimeError, "failed request"):
+            client.score([frame()] * 10)
+        self.assertEqual(client.calls, 1)
+
     def test_explains_payment_required(self) -> None:
         self.assertIn("no available credits", _http_error_message(402))
         self.assertEqual(_http_error_message(500), "Jev request failed with HTTP 500")

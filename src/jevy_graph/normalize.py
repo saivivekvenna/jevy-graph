@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from functools import lru_cache
 
 _SPACE = re.compile(r"\s+")
 _ACRONYM = re.compile(
@@ -29,6 +30,7 @@ MAX_NODE_WORDS = 14
 MAX_NODE_CHARACTERS = 160
 
 
+@lru_cache(maxsize=65_536)
 def normalize_space(value: str) -> str:
     return _SPACE.sub(" ", unicodedata.normalize("NFKC", value)).strip()
 
@@ -46,6 +48,14 @@ def find_aliases(text: str) -> dict[str, str]:
 
 
 def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
+    value = _canonical_label(value)
+    if aliases and value.casefold() in aliases:
+        return aliases[value.casefold()]
+    return value
+
+
+@lru_cache(maxsize=65_536)
+def _canonical_label(value: str) -> str:
     value = normalize_space(value).strip(" \t\n\r.,;:!?\"'“”‘’•")
     if (
         len(value) >= 2
@@ -54,14 +64,16 @@ def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
     ):
         value = value[1:-1].strip()
     value = _LEADING_ARTICLE.sub("", value)
-    if aliases and value.casefold() in aliases:
-        return aliases[value.casefold()]
     return value
 
 
 def canonical_entity(value: str, aliases: dict[str, str] | None = None) -> str:
     """Normalize harmless surface variation without inventing an entity link."""
-    value = canonical_label(value, aliases)
+    return _canonical_entity(canonical_label(value, aliases))
+
+
+@lru_cache(maxsize=65_536)
+def _canonical_entity(value: str) -> str:
     value = _LEADING_QUANTIFIER.sub("", value)
     value = _LEADING_REFERENCE.sub("", value)
     return normalize_space(value)

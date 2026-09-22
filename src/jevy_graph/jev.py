@@ -7,9 +7,9 @@ import time
 import urllib.error
 import urllib.request
 from collections.abc import Callable, Iterator
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from dataclasses import replace
-from itertools import product
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+from dataclasses import dataclass, replace
+from functools import lru_cache
 from threading import Lock
 from typing import TypeVar
 
@@ -24,6 +24,14 @@ R = TypeVar("R")
 
 class JevError(RuntimeError):
     pass
+
+
+@dataclass
+class Usage:
+    requests: int = 0
+    retries: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
 
 
 def _http_error_message(status: int) -> str:
@@ -125,15 +133,26 @@ def _normalize_components(
     return subject, predicate, object_
 
 
+def _ranked_indexes(sizes: tuple[int, int, int]) -> Iterator[tuple[int, int, int]]:
+    """Visit the original (sum, max, tuple) order without sorting the full product."""
+    if not all(sizes):
+        return
+    for total in range(sum(sizes) - 2):
+        shell = []
+        for subject in range(max(0, total - sizes[1] - sizes[2] + 2), min(sizes[0], total + 1)):
+            for predicate in range(max(0, total - subject - sizes[2] + 1), min(sizes[1], total - subject + 1)):
+                object_ = total - subject - predicate
+                shell.append((subject, predicate, object_))
+        yield from sorted(shell, key=lambda item: (max(item), item))
+
+
+@lru_cache(maxsize=4_096)
 def _triple_options(
     frame: RelationFrame, limit: int = 32
 ) -> tuple[tuple[str, str, str], ...]:
-    indexes = product(
-        range(len(frame.subject_options)),
-        range(len(frame.predicate_options)),
-        range(len(frame.object_options)),
+    ranked = _ranked_indexes(
+        (len(frame.subject_options), len(frame.predicate_options), len(frame.object_options))
     )
-    ranked = sorted(indexes, key=lambda item: (sum(item), max(item), item))
     options: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str, str]] = set()
     has_power_to = any(
@@ -408,6 +427,8 @@ class JevClient:
     ) -> None:
         if not api_key:
             raise ValueError("api_key must not be empty")
+        if min(choice_batch_size, verification_batch_size, max_workers, attempts) < 1:
+            raise ValueError("batch sizes, workers, and attempts must be positive")
         self.api_key = api_key
         self.timeout = timeout
         self.choice_batch_size = choice_batch_size
@@ -415,6 +436,7 @@ class JevClient:
         self.max_workers = max_workers
         self.attempts = attempts
         self.singleton_selections = 0
+        self.usage = Usage()
         self._stats_lock = Lock()
 
     def resolve(self, frames: list[RelationFrame]) -> list[CandidateTriple]:
@@ -442,10 +464,11 @@ class JevClient:
                 pending_frames.append(frame)
             eligible_index += 1
 
-        selected = _parallel_batches(
-            _batches(pending_frames, self.choice_batch_size),
-            self._resolve_batch,
-            self.max_workers,
+        batches = _batches(pending_frames, self.choice_batch_size)
+        selected = (
+            self._resolve_batch(batches[0])
+            if len(batches) == 1
+            else _parallel_batches(batches, self._resolve_batch, self.max_workers)
         )
         for index, candidate in zip(pending_indexes, selected, strict=True):
             resolved[index] = candidate
@@ -459,25 +482,42 @@ class JevClient:
         )
 
     def score(self, frames: list[RelationFrame]) -> list[VerifiedTriple]:
-        return self.verify(self.resolve(frames))
+        batches = sorted(self._iter_scored_batches(frames), key=lambda item: item[0])
+        return [item for _, batch in batches for item in batch]
 
     def iter_score_batches(
         self, frames: list[RelationFrame]
     ) -> Iterator[list[VerifiedTriple]]:
         """Yield independently verified frame batches as they actually complete."""
-        batches = _batches(frames, self.choice_batch_size)
-        if not batches:
+        for _, batch in self._iter_scored_batches(frames):
+            if batch:
+                yield batch
+
+    def _iter_scored_batches(
+        self, frames: list[RelationFrame]
+    ) -> Iterator[tuple[int, list[VerifiedTriple]]]:
+        batches = iter(enumerate(_batches(frames, self.choice_batch_size)))
+        if not frames:
             return
-        with ThreadPoolExecutor(
-            max_workers=min(self.max_workers, len(batches))
-        ) as executor:
-            futures = [
-                executor.submit(self._score_frame_batch, batch) for batch in batches
-            ]
-            for future in as_completed(futures):
-                verified = future.result()
-                if verified:
-                    yield verified
+        executor = ThreadPoolExecutor(max_workers=self.max_workers)
+        pending = {}
+        try:
+            for index, batch in batches:
+                pending[executor.submit(self._score_frame_batch, batch)] = index
+                if len(pending) == self.max_workers:
+                    break
+            while pending:
+                done, _ = wait(pending, return_when=FIRST_COMPLETED)
+                # Observe failures before scheduling more paid requests.
+                completed = [(pending.pop(future), future.result()) for future in done]
+                for index, verified in completed:
+                    yield index, verified
+                    next_batch = next(batches, None)
+                    if next_batch is not None:
+                        next_index, batch = next_batch
+                        pending[executor.submit(self._score_frame_batch, batch)] = next_index
+        finally:
+            executor.shutdown(wait=True, cancel_futures=True)
 
     def _score_frame_batch(
         self, frames: list[RelationFrame]
@@ -514,11 +554,18 @@ class JevClient:
             method="POST",
         )
         for attempt in range(self.attempts):
+            with self._stats_lock:
+                self.usage.requests += 1
+                self.usage.retries += int(attempt > 0)
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout) as response:
                     result = json.load(response)
                 if not isinstance(result, dict):
                     raise JevError("Jev returned a non-object response")
+                usage = result.get("usage", {})
+                with self._stats_lock:
+                    self.usage.input_tokens += usage.get("input_tokens", 0)
+                    self.usage.output_tokens += usage.get("output_tokens", 0)
                 return result
             except urllib.error.HTTPError as error:
                 if error.code not in {429, 529} or attempt + 1 == self.attempts:
