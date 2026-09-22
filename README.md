@@ -11,6 +11,12 @@ The compiler is designed for high-recall extraction from ordinary prose,
 scientific papers, legal text, tables, measurements, and equations. It does not
 require an ontology or a document-specific schema.
 
+## Demo video
+
+[![Watch Jevy Graph compile a document into a knowledge graph](assets/jevy-graph-demo.png)](assets/jevy-graph-demo.mp4)
+
+Click the preview to watch the 72-second demo.
+
 ## Features
 
 - Multiple atomic claims from one sentence, clause, list, or table row
