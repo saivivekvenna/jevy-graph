@@ -4,6 +4,7 @@ import re
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass
+from functools import lru_cache
 
 from .models import CandidateTriple, RelationFrame
 from .normalize import (
@@ -1167,13 +1168,15 @@ def _trim_right(value: str) -> str:
     return canonical_entity(value)
 
 
+@lru_cache(maxsize=131_072)
 def _valid_entity(value: str) -> bool:
-    if not value or not canonical_entity(value) or _BAD_ENTITY.fullmatch(value):
+    canonical = canonical_entity(value)
+    if not value or not canonical or _BAD_ENTITY.fullmatch(value):
         return False
     words = value.split()
-    canonical_words = canonical_entity(value).split()
+    canonical_words = canonical.split()
     return (
-        graphable_node(value)
+        graphable_node(canonical)
         and not (len(words) == 1 and _BAD_STANDALONE.fullmatch(value))
         and not (
             len(canonical_words) == 1
@@ -1195,7 +1198,7 @@ def _unique(values: list[str], limit: int = 64) -> tuple[str, ...]:
     for value in values:
         value = normalize_space(value).strip(" \t\n\r.,;:!?()[]{}\"'“”‘’")
         key = canonical_entity(value).casefold()
-        if not _valid_entity(value) or key in seen:
+        if not key or key in seen or not _valid_entity(value):
             continue
         seen.add(key)
         result.append(value)

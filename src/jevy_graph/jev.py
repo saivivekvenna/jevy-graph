@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import random
 import re
 import time
 import urllib.error
@@ -403,7 +404,7 @@ class JevClient:
         choice_batch_size: int = 24,
         verification_batch_size: int = 40,
         max_workers: int = 12,
-        attempts: int = 3,
+        attempts: int = 6,
     ) -> None:
         if not api_key:
             raise ValueError("api_key must not be empty")
@@ -522,8 +523,15 @@ class JevClient:
             except urllib.error.HTTPError as error:
                 if error.code not in {429, 529} or attempt + 1 == self.attempts:
                     raise JevError(_http_error_message(error.code)) from error
+                retry_after = 0.0
+                try:
+                    retry_after = float(error.headers.get("Retry-After", "0"))
+                except (AttributeError, TypeError, ValueError):
+                    pass
             except urllib.error.URLError as error:
                 if attempt + 1 == self.attempts:
                     raise JevError(f"Could not reach Jev: {error.reason}") from error
-            time.sleep(0.25 * (2**attempt))
+                retry_after = 0.0
+            backoff = max(retry_after, min(8.0, 0.5 * (2**attempt)))
+            time.sleep(backoff + random.uniform(0.0, backoff * 0.25))
         raise JevError("Jev request failed")

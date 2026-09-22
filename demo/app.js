@@ -5,6 +5,8 @@ const sourceText = document.querySelector("#source-text");
 const tooltip = document.querySelector("#graph-tooltip");
 const edgeCount = document.querySelector("#edge-count");
 const nodeCount = document.querySelector("#node-count");
+const MEDIUM_GRAPH_NODES = 900;
+const LARGE_GRAPH_NODES = 2500;
 
 let activeRequest = 0;
 let selectedNodeId = null;
@@ -13,6 +15,8 @@ let overviewPositions = new Map();
 const cy = cytoscape({
   container: graph,
   elements: [],
+  hideEdgesOnViewport: true,
+  textureOnViewport: true,
   minZoom: 0.12,
   maxZoom: 3,
   style: [
@@ -127,53 +131,68 @@ let renderFrame = null;
 let pendingClaims = [];
 let streamFinished = false;
 let nextClaimIndex = 0;
+let lastStreamFitAt = 0;
+let lastStreamFitNodeCount = 0;
 
 function updateGraphStats() {
   edgeCount.textContent = String(cy.edges().length);
   nodeCount.textContent = String(cy.nodes().length);
 }
 
-function addClaim(claim, index, requestId) {
-  const subjectId = idFor(claim.subject);
-  const objectId = idFor(claim.object);
+function fitStreamGraph(force = false) {
+  const now = performance.now();
+  const nodes = cy.nodes().length;
+  const shouldFit =
+    force ||
+    nodes < MEDIUM_GRAPH_NODES ||
+    now - lastStreamFitAt >= 350 ||
+    nodes - lastStreamFitNodeCount >= 300;
+  if (!shouldFit) return;
+
+  cy.fit(cy.elements(), 54);
+  lastStreamFitAt = now;
+  lastStreamFitNodeCount = nodes;
+}
+
+function addClaims(items, requestId) {
   const widthFor = (label) => Math.min(220, Math.max(68, label.length * 7));
   const heightFor = (label) =>
     Math.min(84, Math.max(32, Math.ceil(label.length / 26) * 15));
+  const nodeIds = new Set(cy.nodes().map((node) => node.id()));
+  const elements = [];
 
-  if (cy.$id(subjectId).empty()) {
-    cy.add({
-      group: "nodes",
-      data: {
-        id: subjectId,
-        label: claim.subject,
-        width: widthFor(claim.subject),
-        height: heightFor(claim.subject)
-      },
-      position: streamPosition(cy.nodes().length)
-    });
-  }
-  if (cy.$id(objectId).empty()) {
-    cy.add({
-      group: "nodes",
-      data: {
-        id: objectId,
-        label: claim.object,
-        width: widthFor(claim.object),
-        height: heightFor(claim.object)
-      },
-      position: streamPosition(cy.nodes().length)
-    });
-  }
-  cy.add({
-    group: "edges",
-    data: {
-      id: `e-${requestId}-${index}`,
-      source: subjectId,
-      target: objectId,
-      label: claim.predicate.replaceAll("_", " "),
-      evidence: claim.evidence
+  for (const { claim, index } of items) {
+    const subjectId = idFor(claim.subject);
+    const objectId = idFor(claim.object);
+    for (const [id, label] of [
+      [subjectId, claim.subject],
+      [objectId, claim.object]
+    ]) {
+      if (nodeIds.has(id)) continue;
+      elements.push({
+        group: "nodes",
+        data: {
+          id,
+          label,
+          width: widthFor(label),
+          height: heightFor(label)
+        },
+        position: streamPosition(nodeIds.size)
+      });
+      nodeIds.add(id);
     }
-  });
+    elements.push({
+      group: "edges",
+      data: {
+        id: `e-${requestId}-${index}`,
+        source: subjectId,
+        target: objectId,
+        label: claim.predicate.replaceAll("_", " "),
+        evidence: claim.evidence
+      }
+    });
+  }
+  cy.add(elements);
 }
 
 function scheduleRender(requestId) {
@@ -185,13 +204,9 @@ function scheduleRender(requestId) {
     const ready = pendingClaims;
     pendingClaims = [];
     if (ready.length) {
-      cy.batch(() => {
-        for (const item of ready) {
-          addClaim(item.claim, item.index, requestId);
-        }
-      });
+      addClaims(ready, requestId);
       updateGraphStats();
-      if (!selectedNodeId) cy.fit(cy.elements(), 54);
+      if (!selectedNodeId) fitStreamGraph();
     }
 
     if (pendingClaims.length) {
@@ -199,35 +214,51 @@ function scheduleRender(requestId) {
     } else if (streamFinished) {
       streamFinished = false;
       window.requestAnimationFrame(() => {
-        if (requestId === activeRequest) finishGraph();
+        if (requestId === activeRequest) finishGraph(requestId);
       });
     }
   });
 }
 
 function enqueueClaim(claim, requestId) {
+  enqueueClaims([claim], requestId);
+}
+
+function enqueueClaims(claims, requestId) {
   if (requestId !== activeRequest) return;
-  pendingClaims.push({ claim, index: nextClaimIndex });
-  nextClaimIndex += 1;
+  for (const claim of claims) {
+    pendingClaims.push({ claim, index: nextClaimIndex });
+    nextClaimIndex += 1;
+  }
   scheduleRender(requestId);
 }
 
-function finishGraph() {
+function finishGraph(requestId) {
   const preserveOverview = () => {
+    if (requestId !== activeRequest) return;
     selectedNodeId = null;
     overviewPositions = new Map(
       cy.nodes().map((node) => [node.id(), { ...node.position() }])
     );
-    cy.fit(cy.elements(), 48);
+    fitStreamGraph(true);
+    drop.classList.remove("busy");
   };
+
+  const nodes = cy.nodes().length;
+  if (nodes > LARGE_GRAPH_NODES) {
+    preserveOverview();
+    return;
+  }
+
+  const mediumGraph = nodes > MEDIUM_GRAPH_NODES;
   cy.layout({
     name: "fcose",
-    quality: "proof",
+    quality: mediumGraph ? "default" : "proof",
     randomize: true,
     animate: false,
     fit: true,
     padding: 64,
-    nodeDimensionsIncludeLabels: true,
+    nodeDimensionsIncludeLabels: !mediumGraph,
     uniformNodeDimensions: false,
     packComponents: true,
     nodeSeparation: 110,
@@ -251,6 +282,8 @@ async function compile(file) {
   pendingClaims = [];
   streamFinished = false;
   nextClaimIndex = 0;
+  lastStreamFitAt = 0;
+  lastStreamFitNodeCount = 0;
   if (renderFrame !== null) {
     window.cancelAnimationFrame(renderFrame);
     renderFrame = null;
@@ -275,6 +308,7 @@ async function compile(file) {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
     let buffer = "";
+    let receivedDone = false;
 
     while (requestId === activeRequest) {
       const { value, done } = await reader.read();
@@ -286,18 +320,23 @@ async function compile(file) {
         const event = JSON.parse(line);
         if (event.type === "claim") {
           enqueueClaim(event.claim, requestId);
+        } else if (event.type === "graph") {
+          enqueueClaims(event.claims, requestId);
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {
+          receivedDone = true;
           streamFinished = true;
           scheduleRender(requestId);
         }
       }
       if (done) break;
     }
+    if (requestId === activeRequest && !receivedDone) {
+      throw new Error("The compilation stream ended before completion.");
+    }
   } catch (error) {
     setSourceText(error.message || "The document could not be compiled.");
-  } finally {
     if (requestId === activeRequest) drop.classList.remove("busy");
   }
 }

@@ -71,8 +71,10 @@ printf 'Alice founded Acme. Acme is located in Toronto.' \
 
 ## Demo
 
-The demo accepts PDF, DOCX, Markdown, CSV, and plain-text files. Verified claims
-appear in the graph as their Jev batches finish.
+The demo accepts PDF, DOCX, Markdown, CSV, and plain-text files. Normal uploads
+stream verified claims as their Jev batches finish. Documents that produce at
+least 2,000 relation frames use larger compute batches and mount the completed
+graph once, avoiding browser rendering work during compilation.
 
 ```bash
 jevy-graph-demo

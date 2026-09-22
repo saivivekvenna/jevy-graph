@@ -11,6 +11,8 @@ _ACRONYM = re.compile(
 _LEADING_QUANTIFIER = re.compile(
     r"^(?:each|every|any|all|either|neither|such|no)\s+", re.IGNORECASE
 )
+_LEADING_ARTICLE = re.compile(r"^(?:a|an|the)\s+", re.IGNORECASE)
+_LEADING_REFERENCE = re.compile(r"^(?:thereof|hereof)\s+", re.IGNORECASE)
 _INTEGER = re.compile(r"[+-]?\d[\d,]*")
 _DECIMAL = re.compile(r"[+-]?(?:\d[\d,]*\.\d+|\.\d+)")
 _PERCENT = re.compile(r"[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)\s*%")
@@ -51,7 +53,7 @@ def canonical_label(value: str, aliases: dict[str, str] | None = None) -> str:
         and value[1:-1].count(value[0]) == value[1:-1].count(value[-1])
     ):
         value = value[1:-1].strip()
-    value = re.sub(r"^(?:a|an|the)\s+", "", value, flags=re.IGNORECASE)
+    value = _LEADING_ARTICLE.sub("", value)
     if aliases and value.casefold() in aliases:
         return aliases[value.casefold()]
     return value
@@ -61,7 +63,7 @@ def canonical_entity(value: str, aliases: dict[str, str] | None = None) -> str:
     """Normalize harmless surface variation without inventing an entity link."""
     value = canonical_label(value, aliases)
     value = _LEADING_QUANTIFIER.sub("", value)
-    value = re.sub(r"^(?:thereof|hereof)\s+", "", value, flags=re.IGNORECASE)
+    value = _LEADING_REFERENCE.sub("", value)
     return normalize_space(value)
 
 

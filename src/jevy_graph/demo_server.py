@@ -20,6 +20,7 @@ from .extract import extract_frames
 from .jev import JevClient, JevError
 
 MAX_UPLOAD_BYTES = 30 * 1024 * 1024
+BULK_GRAPH_FRAME_THRESHOLD = 2_000
 WORD_NAMESPACE = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
 
@@ -114,28 +115,39 @@ class DemoHandler(SimpleHTTPRequestHandler):
             if not api_key:
                 raise ValueError("TYPESAFE_API_KEY is missing from the server environment.")
 
-            client = JevClient(api_key)
+            bulk = len(frames) >= BULK_GRAPH_FRAME_THRESHOLD
+            client = JevClient(
+                api_key,
+                choice_batch_size=32 if bulk else 24,
+                verification_batch_size=48 if bulk else 40,
+                max_workers=8 if bulk else 12,
+            )
             seen: set[tuple[str, str, str, str, str, str]] = set()
             claim_count = 0
-            for verified_batch in client.iter_score_batches(frames):
+            verified_batches = (
+                [client.score(frames)] if bulk else client.iter_score_batches(frames)
+            )
+            graph: list[dict[str, str]] = []
+            for verified_batch in verified_batches:
                 accepted = select(verified_batch, seen=seen)
                 for item in accepted:
                     candidate = item.candidate
                     predicate = candidate.predicate
                     if candidate.polarity == "negative":
                         predicate = f"not {predicate}"
-                    self._event(
-                        {
-                            "type": "claim",
-                            "claim": {
-                                "subject": candidate.subject,
-                                "predicate": predicate,
-                                "object": candidate.object,
-                                "evidence": candidate.evidence,
-                            },
-                        }
-                    )
+                    claim = {
+                        "subject": candidate.subject,
+                        "predicate": predicate,
+                        "object": candidate.object,
+                        "evidence": candidate.evidence,
+                    }
+                    if bulk:
+                        graph.append(claim)
+                    else:
+                        self._event({"type": "claim", "claim": claim})
                     claim_count += 1
+            if bulk:
+                self._event({"type": "graph", "claims": graph})
             self._event({"type": "done", "claims": claim_count})
         except (BrokenPipeError, ConnectionResetError):
             return
