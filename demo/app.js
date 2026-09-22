@@ -2,7 +2,7 @@ const drop = document.querySelector("#drop");
 const fileInput = document.querySelector("#file-input");
 const graph = document.querySelector("#cy");
 const sourceText = document.querySelector("#source-text");
-const tooltip = document.querySelector("#graph-tooltip");
+const tripleText = document.querySelector("#triple-text");
 const edgeCount = document.querySelector("#edge-count");
 const nodeCount = document.querySelector("#node-count");
 const timerRow = document.createElement("div");
@@ -316,7 +316,6 @@ async function compile(file) {
   }
   cy.elements().remove();
   updateGraphStats();
-  tooltip.classList.remove("visible");
   setSourceText("Hover over an edge or leaf node to see its source sentence.");
   drop.classList.add("busy");
 
@@ -379,43 +378,17 @@ function handleFiles(files) {
   if (file) compile(file);
 }
 
-function focus(edge) {
-  const neighborhood = edge.connectedNodes().union(edge);
-  cy.elements().addClass("faded").removeClass("focused");
-  neighborhood.removeClass("faded").addClass("focused");
-  setSourceText(edge.data("evidence"));
+function showEdgeDetails(edge) {
+  setSourceText(edge.data("evidence"), `${edge.source().data("label")} — ${edge.data("label")} → ${edge.target().data("label")}`);
 }
 
-function setSourceText(text) {
+function setSourceText(text, triple = "") {
+  tripleText.textContent = triple;
+  tripleText.hidden = !triple;
   sourceText.textContent = text;
   sourceText.classList.toggle("long", text.length > 260);
   sourceText.classList.toggle("very-long", text.length > 440);
   window.requestAnimationFrame(() => cy.resize());
-}
-
-function tooltipText(edge) {
-  return `${edge.source().data("label")} — ${edge.data("label")} → ${edge.target().data("label")}`;
-}
-
-function showTooltip(text, renderedPosition) {
-  tooltip.textContent = text;
-  tooltip.classList.add("visible");
-  const width = tooltip.offsetWidth;
-  const height = tooltip.offsetHeight;
-  const left = Math.max(
-    16,
-    Math.min(renderedPosition.x + 18, graph.clientWidth - width - 16)
-  );
-  const top = Math.max(
-    16,
-    Math.min(renderedPosition.y + 18, graph.clientHeight - height - 16)
-  );
-  tooltip.style.transform = `translate(${left}px, ${top}px)`;
-}
-
-function hideTooltip() {
-  tooltip.classList.remove("visible");
-  cy.nodes().removeClass("hovered");
 }
 
 function focusNode(node, zoom = false) {
@@ -471,40 +444,18 @@ function clearFocus() {
 }
 
 cy.on("mouseover", "edge", (event) => {
-  focus(event.target);
-  showTooltip(tooltipText(event.target), event.renderedPosition);
-});
-cy.on("mousemove", "edge", (event) => {
-  showTooltip(tooltipText(event.target), event.renderedPosition);
-});
-cy.on("mouseout", "edge", () => {
-  hideTooltip();
-  clearFocus();
+  showEdgeDetails(event.target);
 });
 cy.on("mouseover", "node", (event) => {
   const node = event.target;
   const edges = node.connectedEdges();
-  node.addClass("hovered");
   if (edges.length === 1) {
-    const edge = edges[0];
-    focus(edge);
-    showTooltip(tooltipText(edge), event.renderedPosition);
+    showEdgeDetails(edges[0]);
   } else {
-    showTooltip(node.data("label"), event.renderedPosition);
+    setSourceText(`${node.data("label")} · ${edges.length} relationships. Hover over an edge to see its triple and source sentence.`);
   }
 });
-cy.on("mousemove", "node", (event) => {
-  const edges = event.target.connectedEdges();
-  showTooltip(
-    edges.length === 1 ? tooltipText(edges[0]) : event.target.data("label"),
-    event.renderedPosition
-  );
-});
-cy.on("mouseout", "node", (event) => {
-  hideTooltip();
-  if (event.target.connectedEdges().length === 1) clearFocus();
-});
-cy.on("tap", "edge", (event) => focus(event.target));
+cy.on("tap", "edge", (event) => showEdgeDetails(event.target));
 cy.on("tap", "node", (event) => {
   selectedNodeId = event.target.id();
   focusNode(event.target, true);
