@@ -1,6 +1,7 @@
 # Jevy Graph
 
 [![CI](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/jevy-graph.svg)](https://pypi.org/project/jevy-graph/)
 
 Jevy Graph compiles documents into source-grounded RDF. It discovers atomic
 relations locally, asks [Jev](https://typesafe.ai/) to resolve ambiguous entity
@@ -49,18 +50,15 @@ with one valid interpretation skip the selection call but are still verified.
 Jevy Graph requires Python 3.11 or newer and a TypeSafe API key.
 
 ```bash
-git clone https://github.com/saivivekvenna/jevy-graph.git
-cd jevy-graph
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e .
-cp .env.example .env
+python -m pip install jevy-graph
 ```
 
-Add your key to `.env`:
+Export your key or add it to a local `.env` file:
 
-```dotenv
-TYPESAFE_API_KEY=your-key-here
+```bash
+export TYPESAFE_API_KEY=your-key-here
 ```
 
 Compile UTF-8 text to Turtle:
