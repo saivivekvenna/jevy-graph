@@ -176,8 +176,15 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     load_dotenv()
-    repository_root = Path(__file__).resolve().parents[2]
-    handler = partial(DemoHandler, directory=str(repository_root))
+    package_root = Path(__file__).resolve().parent
+    # Wheels bundle the frontend under jevy_graph/demo. Keep a source-tree
+    # fallback so `PYTHONPATH=src python -m jevy_graph.demo_server` also works.
+    content_root = (
+        package_root
+        if (package_root / "demo").is_dir()
+        else package_root.parents[1]
+    )
+    handler = partial(DemoHandler, directory=str(content_root))
     server = ThreadingHTTPServer((args.host, args.port), handler)
     print(f"Jevy Graph demo: http://{args.host}:{args.port}")
     try:

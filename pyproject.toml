@@ -24,6 +24,7 @@ dependencies = []
 Homepage = "https://github.com/saivivekvenna/jevy-graph"
 Issues = "https://github.com/saivivekvenna/jevy-graph/issues"
 Source = "https://github.com/saivivekvenna/jevy-graph"
+Changelog = "https://github.com/saivivekvenna/jevy-graph/blob/main/CHANGELOG.md"
 
 [project.scripts]
 jevy-graph = "jevy_graph.cli:main"
@@ -31,3 +32,7 @@ jevy-graph-demo = "jevy_graph.demo_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/jevy_graph"]
+force-include = { "demo" = "jevy_graph/demo" }
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/assets"]
