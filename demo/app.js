@@ -123,16 +123,10 @@ function streamPosition(index) {
   };
 }
 
-let streamFrame = null;
-
-function scheduleStreamFormat(requestId) {
-  if (streamFrame !== null) return;
-  streamFrame = window.requestAnimationFrame(() => {
-    streamFrame = null;
-    if (requestId !== activeRequest || selectedNodeId) return;
-    cy.fit(cy.elements(), 54);
-  });
-}
+let renderFrame = null;
+let pendingClaims = [];
+let streamFinished = false;
+let nextClaimIndex = 0;
 
 function updateGraphStats() {
   edgeCount.textContent = String(cy.edges().length);
@@ -140,7 +134,6 @@ function updateGraphStats() {
 }
 
 function addClaim(claim, index, requestId) {
-  if (requestId !== activeRequest) return;
   const subjectId = idFor(claim.subject);
   const objectId = idFor(claim.object);
   const widthFor = (label) => Math.min(220, Math.max(68, label.length * 7));
@@ -181,9 +174,42 @@ function addClaim(claim, index, requestId) {
       evidence: claim.evidence
     }
   });
-  updateGraphStats();
+}
 
-  scheduleStreamFormat(requestId);
+function scheduleRender(requestId) {
+  if (renderFrame !== null) return;
+  renderFrame = window.requestAnimationFrame(() => {
+    renderFrame = null;
+    if (requestId !== activeRequest) return;
+
+    const ready = pendingClaims;
+    pendingClaims = [];
+    if (ready.length) {
+      cy.batch(() => {
+        for (const item of ready) {
+          addClaim(item.claim, item.index, requestId);
+        }
+      });
+      updateGraphStats();
+      if (!selectedNodeId) cy.fit(cy.elements(), 54);
+    }
+
+    if (pendingClaims.length) {
+      scheduleRender(requestId);
+    } else if (streamFinished) {
+      streamFinished = false;
+      window.requestAnimationFrame(() => {
+        if (requestId === activeRequest) finishGraph();
+      });
+    }
+  });
+}
+
+function enqueueClaim(claim, requestId) {
+  if (requestId !== activeRequest) return;
+  pendingClaims.push({ claim, index: nextClaimIndex });
+  nextClaimIndex += 1;
+  scheduleRender(requestId);
 }
 
 function finishGraph() {
@@ -222,6 +248,13 @@ async function compile(file) {
   const requestId = activeRequest;
   selectedNodeId = null;
   overviewPositions = new Map();
+  pendingClaims = [];
+  streamFinished = false;
+  nextClaimIndex = 0;
+  if (renderFrame !== null) {
+    window.cancelAnimationFrame(renderFrame);
+    renderFrame = null;
+  }
   cy.elements().remove();
   updateGraphStats();
   tooltip.classList.remove("visible");
@@ -242,7 +275,6 @@ async function compile(file) {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
     let buffer = "";
-    let claimIndex = 0;
 
     while (requestId === activeRequest) {
       const { value, done } = await reader.read();
@@ -253,12 +285,12 @@ async function compile(file) {
         if (!line) continue;
         const event = JSON.parse(line);
         if (event.type === "claim") {
-          addClaim(event.claim, claimIndex, requestId);
-          claimIndex += 1;
+          enqueueClaim(event.claim, requestId);
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {
-          finishGraph();
+          streamFinished = true;
+          scheduleRender(requestId);
         }
       }
       if (done) break;

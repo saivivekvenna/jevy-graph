@@ -99,6 +99,7 @@ class DemoHandler(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Accel-Buffering", "no")
         self.send_header("Connection", "close")
         self.end_headers()
         self.close_connection = True
