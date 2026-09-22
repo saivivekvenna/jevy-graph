@@ -3,6 +3,7 @@ from __future__ import annotations
 import io
 import unittest
 import zipfile
+from unittest import mock
 
 from jevy_graph.demo_server import extract_upload
 
@@ -30,6 +31,22 @@ class DemoServerTests(unittest.TestCase):
             extract_upload(payload.getvalue(), "paper.docx"),
             "First claim.\n\nSecond claim.",
         )
+
+    @mock.patch("jevy_graph.demo_server.subprocess.run")
+    @mock.patch(
+        "jevy_graph.demo_server.shutil.which", return_value="/usr/bin/pdftotext"
+    )
+    def test_reads_pdf_in_document_order(
+        self, _which: mock.Mock, run: mock.Mock
+    ) -> None:
+        run.return_value = mock.Mock(returncode=0, stdout=b"First. Second.")
+
+        self.assertEqual(extract_upload(b"%PDF", "paper.pdf"), "First. Second.")
+
+        command = run.call_args.args[0]
+        self.assertEqual(command[0], "/usr/bin/pdftotext")
+        self.assertEqual(command[-1], "-")
+        self.assertNotIn("-layout", command)
 
 
 if __name__ == "__main__":

@@ -34,7 +34,7 @@ def extract_upload(payload: bytes, filename: str) -> str:
             source.write(payload)
             source.flush()
             result = subprocess.run(
-                [executable, "-layout", source.name, "-"],
+                [executable, source.name, "-"],
                 check=False,
                 capture_output=True,
             )
