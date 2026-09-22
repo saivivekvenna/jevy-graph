@@ -83,6 +83,10 @@ Starting a new upload cancels the previous request. Already running Jev calls
 may finish, but pending batches stop when the server detects the disconnect.
 The final API event includes Jev-reported token usage and request/retry counts.
 
+An elapsed timer measures upload through backend completion, excluding final
+graph layout. Hover over an edge or leaf node to read its source text and triple
+in the labeled footer without highlighting or hiding the rest of the graph.
+
 ```bash
 jevy-graph-demo
 ```
