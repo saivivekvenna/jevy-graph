@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
     <title>Jevy Graph</title>
-    <link rel="stylesheet" href="styles.css?v=10" />
+    <link rel="stylesheet" href="styles.css?v=14" />
   </head>
   <body>
     <main>
@@ -29,8 +29,14 @@
           </div>
         </dl>
         <footer>
-          <p id="triple-text" hidden></p>
-          <p id="source-text">Hover over an edge or leaf node to see its source sentence.</p>
+          <div class="detail-row">
+            <h2 id="source-label">Source text</h2>
+            <p id="source-text" aria-labelledby="source-label">Hover over an edge or leaf node to see its source sentence.</p>
+          </div>
+          <div class="detail-row">
+            <h2 id="triple-label">Triple</h2>
+            <p id="triple-text" aria-labelledby="triple-label">—</p>
+          </div>
         </footer>
       </section>
     </main>
@@ -40,6 +46,6 @@
     <script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-layout-utilities@1.1.1/cytoscape-layout-utilities.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
-    <script src="app.js?v=23"></script>
+    <script src="app.js?v=24"></script>
   </body>
 </html>

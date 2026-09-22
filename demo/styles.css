@@ -147,6 +147,28 @@ footer {
   overflow-y: auto;
 }
 
+.detail-row {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.detail-row + .detail-row {
+  border-top: 1px solid var(--black);
+  padding-top: 12px;
+}
+
+.detail-row h2 {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
 footer p {
   flex-shrink: 0;
   min-width: 0;

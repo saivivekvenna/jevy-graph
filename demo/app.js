@@ -383,8 +383,7 @@ function showEdgeDetails(edge) {
 }
 
 function setSourceText(text, triple = "") {
-  tripleText.textContent = triple;
-  tripleText.hidden = !triple;
+  tripleText.textContent = triple || "—";
   sourceText.textContent = text;
   sourceText.classList.toggle("long", text.length > 260);
   sourceText.classList.toggle("very-long", text.length > 440);
