@@ -38,7 +38,8 @@ def _object_value(value: str, kind: str) -> str:
     if kind == "double":
         return f'"{value.replace(",", "")}"^^xsd:double'
     if kind in {"percent", "string"}:
-        return f'"{_escape(value.strip("\\\"\'“”"))}"'
+        escaped = _escape(value.strip("\\\"'“”"))
+        return f'"{escaped}"'
     return _resource("entity", value)
 
 
