@@ -87,6 +87,15 @@ main {
   text-transform: uppercase;
 }
 
+.upload-timer {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
 .output {
   display: grid;
   position: relative;

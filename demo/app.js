@@ -5,17 +5,7 @@ const sourceText = document.querySelector("#source-text");
 const tripleText = document.querySelector("#triple-text");
 const edgeCount = document.querySelector("#edge-count");
 const nodeCount = document.querySelector("#node-count");
-const timerRow = document.createElement("div");
-timerRow.setAttribute("aria-live", "off");
-timerRow.title = "Upload to backend completion, excluding final graph layout";
-const timerLabel = document.createElement("dt");
-timerLabel.textContent = "Elapsed";
-const elapsedTime = document.createElement("dd");
-elapsedTime.id = "elapsed-time";
-elapsedTime.textContent = "0.0s";
-elapsedTime.style.fontVariantNumeric = "tabular-nums";
-timerRow.append(timerLabel, elapsedTime);
-document.querySelector(".graph-stats").append(timerRow);
+const elapsedTime = document.querySelector("#elapsed-time");
 const MEDIUM_GRAPH_NODES = 900;
 const LARGE_GRAPH_NODES = 2500;
 
