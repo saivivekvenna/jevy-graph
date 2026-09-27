@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-25-section-3-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XXV Section 3",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section as a conditional rule, not as an assertion that a declaration was actually transmitted or that the President was actually unable. Both recipient offices, the written inability declaration, the contrary declaration, the interval, and Acting President capacity remain in the qualifier or object. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XXV\nSection 3.\nWhenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office, and until he transmits to them a written declaration to the contrary, such powers and duties shall be discharged by the Vice President as Acting President.",
+  "gold": [
+    {
+      "id": "acting-president-powers",
+      "subject": "powers of the President",
+      "predicate": "discharged_by",
+      "object": "Vice President as Acting President",
+      "evidence": "Whenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office, and until he transmits to them a written declaration to the contrary, such powers and duties shall be discharged by the Vice President as Acting President.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "after the President transmits a written declaration of inability to the President pro tempore of the Senate and the Speaker of the House of Representatives; until he transmits a written declaration to the contrary to both",
+      "source_unit": "AMENDMENT_25_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "acting-president-duties",
+      "subject": "duties of the President",
+      "predicate": "discharged_by",
+      "object": "Vice President as Acting President",
+      "evidence": "Whenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office, and until he transmits to them a written declaration to the contrary, such powers and duties shall be discharged by the Vice President as Acting President.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "after the President transmits a written declaration of inability to the President pro tempore of the Senate and the Speaker of the House of Representatives; until he transmits a written declaration to the contrary to both",
+      "source_unit": "AMENDMENT_25_SECTION_3",
+      "in_scope": true
+    }
+  ]
+}

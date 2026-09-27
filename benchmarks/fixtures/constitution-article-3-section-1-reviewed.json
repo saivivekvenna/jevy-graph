@@ -1,0 +1,132 @@
+{
+  "id": "constitution-article-3-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution transcript, Article III Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section. The single supreme Court, inferior-court authority, tenure, salary timing, and no-diminution rule are represented separately for supreme and inferior judges. These are Codex labels, not independent human labels.",
+  "text": "Article. III.\nSection. 1.\nThe judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish. The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behaviour, and shall, at stated Times, receive for their Services, a Compensation, which shall not be diminished during their Continuance in Office.",
+  "gold": [
+    {
+      "id": "judicial-power-supreme",
+      "subject": "judicial Power of the United States",
+      "predicate": "vested_in",
+      "object": "one supreme Court",
+      "evidence": "The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "judicial-power-inferior",
+      "subject": "judicial Power of the United States",
+      "predicate": "vested_in",
+      "object": "inferior Courts ordained and established by Congress",
+      "evidence": "The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "congress-ordains-inferior",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "ordain inferior Courts from time to time",
+      "evidence": "the Congress may from time to time ordain and establish",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "congress-establishes-inferior",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "establish inferior Courts from time to time",
+      "evidence": "the Congress may from time to time ordain and establish",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "supreme-judge-tenure",
+      "subject": "Judges of supreme Court",
+      "predicate": "hold_office_during",
+      "object": "good Behaviour",
+      "evidence": "shall hold their Offices during good Behaviour",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "supreme-judge-pay",
+      "subject": "Judges of supreme Court",
+      "predicate": "receive",
+      "object": "Compensation for services at stated Times",
+      "evidence": "shall, at stated Times, receive for their Services, a Compensation",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "supreme-judge-pay-not-diminished",
+      "subject": "Compensation of Judges of supreme Court",
+      "predicate": "diminished_during",
+      "object": "continuance in Office",
+      "evidence": "which shall not be diminished during their Continuance in Office",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "inferior-judge-tenure",
+      "subject": "Judges of inferior Courts",
+      "predicate": "hold_office_during",
+      "object": "good Behaviour",
+      "evidence": "shall hold their Offices during good Behaviour",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "inferior-judge-pay",
+      "subject": "Judges of inferior Courts",
+      "predicate": "receive",
+      "object": "Compensation for services at stated Times",
+      "evidence": "shall, at stated Times, receive for their Services, a Compensation",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "inferior-judge-pay-not-diminished",
+      "subject": "Compensation of Judges of inferior Courts",
+      "predicate": "diminished_during",
+      "object": "continuance in Office",
+      "evidence": "which shall not be diminished during their Continuance in Office",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_3_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

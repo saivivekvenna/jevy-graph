@@ -1,0 +1,64 @@
+{
+  "id": "broad-literature-source-freeze-2026-09-27",
+  "frozen_at": "2026-09-27T15:46:16.878921+00:00",
+  "frozen_before_extraction": true,
+  "selection_rule": "Five previously unseen, result-dense scientific excerpts chosen across domains before any JevyGraph extraction. Routine methods are outside the gold scope.",
+  "documents": [
+    {
+      "pmcid": "PMC11502329",
+      "title": "Diethyl aminoethyl hexanoate reprogramed accumulations of organic metabolites associated with water balance and metabolic homeostasis in white clover under drought stress",
+      "subsection": "Effects of foliar spray of DA-6 on water status & photosynthetic functions",
+      "paragraph_indices": [
+        1
+      ],
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11502329-plant-drought-da6.txt",
+      "source_sha256": "6a44a600d061714d2467aad49810d86975461dd82359515222968a9337a0b9c0",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11502329/"
+    },
+    {
+      "pmcid": "PMC10634331",
+      "title": "PCMT1 knockdown attenuates malignant properties by globally regulating transcriptome profiles in triple-negative breast cancer cells",
+      "subsection": "PCMT1 knockdown inhibits the migration and invasion of MDA-MB-231 cells",
+      "paragraph_indices": [
+        1
+      ],
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc10634331-cancer-pcmt1.txt",
+      "source_sha256": "2cfc020fc27886638a4b49b4aac555869d6e423b4e075b2eaefa8d702ef17974",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10634331/"
+    },
+    {
+      "pmcid": "PMC11888539",
+      "title": "A Four-Gene Signature from Blood to Exclude Bacterial Etiology of Lower Respiratory Tract Infection in Adults",
+      "subsection": "Diagnostic Feature Selection",
+      "paragraph_indices": [
+        1
+      ],
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11888539-respiratory-four-gene.txt",
+      "source_sha256": "b1fdbb199627775b9e93ac9cd999a584eaa103fe7709dfd054fd05597ffa5ebe",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11888539/"
+    },
+    {
+      "pmcid": "PMC11981942",
+      "title": "Foundation model of neural activity predicts response to new stimulus types",
+      "subsection": "Generalization to new subjects and stimulus domains",
+      "paragraph_indices": [
+        3
+      ],
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11981942-neural-foundation-model.txt",
+      "source_sha256": "511f50d926cd52eb652af3216213521d72fb3252f0d5a4cde2ed86634ee7b0b1",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11981942/"
+    },
+    {
+      "pmcid": "PMC10728077",
+      "title": "Host-response transcriptional biomarkers accurately discriminate bacterial and viral infections of global relevance",
+      "subsection": "Bacterial versus viral classification: a simple binary model",
+      "paragraph_indices": [
+        1,
+        2
+      ],
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc10728077-global-fever-classifier.txt",
+      "source_sha256": "6a5f64972a9e7ece2ed24c74a4ba5bb96bf453fdcad13d20563c420653652ebd",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10728077/"
+    }
+  ]
+}

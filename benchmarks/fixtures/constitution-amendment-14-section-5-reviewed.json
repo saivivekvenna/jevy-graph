@@ -1,0 +1,24 @@
+{
+  "domain": "legal",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "id": "constitution-amendment-14-section-5-reviewed",
+  "source": "National Archives Constitution Amendment XIV Section 5",
+  "review_notes": "Codex reviewed the substantive sentence; the later starred change note is editorial metadata, not a constitutional claim. This section was inspected during parser development.",
+  "text": "AMENDMENT XIV\nSection 5.\nThe Congress shall have power to enforce, by appropriate legislation, the provisions of this article.\n*Changed by section 1 of the 26th amendment.",
+  "gold": [
+    {
+      "id": "congress-enforces-provisions",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "enforce the provisions of this article by appropriate legislation",
+      "evidence": "The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_14_SECTION_5",
+      "in_scope": true
+    }
+  ]
+}

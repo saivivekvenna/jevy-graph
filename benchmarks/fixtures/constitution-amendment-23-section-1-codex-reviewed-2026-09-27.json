@@ -1,0 +1,123 @@
+{
+  "id": "constitution-amendment-23-section-1-codex-reviewed-2026-09-27",
+  "domain": "legal",
+  "source": "https://www.archives.gov/founding-docs/amendments-11-27",
+  "source_locator": "AMENDMENT_23_SECTION_1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex audited the complete original AMENDMENT_23_SECTION_1; historical original text, not current law. Ambiguities are flagged per claim. Source audit: constitution-remaining-amendments-gold.json.",
+  "text": "AMENDMENT XXIII\nSection 1.\n\nThe District constituting the seat of Government of the United States shall appoint in such manner as the Congress may direct:\n\nA number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.",
+  "instruction": "",
+  "gold": [
+    {
+      "id": "a23s1-district-appoints",
+      "subject": "District constituting seat of Government of the United States",
+      "predicate": "appoints",
+      "object": "electors of President and Vice President",
+      "evidence": "The District constituting the seat of Government of the United States shall appoint in such manner as the Congress may direct:",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-congress-manner",
+      "subject": "Congress",
+      "predicate": "may_direct",
+      "object": "manner of District elector appointment",
+      "evidence": "in such manner as the Congress may direct",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-elector-number",
+      "subject": "number of District presidential and vice-presidential electors",
+      "predicate": "equals",
+      "object": "whole number of Senators and Representatives in Congress to which District would be entitled if it were a State",
+      "evidence": "A number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "District treated hypothetically as a State for counting",
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-cap",
+      "subject": "number of District presidential and vice-presidential electors",
+      "predicate": "is_no_more_than",
+      "object": "number of electors of least populous State",
+      "evidence": "but in no event more than the least populous State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true,
+      "annotation_note": "The source abbreviates the comparator as “least populous State”; the cap refers to that State’s electoral allotment, not population count."
+    },
+    {
+      "id": "a23s1-additional",
+      "subject": "District electors",
+      "predicate": "are_in_addition_to",
+      "object": "electors appointed by States",
+      "evidence": "they shall be in addition to those appointed by the States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-considered-state-president",
+      "subject": "District electors",
+      "predicate": "considered_as",
+      "object": "electors appointed by a State",
+      "evidence": "they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "for purposes of election of President",
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-considered-state-vice-president",
+      "subject": "District electors",
+      "predicate": "considered_as",
+      "object": "electors appointed by a State",
+      "evidence": "they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "for purposes of election of Vice President",
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-meet",
+      "subject": "District electors",
+      "predicate": "meet_in",
+      "object": "District",
+      "evidence": "they shall meet in the District",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "a23s1-twelfth-amendment-duties",
+      "subject": "District electors",
+      "predicate": "perform",
+      "object": "duties provided by Amendment XII",
+      "evidence": "and perform such duties as provided by the twelfth article of amendment",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_23_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

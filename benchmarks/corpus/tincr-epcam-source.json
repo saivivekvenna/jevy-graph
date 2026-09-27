@@ -1,0 +1,15 @@
+{
+  "title": "Loss of TINCR expression promotes proliferation, metastasis through activating EpCAM cleavage in colorectal cancer",
+  "pmcid": "PMC5008388",
+  "doi": "10.18632/oncotarget.8141",
+  "full_text_xml": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5008388/fullTextXML",
+  "article_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5008388/",
+  "license": "CC BY 2.5",
+  "xml_sha256": "eed56854c9e623ba2a005bef34456131fea608a50ae63905c0fe59d63260549b",
+  "text_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "first_full_run_text": "tincr-epcam-full-v1.txt",
+  "first_full_run_text_sha256": "e8d10015377b9044354ea18519ee3a936b95f12ebbb8ee575eccac943b249d30",
+  "conversion": "python3 scripts/jats_to_text.py benchmarks/corpus/tincr-epcam-full.xml benchmarks/corpus/tincr-epcam-full.txt",
+  "included": ["article title", "abstract", "full body", "figure captions"],
+  "excluded": ["references", "publisher metadata"]
+}

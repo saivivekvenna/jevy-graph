@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+- Added instruction-aware scope filtering and graph organization by source,
+  entity, or relation.
+- Added qualified claim records for scientific findings, legal provisions,
+  ordinary prose, measurements, and structured tables.
+- Added a conservative prose clause assembler for coordinated predicates,
+  pronouns, negation, dates, prices, deadlines, and conditions.
+- Added the frozen cross-domain claim benchmark, stage-level loss tracing, and
+  the complete Codex-reviewed Constitution inventory.
+- Reduced Jev payload duplication and preserved explicit rejection reasons in
+  benchmark output.
+- Added container deployment, environment-based server binding, and `/healthz`.
+
 ## 0.1.0 - 2026-09-22
 
 Initial public release.

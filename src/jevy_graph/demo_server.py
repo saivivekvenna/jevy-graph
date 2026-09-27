@@ -21,10 +21,42 @@ from .compiler import select
 from .config import load_dotenv
 from .extract import extract_frames
 from .jev import JevClient, JevError
+from .models import VerifiedTriple
 
 MAX_UPLOAD_BYTES = 30 * 1024 * 1024
 BULK_GRAPH_FRAME_THRESHOLD = 2_000
+SCIENTIFIC_DEPENDENCY_COMPILER = None
 WORD_NAMESPACE = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+
+
+def claim_payload(item: VerifiedTriple, group_by: str = "none") -> dict[str, object]:
+    """Convert one verified claim into the demo's streaming representation."""
+    candidate = item.candidate
+    predicate = candidate.predicate
+    if candidate.polarity == "negative":
+        predicate = f"not {predicate}"
+    claim: dict[str, object] = {
+        "subject": candidate.subject,
+        "predicate": predicate,
+        "object": candidate.object,
+        "evidence": candidate.evidence,
+        "polarity": candidate.polarity,
+    }
+    optional = {
+        "claim_type": candidate.claim_type,
+        "comparison": candidate.comparison,
+        "conditions": candidate.conditions,
+        "measurements": candidate.measurements,
+        "modality": candidate.modality,
+    }
+    claim.update({key: value for key, value in optional.items() if value})
+    if group_by != "none":
+        claim["group"] = {
+            "source": candidate.source_unit or "Document",
+            "entity": candidate.subject,
+            "relation": candidate.predicate,
+        }[group_by]
+    return claim
 
 
 def extract_upload(payload: bytes, filename: str) -> str:
@@ -78,6 +110,15 @@ class DemoHandler(SimpleHTTPRequestHandler):
         self.wfile.flush()
 
     def do_GET(self) -> None:
+        if self.path == "/healthz":
+            payload = b'{"status":"ok"}\n'
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(payload)
+            return
         if self.path in {"", "/"}:
             self.send_response(302)
             self.send_header("Location", "/demo/")
@@ -99,6 +140,10 @@ class DemoHandler(SimpleHTTPRequestHandler):
             return
 
         filename = urllib.parse.unquote(self.headers.get("X-Filename", "document.txt"))
+        instruction = urllib.parse.unquote(self.headers.get("X-Graph-Instruction", "")).strip()
+        if len(instruction) > 2_000:
+            self.send_error(400, "Graph instruction must be at most 2,000 characters")
+            return
         payload = self.rfile.read(length)
         self.send_response(200)
         self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
@@ -113,7 +158,10 @@ class DemoHandler(SimpleHTTPRequestHandler):
             if not text.strip():
                 raise ValueError("The document contains no extractable text.")
 
-            frames = extract_frames(text)
+            frames = extract_frames(
+                text,
+                scientific_dependency_compiler=SCIENTIFIC_DEPENDENCY_COMPILER,
+            )
             api_key = os.environ.get("TYPESAFE_API_KEY", "")
             if not api_key:
                 raise ValueError("TYPESAFE_API_KEY is missing from the server environment.")
@@ -124,13 +172,23 @@ class DemoHandler(SimpleHTTPRequestHandler):
                 choice_batch_size=48 if bulk else 24,
                 verification_batch_size=48 if bulk else 40,
                 max_workers=12,
-                compact=bulk,
             )
-            seen: set[tuple[str, str, str, str, str, str]] = set()
+            intent = client.interpret_instruction(instruction) if instruction else None
+            if intent:
+                self._event({
+                    "type": "profile",
+                    "instruction": instruction,
+                    "group_by": intent.group_by,
+                })
+            seen: set[tuple[str, ...]] = set()
             claim_count = 0
-            graph: list[dict[str, str]] = []
+            graph: list[dict[str, object]] = []
             last_heartbeat = time.monotonic()
-            with closing(client.iter_score_batches(frames)) as verified_batches:
+            batches = (
+                client.iter_score_batches(frames, instruction=instruction)
+                if instruction else client.iter_score_batches(frames)
+            )
+            with closing(batches) as verified_batches:
                 for verified_batch in verified_batches:
                     if bulk and time.monotonic() - last_heartbeat >= 1.0:
                         # Blank NDJSON lines detect a cancelled upload without
@@ -140,16 +198,10 @@ class DemoHandler(SimpleHTTPRequestHandler):
                         last_heartbeat = time.monotonic()
                     accepted = select(verified_batch, seen=seen)
                     for item in accepted:
-                        candidate = item.candidate
-                        predicate = candidate.predicate
-                        if candidate.polarity == "negative":
-                            predicate = f"not {predicate}"
-                        claim = {
-                            "subject": candidate.subject,
-                            "predicate": predicate,
-                            "object": candidate.object,
-                            "evidence": candidate.evidence,
-                        }
+                        claim = claim_payload(
+                            item,
+                            intent.group_by if intent else "none",
+                        )
                         if bulk:
                             graph.append(claim)
                         else:
@@ -171,11 +223,22 @@ class DemoHandler(SimpleHTTPRequestHandler):
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run the local Jevy Graph demo.")
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8080")))
+    parser.add_argument(
+        "--scientific-parser", action="store_true",
+        help="use the optional local scispaCy parser for scientific claims",
+    )
+    parser.add_argument("--scientific-parser-model", default="en_core_sci_sm")
     args = parser.parse_args(argv)
 
     load_dotenv()
+    if args.scientific_parser:
+        from .scientific import DependencyScientificCompiler
+        global SCIENTIFIC_DEPENDENCY_COMPILER
+        SCIENTIFIC_DEPENDENCY_COMPILER = DependencyScientificCompiler(
+            args.scientific_parser_model,
+        )
     package_root = Path(__file__).resolve().parent
     # Wheels bundle the frontend under jevy_graph/demo. Keep a source-tree
     # fallback so `PYTHONPATH=src python -m jevy_graph.demo_server` also works.

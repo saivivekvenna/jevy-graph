@@ -1,0 +1,78 @@
+{
+  "id": "biomedical-unfocused",
+  "domain": "biomedical",
+  "source": "synthetic unscoped counterpart to biomedical-focus",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "text": "In macrophages, IL-10 suppresses TNF-alpha expression by inhibiting NF-kB activation. Loss of IL-10 increased TNF-alpha secretion. Cells were washed with PBS and incubated for 30 minutes.",
+  "gold": [
+    {
+      "id": "il10-suppresses-expression",
+      "subject": "IL-10",
+      "predicate": "suppresses",
+      "object": "TNF-alpha expression",
+      "evidence": "In macrophages, IL-10 suppresses TNF-alpha expression by inhibiting NF-kB activation",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "In macrophages",
+      "in_scope": true
+    },
+    {
+      "id": "loss-increases-secretion",
+      "subject": "Loss of IL-10",
+      "predicate": "increased",
+      "object": "TNF-alpha secretion",
+      "evidence": "Loss of IL-10 increased TNF-alpha secretion",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "il10-inhibits-activation",
+      "subject": "IL-10",
+      "predicate": "inhibits",
+      "object": "NF-kB activation",
+      "evidence": "IL-10 suppresses TNF-alpha expression by inhibiting NF-kB activation",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "In macrophages",
+      "in_scope": true
+    },
+    {
+      "id": "cells-washed",
+      "subject": "Cells",
+      "predicate": "washed_with",
+      "object": "PBS",
+      "evidence": "Cells were washed with PBS",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "cells-incubated",
+      "subject": "Cells",
+      "predicate": "incubated_for",
+      "object": "30 minutes",
+      "evidence": "Cells were washed with PBS and incubated for 30 minutes",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "cells-duration",
+      "subject": "incubation of Cells",
+      "predicate": "has_duration_minutes",
+      "object": "30",
+      "evidence": "Cells were washed with PBS and incubated for 30 minutes",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ],
+  "split": "development",
+  "review_notes": "Codex reviewed all three source sentences. The two IL-10 mechanism claims are situated in macrophages; the next sentence reports a loss-of-IL-10 change. Washing and incubation are procedures. The numerical measurement belongs to the incubation event, not to the cells. These are Codex labels, not independent human labels."
+}

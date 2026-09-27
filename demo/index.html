@@ -9,15 +9,22 @@
   </head>
   <body>
     <main>
-      <label class="drop" id="drop" for="file-input">
-        <input id="file-input" type="file" accept=".pdf,.txt,.md,.csv,.docx" />
-        <span class="plus" aria-hidden="true"></span>
-        <strong>Drop document</strong>
-        <small id="drop-detail">PDF, TXT, DOCX</small>
-        <span class="upload-timer" aria-live="off" title="Upload to backend completion, excluding final graph layout">
-          Elapsed <span id="elapsed-time">0.0s</span>
-        </span>
-      </label>
+      <section class="controls" aria-label="Document and graph instructions">
+        <label class="drop" id="drop" for="file-input">
+          <input id="file-input" type="file" accept=".pdf,.txt,.md,.csv,.docx" />
+          <span class="plus" aria-hidden="true"></span>
+          <strong>Drop document</strong>
+          <small id="drop-detail">PDF, TXT, DOCX</small>
+          <span class="upload-timer" aria-live="off" title="Upload to backend completion, excluding final graph layout">
+            Elapsed <span id="elapsed-time">0.0s</span>
+          </span>
+        </label>
+        <div class="intent">
+          <label for="graph-instruction">What should this graph focus on?</label>
+          <textarea id="graph-instruction" maxlength="2000" rows="4" placeholder="Example: Only biological functions and causal findings; exclude lab procedures. Group by relation type."></textarea>
+          <p id="profile-status" aria-live="polite">No instruction: include all supported claims.</p>
+        </div>
+      </section>
 
       <section class="output" aria-label="Generated knowledge graph">
         <div id="cy"></div>

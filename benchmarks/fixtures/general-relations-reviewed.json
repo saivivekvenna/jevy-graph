@@ -1,0 +1,15 @@
+{
+  "id": "general-relations-reviewed",
+  "domain": "general",
+  "source": "synthetic held-out general prose",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "test",
+  "review_notes": "Codex labeled every asserted relation in these three short sentences before running the extractor.",
+  "text": "Elena founded Northstar Labs. Northstar Labs acquired Blue River Systems. Blue River Systems operated in Vancouver.",
+  "gold": [
+    {"id": "elena-founded-northstar", "subject": "Elena", "predicate": "founded", "object": "Northstar Labs", "evidence": "Elena founded Northstar Labs", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "northstar-acquired-blue-river", "subject": "Northstar Labs", "predicate": "acquired", "object": "Blue River Systems", "evidence": "Northstar Labs acquired Blue River Systems", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "blue-river-operated-in-vancouver", "subject": "Blue River Systems", "predicate": "operated_in", "object": "Vancouver", "evidence": "Blue River Systems operated in Vancouver", "modality": null, "polarity": "positive", "condition": null, "in_scope": true}
+  ]
+}

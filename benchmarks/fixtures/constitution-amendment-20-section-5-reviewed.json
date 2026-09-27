@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-20-section-5-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution AMENDMENT_20_SECTION_5",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full short section against the frozen National Archives transcript. This section was inspected during development and is not a held-out test.",
+  "text": "AMENDMENT XX\nSection 5.\nSections 1 and 2 shall take effect on the 15th day of October following the ratification of this article.",
+  "gold": [
+    {
+      "id": "takes_effect_on",
+      "subject": "Sections 1 and 2",
+      "predicate": "takes_effect_on",
+      "object": "15th day of October following the ratification of this article",
+      "evidence": "Sections 1 and 2 shall take effect on the 15th day of October following the ratification of this article.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_20_SECTION_5",
+      "in_scope": true
+    }
+  ]
+}

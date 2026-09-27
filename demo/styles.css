@@ -23,15 +23,55 @@ main {
   height: 100vh;
 }
 
+.controls {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--black);
+}
+
 .drop {
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-right: 1px solid var(--black);
+  min-height: 180px;
+  flex: 1;
   background: var(--white);
   transition: background 140ms ease, color 140ms ease;
+}
+
+.intent {
+  padding: 18px 20px 16px;
+  border-top: 1px solid var(--black);
+}
+
+.intent label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.intent textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 9px;
+  border: 1px solid #777;
+  border-radius: 3px;
+  background: #fff;
+  color: #111;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.intent p {
+  margin: 8px 0 0;
+  color: #555;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 .drop:hover,
@@ -211,10 +251,14 @@ footer p.very-long { font-size: clamp(15px, 1.05vw, 18px); }
     grid-template-rows: 30vh 70vh;
   }
 
-  .drop {
+  .controls {
     border-right: 0;
     border-bottom: 1px solid var(--black);
   }
+
+  .drop { min-height: 110px; }
+  .intent { padding: 10px 14px; }
+  .intent textarea { min-height: 50px; }
 
   .output { grid-template-rows: minmax(0, 1fr) auto; }
 

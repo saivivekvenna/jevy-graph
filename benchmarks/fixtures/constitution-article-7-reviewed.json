@@ -1,0 +1,72 @@
+{
+  "id": "constitution-article-7-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution transcript, Article VII and attached manuscript note",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed both the ratification rule and all four scribal interlineation/erasure statements printed in the frozen transcript. The latter are document-artifact facts rather than constitutional legal rules but remain source-supported claims. These are Codex labels, not independent human labels.",
+  "text": "Article. VII.\nThe Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution between the States so ratifying the Same.\nThe Word, \"the,\" being interlined between the seventh and eighth Lines of the first Page, The Word \"Thirty\" being partly written on an Erazure in the fifteenth Line of the first Page, The Words \"is tried\" being interlined between the thirty second and thirty third Lines of the first Page and the Word \"the\" being interlined between the forty third and forty fourth Lines of the second Page.",
+  "gold": [
+    {
+      "id": "nine-state-ratification",
+      "subject": "ratification by conventions of nine States",
+      "predicate": "sufficient_for",
+      "object": "establishment of this Constitution between ratifying States",
+      "evidence": "The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution between the States so ratifying the Same.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_7",
+      "in_scope": true
+    },
+    {
+      "id": "first-page-the",
+      "subject": "word the",
+      "predicate": "interlined_between",
+      "object": "seventh and eighth Lines of the first Page",
+      "evidence": "The Word, \"the,\" being interlined between the seventh and eighth Lines of the first Page",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_7",
+      "in_scope": true
+    },
+    {
+      "id": "first-page-thirty",
+      "subject": "word Thirty",
+      "predicate": "partly_written_on",
+      "object": "Erazure in the fifteenth Line of the first Page",
+      "evidence": "The Word \"Thirty\" being partly written on an Erazure in the fifteenth Line of the first Page",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_7",
+      "in_scope": true
+    },
+    {
+      "id": "first-page-is-tried",
+      "subject": "word is tried",
+      "predicate": "interlined_between",
+      "object": "thirty second and thirty third Lines of the first Page",
+      "evidence": "The Words \"is tried\" being interlined between the thirty second and thirty third Lines of the first Page",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_7",
+      "in_scope": true
+    },
+    {
+      "id": "second-page-the",
+      "subject": "word the",
+      "predicate": "interlined_between",
+      "object": "forty third and forty fourth Lines of the second Page",
+      "evidence": "the Word \"the\" being interlined between the forty third and forty fourth Lines of the second Page",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_7",
+      "in_scope": true
+    }
+  ]
+}

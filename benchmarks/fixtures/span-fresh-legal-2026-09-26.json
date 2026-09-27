@@ -1,0 +1,52 @@
+{
+  "id": "span-fresh-legal-2026-09-26",
+  "domain": "legal",
+  "source": "https://uscode.house.gov/view.xhtml?req=%28title%3A15+section%3A45+edition%3Aprelim%29",
+  "source_locator": "15 U.S.C. § 45(n), three consecutive sentences under Standard of proof; public policy considerations",
+  "source_accessed_utc": "2026-09-26",
+  "text_sha256": "625e8580044f949f7ca891670292eebf04f051219cbaa2cc6bcb22a814bccf45",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex froze and reviewed the complete three-sentence selected statute before inspecting extractor or Jev outputs. The first rule has a conjunctive injury threshold; it does not assert authority merely because substantial injury exists. The second permits policy evidence alongside other evidence, while the third bars it as the primary basis. This is a development pilot, not independent human review or held-out release evidence.",
+  "text": "The Commission shall have no authority under this section or section 57a of this title to declare unlawful an act or practice on the grounds that such act or practice is unfair unless the act or practice causes or is likely to cause substantial injury to consumers which is not reasonably avoidable by consumers themselves and not outweighed by countervailing benefits to consumers or to competition. In determining whether an act or practice is unfair, the Commission may consider established public policies as evidence to be considered with all other evidence. Such public policy considerations may not serve as a primary basis for such determination.",
+  "instruction": "Extract the legal rules in this passage, preserving the conjunctive injury threshold, modality, and limits on public-policy evidence.",
+  "gold": [
+    {
+      "id": "ftc-unfairness-authority-threshold",
+      "subject": "Commission",
+      "predicate": "has_authority_to_declare_unlawful_as_unfair",
+      "object": "act or practice",
+      "evidence": "The Commission shall have no authority under this section or section 57a of this title to declare unlawful an act or practice on the grounds that such act or practice is unfair unless the act or practice causes or is likely to cause substantial injury to consumers which is not reasonably avoidable by consumers themselves and not outweighed by countervailing benefits to consumers or to competition.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "under this section or section 57a; unless the act or practice causes or is likely to cause substantial consumer injury that consumers cannot reasonably avoid and that is not outweighed by countervailing benefits to consumers or competition",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "ftc-may-consider-public-policies",
+      "subject": "Commission",
+      "predicate": "considers_as_evidence",
+      "object": "established public policies",
+      "evidence": "In determining whether an act or practice is unfair, the Commission may consider established public policies as evidence to be considered with all other evidence.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "when determining whether an act or practice is unfair; considered with all other evidence",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "public-policy-not-primary-basis",
+      "subject": "public policy considerations",
+      "predicate": "serve_as",
+      "object": "primary basis for unfairness determination",
+      "evidence": "Such public policy considerations may not serve as a primary basis for such determination.",
+      "modality": "may",
+      "polarity": "negative",
+      "condition": "determining whether an act or practice is unfair",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    }
+  ]
+}

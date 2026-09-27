@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-16-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XVI",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete Sixteenth Amendment. Laying and collecting income taxes are separate authorized actions. Income source, apportionment, and census wording remain attached to both actions; the labels do not assert that Congress levied any particular tax. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XVI\n\nThe Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.",
+  "gold": [
+    {
+      "id": "lay-income-taxes",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "lay taxes on incomes from whatever source derived",
+      "evidence": "The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "without apportionment among the several States; without regard to any census or enumeration",
+      "source_unit": "AMENDMENT_16",
+      "in_scope": true
+    },
+    {
+      "id": "collect-income-taxes",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "collect taxes on incomes from whatever source derived",
+      "evidence": "The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "without apportionment among the several States; without regard to any census or enumeration",
+      "source_unit": "AMENDMENT_16",
+      "in_scope": true
+    }
+  ]
+}

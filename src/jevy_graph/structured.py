@@ -204,14 +204,6 @@ def _table_one(block: TableBlock) -> list[RelationFrame]:
     return frames
 
 
-def _numeric_at(line: str, starts: list[int]) -> list[str]:
-    values: list[str] = []
-    for index, start in enumerate(starts):
-        end = starts[index + 1] if index + 1 < len(starts) else len(line)
-        values.append(line[start:end].strip())
-    return values
-
-
 def _table_two(block: TableBlock) -> list[RelationFrame]:
     header = next((line for line in block.lines if line.count("EN-DE") >= 2), "")
     starts = [match.start() for match in re.finditer(r"EN-DE|EN-FR", header)]
@@ -458,8 +450,17 @@ def _generic_table(block: TableBlock) -> list[RelationFrame]:
         return []
     frames: list[RelationFrame] = []
     headers = " | ".join(header)
+    transposed = header[0].casefold() in {"metric", "measure", "measurement", "property", "parameter"}
     for row_index, (row, cells) in enumerate(zip(block.lines, candidates, strict=True)):
         if len(cells) != len(header) or not any(re.search(r"\d", cell) for cell in cells[1:]):
+            continue
+        if transposed:
+            for subject, value in zip(header[1:], cells[1:], strict=True):
+                if _NUMBER.fullmatch(value):
+                    frames.append(_frame(
+                        block, subject, f"has_{_slug(cells[0])}", value,
+                        row, headers, row_index,
+                    ))
             continue
         for name, value in zip(header[1:], cells[1:], strict=True):
             if value:
@@ -597,7 +598,7 @@ def _assignment_frames(text: str, masked: str) -> list[RelationFrame]:
         if line_end < 0:
             line_end = len(masked)
         evidence = normalize_space(masked[line_start:line_end])
-        if not evidence or len(lhs.split()) > 5:
+        if not evidence or len(lhs.split()) > 5 or lhs.casefold() in {"p", "pvalue"}:
             continue
         frames.append(
             RelationFrame(
@@ -636,10 +637,10 @@ def _quantity_frames(text: str, masked: str) -> list[RelationFrame]:
         "gpus": "uses_gpu_count",
         "steps": "has_training_steps",
         "step": "has_training_steps",
-        "hours": "has_training_duration_hours",
-        "hour": "has_training_duration_hours",
-        "days": "has_training_duration_days",
-        "day": "has_training_duration_days",
+        "hours": "has_duration_hours",
+        "hour": "has_duration_hours",
+        "days": "has_duration_days",
+        "day": "has_duration_days",
         "seconds": "has_duration_seconds",
         "second": "has_duration_seconds",
         "minutes": "has_duration_minutes",
@@ -697,6 +698,24 @@ def _quantity_frames(text: str, masked: str) -> list[RelationFrame]:
             subject = subject_for(prefix)
             unit = quantity.group("unit").casefold()
             predicate = predicates[unit]
+            if unit in {"day", "days", "hour", "hours", "minute", "minutes", "second", "seconds"}:
+                following = evidence[quantity.end():]
+                # Relative time locates another event; it is not an
+                # independently asserted duration of a training process.
+                if re.match(r"\s+(?:later|earlier|after|before|following)\b", following, re.I):
+                    continue
+                training = bool(re.search(r"\b(?:train|trains|trained|training)\b", lower, re.I))
+                if unit in {"day", "days", "hour", "hours"} and training:
+                    predicate = (
+                        "has_training_duration_days" if unit.startswith("day")
+                        else "has_training_duration_hours"
+                    )
+                if subject == "reported system" and not training:
+                    continue
+            if (unit.startswith(("minute", "second", "hour"))
+                    and re.search(r"\bincubated\s+for\s*$", prefix, re.I)
+                    and subject != "reported system"):
+                subject = f"incubation of {subject}"
             if unit.startswith("second") and "step" in lower:
                 predicate = "has_step_duration_seconds"
             value = _clean_number(quantity.group("value"))

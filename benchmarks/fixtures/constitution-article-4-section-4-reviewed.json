@@ -1,0 +1,60 @@
+{
+  "id": "constitution-article-4-section-4-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution transcript, Article IV Section 4",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section. The invasion guarantee is unconditional, while protection from domestic violence has separate legislature and executive application paths; the latter requires that the legislature cannot be convened. These are Codex labels, not independent human labels.",
+  "text": "Article. IV.\nSection. 4.\nThe United States shall guarantee to every State in this Union a Republican Form of Government, and shall protect each of them against Invasion; and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened) against domestic Violence.",
+  "gold": [
+    {
+      "id": "republican-government",
+      "predicate": "guarantees_republican_government_to",
+      "evidence": "The United States shall guarantee to every State in this Union a Republican Form of Government",
+      "condition": "for every State in this Union",
+      "subject": "United States",
+      "object": "State in this Union",
+      "modality": "shall",
+      "polarity": "positive",
+      "source_unit": "ARTICLE_4_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "invasion",
+      "predicate": "protects_from_invasion",
+      "evidence": "shall protect each of them against Invasion",
+      "condition": "for every State in this Union",
+      "subject": "United States",
+      "object": "State in this Union",
+      "modality": "shall",
+      "polarity": "positive",
+      "source_unit": "ARTICLE_4_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "domestic-violence-legislature",
+      "predicate": "protects_from_domestic_violence",
+      "evidence": "and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened) against domestic Violence.",
+      "condition": "for every State in this Union; on application of the State legislature",
+      "subject": "United States",
+      "object": "State in this Union",
+      "modality": "shall",
+      "polarity": "positive",
+      "source_unit": "ARTICLE_4_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "domestic-violence-executive",
+      "predicate": "protects_from_domestic_violence",
+      "evidence": "and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened) against domestic Violence.",
+      "condition": "for every State in this Union; on application of the State executive when the legislature cannot be convened",
+      "subject": "United States",
+      "object": "State in this Union",
+      "modality": "shall",
+      "polarity": "positive",
+      "source_unit": "ARTICLE_4_SECTION_4",
+      "in_scope": true
+    }
+  ]
+}

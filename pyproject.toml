@@ -20,6 +20,13 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+scientific-parser = [
+  "click>=8.1",
+  "spacy>=3.7,<3.8",
+  "scispacy>=0.5.4,<0.6",
+]
+
 [project.urls]
 Homepage = "https://github.com/saivivekvenna/jevy-graph"
 Issues = "https://github.com/saivivekvenna/jevy-graph/issues"
@@ -35,4 +42,11 @@ packages = ["src/jevy_graph"]
 force-include = { "demo" = "jevy_graph/demo" }
 
 [tool.hatch.build.targets.sdist]
-exclude = ["/assets"]
+include = [
+  "/CHANGELOG.md",
+  "/LICENSE",
+  "/README.md",
+  "/demo",
+  "/pyproject.toml",
+  "/src",
+]

@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-18-section-3-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XVIII Section 3",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete ratification condition in this section. The standalone excerpt repeats the amendment heading for source attribution. The claim records the named ratifying body and seven-year deadline; it does not assert that ratification actually occurred. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XVIII\nSection 3.\nThis article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.",
+  "gold": [
+    {
+      "id": "ratification-condition",
+      "subject": "Amendment 18",
+      "predicate": "operative_only_if",
+      "object": "ratified as an amendment to the Constitution",
+      "evidence": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "by the legislatures of the several States, as provided in the Constitution; within seven years from the date of the submission hereof to the States by the Congress",
+      "source_unit": "AMENDMENT_18_SECTION_3",
+      "in_scope": true
+    }
+  ]
+}

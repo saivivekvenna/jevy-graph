@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-25-section-2-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XXV Section 2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete vacancy section. The standalone excerpt repeats the amendment heading for source attribution. A vacancy triggers nomination; taking office requires majority confirmation by both Houses, not either House alone. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XXV\nSection 2.\n\nWhenever there is a vacancy in the office of the Vice President, the President shall nominate a Vice President who shall take office upon confirmation by a majority vote of both Houses of Congress.",
+  "gold": [
+    {
+      "id": "president-nominates-vp",
+      "subject": "President",
+      "predicate": "nominates",
+      "object": "Vice President",
+      "evidence": "Whenever there is a vacancy in the office of the Vice President, the President shall nominate a Vice President",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "whenever there is a vacancy in the office of Vice President",
+      "source_unit": "AMENDMENT_25_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "nominee-takes-office",
+      "subject": "nominated Vice President",
+      "predicate": "takes_office",
+      "object": "office of Vice President",
+      "evidence": "Vice President who shall take office upon confirmation by a majority vote of both Houses of Congress",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon confirmation by a majority vote of both Houses of Congress",
+      "source_unit": "AMENDMENT_25_SECTION_2",
+      "in_scope": true
+    }
+  ]
+}

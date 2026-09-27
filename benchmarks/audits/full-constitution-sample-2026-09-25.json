@@ -1,0 +1,638 @@
+{
+  "document": "constitution",
+  "source_report": "out/full-constitution-live-2026-09-25.json",
+  "source_sha256": "a78bd7d1b6b3d3821edadae5540f871db01e051d3e5e2ff5434cce943a37e902",
+  "sampling": "Python random.sample with seed 25; Constitution population excludes 49 exhaustively Codex-reviewed units",
+  "rubric": "Correct only if a self-contained atomic subject-predicate-object claim and its polarity, modality, and material conditions are supported by the cited source. Broken boundaries, unresolved references, method/citation fragments, missing material legal conditions, and compound objects fail.",
+  "population": 174,
+  "sample_size": 40,
+  "correct": 19,
+  "exact_rate": 0.475,
+  "wilson_95_interval": [
+    0.3294,
+    0.625
+  ],
+  "entries": [
+    {
+      "sample_order": 1,
+      "output_index": 234,
+      "correct": false,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "assemble_at",
+        "object": "Monday in December",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": "unless they shall by Law appoint a different Day.",
+        "source_unit": "ARTICLE_1_SECTION_4",
+        "evidence": "The Congress shall assemble at least once in every Year, and such Meeting shall be on the first Monday in December, unless they shall by Law appoint a different Day."
+      },
+      "issue": "First Monday reduced to any Monday"
+    },
+    {
+      "sample_order": 2,
+      "output_index": 66,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "constitute Tribunals inferior to the supreme Court",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To constitute Tribunals inferior to the supreme Court"
+      }
+    },
+    {
+      "sample_order": 3,
+      "output_index": 117,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "punish counterfeiting the Securities and current Coin of the United States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To provide for the Punishment of counterfeiting the Securities and current Coin of the United States"
+      }
+    },
+    {
+      "sample_order": 4,
+      "output_index": 160,
+      "correct": true,
+      "claim": {
+        "subject": "President",
+        "predicate": "has",
+        "object": "Power by and with the Advice and Consent of the Senate to make Treaties",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_2",
+        "evidence": "He shall have Power, by and with the Advice and Consent of the Senate, to make Treaties, provided two thirds of the Senators present concur"
+      }
+    },
+    {
+      "sample_order": 5,
+      "output_index": 436,
+      "correct": false,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "decide",
+        "object": "issue",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_25_SECTION_4",
+        "evidence": "Thereupon Congress shall decide the issue, assembling within forty-eight hours for that purpose if not in session."
+      },
+      "issue": "Issue and triggering declaration unresolved"
+    },
+    {
+      "sample_order": 6,
+      "output_index": 259,
+      "correct": false,
+      "claim": {
+        "subject": "imminent Danger",
+        "predicate": "admit_of",
+        "object": "delay",
+        "polarity": "negative",
+        "modality": "will",
+        "condition": "without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+        "source_unit": "ARTICLE_1_SECTION_10",
+        "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay."
+      },
+      "issue": "Condition includes unrelated prohibitions"
+    },
+    {
+      "sample_order": 7,
+      "output_index": 73,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "support Armies",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To raise and support Armies, but no Appropriation of Money to that Use shall be for a longer Term than two Years"
+      }
+    },
+    {
+      "sample_order": 8,
+      "output_index": 147,
+      "correct": false,
+      "claim": {
+        "subject": "judicial Power",
+        "predicate": "extends_to",
+        "object": "Cases",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_3_SECTION_2",
+        "evidence": "The judicial Power shall extend to all Cases, in Law and Equity, arising under this Constitution, the Laws of the United States, and Treaties made, or which shall be made, under their Authority"
+      },
+      "issue": "Cases lacks the constitutional case category"
+    },
+    {
+      "sample_order": 9,
+      "output_index": 71,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "make Rules concerning Captures on Land and Water",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To declare War, grant Letters of Marque and Reprisal, and make Rules concerning Captures on Land and Water"
+      }
+    },
+    {
+      "sample_order": 10,
+      "output_index": 448,
+      "correct": true,
+      "claim": {
+        "subject": "Vice President elect",
+        "predicate": "act",
+        "object": "President until a President shall have qualified",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": "If a President shall not have been chosen before the time fixed for the beginning of his term",
+        "source_unit": "AMENDMENT_20_SECTION_3",
+        "evidence": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified"
+      }
+    },
+    {
+      "sample_order": 11,
+      "output_index": 382,
+      "correct": false,
+      "claim": {
+        "subject": "Senate",
+        "predicate": "chooses",
+        "object": "Vice-President",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_12",
+        "evidence": "--]* The person having the greatest number of votes as Vice-President, shall be the Vice-President, if such number be a majority of the whole number of Electors appointed, and if no person have a majority, then from the two highest numbers on the list, the Senate shall choose the Vice-President"
+      },
+      "issue": "Vice-President choice omits voting preconditions"
+    },
+    {
+      "sample_order": 12,
+      "output_index": 246,
+      "correct": true,
+      "claim": {
+        "subject": "State",
+        "predicate": "enter",
+        "object": "Confederation",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_10",
+        "evidence": "No State shall enter into any Treaty, Alliance, or Confederation"
+      }
+    },
+    {
+      "sample_order": 13,
+      "output_index": 87,
+      "correct": false,
+      "claim": {
+        "subject": "whom one at least",
+        "predicate": "type",
+        "object": "Inhabitant of the same State with themselves",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_1",
+        "evidence": "The Electors shall meet in their respective States, and vote by Ballot for two Persons, of whom one at least shall not be an Inhabitant of the same State with themselves."
+      },
+      "issue": "Malformed actor and negation"
+    },
+    {
+      "sample_order": 14,
+      "output_index": 393,
+      "correct": true,
+      "claim": {
+        "subject": "validity of the public debt of the United States",
+        "predicate": "authorized_by",
+        "object": "law",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "AMENDMENT_14_SECTION_4",
+        "evidence": "The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned."
+      }
+    },
+    {
+      "sample_order": 15,
+      "output_index": 94,
+      "correct": false,
+      "claim": {
+        "subject": "two or more",
+        "predicate": "has",
+        "object": "equal Votes",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_1",
+        "evidence": "But if there should remain two or more who have equal Votes, the Senate shall chuse from them by Ballot the Vice President."
+      },
+      "issue": "Conditional equality stated as a fact"
+    },
+    {
+      "sample_order": 16,
+      "output_index": 390,
+      "correct": false,
+      "claim": {
+        "subject": "Representatives",
+        "predicate": "count",
+        "object": "Indians not taxed",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_14_SECTION_2",
+        "evidence": "Representatives shall be apportioned among the several States according to their respective numbers, counting the whole number of persons in each State, excluding Indians not taxed."
+      },
+      "issue": "Wrong actor for apportionment count"
+    },
+    {
+      "sample_order": 17,
+      "output_index": 113,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "establish uniform Laws on the subject of Bankruptcies throughout the United States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To establish an uniform Rule of Naturalization, and uniform Laws on the subject of Bankruptcies throughout the United States"
+      }
+    },
+    {
+      "sample_order": 18,
+      "output_index": 270,
+      "correct": false,
+      "claim": {
+        "subject": "Oath or Affirmation",
+        "predicate": "supports",
+        "object": "Constitution",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ARTICLE_6",
+        "evidence": "The Senators and Representatives before mentioned, and the Members of the several State Legislatures, and all executive and judicial Officers, both of the United States and of the several States, shall be bound by Oath or Affirmation, to support this Constitution"
+      },
+      "issue": "Oath made actor instead of oath takers"
+    },
+    {
+      "sample_order": 19,
+      "output_index": 162,
+      "correct": true,
+      "claim": {
+        "subject": "other Officers of the United States",
+        "predicate": "established_by",
+        "object": "Law",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_2",
+        "evidence": "and he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint Ambassadors, other public Ministers and Consuls, Judges of the supreme Court, and all other Officers of the United States, whose Appointments are not herein otherwise provided for, and which shall be established by Law: but the Congress may by Law vest the Appointment of such inferior Officers, as they think proper, in the President alone, in the Courts of Law, or in the Heads of Departments."
+      }
+    },
+    {
+      "sample_order": 20,
+      "output_index": 109,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "borrow Money on the credit of the United States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To borrow Money on the credit of the United States"
+      }
+    },
+    {
+      "sample_order": 21,
+      "output_index": 378,
+      "correct": false,
+      "claim": {
+        "subject": "votes",
+        "predicate": "taken_by",
+        "object": "state",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_12",
+        "evidence": "But in choosing the President, the votes shall be taken by states, the representation from each state having one vote"
+      },
+      "issue": "Presidential-election scope missing"
+    },
+    {
+      "sample_order": 22,
+      "output_index": 215,
+      "correct": true,
+      "claim": {
+        "subject": "Citizens of each State",
+        "predicate": "entitled_to",
+        "object": "Immunities of Citizens in the several States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_4_SECTION_2",
+        "evidence": "The Citizens of each State shall be entitled to all Privileges and Immunities of Citizens in the several States."
+      }
+    },
+    {
+      "sample_order": 23,
+      "output_index": 416,
+      "correct": false,
+      "claim": {
+        "subject": "Senate of the United States",
+        "predicate": "elected_by",
+        "object": "people thereof",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_17",
+        "evidence": "The Senate of the United States shall be composed of two Senators from each State, elected by the people thereof, for six years"
+      },
+      "issue": "Senators replaced with Senate as actor"
+    },
+    {
+      "sample_order": 24,
+      "output_index": 258,
+      "correct": false,
+      "claim": {
+        "subject": "State",
+        "predicate": "enter",
+        "object": "into any Agreement or Compact with another State, or with a foreign Power",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": "without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+        "source_unit": "ARTICLE_1_SECTION_10",
+        "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay."
+      },
+      "issue": "Condition includes unrelated prohibitions"
+    },
+    {
+      "sample_order": 25,
+      "output_index": 345,
+      "correct": true,
+      "claim": {
+        "subject": "executive authority of such State",
+        "predicate": "issues",
+        "object": "writs of election to fill such vacancies",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": "When vacancies happen in the representation of any State in the Senate",
+        "source_unit": "AMENDMENT_17",
+        "evidence": "When vacancies happen in the representation of any State in the Senate, the executive authority of such State shall issue writs of election to fill such vacancies: Provided, That the legislature of any State may empower the executive thereof to make temporary appointments until the people fill the vacancies by election as the legislature may direct."
+      }
+    },
+    {
+      "sample_order": 26,
+      "output_index": 89,
+      "correct": false,
+      "claim": {
+        "subject": "Votes",
+        "predicate": "taken_by",
+        "object": "States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_1",
+        "evidence": "But in chusing the President, the Votes shall be taken by States, the Representation from each State having one Vote"
+      },
+      "issue": "Presidential-election scope missing"
+    },
+    {
+      "sample_order": 27,
+      "output_index": 88,
+      "correct": false,
+      "claim": {
+        "subject": "House of Representatives",
+        "predicate": "chooses_by",
+        "object": "Ballot one of them for President",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_1",
+        "evidence": "and if there be more than one who have such Majority, and have an equal Number of Votes, then the House of Representatives shall immediately chuse by Ballot one of them for President"
+      },
+      "issue": "House-choice preconditions missing"
+    },
+    {
+      "sample_order": 28,
+      "output_index": 395,
+      "correct": true,
+      "claim": {
+        "subject": "debts",
+        "predicate": "incurred_for",
+        "object": "payment of pensions and bounties for services",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "AMENDMENT_14_SECTION_4",
+        "evidence": "The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned."
+      }
+    },
+    {
+      "sample_order": 29,
+      "output_index": 244,
+      "correct": true,
+      "claim": {
+        "subject": "State",
+        "predicate": "enter",
+        "object": "into any Treaty",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_10",
+        "evidence": "No State shall enter into any Treaty, Alliance, or Confederation"
+      }
+    },
+    {
+      "sample_order": 30,
+      "output_index": 214,
+      "correct": true,
+      "claim": {
+        "subject": "Citizens of each State",
+        "predicate": "entitled_to",
+        "object": "Privileges of Citizens in the several States",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_4_SECTION_2",
+        "evidence": "The Citizens of each State shall be entitled to all Privileges and Immunities of Citizens in the several States."
+      }
+    },
+    {
+      "sample_order": 31,
+      "output_index": 111,
+      "correct": false,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "regulate among the several States and with the Indian Tribes",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes"
+      },
+      "issue": "Commerce missing as regulated object"
+    },
+    {
+      "sample_order": 32,
+      "output_index": 104,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "collect Duties",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, to pay the Debts and provide for the common Defence and general Welfare of the United States"
+      }
+    },
+    {
+      "sample_order": 33,
+      "output_index": 255,
+      "correct": false,
+      "claim": {
+        "subject": "State",
+        "predicate": "lays",
+        "object": "Duty of Tonnage",
+        "polarity": "negative",
+        "modality": "shall",
+        "condition": "without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+        "source_unit": "ARTICLE_1_SECTION_10",
+        "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay."
+      },
+      "issue": "Condition includes unrelated prohibitions"
+    },
+    {
+      "sample_order": 34,
+      "output_index": 81,
+      "correct": false,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "govern part of Militia",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To provide for organizing, arming, and disciplining, the Militia, and for governing such Part of them as may be employed in the Service of the United States, reserving to the States respectively, the Appointment of the Officers, and the Authority of training the Militia according to the discipline prescribed by Congress"
+      },
+      "issue": "Federal-service limit on Militia missing"
+    },
+    {
+      "sample_order": 35,
+      "output_index": 396,
+      "correct": false,
+      "claim": {
+        "subject": "claims",
+        "predicate": "holds",
+        "object": "illegal",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "AMENDMENT_14_SECTION_4",
+        "evidence": "but all such debts, obligations and claims shall be held illegal and void."
+      },
+      "issue": "Civil War debt context missing"
+    },
+    {
+      "sample_order": 36,
+      "output_index": 241,
+      "correct": true,
+      "claim": {
+        "subject": "Representatives",
+        "predicate": "receives",
+        "object": "Compensation for their Services",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_6",
+        "evidence": "The Senators and Representatives shall receive a Compensation for their Services, to be ascertained by Law, and paid out of the Treasury of the United States."
+      }
+    },
+    {
+      "sample_order": 37,
+      "output_index": 80,
+      "correct": true,
+      "claim": {
+        "subject": "Congress",
+        "predicate": "authorized_to",
+        "object": "discipline Militia",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_1_SECTION_8",
+        "evidence": "To provide for organizing, arming, and disciplining, the Militia, and for governing such Part of them as may be employed in the Service of the United States, reserving to the States respectively, the Appointment of the Officers, and the Authority of training the Militia according to the discipline prescribed by Congress"
+      }
+    },
+    {
+      "sample_order": 38,
+      "output_index": 394,
+      "correct": false,
+      "claim": {
+        "subject": "law",
+        "predicate": "incurred_for",
+        "object": "payment of pensions and bounties for services",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "AMENDMENT_14_SECTION_4",
+        "evidence": "The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned."
+      },
+      "issue": "Law made actor instead of debts"
+    },
+    {
+      "sample_order": 39,
+      "output_index": 95,
+      "correct": false,
+      "claim": {
+        "subject": "Senate",
+        "predicate": "chooses_from",
+        "object": "them",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": null,
+        "source_unit": "ARTICLE_2_SECTION_1",
+        "evidence": "But if there should remain two or more who have equal Votes, the Senate shall chuse from them by Ballot the Vice President."
+      },
+      "issue": "Unresolved object pronoun"
+    },
+    {
+      "sample_order": 40,
+      "output_index": 441,
+      "correct": false,
+      "claim": {
+        "subject": "President",
+        "predicate": "resume",
+        "object": "powers of his office",
+        "polarity": "positive",
+        "modality": "shall",
+        "condition": "If the Congress",
+        "source_unit": "AMENDMENT_25_SECTION_4",
+        "evidence": "otherwise, the President shall resume the powers and duties of his office."
+      },
+      "issue": "Triggering declaration condition malformed"
+    }
+  ]
+}

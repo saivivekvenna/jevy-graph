@@ -1,0 +1,1991 @@
+{
+  "audit_id": "tincr-default-live-results-accepted-precision-2026-09-26",
+  "review_status": "codex_reviewed_development",
+  "scope": "All 130 accepted claims in the unfocused default live run whose candidate.source_unit is RESULTS.",
+  "report_file": "out/full-tincr-default-live-2026-09-26.json",
+  "report_sha256": "66a268eec798a13c0d12626a933f7b7db5937e439568edafdb3849c9dba92638",
+  "source_file": "benchmarks/corpus/tincr-epcam-full.txt",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "method": {
+    "population_rule": "Accepted output claims only; candidate.source_unit exactly RESULTS. Output indices are zero-based positions in claims.",
+    "unit_of_judgment": "Self-contained full proposition: actor, relation, target, polarity, modality, conditions, comparator, attribution, and cited source context. Methods, statistics, captions, and headings count if source-supported.",
+    "verdicts": {
+      "complete_supported": "Complete proposition supported as stated.",
+      "incomplete_or_wrong_qualifier": "Core proposition has missing or wrong material qualifier, scope, referent, comparison, or attribution.",
+      "wrong_boundary_or_relation": "Broken actor, relation, target, or clause boundary changes or destroys the proposition.",
+      "unsupported": "Independent proposition not established by the cited text.",
+      "source_ambiguous": "Source text itself conflicts materially or leaves adjudication genuinely uncertain."
+    },
+    "criticality": "major marks unsupported independent biological mechanisms or effects.",
+    "precision_policy": "Conservative complete precision counts only complete_supported in the numerator; all other verdicts remain in the denominator. This is Codex-reviewed development evidence, not human heldout validation."
+  },
+  "summary": {
+    "accepted_results_claims": 130,
+    "verdict_counts": {
+      "incomplete_or_wrong_qualifier": 14,
+      "complete_supported": 81,
+      "wrong_boundary_or_relation": 32,
+      "unsupported": 3
+    },
+    "complete_precision_numerator": 81,
+    "complete_precision_denominator": 130,
+    "complete_precision": 0.6230769230769231,
+    "uncertain_count": 0,
+    "unsupported_count": 3
+  },
+  "items": [
+    {
+      "output_index": 0,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The bare n = 5 omits which mouse experiment or group the sample size belongs to.",
+      "source_line": 35,
+      "claim": {
+        "subject": "n",
+        "predicate": "equals",
+        "object": "5",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 45,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "associated_with",
+        "object": "EpCAM",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "EpCAM antibody RIP positive; IgG control negative",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 46,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "directly_interacted_with",
+        "object": "EpCAM",
+        "polarity": "positive",
+        "modality": "suggested",
+        "condition": "biotin RNA pull-down assay",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 47,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "change",
+        "object": "EpCAM mRNA",
+        "polarity": "negative",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 48,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "downregulated",
+        "object": "EpCAM protein levels",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 49,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "psen2",
+        "predicate": "catalyzed",
+        "object": "EpCAM hydrolysis",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "attribution": "cited prior report [17]"
+      }
+    },
+    {
+      "output_index": 50,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "EpCAM hydrolysis",
+        "predicate": "released",
+        "object": "EpICD",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "attribution": "cited prior report [17]"
+      }
+    },
+    {
+      "output_index": 51,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "increased",
+        "object": "expression of EpICD",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 52,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "PSEN2 overexpression alone",
+        "predicate": "increased",
+        "object": "EpICD expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 53,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+        "predicate": "increased",
+        "object": "EpICD expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 54,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "PSEN2 overexpression alone",
+        "predicate": "decreased",
+        "object": "EpCAM expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 55,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+        "predicate": "decreased",
+        "object": "EpCAM expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 56,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "re_expressed_in",
+        "object": "HCT116 NC or sh-TINCR cells",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 57,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "decreased",
+        "object": "EpCAM protein half-life",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 58,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 49,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "decreased",
+        "object": "EpCAM protein half-life",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 59,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 47,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "specifically_bound_to",
+        "object": "EpCAM",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 60,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "\"Its\" does not name EpCAM; the proteolysis target is unresolved in the standalone claim.",
+      "source_line": 47,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "regulates",
+        "object": "its proteolysis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 61,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The panel label B was fused into \"RNA pull down B assay\"; the caption names RNA pull-down assay B as the method.",
+      "source_line": 53,
+      "claim": {
+        "subject": "RNA pull down B assay",
+        "predicate": "uses",
+        "object": "to evaluate the bind of TINCR and EpCAM",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 62,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Figure panel E was fused to \"Western\" and \"blot\" became the predicate; the caption describes a Western blot analysis of an effect.",
+      "source_line": 53,
+      "claim": {
+        "subject": "E Western",
+        "predicate": "blot",
+        "object": "analysis the effect of oe-TINCR on the proteolysis function of PSEN2 towards the EpCAM",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 63,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The caption confines cycloheximide treatment to cells in the HCT116/SW480 EpCAM half-life assay; bare \"Cells\" loses that experiment.",
+      "source_line": 53,
+      "claim": {
+        "subject": "Cells",
+        "predicate": "treated_with",
+        "object": "cycloheximide",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 64,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Panel G was fused to Western and the target omits the 8 paired CRC and normal tissues; this is a broken assay relation.",
+      "source_line": 53,
+      "claim": {
+        "subject": "G Western",
+        "predicate": "blot",
+        "object": "EpICD",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 65,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The analysis is of EpICD in 8 paired CRC and normal tissues; the analysis itself is not paired with CRC tissues.",
+      "source_line": 53,
+      "claim": {
+        "subject": "analysis of EpICD",
+        "predicate": "paired",
+        "object": "CRC tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 66,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The analysis is not the entity paired with normal tissues; 8 CRC tissue samples are.",
+      "source_line": 53,
+      "claim": {
+        "subject": "analysis of EpICD in 8",
+        "predicate": "paired",
+        "object": "their counterpart normal tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 67,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Panel H is a label, not the actor that evaluated EpICD; the actor is IHC.",
+      "source_line": 53,
+      "claim": {
+        "subject": "H",
+        "predicate": "evaluates",
+        "object": "expression level of EpICD in 44 CRC tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 68,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The caption pairs CRC and associated normal tissues; it does not say H IHC is associated with normal tissues.",
+      "source_line": 53,
+      "claim": {
+        "subject": "H IHC",
+        "predicate": "associated",
+        "object": "normal colorectal tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 69,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 55,
+      "claim": {
+        "subject": "EpICD expression",
+        "predicate": "increased_in",
+        "object": "CRC tissues",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "relative to their normal mucous",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 70,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The researchers analyzed EpICD expression; EpICD did not analyze itself.",
+      "source_line": 55,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "analyzed",
+        "object": "expression of EpICD",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 71,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The 44 CRC tissues are paired with normal tissues, not with EpICD expression.",
+      "source_line": 55,
+      "claim": {
+        "subject": "expression of EpICD in the same 44",
+        "predicate": "paired",
+        "object": "CRC tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 72,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The inverse relation is between TINCR and EpICD expression; the triple omits TINCR and inverse direction.",
+      "source_line": 55,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "related_in",
+        "object": "expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 73,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 57,
+      "claim": {
+        "subject": "Downregulation of TINCR",
+        "predicate": "activates",
+        "object": "WNT/β-catenin pathway in CRC",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 74,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "component_of",
+        "object": "Wnt pathway",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 75,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "colocalized_with",
+        "object": "FHL2",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "output_index": 76,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "colocalized_with",
+        "object": "β-catenin",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "output_index": 77,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD–FHL2–β-catenin complex",
+        "predicate": "formed_in",
+        "object": "nucleus",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "output_index": 78,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD–FHL2–β-catenin complex",
+        "predicate": "led_to",
+        "object": "gene transcription",
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "output_index": 79,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "formed_complex_with",
+        "object": "β-catenin",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "HCT116 cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 80,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "resulted_in",
+        "object": "200%−300% increment of TOP-Flash reporter gene activity",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 81,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "β-catenin expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 82,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "TCF4 expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 83,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "c-Myc expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 84,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 59,
+      "claim": {
+        "subject": "activation of WNT/β-catenin pathway",
+        "predicate": "mediated_by",
+        "object": "TINCR depletion in CRC",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "In conclusion",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 85,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Figure panel B was fused into the assay actor; the caption names the TOP-FOP flash assay as the method.",
+      "source_line": 63,
+      "claim": {
+        "subject": "B TOP-FOP flash assay",
+        "predicate": "performed_to",
+        "object": "evaluate the effect of sh-TINCR on the wnt/β-catenin pathway",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 86,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"Wnt pathway associated genes\" is a noun phrase in a Western blot caption, not an independent pathway–genes association claim.",
+      "source_line": 63,
+      "claim": {
+        "subject": "wnt pathway",
+        "predicate": "associated",
+        "object": "genes",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 87,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Bioinformatics algorithms analyzed candidate transcription factors promoting TINCR expression, not TINCR expression itself.",
+      "source_line": 67,
+      "claim": {
+        "subject": "expression of TINCR",
+        "predicate": "analyzed_by",
+        "object": "bioinformatics algorithms",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 88,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "JARSPAR showed a predicted Sp1 binding site; the claim loses predicted status and Sp1 identity.",
+      "source_line": 67,
+      "claim": {
+        "subject": "site on the TINCR promoter",
+        "predicate": "showed_by",
+        "object": "JARSPAR",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 89,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "PROMO showed a predicted Sp1 binding site; the claim loses predicted status and Sp1 identity.",
+      "source_line": 67,
+      "claim": {
+        "subject": "site on the TINCR promoter",
+        "predicate": "showed_by",
+        "object": "PROMO databases",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 90,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"Obvious\" is an adjective, not the actor of an increase; the source reports increased Sp1 binding activity.",
+      "source_line": 67,
+      "claim": {
+        "subject": "obvious",
+        "predicate": "increas",
+        "object": "Sp1-binding activity on the TINCR promoter",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 91,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The source reports increasing Sp1 binding activity, not merely its observation by the reporter assay.",
+      "source_line": 67,
+      "claim": {
+        "subject": "Sp1-binding activity on the TINCR promoter",
+        "predicate": "observed_by",
+        "object": "dual luciferase reporter assays",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 92,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 19,
+      "claim": {
+        "subject": "Downregulation of LncRNA-TINCR",
+        "predicate": "correlated_with",
+        "object": "CRC progression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 93,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 21,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "decreased_in",
+        "object": "colorectal cancer tissues",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "relative to adjacent tissues; Oncomine analysis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 94,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The bare actor \"result\" loses that the reported finding came from Oncomine analysis.",
+      "source_line": 21,
+      "claim": {
+        "subject": "result",
+        "predicate": "indicated",
+        "object": "TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 95,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 21,
+      "claim": {
+        "subject": "non-tumour tissues",
+        "predicate": "obtained_from",
+        "object": "44 patients with CRC",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 96,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 21,
+      "claim": {
+        "subject": "qRT-PCR analysis",
+        "predicate": "revealed",
+        "object": "significantly lower TINCR expression in 38 of 44 CRC specimens",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 97,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The qRT-PCR analysis measured TINCR in 44 paired CRC tissues; the analysis is not paired with CRC tissues.",
+      "source_line": 25,
+      "claim": {
+        "subject": "qRT-PCR analysis of lnc-TINCR expression in 44",
+        "predicate": "paired",
+        "object": "colorectal cancer tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 98,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"Relative to\" is a comparison marker, not an actor matched to normal tissues.",
+      "source_line": 25,
+      "claim": {
+        "subject": "relative to",
+        "predicate": "matched",
+        "object": "adjacent no tumor tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 99,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Panel B is a label for comparison of paired tissues, not an actor that pairs tissues.",
+      "source_line": 25,
+      "claim": {
+        "subject": "B",
+        "predicate": "paired",
+        "object": "CRC tissues with adjacent tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 100,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Panel C is a label; qRT-PCR was the method used to analyze TINCR expression.",
+      "source_line": 25,
+      "claim": {
+        "subject": "C",
+        "predicate": "uses",
+        "object": "to analysis TINCR expression in CRC cell lines",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 101,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"C\" is not the actor examining the clinicopathological relationship; \"We next examined\" begins a new paragraph.",
+      "source_line": 27,
+      "claim": {
+        "subject": "C",
+        "predicate": "examined",
+        "object": "relationship between TINCR expression levels",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 102,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"C\" is not the actor examining tumour characteristics; this subject was inherited from a prior figure panel.",
+      "source_line": 27,
+      "claim": {
+        "subject": "C",
+        "predicate": "examined",
+        "object": "clinicopathological characteristics of the tumour tissue samples",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 103,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "serosal invasion",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 104,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "lymph metastasis",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.037",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 105,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "TNM classification",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.016",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 106,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "positively_correlated_with",
+        "object": "differentiation degree",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.017",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 107,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "lower_in",
+        "object": "LoVo, RKO, and SW620 cells",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "compared with HCT116, SW480, and LS174T; high malignant potential cell lines versus low malignant potential cell lines",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 108,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 27,
+      "claim": {
+        "subject": "transcript for TINCR",
+        "predicate": "located_in",
+        "object": "cytoplasm of HCT116",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 109,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 29,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "CRC cells proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 110,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The heading limits inhibition of migration to CRC cells; the standalone target \"migration\" drops that scope.",
+      "source_line": 29,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "migration",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 111,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "metastatic nodule count",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "lung nodules; TINCR knockdown versus control cells; 4:1; mice",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 112,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "metastatic nodule count",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "liver nodules; TINCR knockdown versus control cells; 2:0; mice",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 113,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "researchers",
+        "predicate": "counted",
+        "object": "number of metastatic nodules in each liver and lung",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 114,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The actor includes the reporting phrase \"Collectively, these results indicate that\" instead of just loss of TINCR expression.",
+      "source_line": 37,
+      "claim": {
+        "subject": "Collectively, these results indicate that loss of TINCR expression profoundly",
+        "predicate": "promotes",
+        "object": "tumour growth",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 115,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "loss of TINCR expression profoundly",
+        "predicate": "promotes",
+        "object": "metastasis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 116,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 39,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "cell cycle arrest",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 117,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 39,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 118,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "downregulation of TINCR in HCT116 cells significantly",
+        "predicate": "decreased",
+        "object": "proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 119,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source attributes the S-phase increase to TINCR downregulation; the extracted actor is the G0/G1 proportion clause.",
+      "source_line": 41,
+      "claim": {
+        "subject": "proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while",
+        "predicate": "increased",
+        "object": "proportion of cells in S phase from 20.52 0.97 to 51.97 1.68",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 120,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "increased",
+        "object": "G2/M-phase cell fraction",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "RKO cells; 14.51% ± 1.35 versus Vector 8.59% ± 0.87",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 121,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "increased",
+        "object": "early apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells; 2.77% ± 1.05 to 10.27% ± 1.29",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 122,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "increased",
+        "object": "early apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells; 4.75% ± 0.82 to 7.50% ± 1.33",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 123,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "proteins",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 124,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "activated",
+        "object": "caspase 3",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 125,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "activated",
+        "object": "caspase 9",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 126,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "induced",
+        "object": "cell cycle arrest",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 127,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 41,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "induced",
+        "object": "apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 128,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 45,
+      "claim": {
+        "subject": "Cell cycle arrest after oe-TINCR or sh-TINCR",
+        "predicate": "measured_by",
+        "object": "flow cytometry",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 129,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 45,
+      "claim": {
+        "subject": "Overexpression of TINCR",
+        "predicate": "promotes",
+        "object": "apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 130,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 45,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "analyzed_by",
+        "object": "flow cytometry",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 131,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 45,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "proteins caspase 3",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 132,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 45,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "caspase 9",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 133,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source says EpCAM was among genes disrupted when TINCR was depleted; EpCAM did not disrupt genes.",
+      "source_line": 49,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "disrupted",
+        "object": "genes",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 134,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The target truncates \"highest score by transcript profiling\" into \"highest score by transcript\".",
+      "source_line": 49,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "has",
+        "object": "highest score by transcript",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 135,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The heading limits inhibition of metastasis to CRC cells; the standalone target drops that scope.",
+      "source_line": 29,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 136,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "silenced_in",
+        "object": "CRC cell lines",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 137,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells; p < 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 138,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells; p < 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 139,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "migration",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 140,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "migration",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 141,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 142,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 143,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "migration",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 144,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 31,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "migration",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 145,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The effect of sh-TINCR on proliferation was determined by CCK8; the effect itself did not \"determine\" an assay.",
+      "source_line": 35,
+      "claim": {
+        "subject": "sh-TINCR on cell proliferation",
+        "predicate": "determines",
+        "object": "by CCK8 cell proliferation assay",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 146,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Figure panel F was fused to the Ki-67 actor; the panel label is not part of the measured index.",
+      "source_line": 35,
+      "claim": {
+        "subject": "F Ki-67 index",
+        "predicate": "analyzed_to",
+        "object": "evaluate the capacity of proliferation in subcutaneous tumor cells",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 147,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 35,
+      "claim": {
+        "subject": "number of Ki-67 positive cells",
+        "predicate": "divided_by",
+        "object": "number of total cells × 100%",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 148,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The mice were in a tail-vein injection metastasis assay; the extracted triple makes \"metastasis assay\" the injected target.",
+      "source_line": 35,
+      "claim": {
+        "subject": "mice in the tail vein",
+        "predicate": "injected",
+        "object": "metastasis assay (n = 5 per group",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 149,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "xenograft tumour size",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 150,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "xenograft tumour growth rate",
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 151,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "tumours",
+        "predicate": "developed",
+        "object": "from sh-TINCR cells",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 152,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"From sh-TINCR cells\" is a fragment; the source says tumours developed from those cells displayed a higher Ki-67 index.",
+      "source_line": 37,
+      "claim": {
+        "subject": "from sh-TINCR cells",
+        "predicate": "displayed",
+        "object": "higher ki-67 proliferation index",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 153,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "5/5 of the mice in HCT116-shTINCR group",
+        "predicate": "displayed",
+        "object": "metastatic foci in the lung",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 154,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "\"These mice\" is unresolved without the HCT116-shTINCR group named in the previous sentence.",
+      "source_line": 37,
+      "claim": {
+        "subject": "4/5 of these mice",
+        "predicate": "has",
+        "object": "metastasis foci in the liver",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 155,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 37,
+      "claim": {
+        "subject": "only 1/5 of mice in HCT116-NC group",
+        "predicate": "has",
+        "object": "lung metastasis foci",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 210,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "ChIP confirmed Sp1 binding to the TINCR promoter, not Sp1 alone.",
+      "source_line": 67,
+      "claim": {
+        "subject": "ChIP assays",
+        "predicate": "confirmed",
+        "object": "Sp1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 211,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 67,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "bind_to",
+        "object": "TINCR promoter",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 212,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 67,
+      "claim": {
+        "subject": "Sp1 overexpression",
+        "predicate": "increased",
+        "object": "TINCR expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 213,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 67,
+      "claim": {
+        "subject": "Sp1 overexpression",
+        "predicate": "increased",
+        "object": "TINCR expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 214,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The c-Myc–Sp1 binding is attributed to cited prior report [19], which the claim omits.",
+      "source_line": 67,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "bind_to",
+        "object": "c-Myc",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 215,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 67,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "transcribed_by",
+        "object": "Sp1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 216,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The source says the loop controls c-Myc expression; \"controls c-Myc\" omits the measured target.",
+      "source_line": 67,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "control",
+        "object": "c-Myc",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 217,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 67,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "control",
+        "object": "TINCR expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 218,
+      "verdict": "complete_supported",
+      "reason": "The Results heading states this finding.",
+      "source_line": 69,
+      "claim": {
+        "subject": "C-myc",
+        "predicate": "inhibits",
+        "object": "transcriptive activity of sp1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 219,
+      "verdict": "complete_supported",
+      "reason": "The cited Results text explicitly supports this proposition with its stated scope.",
+      "source_line": 71,
+      "claim": {
+        "subject": "SW480 cells",
+        "predicate": "transfected",
+        "object": "sp1 plasmid or empty vectors",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 220,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The target \"to confirm\" is incomplete; ChIP was used to confirm Sp1 binding to the TINCR promoter.",
+      "source_line": 71,
+      "claim": {
+        "subject": "ChIP assay",
+        "predicate": "uses",
+        "object": "to confirm",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 221,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "\"Confirm\" is a verb fragment, not the actor; ChIP is the confirming assay.",
+      "source_line": 71,
+      "claim": {
+        "subject": "confirm",
+        "predicate": "bind_of",
+        "object": "sp1 with the TINCR promoter",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 222,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The caption says SW480 cells were co-infected with both Sp1 and c-Myc; the joint intervention is omitted.",
+      "source_line": 71,
+      "claim": {
+        "subject": "SW480",
+        "predicate": "co_infected_with",
+        "object": "sp1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 223,
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The caption says SW480 cells were co-infected with both Sp1 and c-Myc; the joint intervention is omitted.",
+      "source_line": 71,
+      "claim": {
+        "subject": "SW480",
+        "predicate": "co_infected_with",
+        "object": "c-Myc",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 224,
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Panel G is a label, not the actor that proposed a reciprocity model.",
+      "source_line": 71,
+      "claim": {
+        "subject": "G",
+        "predicate": "proposed",
+        "object": "model of reciprocity",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 225,
+      "verdict": "unsupported",
+      "reason": "The caption describes a proposed model of TINCR–EpCAM reciprocity; it does not independently establish EpCAM regulating proliferation.",
+      "source_line": 71,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      },
+      "criticality": "major"
+    },
+    {
+      "output_index": 226,
+      "verdict": "unsupported",
+      "reason": "The caption describes a proposed model of TINCR–EpCAM reciprocity; it does not independently establish EpCAM regulating invasion.",
+      "source_line": 71,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "invasion",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      },
+      "criticality": "major"
+    },
+    {
+      "output_index": 227,
+      "verdict": "unsupported",
+      "reason": "The caption describes a proposed model of TINCR–EpCAM reciprocity; it does not independently establish EpCAM regulating metastasis.",
+      "source_line": 71,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "metastasis in colorectal cancer",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "attribution": null
+      },
+      "criticality": "major"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-27-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XXVII",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete Twenty-seventh Amendment. The timing restriction applies to compensation laws for Senators and Representatives separately. The claims say only that an election must intervene before effect; they do not assert the law must then take effect. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XXVII\n\nNo law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened.",
+  "gold": [
+    {
+      "id": "senators-compensation-timing",
+      "subject": "law varying compensation for services of Senators",
+      "predicate": "takes_effect_only_after",
+      "object": "election of Representatives",
+      "evidence": "No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_27",
+      "in_scope": true
+    },
+    {
+      "id": "representatives-compensation-timing",
+      "subject": "law varying compensation for services of Representatives",
+      "predicate": "takes_effect_only_after",
+      "object": "election of Representatives",
+      "evidence": "No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_27",
+      "in_scope": true
+    }
+  ]
+}

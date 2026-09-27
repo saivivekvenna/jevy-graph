@@ -1,0 +1,122 @@
+{
+  "id": "constitution-article-2-section-3-codex-reviewed-2026-09-27",
+  "domain": "legal",
+  "source": "https://www.archives.gov/founding-docs/constitution-transcript",
+  "source_locator": "ARTICLE_2_SECTION_3",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex audited the complete original ARTICLE_2_SECTION_3; historical original text, not current law. Ambiguities are flagged per claim. Source audit: constitution-other-articles-gold.json.",
+  "text": "Article. II.\n\nSection. 3.\n\nHe shall from time to time give to the Congress Information of the State of the Union, and recommend to their Consideration such Measures as he shall judge necessary and expedient; he may, on extraordinary Occasions, convene both Houses, or either of them, and in Case of Disagreement between them, with Respect to the Time of Adjournment, he may adjourn them to such Time as he shall think proper; he shall receive Ambassadors and other public Ministers; he shall take Care that the Laws be faithfully executed, and shall Commission all the Officers of the United States.",
+  "instruction": "",
+  "gold": [
+    {
+      "id": "ii3-state-union",
+      "subject": "President",
+      "predicate": "gives_to",
+      "object": "Congress Information of the State of the Union",
+      "evidence": "He shall from time to time give to the Congress Information of the State of the Union",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "from time to time",
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-recommend",
+      "subject": "President",
+      "predicate": "recommends_to_Congress",
+      "object": "Measures he judges necessary and expedient",
+      "evidence": "recommend to their Consideration such Measures as he shall judge necessary and expedient",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "as he judges necessary and expedient",
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-convene-both",
+      "subject": "President",
+      "predicate": "may_convene",
+      "object": "both Houses of Congress",
+      "evidence": "he may, on extraordinary Occasions, convene both Houses, or either of them",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "on extraordinary Occasions",
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-convene-either",
+      "subject": "President",
+      "predicate": "may_convene",
+      "object": "either House of Congress",
+      "evidence": "he may, on extraordinary Occasions, convene both Houses, or either of them",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "on extraordinary Occasions",
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-adjourn",
+      "subject": "President",
+      "predicate": "may_adjourn",
+      "object": "Houses of Congress",
+      "evidence": "in Case of Disagreement between them, with Respect to the Time of Adjournment, he may adjourn them to such Time as he shall think proper",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "Houses disagree with respect to Time of Adjournment; to such Time as President thinks proper",
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-receive-ambassadors",
+      "subject": "President",
+      "predicate": "receives",
+      "object": "Ambassadors",
+      "evidence": "he shall receive Ambassadors and other public Ministers",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-receive-ministers",
+      "subject": "President",
+      "predicate": "receives",
+      "object": "other public Ministers",
+      "evidence": "he shall receive Ambassadors and other public Ministers",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-take-care",
+      "subject": "President",
+      "predicate": "takes_Care_that",
+      "object": "Laws be faithfully executed",
+      "evidence": "he shall take Care that the Laws be faithfully executed",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "ii3-commission",
+      "subject": "President",
+      "predicate": "commissions",
+      "object": "all Officers of the United States",
+      "evidence": "shall Commission all the Officers of the United States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_2_SECTION_3",
+      "in_scope": true
+    }
+  ]
+}

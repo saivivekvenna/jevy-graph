@@ -1,0 +1,57 @@
+{
+  "id": "constitution-revenue",
+  "superseded_by": "constitution-article-1-section-7-codex-reviewed-2026-09-27",
+  "domain": "legal",
+  "source": "https://www.archives.gov/founding-docs/constitution-transcript",
+  "review_status": "provisional",
+  "annotation_scope": "targeted",
+  "text": "Article. I.\nSection. 7.\nAll Bills for raising Revenue shall originate in the House of Representatives; but the Senate may propose or concur with Amendments as on other Bills.",
+  "forbidden": [
+    {
+      "subject": "Bills for",
+      "predicate": "rais",
+      "object": "Revenue",
+      "critical": true,
+      "reason": "truncated verb and subject"
+    }
+  ],
+  "gold": [
+    {
+      "id": "revenue-origin",
+      "subject": "Bills for raising Revenue",
+      "predicate": "originates_in",
+      "object": "House of Representatives",
+      "evidence": "All Bills for raising Revenue shall originate in the House of Representatives",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_7",
+      "in_scope": true
+    },
+    {
+      "id": "senate-amendments",
+      "subject": "Senate",
+      "predicate": "proposes",
+      "object": "Amendments",
+      "evidence": "the Senate may propose or concur with Amendments as on other Bills",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_7",
+      "in_scope": true
+    },
+    {
+      "id": "senate-concurs-amendments",
+      "subject": "Senate",
+      "predicate": "concurs_with",
+      "object": "Amendments",
+      "evidence": "the Senate may propose or concur with Amendments as on other Bills",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_7",
+      "in_scope": true
+    }
+  ],
+  "split": "development"
+}

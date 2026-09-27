@@ -1,0 +1,48 @@
+{
+  "id": "constitution-amendment-20-section-2-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XX Section 2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the annual assembly rule and its timing exception. The standalone excerpt repeats the amendment heading for source attribution. Congress must meet at least annually; the January date applies unless Congress sets another day by law. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XX\nSection 2.\n\nThe Congress shall assemble at least once in every year, and such meeting shall begin at noon on the 3d day of January, unless they shall by law appoint a different day.",
+  "gold": [
+    {
+      "id": "annual-minimum",
+      "subject": "Congress",
+      "predicate": "minimum_meetings_per_year",
+      "object": "1",
+      "evidence": "The Congress shall assemble at least once in every year",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_20_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "annual-meeting-time",
+      "subject": "annual meeting of Congress",
+      "predicate": "begins_at",
+      "object": "noon on the 3d day of January",
+      "evidence": "such meeting shall begin at noon on the 3d day of January, unless they shall by law appoint a different day",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "unless Congress by law appoints a different day",
+      "source_unit": "AMENDMENT_20_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "alternate-day",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "appoint a different annual meeting day by law",
+      "evidence": "unless they shall by law appoint a different day",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_20_SECTION_2",
+      "in_scope": true
+    }
+  ]
+}

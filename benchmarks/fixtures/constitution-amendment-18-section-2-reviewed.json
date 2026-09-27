@@ -1,0 +1,36 @@
+{
+  "domain": "legal",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "id": "constitution-amendment-18-section-2-reviewed",
+  "source": "National Archives Constitution Amendment XVIII Section 2",
+  "review_notes": "Codex reviewed the full shared-power clause; Congress and the several States have separate concurrent enforcement powers. The provision was inspected during parser development.",
+  "text": "AMENDMENT XVIII\nSection 2.\nThe Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.",
+  "gold": [
+    {
+      "id": "congress-concurrent-power",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "concurrently enforce this article by appropriate legislation",
+      "evidence": "The Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_18_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "several-states-concurrent-power",
+      "subject": "several States",
+      "predicate": "authorized_to",
+      "object": "concurrently enforce this article by appropriate legislation",
+      "evidence": "The Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_18_SECTION_2",
+      "in_scope": true
+    }
+  ]
+}

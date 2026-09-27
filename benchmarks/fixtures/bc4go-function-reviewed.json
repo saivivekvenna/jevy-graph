@@ -1,0 +1,46 @@
+{
+  "id": "bc4go-function-reviewed",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4112614/#example-2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "instruction": "Extract biological functions and causal findings. Exclude descriptions of what kind of entity each named factor is.",
+  "review_notes": "Codex reviewed this one-sentence excerpt. The one asserted biological function is in scope; two factor-type descriptions are out of scope under the explicit instruction.",
+  "text": "Muscle-specific splicing factors ASD-2 and SUP-12 cooperatively promote muscle-specific processing of the unc-60 gene.",
+  "gold": [
+    {
+      "id": "cooperative-processing",
+      "subject": "ASD-2 and SUP-12",
+      "predicate": "promotes",
+      "object": "muscle-specific processing of the unc-60 gene",
+      "evidence": "Muscle-specific splicing factors ASD-2 and SUP-12 cooperatively promote muscle-specific processing of the unc-60 gene",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "asd2-factor-type",
+      "subject": "ASD-2",
+      "predicate": "type",
+      "object": "muscle-specific splicing factor",
+      "evidence": "Muscle-specific splicing factors ASD-2 and SUP-12",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": false
+    },
+    {
+      "id": "sup12-factor-type",
+      "subject": "SUP-12",
+      "predicate": "type",
+      "object": "muscle-specific splicing factor",
+      "evidence": "Muscle-specific splicing factors ASD-2 and SUP-12",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": false
+    }
+  ]
+}

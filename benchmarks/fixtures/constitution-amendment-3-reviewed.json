@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-3-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment III",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full Third Amendment. It states a peace-time prohibition without owner consent and a war-time requirement that quartering follow a manner prescribed by law. The source does not assert that anyone was quartered or that consent was given. These are Codex labels, not independent human labels.",
+  "text": "Amendment III\n\nNo Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
+  "gold": [
+    {
+      "id": "peace-quartering",
+      "subject": "Soldier",
+      "predicate": "quartered_in",
+      "object": "house",
+      "evidence": "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "in time of peace; without consent of the Owner",
+      "source_unit": "AMENDMENT_3",
+      "in_scope": true
+    },
+    {
+      "id": "war-manner",
+      "subject": "quartering Soldiers in houses",
+      "predicate": "requires",
+      "object": "manner prescribed by law",
+      "evidence": "nor in time of war, but in a manner to be prescribed by law",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in time of war",
+      "source_unit": "AMENDMENT_3",
+      "in_scope": true
+    }
+  ]
+}

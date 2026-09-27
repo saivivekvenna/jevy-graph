@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-9-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Amendment IX",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full amendment and applied the shared object to both deny and disparage. The clause informed a parser fix and remains development.",
+  "text": "Amendment IX\nThe enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.",
+  "gold": [
+    {
+      "id": "enumeration-not-denial",
+      "subject": "enumeration in the Constitution, of certain rights",
+      "predicate": "construed_to",
+      "object": "deny others retained by the people",
+      "evidence": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_9",
+      "in_scope": true
+    },
+    {
+      "id": "enumeration-not-disparagement",
+      "subject": "enumeration in the Constitution, of certain rights",
+      "predicate": "construed_to",
+      "object": "disparage others retained by the people",
+      "evidence": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_9",
+      "in_scope": true
+    }
+  ]
+}

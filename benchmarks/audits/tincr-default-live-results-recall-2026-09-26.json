@@ -1,0 +1,744 @@
+{
+  "id": "tincr-default-live-results-recall-2026-09-26",
+  "scope": "Codex-reviewed development audit of 88 unambiguous in-scope biological Results gold IDs. No Jev or OpenAI requests used for this comparison.",
+  "gold_path": "benchmarks/audits/tincr-results-complete-gold-2026-09-27-v2.json",
+  "gold_sha256": "e1e3f2431bde6f9d8e0c908cb75864087652e750597ef924624fbfef1b48ff16",
+  "accepted_output_path": "out/full-tincr-default-live-2026-09-26.json",
+  "accepted_output_sha256": "66a268eec798a13c0d12626a933f7b7db5937e439568edafdb3849c9dba92638",
+  "deterministic_ledger_path": "benchmarks/audits/tincr-deterministic-current-coverage.json",
+  "scoring_rule": "Complete means one accepted claim, by zero-based index in claims, semantically preserves actor, relation, target, polarity, modality, material condition, comparator, time, and attribution. Evidence and context do not fill missing graph fields. An unhedged assertion of a study result with null modality is treated as observed; an unhedged author assertion is treated as author_asserted. Null attribution is acceptable for this-study results but not for cited prior studies. Semantic synonyms and embedded qualifiers within subject/object are considered, except malformed entity boundaries that materially alter the node. Partial means a related accepted claim misses at least one material element. Missing means no accepted claim represents the biological relation.",
+  "summary": {
+    "denominator": 88,
+    "complete": 43,
+    "partial": 39,
+    "missing": 6,
+    "complete_recall": 0.488636,
+    "accepted_claims_total": 270,
+    "accepted_results_claims": 130
+  },
+  "excluded_source_conflicts": [
+    {
+      "gold_id": "R085",
+      "reason": "source-disputed assertion excluded from unambiguous denominator"
+    },
+    {
+      "gold_id": "R086",
+      "reason": "source-disputed assertion excluded from unambiguous denominator"
+    },
+    {
+      "gold_id": "R091",
+      "reason": "source-disputed assertion excluded from unambiguous denominator"
+    }
+  ],
+  "other_out_of_scope": [
+    "R041",
+    "R093"
+  ],
+  "stage_note": "Stage inference compares the current deterministic option ledger with accepted output. The four R015–R018 options marked complete by that ledger also omit the opposite-overexpression comparison under this stricter complete-claim rule, so their gap originates in the deterministic option itself. Other previously partial options cannot isolate option generation from subsequent selection.",
+  "claims": [
+    {
+      "gold_id": "R001",
+      "accepted_claim_index": 93,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R002",
+      "accepted_claim_index": 96,
+      "status": "partial",
+      "decisive_gap": "qRT-PCR is made the actor; the accepted claim omits the paired non-tumour comparator and patient context.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R003",
+      "accepted_claim_index": 103,
+      "status": "partial",
+      "decisive_gap": "CRC cohort qualifier is absent from the tumour-sample condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R004",
+      "accepted_claim_index": 104,
+      "status": "partial",
+      "decisive_gap": "CRC cohort qualifier is absent from the tumour-sample condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R005",
+      "accepted_claim_index": 105,
+      "status": "partial",
+      "decisive_gap": "CRC cohort qualifier is absent from the tumour-sample condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R006",
+      "accepted_claim_index": 106,
+      "status": "partial",
+      "decisive_gap": "CRC cohort qualifier is absent from the tumour-sample condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R007",
+      "accepted_claim_index": 107,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R008",
+      "accepted_claim_index": 108,
+      "status": "partial",
+      "decisive_gap": "Mainly qualifier is lost and HCT116 is embedded in the location object rather than recorded as cell context.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R009",
+      "accepted_claim_index": 108,
+      "status": "partial",
+      "decisive_gap": "SW480 location is absent; the accepted claim names HCT116 only.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R010",
+      "accepted_claim_index": 92,
+      "status": "partial",
+      "decisive_gap": "Correlation with broad CRC progression does not preserve the suggested association with CRC metastasis in clinical samples.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R011",
+      "accepted_claim_index": 137,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R012",
+      "accepted_claim_index": 138,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R013",
+      "accepted_claim_index": 139,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R014",
+      "accepted_claim_index": 140,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R015",
+      "accepted_claim_index": 141,
+      "status": "partial",
+      "decisive_gap": "The HCT116 increase is retained, but the comparison with the opposite overexpression effect is absent from this claim.",
+      "stage_inferred": "deterministic_option_omits_material_comparison",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R016",
+      "accepted_claim_index": 142,
+      "status": "partial",
+      "decisive_gap": "The SW480 increase is retained, but the comparison with the opposite overexpression effect is absent from this claim.",
+      "stage_inferred": "deterministic_option_omits_material_comparison",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R017",
+      "accepted_claim_index": 143,
+      "status": "partial",
+      "decisive_gap": "The HCT116 increase is retained, but the comparison with the opposite overexpression effect is absent from this claim.",
+      "stage_inferred": "deterministic_option_omits_material_comparison",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R018",
+      "accepted_claim_index": 144,
+      "status": "partial",
+      "decisive_gap": "The SW480 increase is retained, but the comparison with the opposite overexpression effect is absent from this claim.",
+      "stage_inferred": "deterministic_option_omits_material_comparison",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R019",
+      "accepted_claim_index": 149,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R020",
+      "accepted_claim_index": 150,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R021",
+      "accepted_claim_index": 152,
+      "status": "partial",
+      "decisive_gap": "The accepted actor is only “from sh-TINCR cells”; xenograft tumours and the control comparator are missing.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R022",
+      "accepted_claim_index": 153,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R023",
+      "accepted_claim_index": 154,
+      "status": "partial",
+      "decisive_gap": "The actor “these mice” does not identify the HCT116-shTINCR group in claim fields.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R024",
+      "accepted_claim_index": 155,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R025",
+      "accepted_claim_index": 154,
+      "status": "partial",
+      "decisive_gap": "A positive liver-foci claim for 4/5 study mice cannot express the negative 0/5 control-mouse finding.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R026",
+      "accepted_claim_index": 111,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R027",
+      "accepted_claim_index": 112,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R028",
+      "accepted_claim_index": 114,
+      "status": "partial",
+      "decisive_gap": "The accepted actor includes prefatory text and the adverb “profoundly”; it is not a clean TINCR-loss entity.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R029",
+      "accepted_claim_index": 115,
+      "status": "partial",
+      "decisive_gap": "The accepted actor includes the adverb “profoundly”; it is not a clean TINCR-loss entity.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R030",
+      "accepted_claim_index": 118,
+      "status": "partial",
+      "decisive_gap": "The actor includes “significantly” and the measured fraction has an unclosed parenthesis; the graph fields do not cleanly encode the finding.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R031",
+      "accepted_claim_index": 119,
+      "status": "partial",
+      "decisive_gap": "The accepted actor is the preceding G0/G1 fraction, not TINCR downregulation in HCT116 cells.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R032",
+      "accepted_claim_index": 120,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R033",
+      "accepted_claim_index": 121,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R034",
+      "accepted_claim_index": 122,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R035",
+      "accepted_claim_index": 124,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R036",
+      "accepted_claim_index": 125,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R037",
+      "accepted_claim_index": 126,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R038",
+      "accepted_claim_index": 127,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R039",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim links TINCR-induced arrest and apoptosis to growth inhibition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R040",
+      "accepted_claim_index": 133,
+      "status": "partial",
+      "decisive_gap": "EpCAM is made the actor and “genes” the target; TINCR depletion, gene expression, and prior-report attribution are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R042",
+      "accepted_claim_index": 46,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R043",
+      "accepted_claim_index": 47,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R044",
+      "accepted_claim_index": 48,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R045",
+      "accepted_claim_index": 49,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R046",
+      "accepted_claim_index": 50,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R047",
+      "accepted_claim_index": 51,
+      "status": "partial",
+      "decisive_gap": "The EpICD increase is present, but the CRC-cell condition is missing.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R048",
+      "accepted_claim_index": 52,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R049",
+      "accepted_claim_index": 54,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R050",
+      "accepted_claim_index": 53,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R051",
+      "accepted_claim_index": 55,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R052",
+      "accepted_claim_index": 56,
+      "status": "partial",
+      "decisive_gap": "TINCR re-expression is recorded, but its reversal of the PSEN2-associated EpICD increase is not.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R053",
+      "accepted_claim_index": 57,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R054",
+      "accepted_claim_index": 58,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R055",
+      "accepted_claim_index": 60,
+      "status": "partial",
+      "decisive_gap": "Generic TINCR regulation of proteolysis lacks inhibition, accelerated EpCAM cleavage, and the tentative modality.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R056",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim represents tentative EpICD release after TINCR inhibition; the EpICD release claim concerns PSEN2 catalysis.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R057",
+      "accepted_claim_index": 69,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R058",
+      "accepted_claim_index": 72,
+      "status": "partial",
+      "decisive_gap": "Malformed “EpICD related_in expression” does not encode an inverse TINCR–EpICD correlation or its 44-pair statistic.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R059",
+      "accepted_claim_index": 74,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R060",
+      "accepted_claim_index": 75,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R061",
+      "accepted_claim_index": 76,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R062",
+      "accepted_claim_index": 77,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R063",
+      "accepted_claim_index": 78,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R064",
+      "accepted_claim_index": 79,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R065",
+      "accepted_claim_index": 80,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R066",
+      "accepted_claim_index": 81,
+      "status": "partial",
+      "decisive_gap": "The target increase is retained, but CRC identity of the TINCR-knockdown cells is absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R067",
+      "accepted_claim_index": 82,
+      "status": "partial",
+      "decisive_gap": "The target increase is retained, but CRC identity of the TINCR-knockdown cells is absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R068",
+      "accepted_claim_index": 83,
+      "status": "partial",
+      "decisive_gap": "The target increase is retained, but CRC identity of the TINCR-knockdown cells is absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R069",
+      "accepted_claim_index": 73,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R070",
+      "accepted_claim_index": 79,
+      "status": "partial",
+      "decisive_gap": "EpICD–β-catenin complex formation is present, but no TINCR-knockdown promotion or Co-IP context is encoded.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R071",
+      "accepted_claim_index": 88,
+      "status": "partial",
+      "decisive_gap": "A predicted TINCR-promoter site is alluded to, but Sp1, one-site scope, and combined JARSPAR/PROMO attribution are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R072",
+      "accepted_claim_index": 90,
+      "status": "partial",
+      "decisive_gap": "Malformed actor “obvious” and target “Sp1-binding activity” do not cleanly encode Sp1 as actor with luciferase-assay condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R073",
+      "accepted_claim_index": 211,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R074",
+      "accepted_claim_index": 212,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R075",
+      "accepted_claim_index": 213,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    },
+    {
+      "gold_id": "R076",
+      "accepted_claim_index": 214,
+      "status": "partial",
+      "decisive_gap": "Binding direction is reversible, but c-Myc central-region mechanism and prior-report attribution are missing.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R077",
+      "accepted_claim_index": 218,
+      "status": "partial",
+      "decisive_gap": "The inhibition is present, but c-Myc–Sp1 binding mechanism and prior-report attribution are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R078",
+      "accepted_claim_index": 215,
+      "status": "partial",
+      "decisive_gap": "Passive transcription relation is present, but CRC-cell condition is absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R079",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim asserts c-Myc repression of TINCR expression.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R080",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim asserts partial c-Myc suppression of Sp1-induced TINCR expression.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R081",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim represents the tentative mediation of TINCR-induced cell-cycle arrest by c-Myc suppression.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R082",
+      "accepted_claim_index": null,
+      "status": "missing",
+      "decisive_gap": "No accepted claim represents the tentative mediation of TINCR-induced proliferation inhibition by c-Myc suppression.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R083",
+      "accepted_claim_index": 217,
+      "status": "partial",
+      "decisive_gap": "Generic positive feedback loop omits the TINCR–c-Myc participants, reciprocal mechanism, and CRC condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R084",
+      "accepted_claim_index": 216,
+      "status": "partial",
+      "decisive_gap": "Generic positive feedback loop omits the TINCR–c-Myc participants, reciprocal mechanism, and CRC condition.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R087",
+      "accepted_claim_index": 225,
+      "status": "partial",
+      "decisive_gap": "EpCAM regulation is present, but the proposed reciprocal TINCR–EpCAM model and proposed-model modality are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R088",
+      "accepted_claim_index": 226,
+      "status": "partial",
+      "decisive_gap": "EpCAM regulation is present, but the proposed reciprocal TINCR–EpCAM model and proposed-model modality are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R089",
+      "accepted_claim_index": 227,
+      "status": "partial",
+      "decisive_gap": "EpCAM regulation is present, but the proposed reciprocal TINCR–EpCAM model and proposed-model modality are absent.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R090",
+      "accepted_claim_index": 56,
+      "status": "partial",
+      "decisive_gap": "TINCR re-expression is recorded, but its reversal of the PSEN2-associated EpCAM decrease is not.",
+      "stage_inferred": "deterministic_candidate_or_selection",
+      "deterministic_ledger_status": "partial"
+    },
+    {
+      "gold_id": "R092",
+      "accepted_claim_index": 59,
+      "status": "complete",
+      "decisive_gap": null,
+      "stage_inferred": "accepted",
+      "deterministic_ledger_status": "complete"
+    }
+  ]
+}

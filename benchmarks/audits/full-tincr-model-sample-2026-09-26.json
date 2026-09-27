@@ -1,0 +1,1234 @@
+{
+  "audit_id": "full-tincr-model-sample-2026-09-26",
+  "source": "/Users/saivivekvenna/Desktop/jevy-graph/benchmarks/corpus/tincr-epcam-full.txt",
+  "graph": "/Users/saivivekvenna/Desktop/jevy-graph/out/full-tincr-model-discovery-2026-09-26.json",
+  "gold_unfocused_fixture": "/Users/saivivekvenna/Desktop/jevy-graph/benchmarks/fixtures/biomedical-tincr-epcam-unfocused-reviewed.json",
+  "gold_focused_fixture": "/Users/saivivekvenna/Desktop/jevy-graph/benchmarks/fixtures/biomedical-tincr-epcam-focused-reviewed.json",
+  "method": {
+    "sample_seed": 26,
+    "sample_code": "random.Random(26).sample(range(len(claims)), 50)",
+    "population": "645 accepted claims, original list order",
+    "criterion": "Strict source-local support for subject and object boundaries, relation, polarity, modality, and condition. A literal caption assertion is counted supported even if another passage contradicts it; the contradiction is reported separately.",
+    "gold_criterion": "Semantic match to reviewed abstract biological gold claims; no string-exact predicate requirement. Focused fixture in_scope flags identify 19 biological claims. Methods procedure claims reported separately.",
+    "biology_focus_criterion": "Count source-supported biological mechanisms, functions, expression/prognostic associations, cell-line phenotypes, and molecular properties as in focus. Exclude routine assay designs and steps, animal handling, figure presentation, reporting/reagent/institutional metadata, and generic clinical background unrelated to molecular biology. This is a separate relevance judgment, not a precision judgment."
+  },
+  "sample_indices": [
+    207,
+    210,
+    442,
+    615,
+    557,
+    58,
+    130,
+    488,
+    42,
+    638,
+    514,
+    175,
+    439,
+    248,
+    418,
+    206,
+    29,
+    227,
+    147,
+    132,
+    221,
+    611,
+    494,
+    398,
+    373,
+    249,
+    598,
+    31,
+    300,
+    556,
+    549,
+    127,
+    521,
+    44,
+    7,
+    475,
+    614,
+    574,
+    321,
+    326,
+    433,
+    205,
+    57,
+    256,
+    202,
+    639,
+    393,
+    438,
+    621,
+    530
+  ],
+  "sample": [
+    {
+      "index": 207,
+      "verdict": "supported",
+      "reason": "Figure 2G legend explicitly identifies HE staining of metastatic lungs from mice in the tail-vein assay.",
+      "triple": {
+        "subject": "Panel G",
+        "predicate": "shows",
+        "object": "HE stain of metastatic mouse lungs"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "tail vein injected metastasis assay",
+      "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group).",
+      "biology_focus": {
+        "include": false,
+        "category": "figure_layout"
+      }
+    },
+    {
+      "index": 210,
+      "verdict": "supported",
+      "reason": "The named metastasis assay is explicitly described as tail-vein injected.",
+      "triple": {
+        "subject": "Metastasis assay",
+        "predicate": "uses",
+        "object": "tail vein injection"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "the tail vein injected metastasis assay",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 442,
+      "verdict": "supported",
+      "reason": "Discussion explicitly confirms formation of the EpICD–β-catenin complex.",
+      "triple": {
+        "subject": "EpICD",
+        "predicate": "forms_complex_with",
+        "object": "β-catenin"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "We also confirmed the formation of EpICD and β-catenin complex",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 615,
+      "verdict": "supported",
+      "reason": "Methods say the removed lungs and livers were photographed.",
+      "triple": {
+        "subject": "Livers",
+        "predicate": "underwent",
+        "object": "photography"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "The lungs and livers were removed and photographed, and visible tumors on the lungs and livers surface were counted.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 557,
+      "verdict": "supported",
+      "reason": "RIP methods specify lysis of 1 × 10^6 cells for the immunoprecipitation.",
+      "triple": {
+        "subject": "RNA immunoprecipitation",
+        "predicate": "used_cell_count",
+        "object": "1 × 106 cells"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "1 × 106 cells were lysed by RIP lysis buffer, immunoprecipitate with EpCAM antibody or lg G antibody with protein A/G magnetic beads overnight.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 58,
+      "verdict": "supported",
+      "reason": "Introduction explicitly says several lncRNAs function as transcriptional activators or repressors in CRC.",
+      "triple": {
+        "subject": "Some lncRNAs",
+        "predicate": "function_as",
+        "object": "transcriptional activators"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "In CRC",
+      "evidence": "In addition, several lncRNAs function as transcriptional activators or repressors in CRC.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 130,
+      "verdict": "supported",
+      "reason": "Figure 1D legend specifies qRT-PCR analysis of TINCR in HCT116 nuclear fractions.",
+      "triple": {
+        "subject": "TINCR in HCT116 nuclei",
+        "predicate": "analysed_using",
+        "object": "qRT-PCR"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(D) qRT-PCR analysis of TINCR in HCT116 and SW480 total cell, cytoplasmic and nucleus respectively.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 488,
+      "verdict": "supported",
+      "reason": "Methods explicitly say full-length TINCR was amplified by PCR.",
+      "triple": {
+        "subject": "Full-length TINCR",
+        "predicate": "amplified_by",
+        "object": "PCR"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "The full length of TINCR, psen2, c-Myc and Sp1 were amplified by PCR",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 42,
+      "verdict": "supported",
+      "reason": "Introduction literally identifies emergency presentation as a recognized predictive marker for metastases; the awkward source wording is retained.",
+      "triple": {
+        "subject": "Emergency presentation",
+        "predicate": "recognized_predictive_marker_for",
+        "object": "metastases"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "In CRC",
+      "evidence": "Recognized predictive markers for metastases are emergency presentation.",
+      "biology_focus": {
+        "include": false,
+        "category": "clinical_background"
+      }
+    },
+    {
+      "index": 638,
+      "verdict": "supported",
+      "reason": "Statistical methods explicitly state quantitative data were presented as mean ± SD.",
+      "triple": {
+        "subject": "Quantitative data",
+        "predicate": "presented_as",
+        "object": "mean ± SD"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Quantitative data were presented as mean ± SD.",
+      "biology_focus": {
+        "include": false,
+        "category": "reporting_metadata"
+      }
+    },
+    {
+      "index": 514,
+      "verdict": "supported",
+      "reason": "Methods explicitly state RNA isolation was performed as previously described in references 34–36.",
+      "triple": {
+        "subject": "RNA isolation",
+        "predicate": "performed_according_to",
+        "object": "previously described procedures [34–36]"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "RNA isolation, qRT-PCR and western blotting were performed as previously described [34–36].",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 175,
+      "verdict": "supported",
+      "reason": "Results state ectopic TINCR expression decreased proliferation in both RKO and LoVo cells.",
+      "triple": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreases",
+        "object": "LoVo cell proliferation"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 439,
+      "verdict": "supported",
+      "reason": "Discussion attributes the association of low EpCAM expression with poor survival in CRC to prior studies; the claim retains that attribution.",
+      "triple": {
+        "subject": "Low expression of EpCAM",
+        "predicate": "correlates_with",
+        "object": "poor patient survival"
+      },
+      "polarity": "positive",
+      "modality": "indicated by previous studies",
+      "condition": "in colorectal cancer",
+      "evidence": "Previous studies indicated that low expression of EpCAM correlated with a tumour-promoting role and poor patient survival in colorectal cancer [29, 30].",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 248,
+      "verdict": "supported",
+      "reason": "Results explicitly attribute TINCR growth inhibition to its induction of cell-cycle arrest and apoptosis in CRC cells.",
+      "triple": {
+        "subject": "TINCR-induced apoptosis",
+        "predicate": "contributes_to",
+        "object": "TINCR-mediated growth inhibition"
+      },
+      "polarity": "positive",
+      "modality": "Indicated by the results",
+      "condition": "In CRC cells",
+      "evidence": "These results indicated that the overexpression of TINCR induces cell cycle arrest and apoptosis in CRC cells, which contributes to the growth inhibition properties of TINCR.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 418,
+      "verdict": "supported",
+      "reason": "Discussion explicitly says TINCR is strongly upregulated in human gastric carcinoma.",
+      "triple": {
+        "subject": "TINCR expression",
+        "predicate": "is strongly upregulated in",
+        "object": "human gastric carcinoma"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "However, TINCR is strongly upregulated in human gastric carcinoma (GC) and promoted cell growth [22].",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 206,
+      "verdict": "supported",
+      "reason": "Figure 2G legend explicitly identifies HE staining of metastatic livers from mice in the tail-vein assay.",
+      "triple": {
+        "subject": "Panel G",
+        "predicate": "shows",
+        "object": "HE stain of metastatic mouse livers"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "tail vein injected metastasis assay",
+      "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group).",
+      "biology_focus": {
+        "include": false,
+        "category": "figure_layout"
+      }
+    },
+    {
+      "index": 29,
+      "verdict": "supported",
+      "reason": "Abstract explicitly says loss of TINCR subsequently activated Wnt/β-catenin after EpCAM hydrolysis and EpICD release.",
+      "triple": {
+        "subject": "Loss of TINCR",
+        "predicate": "activates",
+        "object": "Wnt/β-catenin pathway"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "Following EpCAM hydrolysis and EpICD release",
+      "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 227,
+      "verdict": "supported",
+      "reason": "Results heading explicitly states that TINCR induces cell-cycle arrest and apoptosis.",
+      "triple": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "cell cycle arrest"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "TINCR induces cell cycle arrest and apoptosis",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 147,
+      "verdict": "supported",
+      "reason": "Results explicitly include SW620 among the high malignant-potential cell lines.",
+      "triple": {
+        "subject": "SW620 cell line",
+        "predicate": "has_malignant_potential",
+        "object": "high"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "the high malignant potential cell lines LoVo, RKO, and SW620",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 132,
+      "verdict": "supported",
+      "reason": "Figure 1D legend specifies qRT-PCR analysis of TINCR in SW480 cytoplasmic fractions.",
+      "triple": {
+        "subject": "TINCR in SW480 cytoplasm",
+        "predicate": "analysed_using",
+        "object": "qRT-PCR"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(D) qRT-PCR analysis of TINCR in HCT116 and SW480 total cell, cytoplasmic and nucleus respectively.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 221,
+      "verdict": "supported",
+      "reason": "Results explicitly say the authors counted metastatic nodules in each liver and lung.",
+      "triple": {
+        "subject": "Study authors",
+        "predicate": "counted",
+        "object": "number of metastatic nodules in each liver"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "We also counted the number of metastatic nodules in each liver and lung",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 611,
+      "verdict": "supported",
+      "reason": "Methods state that tail-vein-injected mice were sacrificed six weeks after injection.",
+      "triple": {
+        "subject": "Mice receiving tail-vein cell injections",
+        "predicate": "sacrificed_at",
+        "object": "6 weeks after injection"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "A total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also injected into the tail veins of the mice, which were sacrificed 6 weeks after injection.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 494,
+      "verdict": "supported",
+      "reason": "Methods say full-length c-Myc was PCR-amplified using cDNA from non-tumour colorectal mucosal tissue.",
+      "triple": {
+        "subject": "PCR amplification of full-length c-Myc",
+        "predicate": "used_template",
+        "object": "cDNA from non-tumour colorectal mucosal tissues"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "The full length of TINCR, psen2, c-Myc and Sp1 were amplified by PCR using cDNA from non-tumour colorectal mucosal tissues",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 398,
+      "verdict": "supported",
+      "reason": "Figure 6F legend gives mean ± SD for the Sp1/c-Myc coinfection measurements.",
+      "triple": {
+        "subject": "Panel F Sp1/c-Myc coinfection data",
+        "predicate": "summarized as",
+        "object": "mean ± SD"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(F) Relative expression of TINCR in HCT116 and SW480 cell lines which co-infected with sp1 and c-Myc. Shown data are mean ± SD from 3 independent experiment.",
+      "biology_focus": {
+        "include": false,
+        "category": "reporting_metadata"
+      }
+    },
+    {
+      "index": 373,
+      "verdict": "supported",
+      "reason": "Figure 6B legend includes wild-type TINCR promoter luciferase activity in HCT116 cells transfected with empty vectors.",
+      "triple": {
+        "subject": "wt TINCR promoter relative luciferase activity",
+        "predicate": "measured in",
+        "object": "HCT116 cells"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "Transfected with empty vectors",
+      "evidence": "(B) Relative luciferase activity of the wt TINCR promoter or the mut promoter in the HEK292A, HCT116 and SW480 cells transfected sp1 plasmid or empty vectors.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 249,
+      "verdict": "supported",
+      "reason": "Results explicitly refer to the growth-inhibition properties of TINCR.",
+      "triple": {
+        "subject": "TINCR",
+        "predicate": "has_property",
+        "object": "Growth inhibition"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "the growth inhibition properties of TINCR",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 598,
+      "verdict": "supported",
+      "reason": "Methods state animal procedures followed protocols approved by the institutional Animal Care and Use Committee.",
+      "triple": {
+        "subject": "All experimental procedures involving animals",
+        "predicate": "followed",
+        "object": "approved animal protocols"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "All experimental procedures involving animals were performed in accordance with animal protocols approved by the Animal Care and Use Committee of Southern Medical University.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 31,
+      "verdict": "supported",
+      "reason": "Abstract explicitly says c-Myc repressed Sp1 transcriptional activity.",
+      "triple": {
+        "subject": "c-Myc",
+        "predicate": "represses",
+        "object": "sp1 transcriptive activity"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 300,
+      "verdict": "supported",
+      "reason": "Figure 4A/B legend states the RNA pull-down data are mean ± SD from three independent experiments.",
+      "triple": {
+        "subject": "RNA pull down assay data",
+        "predicate": "derived_from",
+        "object": "3 independent experiments"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Shown data are mean ± SD from 3 independent experiment.",
+      "biology_focus": {
+        "include": false,
+        "category": "reporting_metadata"
+      }
+    },
+    {
+      "index": 556,
+      "verdict": "supported",
+      "reason": "RIP methods give the kit catalogue number as 17-701.",
+      "triple": {
+        "subject": "RIP kit",
+        "predicate": "catalogue_number",
+        "object": "17-701"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "RNA immunoprecipitation (RIP) experiments were performed according to the instruction provided by the kit (Millipore; catalogue 17-701).",
+      "biology_focus": {
+        "include": false,
+        "category": "reagent_metadata"
+      }
+    },
+    {
+      "index": 549,
+      "verdict": "supported",
+      "reason": "ChIP methods explicitly give IgG as an alternative antibody for immunoprecipitating protein–DNA complexes.",
+      "triple": {
+        "subject": "Protein-DNA complexes in chromatin immunoprecipitation",
+        "predicate": "immunoprecipitated_using",
+        "object": "IgG antibody"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "When the IgG antibody alternative was used rather than Sp1 antibody",
+      "evidence": "Sp1 or IgG antibody was used to immunoprecipitation with protein-DNA complex, and then elution the DNA from the antibody.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 127,
+      "verdict": "supported",
+      "reason": "Figure 1C legend states its data are mean ± SD from three independent experiments.",
+      "triple": {
+        "subject": "Panel C data",
+        "predicate": "derived_from",
+        "object": "3 independent experiments"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(C) qRT-PCR was used to analysis TINCR expression in CRC cell lines. Shown data are mean ± SD from 3 independent experiment.",
+      "biology_focus": {
+        "include": false,
+        "category": "reporting_metadata"
+      }
+    },
+    {
+      "index": 521,
+      "verdict": "supported",
+      "reason": "Methods explicitly say the cell migration assay was performed as previously described in reference 37.",
+      "triple": {
+        "subject": "Cell migration assay",
+        "predicate": "performed_as",
+        "object": "previously described [37]"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "The cell proliferation, plate colony formation, cell migration, invasion assays and Flow Cytometry were performed as previously described [37].",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 44,
+      "verdict": "supported",
+      "reason": "Introduction explicitly states the lncRNA length range as 200 bp to tens of kilobases.",
+      "triple": {
+        "subject": "LncRNAs",
+        "predicate": "have_length_range",
+        "object": "200 bp to tens of kilobases (kb)"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb)",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 7,
+      "verdict": "supported",
+      "reason": "Abstract explicitly describes TINCR as a 3.7 kb long noncoding RNA.",
+      "triple": {
+        "subject": "TINCR",
+        "predicate": "has_length",
+        "object": "3.7 kb"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "TINCR, a 3.7 kb long non coding RNA",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 475,
+      "verdict": "supported",
+      "reason": "Methods locate Nanfang Hospital, Southern Medical University in Guangzhou, China.",
+      "triple": {
+        "subject": "Nanfang Hospital",
+        "predicate": "located_in",
+        "object": "Guangzhou"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Nanfang Hospital, Southern Medical University (Guangzhou, China)",
+      "biology_focus": {
+        "include": false,
+        "category": "institutional_metadata"
+      }
+    },
+    {
+      "index": 614,
+      "verdict": "supported",
+      "reason": "Methods say the removed lungs and livers were photographed.",
+      "triple": {
+        "subject": "Lungs",
+        "predicate": "underwent",
+        "object": "photography"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "The lungs and livers were removed and photographed, and visible tumors on the lungs and livers surface were counted.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 574,
+      "verdict": "supported",
+      "reason": "Methods identify the Biomiga DNA gel/PCR Extraction Kit with catalogue number DC3511-01.",
+      "triple": {
+        "subject": "Biomiga DNA gel/PCR Extraction Kit",
+        "predicate": "catalogue_number",
+        "object": "DC3511-01"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "Biomiga DNA gel/PCR Extraction Kit (catalogue DC3511-01)",
+      "biology_focus": {
+        "include": false,
+        "category": "reagent_metadata"
+      }
+    },
+    {
+      "index": 321,
+      "verdict": "supported",
+      "reason": "Results explicitly say EpICD is upregulated in CRC tissue versus normal mucosa.",
+      "triple": {
+        "subject": "EpICD expression",
+        "predicate": "higher_in",
+        "object": "CRC tissues"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "compared with their normal mucous",
+      "evidence": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 326,
+      "verdict": "supported",
+      "reason": "Results explicitly identify EpICD as a component of the Wnt pathway.",
+      "triple": {
+        "subject": "EpICD",
+        "predicate": "component_of",
+        "object": "Wnt pathway"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "EpICD is one of the components of Wnt pathway.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 433,
+      "verdict": "supported",
+      "reason": "Discussion explicitly identifies EpCAM as a marker for hESCs, citing previous studies.",
+      "triple": {
+        "subject": "EpCAM",
+        "predicate": "is_marker_for",
+        "object": "hESCs"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "EpCAM, the epithelial cell adhesion molecular, is a 40 kd cell surface glycoprotein identified as a marker for epithelial cancers, as well as a marker for cancer stem cells and hESCs [25–27].",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 205,
+      "verdict": "supported",
+      "reason": "Figure 2G legend explicitly describes images of lung metastases in mice from the tail-vein assay.",
+      "triple": {
+        "subject": "Panel G images",
+        "predicate": "depict",
+        "object": "lung metastases"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "in mice in the tail vein injected metastasis assay",
+      "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group).",
+      "biology_focus": {
+        "include": false,
+        "category": "figure_layout"
+      }
+    },
+    {
+      "index": 57,
+      "verdict": "supported",
+      "reason": "Introduction explicitly says CCAT2 promotes chromosomal instability.",
+      "triple": {
+        "subject": "CCAT2",
+        "predicate": "promotes",
+        "object": "chromosomal instability"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "CCAT2 is highly overexpressed in microsatellite-stable colorectal cancer, and promotes tumour growth, metastasis and chromosomal instability",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 256,
+      "verdict": "supported",
+      "reason": "Figure 3B legend says apoptosis data after TINCR overexpression are shown as mean ± SD.",
+      "triple": {
+        "subject": "Shown apoptosis data",
+        "predicate": "were_reported_as",
+        "object": "Mean ± SD"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry. Shown data are mean ± SD from 3 independent experiment.",
+      "biology_focus": {
+        "include": false,
+        "category": "reporting_metadata"
+      }
+    },
+    {
+      "index": 202,
+      "verdict": "supported",
+      "reason": "Figure 2F legend places IHC images below HE images.",
+      "triple": {
+        "subject": "IHC images",
+        "predicate": "positioned_at",
+        "object": "lower part of panel F"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": null,
+      "evidence": "(F) Ki-67 index was analyzed to evaluate the capacity of proliferation in subcutaneous tumor cells. HE (up) and IHC images (down)",
+      "biology_focus": {
+        "include": false,
+        "category": "figure_layout"
+      }
+    },
+    {
+      "index": 639,
+      "verdict": "supported",
+      "reason": "Statistical methods explicitly list one-way ANOVA for comparisons of independent experimental groups.",
+      "triple": {
+        "subject": "One-way ANOVA",
+        "predicate": "used_for",
+        "object": "comparisons between independent experimental groups"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "As an alternative to the independent samples t test",
+      "evidence": "One-way ANOVA or the independent samples t test were used for comparisons independent experimental groups.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 393,
+      "verdict": "supported",
+      "reason": "Figure 6E legend literally says c-Myc overexpression increases TINCR expression in SW480 cells. This is source-literal but contradicts the Results text and abstract, which say c-Myc represses TINCR.",
+      "triple": {
+        "subject": "c-Myc overexpression",
+        "predicate": "increases",
+        "object": "TINCR expression"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "In SW480 cells",
+      "evidence": "(E) Overexpression of c-Myc in HCT116 and SW480 increase the expression of TINCR.",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 438,
+      "verdict": "supported",
+      "reason": "Discussion attributes the correlation of low EpCAM expression with a tumour-promoting role in CRC to prior studies; the claim retains that attribution.",
+      "triple": {
+        "subject": "Low expression of EpCAM",
+        "predicate": "correlates_with",
+        "object": "a tumour-promoting role"
+      },
+      "polarity": "positive",
+      "modality": "indicated by previous studies",
+      "condition": "in colorectal cancer",
+      "evidence": "Previous studies indicated that low expression of EpCAM correlated with a tumour-promoting role and poor patient survival in colorectal cancer [29, 30].",
+      "biology_focus": {
+        "include": true,
+        "category": "biological_finding"
+      }
+    },
+    {
+      "index": 621,
+      "verdict": "supported",
+      "reason": "Methods say lungs were excised for histology and immunostaining.",
+      "triple": {
+        "subject": "Lungs",
+        "predicate": "underwent",
+        "object": "excision"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "For histology and immunostaining experiments",
+      "evidence": "For histology and immunostaining experiments, subcutaneous tumours, lungs, livers, and the other visceral organs were excised, fixed in formalin, paraffin embedded in paraffin.",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    },
+    {
+      "index": 530,
+      "verdict": "supported",
+      "reason": "Methods explicitly say pGL3-mut promoter vectors were co-transfected with pcDNA3.0-Sp1 plasmids in SW480 cells after 24-hour culture.",
+      "triple": {
+        "subject": "pGL3-mut promoter vectors",
+        "predicate": "co_transfected_with",
+        "object": "pcDNA3.0-sp1 plasmids"
+      },
+      "polarity": "positive",
+      "modality": null,
+      "condition": "In SW480 cells after 24-hour culture, when the pGL3-mut alternative was used",
+      "evidence": "Cells were seeds in 24-wells plates (1 × 105/well) and cultured for 24 hours. Then, either pGL3-wt promoter vectors or pGL3-mut promoter vectors were co-transfected with pcDNA3.0-sp1 plasmids in HCT116 and SW480 cells using lipofectamine 3000 (Invitrogen, USA).",
+      "biology_focus": {
+        "include": false,
+        "category": "routine_method"
+      }
+    }
+  ],
+  "gold_coverage": [
+    {
+      "gold_id": "tincr-crc-tissues",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        13
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-metastatic-lines",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        14
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-inverse-crc",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        15
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-growth-vivo",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        16
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-growth-vitro",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        17
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-metastasis-vivo",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        18
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-metastasis-vitro",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        19
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "overexpression-opposite-effect",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-epcam",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        24
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "rna-ip-binding",
+      "biological_in_scope": false,
+      "covered": true,
+      "matching_claim_indices": [
+        25
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "rna-pulldown-binding",
+      "biological_in_scope": false,
+      "covered": true,
+      "matching_claim_indices": [
+        26
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "loss-hydrolysis",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        97
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "hydrolysis-epicd",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        28
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "loss-epicd",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        27
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "epicd-wnt",
+      "biological_in_scope": true,
+      "covered": false,
+      "matching_claim_indices": [],
+      "note": "No accepted claim has EpICD as causal subject activating Wnt/β-catenin. Claim 326 states component membership; claims 29 and 99 assign activation to loss of TINCR."
+    },
+    {
+      "gold_id": "loss-wnt",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        29
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "cmyc-tincr",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        30
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "cmyc-sp1",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        31
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "tincr-repression-mechanism",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        30,
+        31
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "loop-cmyc",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        33
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "loop-tincr",
+      "biological_in_scope": true,
+      "covered": true,
+      "matching_claim_indices": [
+        34
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "rna-isolation",
+      "biological_in_scope": false,
+      "covered": true,
+      "matching_claim_indices": [
+        514
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "qrt-pcr",
+      "biological_in_scope": false,
+      "covered": true,
+      "matching_claim_indices": [
+        515
+      ],
+      "note": null
+    },
+    {
+      "gold_id": "western-blot",
+      "biological_in_scope": false,
+      "covered": true,
+      "matching_claim_indices": [
+        516
+      ],
+      "note": null
+    }
+  ],
+  "summary": {
+    "sample_size": 50,
+    "sample_supported": 50,
+    "sample_unsupported": 0,
+    "sample_precision": 1.0,
+    "sample_precision_fraction": "50/50",
+    "abstract_biological_gold_count": 19,
+    "abstract_biological_covered": 18,
+    "abstract_biological_recall": 0.9473684210526315,
+    "abstract_biological_recall_fraction": "18/19",
+    "all_unfocused_gold_count": 24,
+    "all_unfocused_covered": 23,
+    "all_unfocused_recall_fraction": "23/24",
+    "excluded_procedural_gold_count": 5,
+    "excluded_procedural_covered": 5,
+    "missed_biological_gold_ids": [
+      "epicd-wnt"
+    ],
+    "important_failure_classes": [
+      {
+        "class": "missing_causal_relation",
+        "detail": "The graph says EpICD is a Wnt component and loss of TINCR activates Wnt signaling, but omits the gold causal edge EpICD activates Wnt/β-catenin."
+      },
+      {
+        "class": "cross_passage_polarity_conflict",
+        "detail": "Sampled claim 393 follows Figure 6E caption saying c-Myc overexpression increases TINCR in SW480; abstract and Results say c-Myc represses TINCR. Source-local support is intact, but both directions coexist in the accepted graph."
+      },
+      {
+        "class": "scope_dilution",
+        "detail": "Only 19 of the 50 sampled accepted triples fit a biological-finding focus. The remaining 31 are methods, figure layout, metadata, or generic clinical background. This is a relevance issue, not a source-support error."
+      }
+    ],
+    "sample_biology_focus_count": 19,
+    "sample_biology_focus_fraction": "19/50",
+    "sample_biology_focus_rate": 0.38,
+    "sample_biology_focus_category_counts": {
+      "biological_finding": 19,
+      "routine_method": 18,
+      "figure_layout": 4,
+      "clinical_background": 1,
+      "reporting_metadata": 5,
+      "reagent_metadata": 2,
+      "institutional_metadata": 1
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "id": "constitution-amendment-13-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Amendment XIII Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed both prohibited forms and both jurisdiction scopes. The criminal-punishment exception qualifies each prohibition rather than becoming an unconditional assertion. This section informed parser development.",
+  "text": "AMENDMENT XIII\nSection 1.\nNeither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+  "gold": [
+    {
+      "id": "slavery-United-States",
+      "subject": "slavery",
+      "predicate": "exists_in",
+      "object": "United States",
+      "evidence": "Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "except as a punishment for crime whereof the party shall have been duly convicted",
+      "source_unit": "AMENDMENT_13_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "slavery-place-subject-to-their-jurisdiction",
+      "subject": "slavery",
+      "predicate": "exists_in",
+      "object": "place subject to their jurisdiction",
+      "evidence": "Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "except as a punishment for crime whereof the party shall have been duly convicted",
+      "source_unit": "AMENDMENT_13_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "involuntary-servitude-United-States",
+      "subject": "involuntary servitude",
+      "predicate": "exists_in",
+      "object": "United States",
+      "evidence": "Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "except as a punishment for crime whereof the party shall have been duly convicted",
+      "source_unit": "AMENDMENT_13_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "involuntary-servitude-place-subject-to-their-jurisdiction",
+      "subject": "involuntary servitude",
+      "predicate": "exists_in",
+      "object": "place subject to their jurisdiction",
+      "evidence": "Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "except as a punishment for crime whereof the party shall have been duly convicted",
+      "source_unit": "AMENDMENT_13_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

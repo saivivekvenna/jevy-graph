@@ -1,0 +1,84 @@
+{
+  "id": "constitution-amendment-21-section-2-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XXI Section 2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section, with the Amendment XXI heading repeated for standalone source attribution. Both transportation and importation apply to three jurisdictions. Each prohibition is restricted to delivery or use that violates the jurisdiction’s laws; lawful transport is not labeled prohibited. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XXI\nSection 2.\n\nThe transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+  "gold": [
+    {
+      "id": "transportation-state",
+      "subject": "transportation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "State",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "a21s2-transportation-territory",
+      "subject": "transportation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "Territory",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "transportation-possession-of-the-united-states",
+      "subject": "transportation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "possession of the United States",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "importation-state",
+      "subject": "importation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "State",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "a21s2-importation-territory",
+      "subject": "importation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "Territory",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    },
+    {
+      "id": "importation-possession-of-the-united-states",
+      "subject": "importation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "possession of the United States",
+      "evidence": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "for delivery or use therein; in violation of the laws thereof",
+      "source_unit": "AMENDMENT_21_SECTION_2",
+      "in_scope": true
+    }
+  ]
+}

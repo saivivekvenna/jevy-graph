@@ -43,7 +43,7 @@ def _object_value(value: str, kind: str) -> str:
     return _resource("entity", value)
 
 
-def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
+def render_turtle(text: str, triples: list[VerifiedTriple], *, group_by: str = "none") -> str:
     document_hash = hashlib.sha256(text.encode()).hexdigest()
     document = f"<urn:jevy:document:{document_hash}>"
     lines = [
@@ -70,10 +70,21 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
         claim_material = (
             f"{document_hash}:{candidate.start}:{candidate.end}:{candidate.subject}:"
             f"{candidate.predicate}:{candidate.object}:{candidate.modality}:"
-            f"{candidate.polarity}"
+            f"{candidate.polarity}:{candidate.condition}:{candidate.source_unit}"
         )
+        claim_material += (
+            f":{candidate.claim_type}:{candidate.comparison}:"
+            f"{candidate.conditions}:{candidate.measurements}"
+        )
+        if candidate.attribution:
+            claim_material += f":attribution:{candidate.attribution}"
         claim_hash = hashlib.sha256(claim_material.encode()).hexdigest()[:16]
         claim = f"<urn:jevy:claim:{claim_hash}>"
+        group = {
+            "source": candidate.source_unit or "Document",
+            "entity": candidate.subject,
+            "relation": candidate.predicate,
+        }.get(group_by)
 
         if subject not in declared_entities:
             lines.append(f'{subject} jevy:label "{_escape(candidate.subject)}" .')
@@ -82,12 +93,18 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
             lines.append(f'{object_} jevy:label "{_escape(candidate.object)}" .')
             declared_entities.add(object_)
         assertion = (subject, predicate, object_)
-        if candidate.polarity == "positive" and assertion not in emitted_assertions:
+        if (
+            candidate.polarity == "positive" and not candidate.modality
+            and not candidate.condition and not candidate.conditions
+            and not candidate.measurements and not candidate.comparison
+            and not candidate.attribution
+            and assertion not in emitted_assertions
+        ):
             lines.append(f"{subject} {predicate} {object_} .")
             emitted_assertions.add(assertion)
         lines.extend(
             [
-                f"{claim} a rdf:Statement ;",
+                f"{claim} a jevy:Claim, rdf:Statement ;",
                 f"    rdf:subject {subject} ;",
                 f"    rdf:predicate {predicate} ;",
                 f"    rdf:object {object_} ;",
@@ -98,6 +115,22 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
                 f"    jevy:normalizedEndOffset {candidate.end} ;",
                 f'    jevy:polarity "{candidate.polarity}" ;',
                 f'    jevy:modality "{candidate.modality or "none"}" ;',
+                *(
+                    [f'    jevy:claimType "{_escape(candidate.claim_type)}" ;']
+                    if candidate.claim_type else []
+                ),
+                *(
+                    [f'    jevy:comparison "{_escape(candidate.comparison)}" ;']
+                    if candidate.comparison else []
+                ),
+                *(
+                    f'    jevy:condition "{_escape(value)}" ;'
+                    for value in candidate.conditions
+                ),
+                *(
+                    f'    jevy:measurement "{_escape(value)}" ;'
+                    for value in candidate.measurements
+                ),
                 *(
                     [f'    jevy:sourceUnit "{_escape(candidate.source_unit)}" ;']
                     if candidate.source_unit
@@ -115,10 +148,16 @@ def render_turtle(text: str, triples: list[VerifiedTriple]) -> str:
                 ),
                 *(
                     [f'    jevy:condition "{_escape(candidate.condition)}" ;']
-                    if candidate.condition
+                    if candidate.condition and not candidate.claim_type
+                    else []
+                ),
+                *(
+                    [f'    jevy:attribution "{_escape(candidate.attribution)}" ;']
+                    if candidate.attribution
                     else []
                 ),
                 f'    jevy:extractionOrigin "{candidate.origin}" ;',
+                *([f'    jevy:graphGroup "{_escape(group)}" ;'] if group else []),
                 "    jevy:selectionConfidence "
                 f'"{candidate.selection_confidence:.6f}"^^xsd:decimal ;',
                 "    jevy:selectionProbability "

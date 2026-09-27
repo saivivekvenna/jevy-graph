@@ -1,0 +1,3 @@
+PCMT1 knockdown inhibits the migration and invasion of MDA-MB-231 cells
+
+To further explore the cellular functions of PCMT1 in MDA-MB-231 cells, we conducted cell migration and invasion experiments. The results proved that PCMT1 knockdown significantly inhibited the migration and invasion ability of MDA-MB-231 cells (Figs. 2A–2D). These results together indicate that PCMT1 may play an important role in the progression of breast cancer, including TNBC.

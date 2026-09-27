@@ -1,0 +1,108 @@
+{
+  "id": "constitution-amendment-5-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment V",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed every Fifth Amendment clause. The grand-jury requirement covers two kinds of crime and retains its military exceptions; the remaining restrictions cover double jeopardy, self-incrimination, three protected interests under due process, and public-use takings without compensation. None of the conditional prohibitions is represented as an unconditional ban. These are Codex labels, not independent human labels.",
+  "text": "Amendment V\n\nNo person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.",
+  "gold": [
+    {
+      "id": "capital-crime",
+      "subject": "person",
+      "predicate": "held_to_answer_for",
+      "object": "capital crime",
+      "evidence": "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "unless on a presentment or indictment of a Grand Jury; except cases arising in the land or naval forces, or in the Militia when in actual service in time of War or public danger",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "otherwise-infamous-crime",
+      "subject": "person",
+      "predicate": "held_to_answer_for",
+      "object": "otherwise infamous crime",
+      "evidence": "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "unless on a presentment or indictment of a Grand Jury; except cases arising in the land or naval forces, or in the Militia when in actual service in time of War or public danger",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "double-jeopardy",
+      "subject": "person",
+      "predicate": "subject_to",
+      "object": "second jeopardy of life or limb",
+      "evidence": "nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "for the same offence",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "self-incrimination",
+      "subject": "person",
+      "predicate": "compelled_to",
+      "object": "be a witness against himself",
+      "evidence": "nor shall be compelled in any criminal case to be a witness against himself",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "in any criminal case",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "due-process-life",
+      "subject": "person",
+      "predicate": "deprived_of",
+      "object": "life",
+      "evidence": "nor be deprived of life, liberty, or property, without due process of law",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without due process of law",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "due-process-liberty",
+      "subject": "person",
+      "predicate": "deprived_of",
+      "object": "liberty",
+      "evidence": "nor be deprived of life, liberty, or property, without due process of law",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without due process of law",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "due-process-property",
+      "subject": "person",
+      "predicate": "deprived_of",
+      "object": "property",
+      "evidence": "nor be deprived of life, liberty, or property, without due process of law",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without due process of law",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    },
+    {
+      "id": "takings-compensation",
+      "subject": "private property",
+      "predicate": "taken_for",
+      "object": "public use",
+      "evidence": "nor shall private property be taken for public use, without just compensation",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without just compensation",
+      "source_unit": "AMENDMENT_5",
+      "in_scope": true
+    }
+  ]
+}

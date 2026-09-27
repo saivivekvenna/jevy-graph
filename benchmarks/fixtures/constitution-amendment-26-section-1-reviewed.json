@@ -1,0 +1,72 @@
+{
+  "id": "constitution-amendment-26-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XXVI Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full voting-rights clause. The age threshold stays on the holder and on every forbidden denial or abridgment by federal and State actors. The standalone excerpt repeats the amendment heading for source attribution. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XXVI\nSection 1.\nThe right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+  "gold": [
+    {
+      "id": "a26s1-voting-right",
+      "subject": "citizens of the United States",
+      "predicate": "has_right_to",
+      "object": "vote",
+      "evidence": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "who are eighteen years of age or older",
+      "source_unit": "AMENDMENT_26_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "united-states-denied-age",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "denied_by",
+      "object": "United States",
+      "evidence": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "who are eighteen years of age or older; on account of age",
+      "source_unit": "AMENDMENT_26_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "united-states-abridged-age",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "abridged_by",
+      "object": "United States",
+      "evidence": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "who are eighteen years of age or older; on account of age",
+      "source_unit": "AMENDMENT_26_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "state-denied-age",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "denied_by",
+      "object": "State",
+      "evidence": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "who are eighteen years of age or older; on account of age",
+      "source_unit": "AMENDMENT_26_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "state-abridged-age",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "abridged_by",
+      "object": "State",
+      "evidence": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "who are eighteen years of age or older; on account of age",
+      "source_unit": "AMENDMENT_26_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

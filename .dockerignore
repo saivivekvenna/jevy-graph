@@ -1,0 +1,13 @@
+.git
+.github
+.venv
+__pycache__
+*.py[cod]
+.env
+benchmarks
+build
+dist
+docs
+launch
+out
+tests

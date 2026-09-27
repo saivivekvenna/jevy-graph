@@ -1,0 +1,64 @@
+{
+  "id": "span-fresh-scientific-2026-09-26",
+  "domain": "biomedical",
+  "source": "https://pubmed.ncbi.nlm.nih.gov/37357863/",
+  "source_locator": "Ricks and Yannarell, Proc Biol Sci 2023, DOI 10.1098/rspb.2023.0469; three consecutive Results sentences in abstract",
+  "source_accessed_utc": "2026-09-26",
+  "text_sha256": "b678d4be272621907dab6d1d0157352c9fd3e3ed176e6e14f40c99a6251e88f4",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex froze and reviewed these three consecutive primary-research abstract sentences before inspecting extractor or Jev outputs. General microbial benefit and the additional matched-moisture benefit are separate findings. The absence of plants in historical treatments is a non-necessity result, not proof that plants never influence microbes. Drought tolerance applies to microbes from droughted soils. This biological development pilot is not independent human review or held-out release evidence.",
+  "text": "We found that plants generally benefited from soil microbes, and this benefit was greater whenever their current watering conditions matched the microbes' historical watering conditions. Principally, the plant's presence was not necessary in the historical treatments for this environmental matching benefit to emerge. Moreover, we found microbes from droughted soils could better tolerate drought stress.",
+  "instruction": "Extract all biological findings in this passage, preserving the historical-versus-current moisture comparison and the negative necessity result.",
+  "gold": [
+    {
+      "id": "soil-microbes-generally-benefit-plants",
+      "subject": "soil microbes",
+      "predicate": "benefit",
+      "object": "plants",
+      "evidence": "We found that plants generally benefited from soil microbes",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "generally; in this study",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "moisture-match-increases-benefit",
+      "subject": "matching current and historical watering conditions",
+      "predicate": "increases",
+      "object": "plant benefit from soil microbes",
+      "evidence": "this benefit was greater whenever their current watering conditions matched the microbes' historical watering conditions",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "plants current watering conditions match microbes historical watering conditions; relative to nonmatching conditions",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "historical-plant-presence-not-necessary",
+      "subject": "plant presence in historical treatments",
+      "predicate": "is_necessary_for",
+      "object": "environmental matching benefit",
+      "evidence": "Principally, the plant's presence was not necessary in the historical treatments for this environmental matching benefit to emerge.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "in historical treatments; emergence of the greater benefit when current watering matches microbes historical watering",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "drought-soil-microbes-tolerate-drought",
+      "subject": "microbes from droughted soils",
+      "predicate": "tolerate",
+      "object": "drought stress",
+      "evidence": "Moreover, we found microbes from droughted soils could better tolerate drought stress.",
+      "modality": "could",
+      "polarity": "positive",
+      "condition": "comparative tolerance stated; comparator not specified in selected passage",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    }
+  ]
+}

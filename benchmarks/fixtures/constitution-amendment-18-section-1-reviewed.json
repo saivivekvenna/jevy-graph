@@ -1,0 +1,132 @@
+{
+  "id": "constitution-amendment-18-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XVIII Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section as five prohibited activities in each of two jurisdictions. Every claim retains the one-year delay and beverage-purpose restriction. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XVIII\nSection 1.\n\nAfter one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+  "gold": [
+    {
+      "id": "manufacture-united-states",
+      "subject": "manufacture of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "manufacture-territory",
+      "subject": "manufacture of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "territory subject to jurisdiction of United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "sale-united-states",
+      "subject": "sale of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "sale-territory",
+      "subject": "sale of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "territory subject to jurisdiction of United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "transportation-united-states",
+      "subject": "transportation of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "transportation-territory",
+      "subject": "transportation of intoxicating liquors",
+      "predicate": "permitted_in",
+      "object": "territory subject to jurisdiction of United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "importation-united-states",
+      "subject": "importation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "importation-territory",
+      "subject": "importation of intoxicating liquors",
+      "predicate": "permitted_into",
+      "object": "territory subject to jurisdiction of United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "exportation-united-states",
+      "subject": "exportation of intoxicating liquors",
+      "predicate": "permitted_from",
+      "object": "United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "exportation-territory",
+      "subject": "exportation of intoxicating liquors",
+      "predicate": "permitted_from",
+      "object": "territory subject to jurisdiction of United States",
+      "evidence": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "after one year from ratification of this article; for beverage purposes",
+      "source_unit": "AMENDMENT_18_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

@@ -1,211 +1,215 @@
 # Jevy Graph
 
-[![CI](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/saivivekvenna/jevy-graph/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/jevy-graph.svg)](https://pypi.org/project/jevy-graph/)
+Jevy Graph turns text and document uploads into source-grounded knowledge
+graphs. It builds bounded claim candidates locally, uses
+[Jev](https://typesafe.ai/) to resolve ambiguous choices, verifies every
+selected claim, and emits RDF/Turtle with the source evidence and qualifiers.
 
-Jevy Graph compiles documents into source-grounded RDF. It discovers atomic
-relations locally, asks [Jev](https://typesafe.ai/) to resolve ambiguous entity
-boundaries and predicates, verifies every selected claim, and emits Turtle with
-evidence and provenance.
+The core package has no runtime Python dependencies. It supports ordinary
+prose, legal text, scientific findings, tables, measurements, and equations.
 
-The compiler is designed for high-recall extraction from ordinary prose,
-scientific papers, legal text, tables, measurements, and equations. It does not
-require an ontology or a document-specific schema.
+## Claim model
 
-## 19-second demo
-
-[![Watch Jevy Graph compile a document into a knowledge graph](https://raw.githubusercontent.com/saivivekvenna/jevy-graph/main/assets/jevy-graph-launch.png)](https://github.com/saivivekvenna/jevy-graph/blob/main/assets/jevy-graph-launch.mp4)
-
-Click the preview for the short version, or watch the
-[full 72-second demo](https://github.com/saivivekvenna/jevy-graph/blob/main/assets/jevy-graph-demo.mp4).
-
-## Features
-
-- Multiple atomic claims from one sentence, clause, list, or table row
-- Normalized entities and stable predicates without external entity linking
-- Modality, negation, conditions, sections, pages, and evidence spans preserved
-- Jev selection and verification streamed in parallel batches
-- RDF statements with calibrated support and entity-quality scores
-- CLI, Python API, and a real-time Cytoscape demo
-- No runtime Python dependencies
-
-## How it works
+Simple statements become subject–relation–object edges. Claims can also retain
+the structure that a flat triple would lose:
 
 ```text
-document
-  -> deterministic clause, table, equation, and measurement extraction
-  -> bounded subject / predicate / object candidates
-  -> Jev candidate selection
-  -> Jev support and boundary verification
-  -> thresholding and deduplication
-  -> source-grounded RDF/Turtle
+Claim
+├── subject
+├── relation
+├── object
+├── comparison
+├── conditions
+├── measurements
+├── polarity and modality
+├── attribution
+└── evidence and source location
 ```
 
-Jev never invents free-form graph text. It chooses among candidates generated
-from the document, then independently scores the selected relationship. Frames
-with one valid interpretation skip the selection call but are still verified.
+For ordinary and legal prose, the clause assembler carries unambiguous actors
+across coordinated predicates and pronouns while keeping dates, prices,
+conditions, deadlines, and negation out of entity names. Scientific findings
+use six reusable claim types: `attribute`, `directional_effect`, `comparison`,
+`causality`, `association`, and `null_result`.
 
-## Quick start
+## Pipeline
 
-Jevy Graph requires Python 3.11 or newer and a TypeSafe API key.
+```text
+document conversion
+  -> section, sentence, and clause segmentation
+  -> deterministic claim and slot candidates
+  -> optional local scientific dependency parsing
+  -> Jev selection with an explicit none choice
+  -> support, boundary, qualifier, atomicity, and scope checks
+  -> evidence-linked claim graph and RDF projection
+```
+
+Fixed slots skip Jev selection. Ambiguous slots contain bounded source-derived
+options. Every emitted claim is checked against its original evidence.
+
+## Install
+
+Jevy Graph requires Python 3.11 or newer.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
 python -m pip install jevy-graph
-```
-
-Export your key or add it to a local `.env` file:
-
-```bash
 export TYPESAFE_API_KEY=your-key-here
 ```
 
-Compile UTF-8 text to Turtle:
+The optional local scientific parser uses scispaCy:
+
+```bash
+python -m pip install 'jevy-graph[scientific-parser]'
+# Install a compatible model such as en_core_sci_sm.
+```
+
+## Use
+
+Compile a document with Jev verification:
 
 ```bash
 jevy-graph document.txt -o graph.ttl
 ```
 
-For a local-only extraction smoke test that does not call Jev:
+Inspect deterministic extraction without making paid calls:
 
 ```bash
-printf 'Alice founded Acme. Acme is located in Toronto.' \
-  | jevy-graph --no-verify
+jevy-graph document.txt --no-verify -o graph.ttl
 ```
 
-## Demo
-
-The demo accepts PDF, DOCX, Markdown, CSV, and plain-text files. Normal uploads
-stream verified claims as their Jev batches finish. Documents that produce at
-least 2,000 relation frames use larger compute batches and mount the completed
-graph once. Selection and verification overlap across batches; every emitted
-claim still passes both support and entity-boundary checks. Large uploads send
-fixed candidate fields once per question instead of repeating them in every
-option. No candidate options are removed by this encoding.
-
-Starting a new upload cancels the previous request. Already running Jev calls
-may finish, but pending batches stop when the server detects the disconnect.
-The final API event includes Jev-reported token usage and request/retry counts.
-
-An elapsed timer measures upload through backend completion, excluding final
-graph layout. Hover over an edge or leaf node to read its source text and triple
-in the labeled footer without highlighting or hiding the rest of the graph.
+Focus and organize the graph with natural language:
 
 ```bash
-jevy-graph-demo
+jevy-graph paper.txt \
+  --instruction 'Include biological functions and causal findings; exclude routine procedures. Group by relation type.' \
+  --claims-output claims.json \
+  -o graph.ttl
 ```
 
-Open <http://localhost:8080/demo/>. PDF support requires `pdftotext`, available
-from Poppler (`brew install poppler` on macOS or `apt install poppler-utils` on
-Debian and Ubuntu).
+Supported organization views are source section, subject entity, and relation
+type. With no instruction, the pipeline extracts all source-supported claims.
 
-The API key stays on the server and is never sent to the browser.
-
-## Python API
+### Python API
 
 ```python
 import os
 
-from jevy_graph import Thresholds, compile_text
+from jevy_graph import compile_text
 from jevy_graph.jev import JevClient
 
 client = JevClient(os.environ["TYPESAFE_API_KEY"])
 result = compile_text(
-    "Alice founded Acme.",
+    "Alice founded Acme in 2021.",
     client=client,
-    thresholds=Thresholds(support=0.45, entity=0.10, joint=0.70),
+    instruction="Focus on organization roles; group by subject entity.",
 )
 
-print(result.turtle)
 print(result.accepted)
+print(result.turtle)
 ```
 
-Omit `client` for deterministic, unverified extraction.
+## RDF output
 
-## RDF model
-
-Each accepted positive relationship is emitted as a direct semantic edge and
-as an `rdf:Statement` carrying its provenance:
+Every accepted relation is represented by a `jevy:Claim` and `rdf:Statement`.
+Unqualified positive relations also receive a direct semantic edge. Qualified
+claims keep evidence, offsets, source section, polarity, modality, comparison,
+conditions, measurements, attribution, and verification scores.
 
 ```turtle
-<urn:jevy:entity:alice-...> <urn:jevy:relation:founded> <urn:jevy:entity:acme-...> .
-
-<urn:jevy:claim:...> a rdf:Statement ;
-    rdf:subject <urn:jevy:entity:alice-...> ;
-    rdf:predicate <urn:jevy:relation:founded> ;
-    rdf:object <urn:jevy:entity:acme-...> ;
-    jevy:evidence "Alice founded Acme." ;
-    jevy:support "0.950000"^^xsd:decimal ;
-    jevy:entityQuality "0.910000"^^xsd:decimal .
+<urn:jevy:claim:...> a jevy:Claim, rdf:Statement ;
+    rdf:subject <urn:jevy:entity:natacl6-...> ;
+    rdf:predicate <urn:jevy:relation:has-ionic-conductivity> ;
+    rdf:object <urn:jevy:entity:3-3-ms-cm-1-...> ;
+    jevy:claimType "attribute" ;
+    jevy:condition "at 300 K" ;
+    jevy:measurement "3.3 mS cm−1" ;
+    jevy:evidence "NaTaCl6 has an ionic conductivity of 3.3 mS cm−1 at 300 K." .
 ```
 
-Negative claims are reified with `jevy:polarity "negative"` without asserting
-the positive edge. Numeric values are emitted as typed literals when possible.
+## Demo and deployment
 
-## Scope
+Run the local upload demo:
 
-The CLI reads UTF-8 text. The demo additionally converts PDF and DOCX uploads.
-The extractor handles ordinary prose, legal lists, scientific sections,
-layout-preserving tables, assignments, equations, and measurements.
+```bash
+jevy-graph-demo --scientific-parser
+```
 
-External knowledge-base linking, ontology alignment, OCR, and scanned PDFs are
-out of scope. Entity normalization is intentionally conservative unless the
-document explicitly declares an alias.
+Open <http://localhost:8080/demo/>. The demo accepts UTF-8 text, Markdown, CSV,
+DOCX, and text-based PDFs. PDF conversion requires Poppler's `pdftotext`. The
+TypeSafe key stays on the server.
+
+The included container runs the dependency-light demo and installs Poppler:
+
+```bash
+docker build -t jevy-graph .
+docker run --rm -p 8080:8080 \
+  -e TYPESAFE_API_KEY="$TYPESAFE_API_KEY" jevy-graph
+curl http://localhost:8080/healthz
+```
+
+`HOST` and `PORT` are configurable environment variables. The default
+container values are `0.0.0.0` and `8080`.
+
+## Benchmark
+
+The benchmark is a frozen claim audit rather than a claim-count test. Each gold
+claim records its evidence, subject, relation, object, polarity, modality,
+condition, attribution, source unit, and instruction scope. Held-out fixtures
+are hash-locked in `benchmarks/test-manifest.json`. Reports trace losses through
+source conversion, frame generation, candidate generation, Jev selection,
+verification, and final filtering.
+
+The current offline suite evaluates 104 active fixtures. It contains 1,267
+in-scope reviewed claims and complete Codex review of all 74 substantive units
+in the frozen U.S. Constitution.
+
+| Domain | Fixtures | Reviewed claims reached by candidates | Known-claim coverage |
+| --- | ---: | ---: | ---: |
+| Biomedical | 20 | 240/240 | 100% |
+| Legal | 76 | 919/919 | 100% |
+| General prose | 4 | 62/62 | 100% |
+| Structured data | 4 | 46/46 | 100% |
+
+These numbers measure whether a reviewed answer is present in the deterministic
+choices available to Jev. They do not claim 100% final precision: unmatched
+outputs require adjudication, and the independent human-reviewed held-out set
+is still too small in biomedical, legal, and general prose. The release gate is
+at least 95% precision and recall in every domain and instruction profile, with
+zero unsupported critical claims. Precision and recall remain unreported until
+that review requirement is satisfied.
+
+Run the no-cost candidate audit:
+
+```bash
+PYTHONPATH=src python3 scripts/evaluate.py \
+  --output out/quality-offline.json
+```
+
+Run the verified benchmark when paid Jev calls are intended:
+
+```bash
+PYTHONPATH=src python3 scripts/evaluate.py --live \
+  --output out/quality-live.json
+```
+
+The untouched five-paper dependency-parser check currently emits 57 structured
+claims for 66 audited targets, with 10 exact raw label matches. Reproduce that
+separate generalization check without paid calls:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/audit_dependency_unseen.py
+```
+
+See [`benchmarks/README.md`](benchmarks/README.md) for annotation and
+adjudication rules and [`benchmarks/RESULTS.md`](benchmarks/RESULTS.md) for the
+current benchmark snapshot.
 
 ## Development
 
 ```bash
-python -m unittest discover -s tests -q
+PYTHONPATH=src python3 -m unittest discover -s tests -q
+python3 -m build
 ```
 
-Pull requests should include a focused regression test for behavior changes.
-Keep extraction deterministic and keep API credentials out of fixtures, logs,
-and commits.
-
-### Performance checks
-
-Use a new process to measure a first upload. No graph layout or browser rendering
-is included; extraction, Jev processing, and final filtering are timed separately.
-The benchmark writes source-grounded claims and metrics to the ignored `out/`
-directory. `--live` makes paid API calls; without it only extraction is measured.
-
-```bash
-PYTHONPATH=src python scripts/benchmark.py document.pdf \
-  --live --compact --workers 12 --batch-size 48 --output out/benchmark.json
-```
-
-Use `--sample 512` for a bounded comparison, or `--reference` to run selection
-for all frames before verification. Frame and candidate hashes allow checking
-that an optimization preserves the entire deterministic candidate set.
-
-Measured locally on September 21, 2026 (first upload, Python 3.14):
-
-| Document / configuration | Accepted claims | Compute time | Reported input tokens |
-| --- | ---: | ---: | ---: |
-| Odyssey PDF, original implementation | ~5,150 | ~75.3s | Not recorded |
-| Odyssey PDF, pipelined, original question format | 5,164 | 49.1s | 21,417,219 |
-| Odyssey PDF, compact fixed fields and paced requests | 5,123 | 45.3s | 19,178,128 |
-| Constitution PDF, normal streaming configuration | 449 | 3.84s | 1,221,971 |
-
-All Odyssey configurations used 14,881 frames. The optimized extractor produced
-identical frame and candidate hashes to the original. The 45.3s run included
-23 rate-limit retries, so network conditions and account limits materially
-affect timing. Model decisions vary between calls: claim counts are a regression
-signal, not proof of complete coverage or correctness. The full uncompressed and
-compact runs shared 3,950 exact claims, so matching volumes should not be read as
-identical outputs. Ten-second processing of
-the full Odyssey has not been demonstrated with verification preserved.
-
-## Privacy and security
-
-The demo binds to `127.0.0.1` by default and is intended for local use. Document
-text used in Jev decisions is sent to TypeSafe's API. Review TypeSafe's policies
-before processing sensitive material, and add authentication plus upload
-hardening before exposing the demo server publicly.
-
-Never commit `.env`; it is ignored by Git.
-
-## License
-
-[MIT](LICENSE)
+Keep extraction deterministic, preserve the exact supporting text, and add a
+focused regression case for every behavior change.

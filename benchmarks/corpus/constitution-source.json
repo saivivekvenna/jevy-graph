@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "articles": "https://www.archives.gov/founding-docs/constitution-transcript",
+    "bill_of_rights": "https://www.archives.gov/founding-docs/bill-of-rights-transcript",
+    "later_amendments": "https://www.archives.gov/founding-docs/amendments-11-27"
+  },
+  "sha256": "a78bd7d1b6b3d3821edadae5540f871db01e051d3e5e2ff5434cce943a37e902",
+  "bytes": 44533,
+  "review_status": "source_frozen_claims_unreviewed"
+}

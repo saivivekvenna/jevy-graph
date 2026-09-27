@@ -1,0 +1,89 @@
+{
+  "id": "redocred-racer",
+  "domain": "general",
+  "source": "https://github.com/tonytan48/Re-DocRED/blob/main/data/dev_revised.json#Willi-Schneider",
+  "review_status": "external_partial",
+  "annotation_scope": "targeted",
+  "text": "Wilfried \"Willi\" Schneider (born 13 March 1963 in Mediaș, Transylvania) is a German skeleton racer who competed from 1992 to 2002. He won two medals in the men's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999.",
+  "gold": [
+    {
+      "id": "schneider-type",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "type",
+      "object": "German skeleton racer",
+      "evidence": "Wilfried \"Willi\" Schneider (born 13 March 1963 in Mediaș, Transylvania) is a German skeleton racer",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-birthplace",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "born_in",
+      "object": "Mediaș",
+      "evidence": "born 13 March 1963 in Mediaș",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-birthdate",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "born_on",
+      "object": "13 March 1963",
+      "evidence": "Wilfried \"Willi\" Schneider (born 13 March 1963 in Mediaș, Transylvania) is a German skeleton racer who competed from 1992 to 2002.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-competition-period",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "competed_from",
+      "object": "1992 to 2002",
+      "evidence": "Wilfried \"Willi\" Schneider (born 13 March 1963 in Mediaș, Transylvania) is a German skeleton racer who competed from 1992 to 2002.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-medal-count",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "won",
+      "object": "two medals in the men's skeleton event at the FIBT World Championships",
+      "evidence": "He won two medals in the men's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-gold",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "won",
+      "object": "gold medal in 1998 at the FIBT World Championships",
+      "evidence": "He won two medals in the men's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "schneider-bronze",
+      "subject": "Wilfried Willi Schneider",
+      "predicate": "won",
+      "object": "bronze medal in 1999 at the FIBT World Championships",
+      "evidence": "He won two medals in the men's skeleton event at the FIBT World Championships with a gold in 1998 and a bronze in 1999.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ],
+  "split": "development",
+  "review_notes": "Codex added the birth date, competition period, medal count, and separate gold and bronze results after auditing the two-sentence source. The fixture remains targeted because place apposition and adjective semantics are not fully adjudicated."
+}

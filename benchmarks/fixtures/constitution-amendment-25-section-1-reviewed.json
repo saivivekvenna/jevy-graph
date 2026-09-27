@@ -1,0 +1,24 @@
+{
+  "domain": "legal",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "id": "constitution-amendment-25-section-1-reviewed",
+  "source": "National Archives Constitution Amendment XXV Section 1",
+  "review_notes": "Codex reviewed the full succession clause; removal, death, and resignation are alternative conditions on the one succession rule. This section was inspected during parser development.",
+  "text": "AMENDMENT XXV\nSection 1.\nIn case of the removal of the President from office or of his death or resignation, the Vice President shall become President.",
+  "gold": [
+    {
+      "id": "vice-president-succeeds",
+      "subject": "Vice President",
+      "predicate": "become",
+      "object": "President",
+      "evidence": "In case of the removal of the President from office or of his death or resignation, the Vice President shall become President.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "In case of the removal of the President from office or of his death or resignation",
+      "source_unit": "AMENDMENT_25_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

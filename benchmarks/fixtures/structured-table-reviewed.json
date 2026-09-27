@@ -1,0 +1,34 @@
+{
+  "id": "structured-table-reviewed",
+  "domain": "structured",
+  "source": "synthetic measurement table",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed both data rows. The title and column header identify the measurement and do not add a separate measured value.",
+  "text": "Table 1: Evaluation results\n\nModel        Accuracy\nAlpha        91.5\nBeta         88.2\n\n3 Conclusion",
+  "gold": [
+    {
+      "id": "alpha-accuracy",
+      "subject": "Alpha",
+      "predicate": "has_accuracy",
+      "object": "91.5",
+      "evidence": "Alpha        91.5",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "beta-accuracy",
+      "subject": "Beta",
+      "predicate": "has_accuracy",
+      "object": "88.2",
+      "evidence": "Beta         88.2",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ]
+}

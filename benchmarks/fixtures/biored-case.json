@@ -1,0 +1,62 @@
+{
+  "id": "biored-case",
+  "domain": "biomedical",
+  "source": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BioRED/BIORED.zip#Train.PubTator:24927617",
+  "review_status": "external_partial",
+  "annotation_scope": "targeted",
+  "text": "The interaction is due to inhibition of CYP3A4-mediated simvastatin clearance. Simvastatin plasma concentration increased 30 times in this patient and statin induced muscle toxicity is related to the concentration of the statin in blood.",
+  "gold": [
+    {
+      "id": "interaction-due-to-clearance-inhibition",
+      "subject": "interaction",
+      "predicate": "due_to",
+      "object": "inhibition of CYP3A4-mediated simvastatin clearance",
+      "evidence": "The interaction is due to inhibition of CYP3A4-mediated simvastatin clearance",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "simvastatin-concentration",
+      "subject": "Simvastatin plasma concentration",
+      "predicate": "increased",
+      "object": "30 times",
+      "alternatives": [
+        {
+          "subject": "Simvastatin plasma concentration",
+          "predicate": "increased",
+          "object": "30 times in this patient"
+        }
+      ],
+      "evidence": "Simvastatin plasma concentration increased 30 times in this patient",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "statin-muscle-toxicity",
+      "subject": "statin",
+      "predicate": "induced",
+      "object": "muscle toxicity",
+      "evidence": "statin induced muscle toxicity",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "toxicity-concentration",
+      "subject": "muscle toxicity",
+      "predicate": "related_to",
+      "object": "concentration of the statin in blood",
+      "evidence": "muscle toxicity is related to the concentration of the statin in blood",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ],
+  "split": "development"
+}

@@ -1,0 +1,2856 @@
+{
+  "id": "tincr-phrase-scale-review",
+  "review_status": "codex_reviewed_development",
+  "report": "out/tincr-phrase-scale-live.json",
+  "report_sha256": "9f7721ae707f1601d97d6519861d1aca1d3a9bbb2537c4b6ef98bede2fbcfb63",
+  "scoring_rule": "Complete requires one graph record to preserve actor, relation, target, polarity, modality, material condition, comparator, measurement, and attribution. Evidence prose and neighboring records do not fill missing fields. Semantic active/passive and lexical equivalents are allowed.",
+  "summary": {
+    "gold": 88,
+    "complete_gold": 10,
+    "partial_gold": 51,
+    "missing_gold": 27,
+    "complete_recall": 0.11363636363636363,
+    "relation_present_complete_or_partial": 0.6931818181818182,
+    "accepted_outputs": 99,
+    "complete_supported_outputs": 30,
+    "source_ambiguous_outputs": 1,
+    "incomplete_or_wrong_outputs": 68,
+    "complete_claim_precision": 0.30303030303030304
+  },
+  "gold_reviews": [
+    {
+      "gold_id": "R001",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R002",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R003",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R004",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R005",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R006",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R007",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R008",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R009",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R010",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R011",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R012",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R013",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R014",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R015",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R016",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R017",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R018",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R019",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R020",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R021",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R022",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R023",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R024",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R025",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R026",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R027",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R028",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R029",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R030",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R031",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R032",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R033",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R034",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R035",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R036",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R037",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R038",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R039",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R040",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R042",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R043",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R044",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R045",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R046",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R047",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R048",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R049",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R050",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R051",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R052",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R053",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R054",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R055",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R056",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R057",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R058",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R059",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R060",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R061",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R062",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R063",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R064",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R065",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R066",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R067",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R068",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R069",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R070",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R071",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R072",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R073",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R074",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R075",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R076",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R077",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R078",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R079",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R080",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R081",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R082",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R083",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R084",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R087",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R088",
+      "status": "partial"
+    },
+    {
+      "gold_id": "R089",
+      "status": "complete"
+    },
+    {
+      "gold_id": "R090",
+      "status": "missing"
+    },
+    {
+      "gold_id": "R092",
+      "status": "complete"
+    }
+  ],
+  "output_reviews": [
+    {
+      "output_index": 0,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Downregulation of LncRNA-TINCR",
+        "predicate": "correlated with",
+        "object": "CRC progression",
+        "evidence": "Downregulation of LncRNA-TINCR correlated with CRC progression",
+        "sentence_index": 0,
+        "start": 4385,
+        "end": 4447,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Downregulation of LncRNA-TINCR correlated with CRC progression",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 1,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "We",
+        "predicate": "relied",
+        "object": "Oncomine, a cancer microarray database and web-based data-mining platform [15, 16]",
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "sentence_index": 1,
+        "start": 4449,
+        "end": 4747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in colorectal cancer tissues, and the result",
+        "origin": "phrase_pilot",
+        "context": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 2,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the result",
+        "predicate": "indicated",
+        "object": "that TINCR",
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "sentence_index": 1,
+        "start": 4449,
+        "end": 4747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16]; in colorectal cancer tissues,",
+        "origin": "phrase_pilot",
+        "context": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 3,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "was significantly downregulated in",
+        "object": "colorectal cancer tissues",
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "sentence_index": 1,
+        "start": 4449,
+        "end": 4747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16]; in colorectal cancer tissues, and the result",
+        "origin": "phrase_pilot",
+        "context": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 4,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR in colorectal cancer tissues",
+        "predicate": "comparing with",
+        "object": "adjacent tissues",
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "sentence_index": 1,
+        "start": 4449,
+        "end": 4747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16]",
+        "origin": "phrase_pilot",
+        "context": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 5,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "We also",
+        "predicate": "analyzed",
+        "object": "the expression of TINCR",
+        "evidence": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC.",
+        "sentence_index": 3,
+        "start": 4782,
+        "end": 4898,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in tumour and paired non-tumour tissues; with CRC",
+        "origin": "phrase_pilot",
+        "context": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 6,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "tumour and paired non-tumour tissues",
+        "predicate": "obtained from",
+        "object": "44 patients",
+        "evidence": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC.",
+        "sentence_index": 3,
+        "start": 4782,
+        "end": 4898,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "with CRC",
+        "origin": "phrase_pilot",
+        "context": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 7,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The qRT-PCR analysis",
+        "predicate": "revealed",
+        "object": "significantly lower TINCR expression",
+        "evidence": "The qRT-PCR analysis revealed significantly lower TINCR expression in 38 of 44 CRC specimens (p < 0.0001) (Figure 1A and 1B).",
+        "sentence_index": 4,
+        "start": 4899,
+        "end": 5024,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in 38 of 44 CRC specimens",
+        "origin": "phrase_pilot",
+        "context": "The qRT-PCR analysis revealed significantly lower TINCR expression in 38 of 44 CRC specimens (p < 0.0001) (Figure 1A and 1B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 8,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "was quantified",
+        "object": "relative to the matched adjacent no tumor tissues",
+        "evidence": "TINCR was quantified relative to the matched adjacent no tumor tissues.",
+        "sentence_index": 7,
+        "start": 5231,
+        "end": 5302,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR was quantified relative to the matched adjacent no tumor tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 9,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "We next",
+        "predicate": "examined",
+        "object": "the relationship between TINCR expression levels and the clinicopathological characteristics of the tumour tissue samples",
+        "evidence": "We next examined the relationship between TINCR expression levels and the clinicopathological characteristics of the tumour tissue samples.",
+        "sentence_index": 14,
+        "start": 5724,
+        "end": 5863,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "We next examined the relationship between TINCR expression levels and the clinicopathological characteristics of the tumour tissue samples.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 10,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the TINCR expression level",
+        "predicate": "was reversely correlated to",
+        "object": "serosal invasion",
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017).",
+        "sentence_index": 15,
+        "start": 5864,
+        "end": 6143,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 11,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the TINCR expression level",
+        "predicate": "positively correlated with",
+        "object": "differentiation degree",
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017).",
+        "sentence_index": 15,
+        "start": 5864,
+        "end": 6143,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 12,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The transcript for TINCR",
+        "predicate": "was mainly located in",
+        "object": "the cytoplasm of HCT116 and SW480 cells",
+        "evidence": "The transcript for TINCR was mainly located in the cytoplasm of HCT116 and SW480 cells by separating nuclear and cytoplasmic RNA fraction (Figure 1D).",
+        "sentence_index": 17,
+        "start": 6363,
+        "end": 6513,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "by",
+        "origin": "phrase_pilot",
+        "context": "The transcript for TINCR was mainly located in the cytoplasm of HCT116 and SW480 cells by separating nuclear and cytoplasmic RNA fraction (Figure 1D).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 13,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "CRC cells proliferation, migration",
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis",
+        "sentence_index": 19,
+        "start": 6622,
+        "end": 6686,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR inhibits CRC cells proliferation, migration and metastasis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 14,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis",
+        "sentence_index": 19,
+        "start": 6622,
+        "end": 6686,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR inhibits CRC cells proliferation, migration and metastasis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 15,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "was overexpressed",
+        "object": "CRC cell lines",
+        "evidence": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B).",
+        "sentence_index": 20,
+        "start": 6688,
+        "end": 6837,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "into the function; in CRC progression, TINCR",
+        "origin": "phrase_pilot",
+        "context": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 16,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "silenced in",
+        "object": "CRC cell lines",
+        "evidence": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B).",
+        "sentence_index": 20,
+        "start": 6688,
+        "end": 6837,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "into the function of TINCR in CRC progression",
+        "origin": "phrase_pilot",
+        "context": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 17,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "not only proliferation",
+        "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells.",
+        "sentence_index": 21,
+        "start": 6838,
+        "end": 7038,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 18,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Effects of oe-TINCR and sh-TINCR on cell proliferation",
+        "predicate": "were determined by",
+        "object": "CCK8 cell proliferation assay",
+        "evidence": "(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay.",
+        "sentence_index": 25,
+        "start": 7246,
+        "end": 7354,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 19,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The migration capacity",
+        "predicate": "was determined by",
+        "object": "colony formation assay",
+        "evidence": "(B, C) The migration capacity was determined by colony formation assay after oe-TINCR (B) or sh-TINCR (C).",
+        "sentence_index": 27,
+        "start": 7411,
+        "end": 7517,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "after oe-TINCR",
+        "origin": "phrase_pilot",
+        "context": "(B, C) The migration capacity was determined by colony formation assay after oe-TINCR (B) or sh-TINCR (C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 20,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Ki-67 index",
+        "predicate": "was analyzed to",
+        "object": "evaluate the capacity of proliferation",
+        "evidence": "(F) Ki-67 index was analyzed to evaluate the capacity of proliferation in subcutaneous tumor cells.",
+        "sentence_index": 32,
+        "start": 7739,
+        "end": 7838,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in subcutaneous tumor cells",
+        "origin": "phrase_pilot",
+        "context": "(F) Ki-67 index was analyzed to evaluate the capacity of proliferation in subcutaneous tumor cells.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 21,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the number of Ki-67 positive cells",
+        "predicate": "divided by",
+        "object": "the number of total cells × 100%",
+        "evidence": "HE (up) and IHC images (down), The Ki-67 index was calculated as the number of Ki-67 positive cells divided by the number of total cells × 100%.",
+        "sentence_index": 33,
+        "start": 7839,
+        "end": 7983,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "HE (up) and IHC images (down), The Ki-67 index was calculated as the number of Ki-67 positive cells divided by the number of total cells × 100%.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 22,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the mice",
+        "predicate": "injected",
+        "object": "the tail vein",
+        "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group).",
+        "sentence_index": 34,
+        "start": 7984,
+        "end": 8156,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in the tail vein",
+        "origin": "phrase_pilot",
+        "context": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 23,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "xenograft tumours",
+        "predicate": "formed in",
+        "object": "sh-TINCR group were generally larger",
+        "evidence": "Consistent with in vitro observations, xenograft tumours formed in sh-TINCR group were generally larger than those in the control group (Figure 2D).",
+        "sentence_index": 35,
+        "start": 8158,
+        "end": 8306,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "with in vitro observations; than those in the control group",
+        "origin": "phrase_pilot",
+        "context": "Consistent with in vitro observations, xenograft tumours formed in sh-TINCR group were generally larger than those in the control group (Figure 2D).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 24,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the tumours",
+        "predicate": "developed from",
+        "object": "sh-TINCR cells",
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F).",
+        "sentence_index": 37,
+        "start": 8417,
+        "end": 8528,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 25,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the tumours",
+        "predicate": "displayed",
+        "object": "higher ki-67 proliferation index",
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F).",
+        "sentence_index": 37,
+        "start": 8417,
+        "end": 8528,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 26,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the mice in HCT116-shTINCR group",
+        "predicate": "displayed",
+        "object": "metastatic foci in the lung",
+        "evidence": "All (5/5) of the mice in HCT116-shTINCR group displayed metastatic foci in the lung and 4/5 of these mice had metastasis foci in the liver.",
+        "sentence_index": 38,
+        "start": 8529,
+        "end": 8668,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "All (5/5) of the mice in HCT116-shTINCR group displayed metastatic foci in the lung and 4/5 of these mice had metastasis foci in the liver.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 27,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "We also",
+        "predicate": "counted",
+        "object": "the number of metastatic nodules in each liver and lung",
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "sentence_index": 40,
+        "start": 8815,
+        "end": 9015,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 28,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "We also",
+        "predicate": "found",
+        "object": "that TINCR knockdown",
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "sentence_index": 40,
+        "start": 8815,
+        "end": 9015,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 29,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that TINCR knockdown",
+        "predicate": "increased",
+        "object": "the number of metastatic nodules in each liver and lung",
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "sentence_index": 40,
+        "start": 8815,
+        "end": 9015,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in each liver and lung, and",
+        "origin": "phrase_pilot",
+        "context": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 30,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the number of metastatic nodules",
+        "predicate": "compared to",
+        "object": "the control cells",
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "sentence_index": 40,
+        "start": 8815,
+        "end": 9015,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in each liver and lung, and",
+        "origin": "phrase_pilot",
+        "context": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1; live: 2:0).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 31,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Collectively, these results indicate that loss of TINCR expression",
+        "predicate": "profoundly promotes",
+        "object": "tumour growth",
+        "evidence": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis.",
+        "sentence_index": 41,
+        "start": 9016,
+        "end": 9132,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 32,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Collectively, these results indicate that loss of TINCR expression",
+        "predicate": "profoundly promotes",
+        "object": "metastasis",
+        "evidence": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis.",
+        "sentence_index": 41,
+        "start": 9016,
+        "end": 9132,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 33,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "We",
+        "predicate": "addressed",
+        "object": "that whether the deceleration of proliferation might be a",
+        "evidence": "We addressed that whether the deceleration of proliferation might be a result of cell cycle arrest or cell apoptosis inducing.",
+        "sentence_index": 43,
+        "start": 9181,
+        "end": 9307,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "We addressed that whether the deceleration of proliferation might be a result of cell cycle arrest or cell apoptosis inducing.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 34,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that whether the deceleration of proliferation might be a",
+        "predicate": "result of",
+        "object": "cell cycle arrest or cell apoptosis inducing",
+        "evidence": "We addressed that whether the deceleration of proliferation might be a result of cell cycle arrest or cell apoptosis inducing.",
+        "sentence_index": 43,
+        "start": 9181,
+        "end": 9307,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "We addressed that whether the deceleration of proliferation might be a result of cell cycle arrest or cell apoptosis inducing.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 35,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The downregulation of TINCR in HCT116 cells",
+        "predicate": "significantly decreased",
+        "object": "the proportion of cells in G0/G1 phase",
+        "evidence": "The downregulation of TINCR in HCT116 cells significantly decreased the proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while increased the proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68).",
+        "sentence_index": 44,
+        "start": 9308,
+        "end": 9543,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "from 71",
+        "origin": "phrase_pilot",
+        "context": "The downregulation of TINCR in HCT116 cells significantly decreased the proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while increased the proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 36,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the proportion of cells in S phase",
+        "predicate": "increased",
+        "object": "from 20",
+        "evidence": "The downregulation of TINCR in HCT116 cells significantly decreased the proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while increased the proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68).",
+        "sentence_index": 44,
+        "start": 9308,
+        "end": 9543,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in HCT116 cells",
+        "origin": "phrase_pilot",
+        "context": "The downregulation of TINCR in HCT116 cells significantly decreased the proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while increased the proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 37,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The upregulation of TINCR",
+        "predicate": "induced",
+        "object": "early apoptosis",
+        "evidence": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B).",
+        "sentence_index": 47,
+        "start": 9789,
+        "end": 9968,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in RKO cells",
+        "origin": "phrase_pilot",
+        "context": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 38,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The upregulation of TINCR",
+        "predicate": "increase of",
+        "object": "early apoptosis",
+        "evidence": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B).",
+        "sentence_index": 47,
+        "start": 9789,
+        "end": 9968,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in RKO cells",
+        "origin": "phrase_pilot",
+        "context": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 39,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "The upregulation of TINCR",
+        "predicate": "activated",
+        "object": "caspase 3",
+        "evidence": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C).",
+        "sentence_index": 49,
+        "start": 10060,
+        "end": 10154,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in RKO and LoVo cells",
+        "origin": "phrase_pilot",
+        "context": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 40,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "The upregulation of TINCR",
+        "predicate": "activated",
+        "object": "caspase 9",
+        "evidence": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C).",
+        "sentence_index": 49,
+        "start": 10060,
+        "end": 10154,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in RKO and LoVo cells",
+        "origin": "phrase_pilot",
+        "context": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 41,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Cell cycle arrest after oe-TINCR or sh-TINCR",
+        "predicate": "measured by",
+        "object": "flow cytometry",
+        "evidence": "(A) Cell cycle arrest after oe-TINCR or sh-TINCR measured by flow cytometry.",
+        "sentence_index": 52,
+        "start": 10378,
+        "end": 10454,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(A) Cell cycle arrest after oe-TINCR or sh-TINCR measured by flow cytometry.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 42,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Overexpression of TINCR",
+        "predicate": "promotes",
+        "object": "apoptosis",
+        "evidence": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry.",
+        "sentence_index": 54,
+        "start": 10511,
+        "end": 10588,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "as",
+        "origin": "phrase_pilot",
+        "context": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 43,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "apoptosis",
+        "predicate": "analyzed by",
+        "object": "flow cytometry",
+        "evidence": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry.",
+        "sentence_index": 54,
+        "start": 10511,
+        "end": 10588,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "as",
+        "origin": "phrase_pilot",
+        "context": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 44,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "specifically binds to",
+        "object": "EpCAM",
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "sentence_index": 57,
+        "start": 10763,
+        "end": 10826,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 45,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "regulates",
+        "object": "its proteolysis",
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "sentence_index": 57,
+        "start": 10763,
+        "end": 10826,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 46,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpCAM was one of the",
+        "predicate": "disrupted",
+        "object": "genes",
+        "evidence": "EpCAM was one of the disrupted genes when TINCR was depleted and had the highest score by transcript profiling [13].",
+        "sentence_index": 58,
+        "start": 10828,
+        "end": 10944,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "when TINCR",
+        "origin": "phrase_pilot",
+        "context": "EpCAM was one of the disrupted genes when TINCR was depleted and had the highest score by transcript profiling [13].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 47,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that EpCAM Ab",
+        "predicate": "precipitated",
+        "object": "the lncRNA-TINCR while the IgG Ab could not",
+        "evidence": "RNA immunoprecipitation (RIP) assays demonstrated that EpCAM Ab precipitated the lncRNA-TINCR while the IgG Ab could not (Figure 4A).",
+        "sentence_index": 59,
+        "start": 10945,
+        "end": 11078,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "RNA immunoprecipitation (RIP) assays demonstrated that EpCAM Ab precipitated the lncRNA-TINCR while the IgG Ab could not (Figure 4A).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 48,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Secondary, biotin RNA pull-down assay",
+        "predicate": "suggesting",
+        "object": "that TINCR",
+        "evidence": "Secondary, biotin RNA pull-down assay was performed, suggesting that TINCR directly interacted with EpCAM (Figure 4B, Supplementary Figure S3).",
+        "sentence_index": 60,
+        "start": 11079,
+        "end": 11222,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Secondary, biotin RNA pull-down assay was performed, suggesting that TINCR directly interacted with EpCAM (Figure 4B, Supplementary Figure S3).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 49,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that TINCR",
+        "predicate": "directly interacted with",
+        "object": "EpCAM",
+        "evidence": "Secondary, biotin RNA pull-down assay was performed, suggesting that TINCR directly interacted with EpCAM (Figure 4B, Supplementary Figure S3).",
+        "sentence_index": 60,
+        "start": 11079,
+        "end": 11222,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Secondary, biotin RNA pull-down assay was performed, suggesting that TINCR directly interacted with EpCAM (Figure 4B, Supplementary Figure S3).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 50,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "change",
+        "object": "the EpCAM mRNA",
+        "evidence": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D).",
+        "sentence_index": 61,
+        "start": 11223,
+        "end": 11347,
+        "modality": null,
+        "polarity": "negative",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in CRC cells",
+        "origin": "phrase_pilot",
+        "context": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 51,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "downregulated",
+        "object": "the EpCAM protein levels",
+        "evidence": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D).",
+        "sentence_index": 61,
+        "start": 11223,
+        "end": 11347,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in CRC cells",
+        "origin": "phrase_pilot",
+        "context": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 52,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpCAM",
+        "predicate": "be hydrolyzed",
+        "object": "EpICD",
+        "evidence": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "sentence_index": 62,
+        "start": 11348,
+        "end": 11472,
+        "modality": "would",
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "when",
+        "origin": "phrase_pilot",
+        "context": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 53,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpCAM",
+        "predicate": "consecutively release",
+        "object": "EpICD",
+        "evidence": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "sentence_index": 62,
+        "start": 11348,
+        "end": 11472,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "when",
+        "origin": "phrase_pilot",
+        "context": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 54,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpCAM",
+        "predicate": "catalyzed by",
+        "object": "psen2 [17]",
+        "evidence": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "sentence_index": 62,
+        "start": 11348,
+        "end": 11472,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "when",
+        "origin": "phrase_pilot",
+        "context": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 55,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The downregulation of TINCR",
+        "predicate": "increased",
+        "object": "the expression of EpICD",
+        "evidence": "The downregulation of TINCR increased the expression of EpICD (Figure 4E, line1, line4).",
+        "sentence_index": 63,
+        "start": 11473,
+        "end": 11561,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "The downregulation of TINCR increased the expression of EpICD (Figure 4E, line1, line4).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 56,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells",
+        "predicate": "upregulated",
+        "object": "the expression of EpICD",
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4; Supplementary Figure S4).",
+        "sentence_index": 64,
+        "start": 11562,
+        "end": 11747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4; Supplementary Figure S4).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 57,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells",
+        "predicate": "reduced",
+        "object": "the expression of EpCAM",
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4; Supplementary Figure S4).",
+        "sentence_index": 64,
+        "start": 11562,
+        "end": 11747,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4; Supplementary Figure S4).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 58,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "specifically binds to",
+        "object": "EpCAM",
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "sentence_index": 68,
+        "start": 12165,
+        "end": 12228,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 59,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "regulates",
+        "object": "its proteolysis",
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "sentence_index": 68,
+        "start": 12165,
+        "end": 12228,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR specifically binds to EpCAM and regulates its proteolysis",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 60,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Cells",
+        "predicate": "were treated with",
+        "object": "cycloheximide",
+        "evidence": "Cells were treated with cycloheximide (CHX, 20 mg/ml) for the indicated periods of time.",
+        "sentence_index": 75,
+        "start": 12793,
+        "end": 12881,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "for the indicated periods of time",
+        "origin": "phrase_pilot",
+        "context": "Cells were treated with cycloheximide (CHX, 20 mg/ml) for the indicated periods of time.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 61,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "IHC",
+        "predicate": "evaluated",
+        "object": "the expression level of EpICD",
+        "evidence": "(H) IHC evaluated the expression level of EpICD in 44 CRC tissues and associated normal colorectal tissues.",
+        "sentence_index": 77,
+        "start": 12983,
+        "end": 13090,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in 44 CRC tissues and associated normal colorectal tissues",
+        "origin": "phrase_pilot",
+        "context": "(H) IHC evaluated the expression level of EpICD in 44 CRC tissues and associated normal colorectal tissues.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 62,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpICD",
+        "predicate": "was upregulated in",
+        "object": "the CRC tissues",
+        "evidence": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous.",
+        "sentence_index": 79,
+        "start": 13168,
+        "end": 13266,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "As shown in Figure 4G",
+        "origin": "phrase_pilot",
+        "context": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 63,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpICD",
+        "predicate": "compared with",
+        "object": "their normal mucous",
+        "evidence": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous.",
+        "sentence_index": 79,
+        "start": 13168,
+        "end": 13266,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "As shown in Figure 4G",
+        "origin": "phrase_pilot",
+        "context": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 64,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "We next",
+        "predicate": "analyzed",
+        "object": "the expression of EpICD in the same 44 paired CRC tissues",
+        "evidence": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H).",
+        "sentence_index": 80,
+        "start": 13267,
+        "end": 13361,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in the same 44 paired CRC tissues by IHC",
+        "origin": "phrase_pilot",
+        "context": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 65,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Spearman correlation analyses",
+        "predicate": "showed",
+        "object": "that TINCR and EpICD",
+        "evidence": "Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I).",
+        "sentence_index": 81,
+        "start": 13362,
+        "end": 13492,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 66,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that TINCR and EpICD",
+        "predicate": "were inversely related in",
+        "object": "expression",
+        "evidence": "Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I).",
+        "sentence_index": 81,
+        "start": 13362,
+        "end": 13492,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 67,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Downregulation of TINCR",
+        "predicate": "activates",
+        "object": "WNT/β-catenin pathway",
+        "evidence": "Downregulation of TINCR activates WNT/β-catenin pathway in CRC",
+        "sentence_index": 82,
+        "start": 13494,
+        "end": 13556,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in CRC",
+        "origin": "phrase_pilot",
+        "context": "Downregulation of TINCR activates WNT/β-catenin pathway in CRC",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 68,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpICD",
+        "predicate": "colocalized with",
+        "object": "FHL2 and β-catenin to",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "sentence_index": 84,
+        "start": 13605,
+        "end": 13717,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 69,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "EpICD",
+        "predicate": "form",
+        "object": "a nuclear protein complex",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "sentence_index": 84,
+        "start": 13605,
+        "end": 13717,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 70,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "a nuclear protein complex",
+        "predicate": "leading to",
+        "object": "gene transcription [18]",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "sentence_index": 84,
+        "start": 13605,
+        "end": 13717,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 71,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "HCT116 cells which",
+        "predicate": "showed",
+        "object": "the formation of EpICD and β-catenin complex",
+        "evidence": "Consistently, in HCT116 cells which showed the formation of EpICD and β-catenin complex (Figure 5A).",
+        "sentence_index": 85,
+        "start": 13718,
+        "end": 13818,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Consistently, in HCT116 cells which showed the formation of EpICD and β-catenin complex (Figure 5A).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 72,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "The knockdown of TINCR",
+        "predicate": "resulted in",
+        "object": "200%−300% increment of TOP-Flash reporter gene activity",
+        "evidence": "The knockdown of TINCR resulted in 200%−300% increment of TOP-Flash reporter gene activity (Figure 5B).",
+        "sentence_index": 86,
+        "start": 13819,
+        "end": 13922,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "The knockdown of TINCR resulted in 200%−300% increment of TOP-Flash reporter gene activity (Figure 5B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 73,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc",
+        "predicate": "were significantly induced in",
+        "object": "TINCR-knockdown cells",
+        "evidence": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C).",
+        "sentence_index": 87,
+        "start": 13923,
+        "end": 14074,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 74,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the activation of WNT/β-catenin pathway",
+        "predicate": "is mediated by",
+        "object": "TINCR depletion",
+        "evidence": "In conclusion, the activation of WNT/β-catenin pathway is mediated by TINCR depletion in CRC.",
+        "sentence_index": 88,
+        "start": 14075,
+        "end": 14168,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "In conclusion; in CRC",
+        "origin": "phrase_pilot",
+        "context": "In conclusion, the activation of WNT/β-catenin pathway is mediated by TINCR depletion in CRC.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 75,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Co-IP assay indicate that sh-TINCR",
+        "predicate": "promote",
+        "object": "the formation of EpICD and β-catenin complex",
+        "evidence": "(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell.",
+        "sentence_index": 90,
+        "start": 14234,
+        "end": 14341,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in HCT116 cell",
+        "origin": "phrase_pilot",
+        "context": "(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 76,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "TOP-FOP flash assay",
+        "predicate": "was performed to",
+        "object": "evaluate the effect of sh-TINCR on the wnt/β-catenin pathway",
+        "evidence": "(B) TOP-FOP flash assay was performed to evaluate the effect of sh-TINCR on the wnt/β-catenin pathway.",
+        "sentence_index": 91,
+        "start": 14342,
+        "end": 14444,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(B) TOP-FOP flash assay was performed to evaluate the effect of sh-TINCR on the wnt/β-catenin pathway.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 77,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "C-Myc",
+        "predicate": "represses",
+        "object": "the expression of TINCR",
+        "evidence": "C-Myc represses the expression of TINCR through inhibiting the transcriptive activity of Sp1",
+        "sentence_index": 94,
+        "start": 14576,
+        "end": 14668,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "through",
+        "origin": "phrase_pilot",
+        "context": "C-Myc represses the expression of TINCR through inhibiting the transcriptive activity of Sp1",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 78,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "C-Myc",
+        "predicate": "inhibiting",
+        "object": "the transcriptive activity of Sp1",
+        "evidence": "C-Myc represses the expression of TINCR through inhibiting the transcriptive activity of Sp1",
+        "sentence_index": 94,
+        "start": 14576,
+        "end": 14668,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "through",
+        "origin": "phrase_pilot",
+        "context": "C-Myc represses the expression of TINCR through inhibiting the transcriptive activity of Sp1",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 79,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Potential transcription factors",
+        "predicate": "promoting",
+        "object": "the expression of TINCR",
+        "evidence": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms.",
+        "sentence_index": 95,
+        "start": 14670,
+        "end": 14785,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 80,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "Potential transcription factors",
+        "predicate": "were analyzed by",
+        "object": "bioinformatics algorithms",
+        "evidence": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms.",
+        "sentence_index": 95,
+        "start": 14670,
+        "end": 14785,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 81,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Sp1 was the predicted TF with one binding site on the TINCR promoter",
+        "predicate": "showed by",
+        "object": "the JARSPAR, and PROMO databases",
+        "evidence": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6).",
+        "sentence_index": 96,
+        "start": 14786,
+        "end": 14942,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 82,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "An obvious increasing Sp1-binding activity on the TINCR promoter",
+        "predicate": "was observed by",
+        "object": "the dual luciferase reporter assays",
+        "evidence": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B).",
+        "sentence_index": 97,
+        "start": 14943,
+        "end": 15072,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 83,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "ChIP assays",
+        "predicate": "confirmed",
+        "object": "the Sp1",
+        "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C).",
+        "sentence_index": 98,
+        "start": 15073,
+        "end": 15155,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 84,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the Sp1",
+        "predicate": "binding to",
+        "object": "TINCR promoter",
+        "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C).",
+        "sentence_index": 98,
+        "start": 15073,
+        "end": 15155,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 85,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "The overexpression of Sp1",
+        "predicate": "significantly increases",
+        "object": "the expression of TINCR",
+        "evidence": "The overexpression of Sp1 significantly increases the expression of TINCR in HCT116 and SW480 cells (Figure 6D).",
+        "sentence_index": 99,
+        "start": 15156,
+        "end": 15268,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "in HCT116 and SW480 cells",
+        "origin": "phrase_pilot",
+        "context": "The overexpression of Sp1 significantly increases the expression of TINCR in HCT116 and SW480 cells (Figure 6D).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 86,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "It",
+        "predicate": "reported",
+        "object": "that c-Myc",
+        "evidence": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19].",
+        "sentence_index": 100,
+        "start": 15269,
+        "end": 15455,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "via the c-Myc central region and inhibition of Sp1 transcriptional activity; on the cell cycle/growth arrest mechanism [19]",
+        "origin": "phrase_pilot",
+        "context": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 87,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "that c-Myc",
+        "predicate": "binding to",
+        "object": "the Sp1 transcription factor via the c-Myc central region",
+        "evidence": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19].",
+        "sentence_index": 100,
+        "start": 15269,
+        "end": 15455,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "via the c-Myc central region and inhibition of Sp1 transcriptional activity; on the cell cycle/growth arrest mechanism [19]",
+        "origin": "phrase_pilot",
+        "context": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19].",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 88,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "transcribed by",
+        "object": "Sp1",
+        "evidence": "TINCR, transcribed by Sp1, was repressed by c-Myc (Figure 6E).",
+        "sentence_index": 101,
+        "start": 15456,
+        "end": 15518,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR, transcribed by Sp1, was repressed by c-Myc (Figure 6E).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 89,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "TINCR",
+        "predicate": "was repressed by",
+        "object": "c-Myc",
+        "evidence": "TINCR, transcribed by Sp1, was repressed by c-Myc (Figure 6E).",
+        "sentence_index": 101,
+        "start": 15456,
+        "end": 15518,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "TINCR, transcribed by Sp1, was repressed by c-Myc (Figure 6E).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 90,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the increasing expression of TINCR by Sp1",
+        "predicate": "was partly suppressed by",
+        "object": "c-Myc",
+        "evidence": "Moreover, the increasing expression of TINCR by Sp1 was partly suppressed by c-Myc (Figure 6F).",
+        "sentence_index": 102,
+        "start": 15519,
+        "end": 15614,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "Moreover, the increasing expression of TINCR by Sp1 was partly suppressed by c-Myc (Figure 6F).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 91,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "these findings establish a positive feedback loop",
+        "predicate": "controlling",
+        "object": "c-Myc and TINCR expression",
+        "evidence": "On the other hand, these findings establish a positive feedback loop controlling c-Myc and TINCR expression (Figure 6G).",
+        "sentence_index": 104,
+        "start": 15728,
+        "end": 15848,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "On the other hand",
+        "origin": "phrase_pilot",
+        "context": "On the other hand, these findings establish a positive feedback loop controlling c-Myc and TINCR expression (Figure 6G).",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 92,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "C-myc",
+        "predicate": "repress",
+        "object": "the expression of TINCR",
+        "evidence": "C-myc repress the expression of TINCR through inhibiting transcriptive activity of sp1",
+        "sentence_index": 105,
+        "start": 15850,
+        "end": 15936,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "through",
+        "origin": "phrase_pilot",
+        "context": "C-myc repress the expression of TINCR through inhibiting transcriptive activity of sp1",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 93,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "C-myc",
+        "predicate": "inhibiting",
+        "object": "transcriptive activity of sp1",
+        "evidence": "C-myc repress the expression of TINCR through inhibiting transcriptive activity of sp1",
+        "sentence_index": 105,
+        "start": 15850,
+        "end": 15936,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": "through",
+        "origin": "phrase_pilot",
+        "context": "C-myc repress the expression of TINCR through inhibiting transcriptive activity of sp1",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 94,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "the HEK292A, HCT116 and SW480 cells",
+        "predicate": "transfected",
+        "object": "sp1 plasmid or empty vectors",
+        "evidence": "(B) Relative luciferase activity of the wt TINCR promoter or the mut promoter in the HEK292A, HCT116 and SW480 cells transfected sp1 plasmid or empty vectors.",
+        "sentence_index": 107,
+        "start": 15991,
+        "end": 16149,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(B) Relative luciferase activity of the wt TINCR promoter or the mut promoter in the HEK292A, HCT116 and SW480 cells transfected sp1 plasmid or empty vectors.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 95,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "Overexpression of Sp1 in HCT116 and SW480",
+        "predicate": "increase",
+        "object": "the expression of TINCR",
+        "evidence": "(D) Overexpression of Sp1 in HCT116 and SW480 increase the expression of TINCR.",
+        "sentence_index": 111,
+        "start": 16341,
+        "end": 16420,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(D) Overexpression of Sp1 in HCT116 and SW480 increase the expression of TINCR.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 96,
+      "verdict": "source_ambiguous",
+      "candidate": {
+        "subject": "Overexpression of c-Myc in HCT116 and SW480",
+        "predicate": "increase",
+        "object": "the expression of TINCR",
+        "evidence": "(E) Overexpression of c-Myc in HCT116 and SW480 increase the expression of TINCR.",
+        "sentence_index": 113,
+        "start": 16477,
+        "end": 16558,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(E) Overexpression of c-Myc in HCT116 and SW480 increase the expression of TINCR.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 97,
+      "verdict": "incomplete_or_wrong_boundary",
+      "candidate": {
+        "subject": "A proposed model of reciprocity between lnc-TINCR and EpCAM",
+        "predicate": "regulates",
+        "object": "proliferation, invasion",
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer.",
+        "sentence_index": 117,
+        "start": 16773,
+        "end": 16907,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer.",
+        "attribution": null
+      }
+    },
+    {
+      "output_index": 98,
+      "verdict": "complete_supported",
+      "candidate": {
+        "subject": "A proposed model of reciprocity between lnc-TINCR and EpCAM",
+        "predicate": "regulates",
+        "object": "metastasis in colorectal cancer",
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer.",
+        "sentence_index": 117,
+        "start": 16773,
+        "end": 16907,
+        "modality": null,
+        "polarity": "positive",
+        "object_kind": "entity",
+        "selection_confidence": 1.0,
+        "selection_probability": 1.0,
+        "source_unit": "RESULTS",
+        "source_locator": null,
+        "source_page": null,
+        "condition": null,
+        "origin": "phrase_pilot",
+        "context": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer.",
+        "attribution": null
+      }
+    }
+  ],
+  "limitations": [
+    "Development result on the same paper used during prior engineering.",
+    "Manual Codex review, not independent human review.",
+    "The 12-sentence pilot was refined before this frozen scale run."
+  ]
+}

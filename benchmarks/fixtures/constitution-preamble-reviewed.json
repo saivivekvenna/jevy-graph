@@ -1,0 +1,108 @@
+{
+  "id": "constitution-preamble-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Preamble",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed every purpose and the separate ordain and establish actions against the frozen source.",
+  "text": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+  "gold": [
+    {
+      "id": "people-ordains-constitution",
+      "subject": "We the People of the United States",
+      "predicate": "ordains",
+      "object": "Constitution for the United States of America",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "people-establishes-constitution",
+      "subject": "We the People of the United States",
+      "predicate": "establishes",
+      "object": "Constitution for the United States of America",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-union",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "form a more perfect Union",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-justice",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "establish Justice",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-tranquility",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "insure domestic Tranquility",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-defence",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "provide for the common defence",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-welfare",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "promote the general Welfare",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "constitution-purpose-liberty",
+      "subject": "Constitution",
+      "predicate": "has_purpose",
+      "object": "secure the Blessings of Liberty to ourselves and our Posterity",
+      "evidence": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    }
+  ]
+}

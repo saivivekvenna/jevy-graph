@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-09-24",
+  "review_policy": "codex_reviewed_exhaustive",
+  "fixtures": {
+    "biomedical-gastric-reviewed": "b78ef9c5fa5d0e9b0077c6ee9909fe6534706bb496febec83f7ed37b28de7f18",
+    "constitution-article-1-section-1-reviewed": "87ae7aff75801bc8905e0e17f5d62e7b162bd825d544eb2340e51b73b29c5052",
+    "general-relations-reviewed": "1bd4fde5bcd7629ac9b837293f5fabfa97504f67237b4e4736483e289c259799",
+    "nasa-planetary-metric-table-reviewed": "9542b4089f919e7e6a514d1019f23c749f2454dde2d9e38be181c6c3043c6aec",
+    "structured-growth-reviewed": "206aaa6d68b60ad98b36d62d7c37453bcd7340c1a006aa6b1df225303fe68dfc"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "bc4go-function",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4112614/#example-2",
+  "review_status": "external_partial",
+  "annotation_scope": "targeted",
+  "text": "Muscle-specific splicing factors ASD-2 and SUP-12 cooperatively promote muscle-specific processing of the unc-60 gene.",
+  "gold": [
+    {
+      "id": "splicing-factors-promote-processing",
+      "subject": "ASD-2 and SUP-12",
+      "predicate": "promotes",
+      "object": "muscle-specific processing of the unc-60 gene",
+      "evidence": "Muscle-specific splicing factors ASD-2 and SUP-12 cooperatively promote muscle-specific processing of the unc-60 gene",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ],
+  "split": "development"
+}

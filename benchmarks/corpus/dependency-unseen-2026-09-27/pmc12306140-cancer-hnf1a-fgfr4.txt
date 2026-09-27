@@ -1,0 +1,3 @@
+RESULTS
+
+Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.

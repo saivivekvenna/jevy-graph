@@ -1,0 +1,805 @@
+{
+  "id": "dependency-unseen-five-paper-gold-2026-09-27",
+  "frozen_at": "2026-09-27T16:25:30.017066+00:00",
+  "frozen_before_first_extraction": true,
+  "reviewer": "Codex",
+  "development_documents": [
+    "PMC11994814",
+    "PMC12280262"
+  ],
+  "heldout_documents": [
+    "PMC12274378",
+    "PMC11375375",
+    "PMC12306140"
+  ],
+  "documents": [
+    {
+      "pmcid": "PMC11994814",
+      "domain": "clinical",
+      "split": "development",
+      "source": "benchmarks/corpus/dependency-unseen-2026-09-27/pmc11994814-clinical-meplazumab.txt",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11994814/",
+      "source_sha256": "4e674e9867b6afdc82c94364e54a8b954369b80829bc1ef2c450fe303908688b",
+      "scope": "All comparative efficacy findings in the selected Results paragraphs; procedures and interpretive wrapper excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "meplazumab group",
+          "predicate": "has_day_28_all_cause_mortality",
+          "object": "1.96%",
+          "modality": "asserted",
+          "condition": "95% CI 0.05–10.45",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E002",
+          "subject": "placebo group",
+          "predicate": "has_day_28_all_cause_mortality",
+          "object": "7.69%",
+          "modality": "asserted",
+          "condition": "95% CI 2.14–18.54",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E003",
+          "subject": "meplazumab group",
+          "predicate": "has_lower",
+          "object": "day 28 all-cause mortality",
+          "modality": "asserted",
+          "condition": "versus placebo; difference not statistically significant; P = 0.170",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E004",
+          "subject": "meplazumab versus placebo",
+          "predicate": "has_rate_difference",
+          "object": "5.72%",
+          "modality": "asserted",
+          "condition": "day 28 all-cause mortality; 95% CI −2.46–13.90",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E005",
+          "subject": "meplazumab treatment",
+          "predicate": "increases",
+          "object": "day 28 discharge rate by 5.58%",
+          "modality": "indicated",
+          "condition": "versus placebo; 90.20% vs 84.62%",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E006",
+          "subject": "meplazumab group",
+          "predicate": "has_day_28_discharge_rate",
+          "object": "90.20%",
+          "modality": "asserted",
+          "condition": "placebo 84.62%",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E007",
+          "subject": "meplazumab treatment",
+          "predicate": "increases",
+          "object": "sustained clinical improvement by day 28 by 7.47%",
+          "modality": "asserted",
+          "condition": "versus placebo; 88.24% vs 80.77%",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        },
+        {
+          "id": "E008",
+          "subject": "meplazumab group",
+          "predicate": "has_day_28_sustained_clinical_improvement_rate",
+          "object": "88.24%",
+          "modality": "asserted",
+          "condition": "placebo 80.77%",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90)."
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC12280262",
+      "domain": "ecology",
+      "split": "development",
+      "source": "benchmarks/corpus/dependency-unseen-2026-09-27/pmc12280262-ecology-forecastability.txt",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12280262/",
+      "source_sha256": "e05517b7b04b25bfc97d267e1ce879669421071915a41e5c22782992196c1284",
+      "scope": "All substantive ecological forecast findings in the selected Results paragraphs; analysis procedures excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "species richness and light",
+          "predicate": "interact_to_affect",
+          "object": "taxa-abundance forecast error",
+          "modality": "asserted",
+          "condition": "weak effect; p = 0.0363; Simplex EDM",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E002",
+          "subject": "species richness",
+          "predicate": "increases",
+          "object": "taxa-abundance forecast error",
+          "modality": "tended",
+          "condition": "constant light",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E003",
+          "subject": "species richness",
+          "predicate": "decreases",
+          "object": "taxa-abundance forecast error",
+          "modality": "tended",
+          "condition": "declining light",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E004",
+          "subject": "one-species increase in median richness",
+          "predicate": "increases",
+          "object": "forecast error by 5.6%",
+          "modality": "asserted",
+          "condition": "constant light; 95% CI −0.8%–12.1%; relative to baseline 1",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E005",
+          "subject": "one-species increase in median richness",
+          "predicate": "decreases",
+          "object": "forecast error by 4.6%",
+          "modality": "asserted",
+          "condition": "declining light; 95% CI −11.0%–1.0%; relative to baseline 1",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E006",
+          "subject": "95% confidence intervals of the richness estimates",
+          "predicate": "include",
+          "object": "zero",
+          "modality": "asserted",
+          "condition": "despite interaction p < 0.05",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E007",
+          "subject": "light decline",
+          "predicate": "decreases",
+          "object": "taxa-abundance forecast error",
+          "modality": "asserted",
+          "condition": "high species richness",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E008",
+          "subject": "light decline",
+          "predicate": "does_not_change",
+          "object": "taxa-abundance forecast error",
+          "modality": "asserted",
+          "condition": "low species richness",
+          "negation": true,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E009",
+          "subject": "experimental treatments",
+          "predicate": "does_not_change",
+          "object": "forecastability of aggregate ecosystem properties",
+          "modality": "asserted",
+          "condition": "largely unaffected",
+          "negation": true,
+          "in_scope": true,
+          "evidence": "Forecastability of aggregate ecosystem properties was largely unaffected by the experimental treatments. Light and richness had no effect on the forecast error of total community biomass (Table 1, Figure 1b) except when biomass was forecasted with RNN (Table S10, Figure S19). In this case, treatments had similar effects as on the forecast error of taxa abundances. The forecast error of oxygen was unaffected by light and richness (Table S11, Figure S20). For most forecasting methods, forecast error of aggregate properties (community biomass, oxygen) did not differ from average forecast error of species abundances (Tables S12–S14).\n"
+        },
+        {
+          "id": "E010",
+          "subject": "light and species richness",
+          "predicate": "does_not_change",
+          "object": "total-community-biomass forecast error",
+          "modality": "asserted",
+          "condition": "except RNN",
+          "negation": true,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E011",
+          "subject": "experimental treatments",
+          "predicate": "affect",
+          "object": "total-community-biomass forecast error",
+          "modality": "asserted",
+          "condition": "RNN; similar to taxa-abundance forecast error",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Forecastability of aggregate ecosystem properties was largely unaffected by the experimental treatments. Light and richness had no effect on the forecast error of total community biomass (Table 1, Figure 1b) except when biomass was forecasted with RNN (Table S10, Figure S19). In this case, treatments had similar effects as on the forecast error of taxa abundances. The forecast error of oxygen was unaffected by light and richness (Table S11, Figure S20). For most forecasting methods, forecast error of aggregate properties (community biomass, oxygen) did not differ from average forecast error of species abundances (Tables S12–S14).\n"
+        },
+        {
+          "id": "E012",
+          "subject": "light and species richness",
+          "predicate": "does_not_change",
+          "object": "oxygen forecast error",
+          "modality": "asserted",
+          "condition": null,
+          "negation": true,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        },
+        {
+          "id": "E013",
+          "subject": "aggregate-property forecast error",
+          "predicate": "does_not_differ_from",
+          "object": "average species-abundance forecast error",
+          "modality": "asserted",
+          "condition": "most forecasting methods",
+          "negation": true,
+          "in_scope": true,
+          "evidence": "Richness and light had a weak interactive effect on the forecast error of taxa abundances (richness × light: p‐value = 0.0363; Figure 1a, Table 1, forecast method: Simplex EDM). The statistical support for this effect was somewhat limited (Figure 1a: overlapping confidence intervals), potentially due to high amounts of variance in the data. However, the interactive effect was consistent among forecast method, detrending approach, and scale of forecast error calculation (see below). The interaction of the two treatments resulted from opposite effects of species richness in constant versus declining light: forecast error tended to increase with species richness in constant light but tended to decrease with richness in declining light (Figure 1a). Specifically, when median richness increased by one species, forecast error increased by 5.6% (95% CI: −0.8%–12.1%) in constant light and decreased by 4.6% (95% CI: −11.0%–1.0%) in declining light relative to the baseline forecast error of 1 (i.e., the expected forecast error when the average value of a time series is used as the prediction). Note that the 95% confidence intervals of the estimates include zero despite the interaction term p‐value < 0.05. A discrepancy such as this can occur when the statistical evidence of an effect is not very strong (e.g., p‐value = 0.0363) and when different methods are used to calculate p‐values and confidence intervals. Specifically, approximate p‐values were calculated with Wald tests, whereas confidence intervals were calculated with profile likelihoods due to the greater precision of this approach."
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC12274378",
+      "domain": "materials",
+      "split": "heldout",
+      "source": "benchmarks/corpus/dependency-unseen-2026-09-27/pmc12274378-materials-sodium-electrolyte.txt",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12274378/",
+      "source_sha256": "b8b5ab25bb6a9828fc594b0869b43644cb7597e733db978bb47545a4b00e796b",
+      "scope": "All material-property and causal findings in the selected Results paragraph; measurement procedures and figure/table references excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "15-hour mechanochemical reaction of NaTaCl6",
+          "predicate": "results_in",
+          "object": "amorphous product",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E002",
+          "subject": "NaTaCl6 amorphous product",
+          "predicate": "has_ionic_conductivity",
+          "object": "3.3 mS cm−1",
+          "modality": "asserted",
+          "condition": "300 K; 15-hour milling",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E003",
+          "subject": "NaNbCl6",
+          "predicate": "has_ionic_conductivity",
+          "object": "0.01 mS cm−1",
+          "modality": "asserted",
+          "condition": "300 K; 15-hour milling",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E004",
+          "subject": "NaNbCl6",
+          "predicate": "has_lower",
+          "object": "ionic conductivity",
+          "modality": "asserted",
+          "condition": "than NaTaCl6 by two orders of magnitude; identical milling",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E005",
+          "subject": "longer milling time",
+          "predicate": "increases",
+          "object": "ionic conductivity",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E006",
+          "subject": "longer milling time",
+          "predicate": "decreases",
+          "object": "crystallinity",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E007",
+          "subject": "NaNbCl6",
+          "predicate": "has_ionic_conductivity",
+          "object": "0.1 mS cm−1",
+          "modality": "asserted",
+          "condition": "after 120-hour milling",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E008",
+          "subject": "NaTaCl6",
+          "predicate": "has_electronic_conductivity",
+          "object": "1.8 × 10−11 S cm−1",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E009",
+          "subject": "NaNbCl6",
+          "predicate": "has_electronic_conductivity",
+          "object": "2.4 × 10−11 S cm−1",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E010",
+          "subject": "NaTaCl6 and NaNbCl6",
+          "predicate": "are",
+          "object": "electronic insulators",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E011",
+          "subject": "NaTaCl6 and NaNbCl6 ionic conductivities",
+          "predicate": "follow",
+          "object": "Arrhenius-like behavior",
+          "modality": "suggested",
+          "condition": "253–333 K",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E012",
+          "subject": "NaTaCl6",
+          "predicate": "has_activation_energy_for_Na_ion_diffusion",
+          "object": "0.31 eV",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E013",
+          "subject": "NaNbCl6",
+          "predicate": "has_activation_energy_for_Na_ion_diffusion",
+          "object": "0.38 eV",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E014",
+          "subject": "NaTaCl6 activation energy",
+          "predicate": "is_lower_than",
+          "object": "NaNbCl6 activation energy",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E015",
+          "subject": "ionic-conductivity difference between NaTaCl6 and NaNbCl6",
+          "predicate": "arises_from",
+          "object": "activation-energy disparity",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E016",
+          "subject": "ionic-conductivity difference between NaTaCl6 and NaNbCl6",
+          "predicate": "arises_from",
+          "object": "pre-exponential-factor difference",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E017",
+          "subject": "pre-exponential-factor difference",
+          "predicate": "is_attributed_to",
+          "object": "distinct Na-ion migration entropies",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E018",
+          "subject": "post-annealing at 200 °C for 5 hours",
+          "predicate": "increases",
+          "object": "Bragg-reflection intensity and sharpness",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E019",
+          "subject": "post-annealing at 200 °C for 5 hours",
+          "predicate": "decreases",
+          "object": "NaTaCl6 and NaNbCl6 ionic conductivity by 2–3 orders of magnitude",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E020",
+          "subject": "annealed NaTaCl6",
+          "predicate": "has_ionic_conductivity",
+          "object": "4.7 × 10−6 S cm−1",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        },
+        {
+          "id": "E021",
+          "subject": "annealed NaNbCl6",
+          "predicate": "has_ionic_conductivity",
+          "object": "7.8 × 10−7 S cm−1",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "The ion transport properties of the two materials were investigated by impedance spectroscopy measurements. The effect of the ball milling duration on the ionic conductivity is shown in Supplementary Fig. 2. For NaTaCl6, a short mechanochemical reaction time of 15 h results in an amorphous product with high conductivity of 3.3 mS cm−1 at 300 K, as shown in Nyquist plot in Fig. 1d. In contrast, under identical milling conditions, the Nb analog exhibits a significantly lower conductivity of 0.01 mS cm⁻1, two orders of magnitude lower (Fig. 1e). The fitting parameters associated with the Nyquist plots in Fig. 1d, e, obtained using the equivalent circuit models, are summarized in Supplementary Tables 5–6. Extending the milling time increases the conductivity, accompanied by a decrease in the crystallinity (Supplementary Figs. 1–2). For NaNbCl6, the conductivity can only be improved to 0.1 mS cm−1 after a long milling duration of 120 h. Samples milled for 15 h were used for the comparison study below unless otherwise specified. The electronic conductivities determined from the direct current polarization method are 1.8 × 10−11 S cm–1 for NaTaCl6 and 2.4 × 10−11 S cm−1 for NaNbCl6, respectively (Supplementary Fig. 3), indicating the electronic insulating nature of both materials. Temperature-dependent conductivity measurements suggest that the conductivities follow Arrhenius-like behavior over the narrow temperature range (253 K−333 K) studied (Fig. 1f), allowing for the determination of the activation energies (Ea) for Na+-ion diffusion. The activation energy obtained from the fit is 0.31 eV for NaTaCl6, which is lower than that of NaNbCl6 (0.38 eV). These values are in good agreement with those reported in recent parallel studies60–62. Further in-depth impedance analysis, employing the methodology developed by Almond and West el al.63, reveals that the significant difference in ionic conductivity between NaTaCl6 and NaNbCl6 arises from both a disparity in activation energies and a notable difference in the pre-exponential factors. The latter is attributed to the distinct Na+-ion migration entropies in the two materials (Supplementary Figs. 4–7 and Supplementary Tables 7–8; See Supplementary Note 1 for detailed analysis), with the underlying reasons discussed in a later section. Post-annealing of the samples at 200 °C for 5 h leads to more intense and sharper Bragg reflections (Supplementary Fig. 8), and correspondingly dramatic decline in the ionic conductivity by 2–3 orders of magnitude for both NaTaCl6 and NaNbCl6 (4.7 × 10−6 S cm−1 for annealed NaTaCl6 and 7.8 × 10−7 S cm−1 for annealed NaNbCl6, respectively) (Supplementary Fig. 9). The underlying reason for these observations, likely associated with variations in the local disorder arising from different synthesis routes, will be discussed later.\n"
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC11375375",
+      "domain": "machine_learning",
+      "split": "heldout",
+      "source": "benchmarks/corpus/dependency-unseen-2026-09-27/pmc11375375-ml-transfer-learning.txt",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11375375/",
+      "source_sha256": "0ffd65f27f11afc987736f8ca83a79df3e3c7b45dbeb61994920f221d01bdc4b",
+      "scope": "All model-comparison and performance findings in the selected Results paragraphs.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "ITL models",
+          "predicate": "outperform",
+          "object": "baseline models",
+          "modality": "asserted",
+          "condition": "55 of 56 comparisons; all P < .001",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E002",
+          "subject": "DA models",
+          "predicate": "outperform",
+          "object": "baseline models",
+          "modality": "asserted",
+          "condition": "45 of 56 comparisons; all P < .001",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E003",
+          "subject": "ITL",
+          "predicate": "has_better_performance_than",
+          "object": "DA",
+          "modality": "asserted",
+          "condition": "number and margin of baseline-model wins",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E004",
+          "subject": "TL models",
+          "predicate": "outperform",
+          "object": "baseline models",
+          "modality": "asserted",
+          "condition": "11 of 16 cases; trained with 1% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E005",
+          "subject": "ITL models",
+          "predicate": "outperform",
+          "object": "baseline models",
+          "modality": "asserted",
+          "condition": "8 of 8 cases; trained with 1% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E006",
+          "subject": "DA models",
+          "predicate": "outperform",
+          "object": "baseline models",
+          "modality": "asserted",
+          "condition": "3 of 8 cases; trained with 1% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E007",
+          "subject": "DA models",
+          "predicate": "outperform",
+          "object": "LR models",
+          "modality": "asserted",
+          "condition": "30-day mortality; 1%–50% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E008",
+          "subject": "DA models",
+          "predicate": "outperform",
+          "object": "FCNN models",
+          "modality": "asserted",
+          "condition": "30-day mortality; 1%–50% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E009",
+          "subject": "DA models",
+          "predicate": "outperform",
+          "object": "LR models",
+          "modality": "asserted",
+          "condition": "30-day mortality; 75% and 100% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E010",
+          "subject": "DA models",
+          "predicate": "underperform",
+          "object": "FCNN models",
+          "modality": "asserted",
+          "condition": "30-day mortality; 75% and 100% data",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E011",
+          "subject": "DA model",
+          "predicate": "has_median_balanced_accuracy",
+          "object": "0.6744",
+          "modality": "asserted",
+          "condition": "1% training data; 95% CI 0.5758–0.7083",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset."
+        },
+        {
+          "id": "E012",
+          "subject": "LR model",
+          "predicate": "has_median_balanced_accuracy",
+          "object": "0.5821",
+          "modality": "asserted",
+          "condition": "1% training data; 95% CI 0.551–0.6134",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "For 30-day mortality, DA models outperformed both the baseline models LR and FCNN for data subsets 1% to 50%. For data sets, 75% and 100% DA models outperformed the LR model but underperformed the FCNN model. For example, when 1% data set was used for training, the DA model had a median balanced accuracy of 0.6744 (95% CI 0.5758-0.7083), whereas LR had 0.5821 (95% CI 0.551-0.6134) and FCNN had 0.6636 (95% CI 0.6146-0.6971).\n"
+        },
+        {
+          "id": "E013",
+          "subject": "FCNN model",
+          "predicate": "has_median_balanced_accuracy",
+          "object": "0.6636",
+          "modality": "asserted",
+          "condition": "1% training data; 95% CI 0.6146–0.6971",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "For 30-day mortality, DA models outperformed both the baseline models LR and FCNN for data subsets 1% to 50%. For data sets, 75% and 100% DA models outperformed the LR model but underperformed the FCNN model. For example, when 1% data set was used for training, the DA model had a median balanced accuracy of 0.6744 (95% CI 0.5758-0.7083), whereas LR had 0.5821 (95% CI 0.551-0.6134) and FCNN had 0.6636 (95% CI 0.6146-0.6971).\n"
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC12306140",
+      "domain": "molecular_biology",
+      "split": "heldout",
+      "source": "benchmarks/corpus/dependency-unseen-2026-09-27/pmc12306140-cancer-hnf1a-fgfr4.txt",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12306140/",
+      "source_sha256": "c2ca324cef264a752d91acf0075fd02995a1e39f0a9c357eae192f54ed49a7ea",
+      "scope": "All biological function, association, and causal findings in the selected Results paragraph; assay procedures excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "HNF1A knockdown",
+          "predicate": "decreases",
+          "object": "PDAC cell migration",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E002",
+          "subject": "HNF1A knockdown",
+          "predicate": "decreases",
+          "object": "PDAC cell invasion",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E003",
+          "subject": "HNF1A overexpression",
+          "predicate": "increases",
+          "object": "PDAC cell migration",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E004",
+          "subject": "HNF1A overexpression",
+          "predicate": "increases",
+          "object": "PDAC cell invasion",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E005",
+          "subject": "HNF1A knockdown",
+          "predicate": "abrogates",
+          "object": "metastasis",
+          "modality": "asserted",
+          "condition": "in vivo",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E006",
+          "subject": "HNF1A overexpression",
+          "predicate": "promotes",
+          "object": "metastasis",
+          "modality": "asserted",
+          "condition": "in vivo",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E007",
+          "subject": "FGFR4",
+          "predicate": "is_upregulated_in",
+          "object": "metastatic PDAC cells",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E008",
+          "subject": "HNF1A",
+          "predicate": "correlates_with",
+          "object": "FGFR4",
+          "modality": "asserted",
+          "condition": "PDAC patients",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E009",
+          "subject": "FGFR4 knockdown and inhibition",
+          "predicate": "decreases",
+          "object": "HNF1A-mediated cell migration",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E010",
+          "subject": "FGFR4 knockdown and inhibition",
+          "predicate": "decreases",
+          "object": "HNF1A-mediated cell invasion",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        },
+        {
+          "id": "E011",
+          "subject": "FGFR4 knockdown and inhibition",
+          "predicate": "blocks",
+          "object": "HNF1A-driven metastasis",
+          "modality": "asserted",
+          "condition": "in vivo",
+          "negation": false,
+          "in_scope": true,
+          "evidence": "Knockdown of HNF1A significantly decreases and HNF1A overexpression significantly increases PDAC cell migration and invasion. In vivo studies show that HNF1A knockdown significantly abrogates metastasis, while overexpression significantly promotes metastasis. scRNA-seq shows that FGFR4 is upregulated in metastatic PDAC cells and staining for HNF1A and FGFR4 in a PDAC TMA reveals significant correlation between HNF1A and FGFR4 in PDAC patients. Further, knockdown and inhibition of FGFR4 significantly decreases HNF1A-mediated cell migration and invasion, and blocks HNF1A-driven metastasis in vivo.\n"
+        }
+      ]
+    }
+  ],
+  "total_gold": 66,
+  "heldout_gold": 45,
+  "notes": [
+    "Sources were absent from the repository before this freeze.",
+    "Gold includes source-supported atomic findings and excludes procedures and figure/table references.",
+    "Development failures may inform fixes; held-out documents must remain untouched until final scoring."
+  ]
+}

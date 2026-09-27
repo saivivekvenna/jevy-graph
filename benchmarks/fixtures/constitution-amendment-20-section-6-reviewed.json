@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-20-section-6-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XX Section 6",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete ratification condition in this section. The standalone excerpt repeats the amendment heading for source attribution. The claim records the named ratifying body and seven-year deadline; it does not assert that ratification actually occurred. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XX\nSection 6.\nThis article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission.",
+  "gold": [
+    {
+      "id": "a20s6-ratification-condition",
+      "subject": "Amendment 20",
+      "predicate": "operative_only_if",
+      "object": "ratified as an amendment to the Constitution",
+      "evidence": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "by the legislatures of three-fourths of the several States; within seven years from the date of its submission",
+      "source_unit": "AMENDMENT_20_SECTION_6",
+      "in_scope": true
+    }
+  ]
+}

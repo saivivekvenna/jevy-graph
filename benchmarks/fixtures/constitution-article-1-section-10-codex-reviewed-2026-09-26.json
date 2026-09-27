@@ -1,0 +1,460 @@
+{
+  "id": "constitution-article-1-section-10-codex-reviewed-2026-09-26",
+  "domain": "legal",
+  "source": "https://www.archives.gov/founding-docs/constitution-transcript",
+  "source_locator": "ARTICLE_1_SECTION_10",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex audited the entire ARTICLE_1_SECTION_10 source unit. Historical original text; ambiguities are flagged per claim. Source audit: constitution-article-1-section-10-and-article-2-section-1-gold-2026-09-26.json.",
+  "text": "Article. I.\n\nSection. 10.\n\nNo State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.\n\nNo State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Controul of the Congress.\n\nNo State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+  "instruction": "",
+  "gold": [
+    {
+      "id": "i10-treaty",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Treaty",
+      "evidence": "enter into any Treaty, Alliance, or Confederation",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "enter",
+          "object": "Treaty"
+        }
+      ]
+    },
+    {
+      "id": "i10-alliance",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Alliance",
+      "evidence": "enter into any Treaty, Alliance, or Confederation",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "enter",
+          "object": "Alliance"
+        }
+      ]
+    },
+    {
+      "id": "i10-confederation",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Confederation",
+      "evidence": "enter into any Treaty, Alliance, or Confederation",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "enter",
+          "object": "Confederation"
+        }
+      ]
+    },
+    {
+      "id": "i10-marque-reprisal",
+      "subject": "State",
+      "predicate": "grant",
+      "object": "Letters of Marque and Reprisal",
+      "evidence": "grant Letters of Marque and Reprisal",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-coin-money",
+      "subject": "State",
+      "predicate": "coin",
+      "object": "Money",
+      "evidence": "coin Money",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "coins",
+          "object": "Money"
+        }
+      ]
+    },
+    {
+      "id": "i10-bills-credit",
+      "subject": "State",
+      "predicate": "emit",
+      "object": "Bills of Credit",
+      "evidence": "emit Bills of Credit",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-non-specie-tender",
+      "subject": "State",
+      "predicate": "make_tender_in_payment_of_debts",
+      "object": "any Thing other than gold and silver Coin",
+      "evidence": "make any Thing but gold and silver Coin a Tender in Payment of Debts",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "The text excludes “gold and silver Coin” from this prohibition, without expressly granting a general State power to set tender rules."
+    },
+    {
+      "id": "i10-bill-attainder",
+      "subject": "State",
+      "predicate": "pass",
+      "object": "Bill of Attainder",
+      "evidence": "pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "passes",
+          "object": "Bill of Attainder"
+        }
+      ]
+    },
+    {
+      "id": "i10-ex-post-facto",
+      "subject": "State",
+      "predicate": "pass",
+      "object": "ex post facto Law",
+      "evidence": "pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "alternatives": [
+        {
+          "subject": "State",
+          "predicate": "passes",
+          "object": "ex post facto Law"
+        }
+      ]
+    },
+    {
+      "id": "i10-contract-impairment",
+      "subject": "State",
+      "predicate": "pass",
+      "object": "Law impairing the Obligation of Contracts",
+      "evidence": "pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-nobility",
+      "subject": "State",
+      "predicate": "grant",
+      "object": "Title of Nobility",
+      "evidence": "grant any Title of Nobility",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-imposts-imports-consent",
+      "subject": "State",
+      "predicate": "lay",
+      "object": "Imposts on Imports",
+      "evidence": "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of the Congress; except what may be absolutely necessary for executing the State's inspection Laws",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-imposts-imports-inspection-exception",
+      "subject": "State",
+      "predicate": "may_lay",
+      "object": "Imposts on Imports",
+      "evidence": "except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "only to the extent absolutely necessary for executing the State's inspection Laws; exception to the no-consent prohibition",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "This is an exception to the consent prohibition, not a general State taxing power."
+    },
+    {
+      "id": "i10-imposts-exports-consent",
+      "subject": "State",
+      "predicate": "lay",
+      "object": "Imposts on Exports",
+      "evidence": "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of the Congress; except what may be absolutely necessary for executing the State's inspection Laws",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-imposts-exports-inspection-exception",
+      "subject": "State",
+      "predicate": "may_lay",
+      "object": "Imposts on Exports",
+      "evidence": "except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "only to the extent absolutely necessary for executing the State's inspection Laws; exception to the no-consent prohibition",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "This is an exception to the consent prohibition, not a general State taxing power."
+    },
+    {
+      "id": "i10-duties-imports-consent",
+      "subject": "State",
+      "predicate": "lay",
+      "object": "Duties on Imports",
+      "evidence": "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of the Congress; except what may be absolutely necessary for executing the State's inspection Laws",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-duties-imports-inspection-exception",
+      "subject": "State",
+      "predicate": "may_lay",
+      "object": "Duties on Imports",
+      "evidence": "except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "only to the extent absolutely necessary for executing the State's inspection Laws; exception to the no-consent prohibition",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "This is an exception to the consent prohibition, not a general State taxing power."
+    },
+    {
+      "id": "i10-duties-exports-consent",
+      "subject": "State",
+      "predicate": "lay",
+      "object": "Duties on Exports",
+      "evidence": "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of the Congress; except what may be absolutely necessary for executing the State's inspection Laws",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-duties-exports-inspection-exception",
+      "subject": "State",
+      "predicate": "may_lay",
+      "object": "Duties on Exports",
+      "evidence": "except what may be absolutely necessary for executing it's inspection Laws",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "only to the extent absolutely necessary for executing the State's inspection Laws; exception to the no-consent prohibition",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "This is an exception to the consent prohibition, not a general State taxing power."
+    },
+    {
+      "id": "i10-duties-imports-net-produce",
+      "subject": "net Produce of State Duties on Imports",
+      "predicate": "for_use_of",
+      "object": "Treasury of the United States",
+      "evidence": "the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-duties-exports-net-produce",
+      "subject": "net Produce of State Duties on Exports",
+      "predicate": "for_use_of",
+      "object": "Treasury of the United States",
+      "evidence": "the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-imposts-imports-net-produce",
+      "subject": "net Produce of State Imposts on Imports",
+      "predicate": "for_use_of",
+      "object": "Treasury of the United States",
+      "evidence": "the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-imposts-exports-net-produce",
+      "subject": "net Produce of State Imposts on Exports",
+      "predicate": "for_use_of",
+      "object": "Treasury of the United States",
+      "evidence": "the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-customs-laws-revision",
+      "subject": "State laws laying Duties or Imposts on Imports or Exports",
+      "predicate": "subject_to",
+      "object": "Revision by Congress",
+      "evidence": "all such Laws shall be subject to the Revision and Controul of the Congress",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "“such Laws” refers back to State laws imposing import/export duties or imposts; the precise reach beyond inspection-law measures is not spelled out."
+    },
+    {
+      "id": "i10-customs-laws-control",
+      "subject": "State laws laying Duties or Imposts on Imports or Exports",
+      "predicate": "subject_to",
+      "object": "Controul of Congress",
+      "evidence": "all such Laws shall be subject to the Revision and Controul of the Congress",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "“such Laws” refers back to State laws imposing import/export duties or imposts; the precise reach beyond inspection-law measures is not spelled out."
+    },
+    {
+      "id": "i10-tonnage",
+      "subject": "State",
+      "predicate": "lay",
+      "object": "Duty of Tonnage",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-troops-peace",
+      "subject": "State",
+      "predicate": "keep",
+      "object": "Troops",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress; in time of Peace",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-warships-peace",
+      "subject": "State",
+      "predicate": "keep",
+      "object": "Ships of War",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress; in time of Peace",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-agreement-another-State",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Agreement with another State",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-agreement-a-foreign-Power",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Agreement with a foreign Power",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-compact-another-State",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Compact with another State",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-compact-a-foreign-Power",
+      "subject": "State",
+      "predicate": "enter_into",
+      "object": "Compact with a foreign Power",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true
+    },
+    {
+      "id": "i10-war",
+      "subject": "State",
+      "predicate": "engage_in",
+      "object": "War",
+      "evidence": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "without the Consent of Congress; unless actually invaded or in such imminent Danger as will not admit of delay",
+      "source_unit": "ARTICLE_1_SECTION_10",
+      "in_scope": true,
+      "annotation_note": "The invasion/imminent-danger exception qualifies engaging in War, not all preceding peacetime troop, tonnage, or compact prohibitions."
+    }
+  ]
+}

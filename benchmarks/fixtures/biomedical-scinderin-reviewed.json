@@ -1,0 +1,16 @@
+{
+  "id": "biomedical-scinderin-reviewed",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10658791/",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "instruction": "Extract biological functions and causal mechanisms, not entity type descriptions.",
+  "review_notes": "Codex reviewed the title before running the extractor. The first live run chose the AHR-target-gene descriptor as subject, so this failed held-out case moved to development before correction.",
+  "text": "The AHR target gene scinderin activates the WNT pathway by facilitating the nuclear translocation of β-catenin.",
+  "gold": [
+    {"id": "scinderin-activates-wnt", "subject": "scinderin", "predicate": "activates", "object": "WNT pathway", "evidence": "The AHR target gene scinderin activates the WNT pathway by facilitating the nuclear translocation of β-catenin", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "scinderin-facilitates-translocation", "subject": "scinderin", "predicate": "facilitates", "object": "nuclear translocation of β-catenin", "evidence": "The AHR target gene scinderin activates the WNT pathway by facilitating the nuclear translocation of β-catenin", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "scinderin-ahr-target", "subject": "scinderin", "predicate": "type", "object": "AHR target gene", "evidence": "The AHR target gene scinderin", "modality": null, "polarity": "positive", "condition": null, "in_scope": false}
+  ]
+}

@@ -1,0 +1,5 @@
+RESULTS
+
+Overall, the ITL models outperformed the baseline models in 55 of 56 comparisons (all P values <.001). The DA models outperformed the baseline models in 45 of 56 comparisons (all P values <.001). ITL resulted in better performance than DA in terms of the number of times and the margin with which it outperformed the baseline models. In 11 of 16 cases (8 of 8 for ITL and 3 of 8 for DA), TL models outperformed baseline models when trained using 1% data subset.
+
+For 30-day mortality, DA models outperformed both the baseline models LR and FCNN for data subsets 1% to 50%. For data sets, 75% and 100% DA models outperformed the LR model but underperformed the FCNN model. For example, when 1% data set was used for training, the DA model had a median balanced accuracy of 0.6744 (95% CI 0.5758-0.7083), whereas LR had 0.5821 (95% CI 0.551-0.6134) and FCNN had 0.6636 (95% CI 0.6146-0.6971).

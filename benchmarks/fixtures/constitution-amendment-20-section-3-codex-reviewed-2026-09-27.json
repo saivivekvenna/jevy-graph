@@ -1,0 +1,122 @@
+{
+  "id": "constitution-amendment-20-section-3-codex-reviewed-2026-09-27",
+  "domain": "legal",
+  "source": "https://www.archives.gov/founding-docs/amendments-11-27",
+  "source_locator": "AMENDMENT_20_SECTION_3",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex audited the complete original AMENDMENT_20_SECTION_3; historical original text, not current law. Ambiguities are flagged per claim. Source audit: constitution-remaining-amendments-gold.json.",
+  "text": "AMENDMENT XX\nSection 3.\n\nIf, at the time fixed for the beginning of the term of the President, the President elect shall have died, the Vice President elect shall become President. If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified.",
+  "instruction": "",
+  "gold": [
+    {
+      "id": "a20s3-vp-elect-becomes-president",
+      "subject": "Vice President elect",
+      "predicate": "becomes",
+      "object": "President",
+      "evidence": "If, at the time fixed for the beginning of the term of the President, the President elect shall have died, the Vice President elect shall become President.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "President elect has died at time fixed for beginning of presidential term",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-vp-elect-acts-not-chosen",
+      "subject": "Vice President elect",
+      "predicate": "acts_as",
+      "object": "President",
+      "evidence": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "President has not been chosen before time fixed for beginning of his term; until a President has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-vp-elect-acts-failed-to-qualify",
+      "subject": "Vice President elect",
+      "predicate": "acts_as",
+      "object": "President",
+      "evidence": "If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "President elect has failed to qualify; until a President has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-congress-provision",
+      "subject": "Congress",
+      "predicate": "may_provide_by_law_for",
+      "object": "case in which neither President elect nor Vice President elect has qualified",
+      "evidence": "the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-congress-declare-officer",
+      "subject": "Congress",
+      "predicate": "may_declare_by_law",
+      "object": "who shall act as President",
+      "evidence": "declaring who shall then act as President",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-congress-select-manner",
+      "subject": "Congress",
+      "predicate": "may_provide_by_law",
+      "object": "manner of selecting a person to act as President",
+      "evidence": "or the manner in which one who is to act shall be selected",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-designated-person-acts",
+      "subject": "person designated by Congress’s law or selected under its prescribed manner",
+      "predicate": "acts_as",
+      "object": "President",
+      "evidence": "and such person shall act accordingly until a President or Vice President shall have qualified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified; until a President or Vice President qualifies",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-acting-until-president",
+      "subject": "person acting as President under congressional law",
+      "predicate": "acts_until",
+      "object": "President has qualified",
+      "evidence": "until a President or Vice President shall have qualified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    },
+    {
+      "id": "a20s3-acting-until-vice-president",
+      "subject": "person acting as President under congressional law",
+      "predicate": "acts_until",
+      "object": "Vice President has qualified",
+      "evidence": "until a President or Vice President shall have qualified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "neither President elect nor Vice President elect has qualified",
+      "source_unit": "AMENDMENT_20_SECTION_3",
+      "in_scope": true
+    }
+  ]
+}

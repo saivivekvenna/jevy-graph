@@ -1,0 +1,795 @@
+{
+  "document": "tincr",
+  "source_report": "out/full-tincr-live-2026-09-25.json",
+  "source_sha256": "e8d10015377b9044354ea18519ee3a936b95f12ebbb8ee575eccac943b249d30",
+  "sampling": "Python random.sample with seed 25; Constitution population excludes 49 exhaustively Codex-reviewed units",
+  "rubric": "Correct only if a self-contained atomic subject-predicate-object claim and its polarity, modality, and material conditions are supported by the cited source. Broken boundaries, unresolved references, method/citation fragments, missing material legal conditions, and compound objects fail.",
+  "population": 259,
+  "sample_size": 50,
+  "correct": 22,
+  "exact_rate": 0.44,
+  "wilson_95_interval": [
+    0.3116,
+    0.5769
+  ],
+  "entries": [
+    {
+      "sample_order": 1,
+      "output_index": 193,
+      "correct": true,
+      "claim": {
+        "subject": "cell cycle arrest",
+        "predicate": "inhibits",
+        "object": "proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "These results will help to better understand the role of TINCR in inducing cell cycle arrest to inhibit proliferation."
+      }
+    },
+    {
+      "sample_order": 2,
+      "output_index": 7,
+      "correct": false,
+      "claim": {
+        "subject": "Long",
+        "predicate": "non_cod",
+        "object": "RNAs",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Long non-coding RNAs (lncRNAs) are involved in kinds of human diseases, including colorectal cancer (CRC)."
+      },
+      "issue": "Broken entity and predicate boundary"
+    },
+    {
+      "sample_order": 3,
+      "output_index": 109,
+      "correct": false,
+      "claim": {
+        "subject": "WNT/β-catenin pathway in CRC(A) Co-IP assay indicate that sh-TINCR",
+        "predicate": "promotes",
+        "object": "formation of EpICD and β-catenin complex in HCT116 cell",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Downregulation of TINCR activates WNT/β-catenin pathway in CRC(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell."
+      },
+      "issue": "Figure-caption title merged into actor"
+    },
+    {
+      "sample_order": 4,
+      "output_index": 156,
+      "correct": false,
+      "claim": {
+        "subject": "mice in the tail vein",
+        "predicate": "injected",
+        "object": "metastasis assay (n = 5 per group",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group)."
+      },
+      "issue": "Broken actor and object boundaries"
+    },
+    {
+      "sample_order": 5,
+      "output_index": 162,
+      "correct": false,
+      "claim": {
+        "subject": "ChIP assay",
+        "predicate": "uses",
+        "object": "to confirm",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "(C) ChIP assay was used to confirm the binding of sp1 with the TINCR promoter."
+      },
+      "issue": "Object is a predicate fragment"
+    },
+    {
+      "sample_order": 6,
+      "output_index": 121,
+      "correct": false,
+      "claim": {
+        "subject": "ChIP assays",
+        "predicate": "confirmed",
+        "object": "Sp1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C)."
+      },
+      "issue": "Sp1 binding event truncated to Sp1"
+    },
+    {
+      "sample_order": 7,
+      "output_index": 10,
+      "correct": false,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "cod",
+        "object": "RNA",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "TINCR, a 3.7 kb long non coding RNA, was associated with cell differentiation in keratinocyte and gastric cancer cells."
+      },
+      "issue": "Broken predicate from non-coding RNA"
+    },
+    {
+      "sample_order": 8,
+      "output_index": 219,
+      "correct": false,
+      "claim": {
+        "subject": "length between 200 bp to 1000 bp",
+        "predicate": "uses",
+        "object": "sonication",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Briefly, 1 × 106 cells were lysed by sodium dodecyl sulfate lysis buffer, and sheared to length between 200 bp to 1000 bp using sonication."
+      },
+      "issue": "Direction of sonication relation reversed"
+    },
+    {
+      "sample_order": 9,
+      "output_index": 243,
+      "correct": true,
+      "claim": {
+        "subject": "CRC cell lines",
+        "predicate": "cultured_in",
+        "object": "RMPI-1640 medium",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "The CRC cell lines used in this research were obtained from ATCC, and cultured in RMPI-1640 medium containing 10% FBS in CO2 at 37°C according to the recommendation by ATCC."
+      }
+    },
+    {
+      "sample_order": 10,
+      "output_index": 258,
+      "correct": false,
+      "claim": {
+        "subject": "Flow Cytometry",
+        "predicate": "described_in",
+        "object": "37",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "The cell proliferation, plate colony formation, cell migration, invasion assays and Flow Cytometry were performed as previously described [37]."
+      },
+      "issue": "Citation number mistaken for an object"
+    },
+    {
+      "sample_order": 11,
+      "output_index": 65,
+      "correct": true,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "apoptosis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "TINCR induces cell cycle arrest and apoptosis"
+      }
+    },
+    {
+      "sample_order": 12,
+      "output_index": 8,
+      "correct": true,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "involved_in",
+        "object": "kinds of human diseases",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Long non-coding RNAs (lncRNAs) are involved in kinds of human diseases, including colorectal cancer (CRC)."
+      }
+    },
+    {
+      "sample_order": 13,
+      "output_index": 78,
+      "correct": false,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "proteins caspase 3",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "(C) Western blotting analyze the expression of apoptosis associated proteins caspase 3 and caspase 9 after oe-TINCR."
+      },
+      "issue": "Object conflates protein category and caspase 3"
+    },
+    {
+      "sample_order": 14,
+      "output_index": 144,
+      "correct": true,
+      "claim": {
+        "subject": "transcript for TINCR",
+        "predicate": "located_in",
+        "object": "cytoplasm of HCT116",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "The transcript for TINCR was mainly located in the cytoplasm of HCT116 and SW480 cells by separating nuclear and cytoplasmic RNA fraction (Figure 1D)."
+      }
+    },
+    {
+      "sample_order": 15,
+      "output_index": 108,
+      "correct": false,
+      "claim": {
+        "subject": "Downregulation of TINCR",
+        "predicate": "activates",
+        "object": "WNT/ catenin pathway",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Downregulation of TINCR activates WNT/β-catenin pathway in CRC(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell."
+      },
+      "issue": "Beta omitted from pathway name"
+    },
+    {
+      "sample_order": 16,
+      "output_index": 24,
+      "correct": false,
+      "claim": {
+        "subject": "LncRNA-CCAT1",
+        "predicate": "promotes",
+        "object": "dramatically increases the expression of MYC",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "LncRNA-CCAT1 promotes long-range chromatin interactions at the MYC locus and dramatically increases the expression of MYC [9]."
+      },
+      "issue": "Two distinct predicates conflated"
+    },
+    {
+      "sample_order": 17,
+      "output_index": 150,
+      "correct": true,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "CRC cells proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay."
+      }
+    },
+    {
+      "sample_order": 18,
+      "output_index": 251,
+      "correct": true,
+      "claim": {
+        "subject": "PCR primers",
+        "predicate": "collected_in",
+        "object": "Supplementary Table S1",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "All the PCR primers were collected in Supplementary Table S1."
+      }
+    },
+    {
+      "sample_order": 19,
+      "output_index": 31,
+      "correct": false,
+      "claim": {
+        "subject": "poor",
+        "predicate": "differentiated",
+        "object": "groups",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Morphologically, colorectal cancer could be categorized as high, middle, and poor differentiated groups."
+      },
+      "issue": "Fragmented entity boundary"
+    },
+    {
+      "sample_order": 20,
+      "output_index": 147,
+      "correct": true,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis"
+      }
+    },
+    {
+      "sample_order": 21,
+      "output_index": 175,
+      "correct": false,
+      "claim": {
+        "subject": "loss of TINCR expression",
+        "predicate": "accelerates",
+        "object": "hydrolysis of EpCAM and release EpICD",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "In the present work",
+        "source_unit": "ABSTRACT",
+        "evidence": "In the present work, we confirm that TINCR specifically binds to EpCAM and protects it from been cleaved, and loss of TINCR expression accelerates the hydrolysis of EpCAM and release EpICD."
+      },
+      "issue": "Two outcomes combined in one object"
+    },
+    {
+      "sample_order": 22,
+      "output_index": 186,
+      "correct": true,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "polarity": "positive",
+        "modality": null,
+        "condition": "In other words",
+        "source_unit": "ABSTRACT",
+        "evidence": "In other words, downregulation of TINCR activates Wnt/β-catenin pathway in CRC, which explored a novel mechanism for TINCR inhibited cell growth and metastasis."
+      }
+    },
+    {
+      "sample_order": 23,
+      "output_index": 213,
+      "correct": true,
+      "claim": {
+        "subject": "Cells",
+        "predicate": "cultured_for",
+        "object": "24 hours",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Cells were seeds in 24-wells plates (1 × 105/well) and cultured for 24 hours."
+      }
+    },
+    {
+      "sample_order": 24,
+      "output_index": 50,
+      "correct": false,
+      "claim": {
+        "subject": "Firstly",
+        "predicate": "increase",
+        "object": "stability of chromatin",
+        "polarity": "positive",
+        "modality": "can",
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Firstly, lncRNAs can increase the stability of chromatin."
+      },
+      "issue": "Discourse marker used as subject"
+    },
+    {
+      "sample_order": 25,
+      "output_index": 131,
+      "correct": false,
+      "claim": {
+        "subject": "colorectal cancer tissues",
+        "predicate": "compar_with",
+        "object": "adjacent tissues",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues."
+      },
+      "issue": "Expression comparison replaced by tissue comparison"
+    },
+    {
+      "sample_order": 26,
+      "output_index": 203,
+      "correct": true,
+      "claim": {
+        "subject": "mice",
+        "predicate": "sacrificed",
+        "object": "6 weeks after injection",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "A total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also injected into the tail veins of the mice, which were sacrificed 6 weeks after injection."
+      }
+    },
+    {
+      "sample_order": 27,
+      "output_index": 159,
+      "correct": false,
+      "claim": {
+        "subject": "sh-TINCR cells",
+        "predicate": "displayed",
+        "object": "higher ki-67 proliferation index (Figure 2F",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F)."
+      },
+      "issue": "Figure citation retained in object"
+    },
+    {
+      "sample_order": 28,
+      "output_index": 80,
+      "correct": false,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "disrupted",
+        "object": "genes",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "EpCAM was one of the disrupted genes when TINCR was depleted and had the highest score by transcript profiling [13]."
+      },
+      "issue": "Disrupted-gene set mistaken for the relation"
+    },
+    {
+      "sample_order": 29,
+      "output_index": 211,
+      "correct": true,
+      "claim": {
+        "subject": "One-way ANOVA or the independent samples t test",
+        "predicate": "used_for",
+        "object": "comparisons independent experimental groups",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "One-way ANOVA or the independent samples t test were used for comparisons independent experimental groups."
+      }
+    },
+    {
+      "sample_order": 30,
+      "output_index": 46,
+      "correct": true,
+      "claim": {
+        "subject": "transcripts",
+        "predicate": "rang_in",
+        "object": "from 200 bp to tens of kilobases",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "sample_order": 31,
+      "output_index": 140,
+      "correct": false,
+      "claim": {
+        "subject": "C) qRT-PCR",
+        "predicate": "uses",
+        "object": "to analysis TINCR expression in CRC cell lines",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "(C) qRT-PCR was used to analysis TINCR expression in CRC cell lines."
+      },
+      "issue": "Figure panel and method phrased as actor"
+    },
+    {
+      "sample_order": 32,
+      "output_index": 91,
+      "correct": true,
+      "claim": {
+        "subject": "CRC tissues",
+        "predicate": "analyzed",
+        "object": "expression of EpICD",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H)."
+      }
+    },
+    {
+      "sample_order": 33,
+      "output_index": 234,
+      "correct": true,
+      "claim": {
+        "subject": "three asterisks",
+        "predicate": "implied",
+        "object": "p < 0.001",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "One asterisk, two asterisks, and three asterisks implied p < 0.05, p < 0.01, and p < 0.001, respectively."
+      }
+    },
+    {
+      "sample_order": 34,
+      "output_index": 120,
+      "correct": false,
+      "claim": {
+        "subject": "Sp1-binding activity on the TINCR promoter",
+        "predicate": "observed_by",
+        "object": "dual luciferase reporter assays (Figure 6B",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B)."
+      },
+      "issue": "Figure citation retained in object"
+    },
+    {
+      "sample_order": 35,
+      "output_index": 134,
+      "correct": true,
+      "claim": {
+        "subject": "non-tumour tissues",
+        "predicate": "obtained_from",
+        "object": "44 patients with CRC",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC."
+      }
+    },
+    {
+      "sample_order": 36,
+      "output_index": 26,
+      "correct": false,
+      "claim": {
+        "subject": "Colorectal",
+        "predicate": "cancer_associated",
+        "object": "lncRNA CCAL",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Colorectal cancer-associated lncRNA (CCAL) promotes CRC progression by targeting AP-2α, and then activated the Wnt/β-catenin pathway [11]."
+      },
+      "issue": "Colorectal replaces lncRNA as subject"
+    },
+    {
+      "sample_order": 37,
+      "output_index": 236,
+      "correct": false,
+      "claim": {
+        "subject": "their",
+        "predicate": "paired",
+        "object": "normal colorectal mucosa",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Total 44 human colorectal cancer tissues and their paired normal colorectal mucosa were obtained from Nanfang Hospital, Southern Medical University (Guangzhou, China)."
+      },
+      "issue": "Unresolved possessive pronoun"
+    },
+    {
+      "sample_order": 38,
+      "output_index": 254,
+      "correct": false,
+      "claim": {
+        "subject": "NC (5′-AACCTTACAATGAATCTAC-3′",
+        "predicate": "purchased_from",
+        "object": "shanghai",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "shRNA targeting TINCR(5′-AATACCTGCTACTTCATGC-3′), and NC (5′-AACCTTACAATGAATCTAC-3′) were purchased from GeneChem, shanghai."
+      },
+      "issue": "Supplier truncated to city"
+    },
+    {
+      "sample_order": 39,
+      "output_index": 173,
+      "correct": false,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "act",
+        "object": "together with specific proteins",
+        "polarity": "positive",
+        "modality": "could",
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "It reported that lncRNAs could act together with specific proteins when performing its functions [23–24]."
+      },
+      "issue": "Generic lncRNAs finding misattributed to TINCR"
+    },
+    {
+      "sample_order": 40,
+      "output_index": 25,
+      "correct": false,
+      "claim": {
+        "subject": "fact that overexpression of lncRNA-ROR in wild HCT116 cells",
+        "predicate": "significantly",
+        "object": "decrease the expression of p53",
+        "polarity": "positive",
+        "modality": "could",
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "The fact that overexpression of lncRNA-ROR in wild HCT116 cells could significantly decrease the expression of p53 indicates that ROR is a strong repressor of p53 [10]."
+      },
+      "issue": "Adverb used as predicate"
+    },
+    {
+      "sample_order": 41,
+      "output_index": 153,
+      "correct": true,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "cell proliferation",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay."
+      }
+    },
+    {
+      "sample_order": 42,
+      "output_index": 149,
+      "correct": false,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "silenced_in",
+        "object": "S2B",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B)."
+      },
+      "issue": "Figure panel mistaken for a biological location"
+    },
+    {
+      "sample_order": 43,
+      "output_index": 227,
+      "correct": true,
+      "claim": {
+        "subject": "forward primers",
+        "predicate": "contains",
+        "object": "T7 RNA polymerase promoter sequence",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "To synthesize TINCR and anti-TINCR transcripts, RT-PCR was conducted using forward primers containing the T7 RNA polymerase promoter sequence."
+      }
+    },
+    {
+      "sample_order": 44,
+      "output_index": 106,
+      "correct": true,
+      "claim": {
+        "subject": "c-Myc",
+        "predicate": "induced_in",
+        "object": "TINCR-knockdown cells",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C)."
+      }
+    },
+    {
+      "sample_order": 45,
+      "output_index": 90,
+      "correct": false,
+      "claim": {
+        "subject": "CRC tissues",
+        "predicate": "compared_to_with",
+        "object": "their normal mucous",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous."
+      },
+      "issue": "Expression comparison replaced by tissue comparison"
+    },
+    {
+      "sample_order": 46,
+      "output_index": 48,
+      "correct": true,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "promotes",
+        "object": "formation of colorectal cancer",
+        "polarity": "positive",
+        "modality": "may",
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "sample_order": 47,
+      "output_index": 220,
+      "correct": false,
+      "claim": {
+        "subject": "Sp1 or IgG antibody",
+        "predicate": "uses",
+        "object": "to immunoprecipitation with protein-DNA complex",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Sp1 or IgG antibody was used to immunoprecipitation with protein-DNA complex, and then elution the DNA from the antibody."
+      },
+      "issue": "Method predicate and object malformed"
+    },
+    {
+      "sample_order": 48,
+      "output_index": 41,
+      "correct": true,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "controls",
+        "object": "c-Myc expression",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "sample_order": 49,
+      "output_index": 158,
+      "correct": true,
+      "claim": {
+        "subject": "tumours",
+        "predicate": "developed",
+        "object": "from sh-TINCR cells",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F)."
+      }
+    },
+    {
+      "sample_order": 50,
+      "output_index": 117,
+      "correct": false,
+      "claim": {
+        "subject": "site on the TINCR promoter",
+        "predicate": "showed_by",
+        "object": "Supplementary Figure S5",
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "ABSTRACT",
+        "evidence": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6)."
+      },
+      "issue": "Figure citation mistaken for evidentiary relation"
+    }
+  ]
+}

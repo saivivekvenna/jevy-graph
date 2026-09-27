@@ -1,0 +1,1469 @@
+{
+  "id": "tincr-default-live-other-precision-2026-09-26",
+  "review_status": "codex_reviewed_development",
+  "scope": "All 140 accepted full-paper Jev claims whose candidate.source_unit is not RESULTS; unfocused extraction includes valid methods and background claims.",
+  "source_file": "benchmarks/corpus/tincr-epcam-full.txt",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "run_file": "out/full-tincr-default-live-2026-09-26.json",
+  "run_source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "verdict_policy": {
+    "complete_supported": "Atomic subject–relation–object, polarity, modality, condition and attribution are supported by the source.",
+    "incomplete_or_wrong_qualifier": "Core relation is plausible but material setting, direction, hedge, comparison, or cited-prior attribution is omitted or wrong.",
+    "wrong_boundary_or_relation": "Actor, predicate, or target is malformed, conflated, or materially wrong.",
+    "unsupported": "No defensible claim in source supports the emitted proposition.",
+    "source_ambiguous": "Source wording is contradictory or leaves the proposition unresolved.",
+    "unsupported_critical": "True when a wrong/unsupported biomedical or clinical relation could materially mislead a graph consumer."
+  },
+  "summary": {
+    "total": 140,
+    "verdicts": {
+      "wrong_boundary_or_relation": 47,
+      "complete_supported": 63,
+      "source_ambiguous": 5,
+      "incomplete_or_wrong_qualifier": 25
+    },
+    "strict_precision_excluding_ambiguous": 0.4666666666666667,
+    "unsupported_critical_count": 19,
+    "by_source_unit": {
+      "ABSTRACT": {
+        "total": 28,
+        "verdicts": {
+          "complete_supported": 18,
+          "wrong_boundary_or_relation": 4,
+          "source_ambiguous": 5,
+          "incomplete_or_wrong_qualifier": 1
+        },
+        "unsupported_critical": 1
+      },
+      "DISCUSSION": {
+        "total": 30,
+        "verdicts": {
+          "wrong_boundary_or_relation": 14,
+          "incomplete_or_wrong_qualifier": 7,
+          "complete_supported": 9
+        },
+        "unsupported_critical": 12
+      },
+      "INTRODUCTION": {
+        "total": 23,
+        "verdicts": {
+          "wrong_boundary_or_relation": 10,
+          "incomplete_or_wrong_qualifier": 9,
+          "complete_supported": 4
+        },
+        "unsupported_critical": 6
+      },
+      "MATERIALS_AND_METHODS": {
+        "total": 59,
+        "verdicts": {
+          "wrong_boundary_or_relation": 19,
+          "complete_supported": 32,
+          "incomplete_or_wrong_qualifier": 8
+        },
+        "unsupported_critical": 0
+      }
+    }
+  },
+  "claims": [
+    {
+      "output_index": 1,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Luciferase reporter assay Cells",
+      "predicate": "has_duration_hours",
+      "object": "24",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Duration belongs to cultured cells, not to the assay-name-plus-Cells subject.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 2,
+      "source_unit": "ABSTRACT",
+      "subject": "lncRNAs",
+      "predicate": "involved_in",
+      "object": "kinds of human diseases",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 3,
+      "source_unit": "ABSTRACT",
+      "subject": "lncRNAs",
+      "predicate": "involved_in",
+      "object": "CRC",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 4,
+      "source_unit": "ABSTRACT",
+      "subject": "RNA",
+      "predicate": "associated_with",
+      "object": "cell differentiation in keratinocyte and gastric cancer cells",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The named entity is TINCR; generic RNA incorrectly broadens the actor.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 5,
+      "source_unit": "ABSTRACT",
+      "subject": "RNA",
+      "predicate": "associated_with",
+      "object": "CRC proliferation",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The named entity is TINCR; generic RNA incorrectly broadens the actor.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 6,
+      "source_unit": "ABSTRACT",
+      "subject": "RNA",
+      "predicate": "associated_with",
+      "object": "metastasis",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The named entity is TINCR; generic RNA incorrectly broadens the actor.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 7,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "downregulated_in",
+      "object": "CRC tissues",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 8,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "downregulated_in",
+      "object": "metastatic CRC cell lines",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 9,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "inversely_correlated_with",
+      "object": "CRC progression and promoted tumor cells growth",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Object merges inverse correlation with a separate growth-promotion claim.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 10,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "inversely_correlated_with",
+      "object": "CRC progression",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 11,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "promoted",
+      "object": "tumor cell growth",
+      "verdict": "source_ambiguous",
+      "reason": "Abstract literally says TINCR promoted growth but immediately says overexpression had the opposite effect; direction conflicts.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 12,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "promoted",
+      "object": "tumor cell growth",
+      "verdict": "source_ambiguous",
+      "reason": "Abstract literally says TINCR promoted growth but immediately says overexpression had the opposite effect; direction conflicts.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 13,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "promoted",
+      "object": "metastasis",
+      "verdict": "source_ambiguous",
+      "reason": "Abstract literally says TINCR promoted metastasis but immediately says overexpression had the opposite effect; direction conflicts.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 14,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "promoted",
+      "object": "metastasis",
+      "verdict": "source_ambiguous",
+      "reason": "Abstract literally says TINCR promoted metastasis but immediately says overexpression had the opposite effect; direction conflicts.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 15,
+      "source_unit": "ABSTRACT",
+      "subject": "overexpression of TINCR",
+      "predicate": "had_opposite_effect_to",
+      "object": "TINCR-promoted tumor cell growth and metastasis",
+      "verdict": "source_ambiguous",
+      "reason": "Opposite effect has an unclear antecedent and conflicts with the preceding TINCR-promoted wording.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 16,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "specifically_bound_to",
+      "object": "EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 17,
+      "source_unit": "ABSTRACT",
+      "subject": "RNA IP assay",
+      "predicate": "used_to_detect",
+      "object": "TINCR binding to EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 18,
+      "source_unit": "ABSTRACT",
+      "subject": "RNA pull down assay",
+      "predicate": "used_to_detect",
+      "object": "TINCR binding to EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 19,
+      "source_unit": "ABSTRACT",
+      "subject": "Loss of TINCR",
+      "predicate": "promoted",
+      "object": "EpCAM hydrolysis",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 20,
+      "source_unit": "ABSTRACT",
+      "subject": "EpCAM hydrolysis",
+      "predicate": "released",
+      "object": "EpICD",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 21,
+      "source_unit": "ABSTRACT",
+      "subject": "Loss of TINCR",
+      "predicate": "released",
+      "object": "EpICD",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 22,
+      "source_unit": "ABSTRACT",
+      "subject": "EpICD",
+      "predicate": "activated",
+      "object": "Wnt/β-catenin pathway",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 23,
+      "source_unit": "ABSTRACT",
+      "subject": "Loss of TINCR",
+      "predicate": "activated",
+      "object": "Wnt/β-catenin pathway",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 24,
+      "source_unit": "ABSTRACT",
+      "subject": "c-Myc",
+      "predicate": "repressed",
+      "object": "TINCR expression",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 25,
+      "source_unit": "ABSTRACT",
+      "subject": "c-Myc",
+      "predicate": "repressed",
+      "object": "sp1 transcriptive activity",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 26,
+      "source_unit": "ABSTRACT",
+      "subject": "c-Myc repression of TINCR expression",
+      "predicate": "mediated_by",
+      "object": "repression of sp1 transcriptive activity",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 27,
+      "source_unit": "ABSTRACT",
+      "subject": "positive feedback loop",
+      "predicate": "controls",
+      "object": "c-Myc expression",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 28,
+      "source_unit": "ABSTRACT",
+      "subject": "positive feedback loop",
+      "predicate": "controls",
+      "object": "TINCR expression",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 29,
+      "source_unit": "ABSTRACT",
+      "subject": "TINCR",
+      "predicate": "considered_as",
+      "object": "potential cancer suppressor gene",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Could be considered as a potential suppressor is a tentative interpretation; candidate drops the could-be-considered hedge.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 30,
+      "source_unit": "INTRODUCTION",
+      "subject": "third most commonly",
+      "predicate": "diagnosed",
+      "object": "cancer in males and the second in females worldwide",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Subject is a sentence fragment; the cancer ranking is about CRC.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 31,
+      "source_unit": "INTRODUCTION",
+      "subject": "transcripts",
+      "predicate": "rang_in",
+      "object": "200 bp to tens of kilobases",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Length range applies to lncRNAs, not arbitrary transcripts.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 32,
+      "source_unit": "INTRODUCTION",
+      "subject": "evidences",
+      "predicate": "has",
+      "object": "shown that lncRNAs",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Evidence is a reporting clause; this is not the biomedical proposition.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 33,
+      "source_unit": "INTRODUCTION",
+      "subject": "lncRNAs",
+      "predicate": "promotes",
+      "object": "formation of colorectal cancer",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Prior literature [4–6] is the source of this possible lncRNA effect; attribution is missing.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 34,
+      "source_unit": "INTRODUCTION",
+      "subject": "lncRNAs",
+      "predicate": "promotes",
+      "object": "progression of colorectal cancer",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Prior literature [4–6] is the source of this possible lncRNA effect; attribution is missing.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 35,
+      "source_unit": "INTRODUCTION",
+      "subject": "lncRNAs",
+      "predicate": "increase",
+      "object": "stability of chromatin",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 36,
+      "source_unit": "INTRODUCTION",
+      "subject": "HOTAIR",
+      "predicate": "cooperate_with",
+      "object": "Polycomb complex PRC2",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "HOTAIR–PRC2 cooperation is cited prior evidence [7], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 37,
+      "source_unit": "INTRODUCTION",
+      "subject": "Polycomb complex PRC2",
+      "predicate": "reprogram",
+      "object": "chromatin organization",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "HOTAIR cooperating with PRC2 is the proposed actor; PRC2 alone is not asserted to reprogram chromatin.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 38,
+      "source_unit": "INTRODUCTION",
+      "subject": "Polycomb complex PRC2",
+      "predicate": "promotes",
+      "object": "cancer metastasis in breast cancer",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "HOTAIR cooperating with PRC2 is the proposed actor; the source also names colorectal cancer.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 39,
+      "source_unit": "INTRODUCTION",
+      "subject": "CCAT2",
+      "predicate": "overexpressed_in",
+      "object": "microsatellite-stable colorectal cancer",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAT2 finding is cited prior evidence [8], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 40,
+      "source_unit": "INTRODUCTION",
+      "subject": "CCAT2",
+      "predicate": "promotes",
+      "object": "tumour growth",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAT2 finding is cited prior evidence [8], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 41,
+      "source_unit": "INTRODUCTION",
+      "subject": "CCAT2",
+      "predicate": "promotes",
+      "object": "metastasis",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAT2 finding is cited prior evidence [8], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 42,
+      "source_unit": "INTRODUCTION",
+      "subject": "CCAT2",
+      "predicate": "promotes",
+      "object": "chromosomal instability",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAT2 finding is cited prior evidence [8], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 43,
+      "source_unit": "INTRODUCTION",
+      "subject": "LncRNA-CCAT1",
+      "predicate": "promotes",
+      "object": "long-range chromatin interactions at the MYC locus",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAT1 finding is cited prior evidence [9], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 44,
+      "source_unit": "INTRODUCTION",
+      "subject": "LncRNA-CCAT1",
+      "predicate": "promotes",
+      "object": "dramatically increases the expression of MYC",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Object includes a second predicate rather than the MYC expression target.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 156,
+      "source_unit": "INTRODUCTION",
+      "subject": "Colorectal",
+      "predicate": "cancer_associated",
+      "object": "lncRNA CCAL",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Colorectal is a modifier of cancer-associated lncRNA, not an actor linked to CCAL.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 157,
+      "source_unit": "INTRODUCTION",
+      "subject": "lncRNA CCAL",
+      "predicate": "promotes",
+      "object": "CRC progression",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "CCAL progression claim is cited prior evidence [11], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 158,
+      "source_unit": "INTRODUCTION",
+      "subject": "Terminal",
+      "predicate": "differentiation_induced",
+      "object": "lncRNA TINCR",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Terminal differentiation-induced is part of the lncRNA name, not a Terminal-to-TINCR event.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 159,
+      "source_unit": "INTRODUCTION",
+      "subject": "TINCR",
+      "predicate": "type",
+      "object": "3.7 kb lncRNA",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 160,
+      "source_unit": "INTRODUCTION",
+      "subject": "loss of TINCR",
+      "predicate": "accelerate",
+      "object": "hydrolysis of EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 161,
+      "source_unit": "INTRODUCTION",
+      "subject": "loss of TINCR",
+      "predicate": "released",
+      "object": "EpICD",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 162,
+      "source_unit": "INTRODUCTION",
+      "subject": "EpICD",
+      "predicate": "activates",
+      "object": "EpICD-Wnt/β-catenin",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "EpICD-Wnt/β-catenin signaling is the resulting pathway, not a pathway activated by EpICD itself in this wording.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 163,
+      "source_unit": "INTRODUCTION",
+      "subject": "EpICD-Wnt/β-catenin",
+      "predicate": "signal_in",
+      "object": "CRC",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The pathway name is split into a fabricated signal_in CRC relation.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 164,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "RNA immunoprecipitation (RIP) experiments",
+      "predicate": "performed",
+      "object": "according to the instruction",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 165,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "cells",
+      "predicate": "lysed_by",
+      "object": "RIP lysis buffer",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 166,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "magnetic beads bound complexes",
+      "predicate": "collected",
+      "object": "and then extract RNA",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Object merges collection of bead-bound complexes with the separate RNA extraction step.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 167,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "PCR",
+      "predicate": "performed_with",
+      "object": "primers specific for TINCR promoter",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 168,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "In vitro transcription",
+      "predicate": "biotinylated",
+      "object": "LncRNA-TINCR",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Heading names transcription of biotinylated TINCR; it does not say transcription biotinylated TINCR.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 169,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "In vitro transcription",
+      "predicate": "uses",
+      "object": "forward primers",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "RT-PCR used the primers; in vitro transcription is a different procedure.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 170,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "forward primers",
+      "predicate": "contains",
+      "object": "T7 RNA polymerase promoter sequence",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 171,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "PCR products",
+      "predicate": "purified",
+      "object": "according to the protocol of Biomiga DNA gel/PCR Extraction Kit (catalogue DC3511-01",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 172,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "TINCR",
+      "predicate": "biotinylated",
+      "object": "according to the protocols of T7 RNA polymerase kit Beyotime Biotechnology catalogue D7069",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Biotinylation used both the T7 polymerase and Pierce end-labeling kits; the latter is omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 173,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "RNA pull down assay",
+      "predicate": "conducted",
+      "object": "according to the instruction of PierceTM Magnetic RNA-Protein Pull-Down Kit (Thermoscientific catalogue 20164",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 174,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "TINCR or anti-TINCR",
+      "predicate": "bound_to",
+      "object": "streptavidin magnetic beads",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 175,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "RNA",
+      "predicate": "incubated",
+      "object": "with cell lysate",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 176,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "protein complexes",
+      "predicate": "washed",
+      "object": "and eluted",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Washed and eluted are separate operations collapsed into one object.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 177,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Western blotting",
+      "predicate": "performed_with",
+      "object": "specific antibody for EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 178,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Four to 5 weeks old athymic nude mice",
+      "predicate": "obtained_from",
+      "object": "Central Laboratory of Animal Science",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 179,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Four to 5 weeks old athymic nude mice",
+      "predicate": "obtained_from",
+      "object": "Southern Medical University",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Direct source was the Central Laboratory; the university is its affiliation, not a separate supplier.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 180,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "experimental procedures",
+      "predicate": "involves",
+      "object": "animals",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The meaningful methods claim is animal-protocol compliance and approval; both are omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 181,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were subcutaneously",
+      "predicate": "injected_into",
+      "object": "BALB/c nude mice",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Subject contains the injection action and dosage rather than the cells being injected.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 182,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "size of the tumors",
+      "predicate": "measured_by",
+      "object": "caliper as length × width2 × 1/2 every 2 days",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 183,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also",
+      "predicate": "injected_into",
+      "object": "tail veins of the mice",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Subject contains the injection action and dosage rather than the cells being injected.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 184,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "mice",
+      "predicate": "sacrificed",
+      "object": "6 weeks after injection",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 185,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "livers",
+      "predicate": "photographed",
+      "object": "lungs and livers",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Both lungs and livers were photographed; this object repeats the actor and drops lungs as subject.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 186,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "CRC cell lines",
+      "predicate": "cultured_in",
+      "object": "RMPI-1640 medium",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 187,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "RMPI-1640 medium",
+      "predicate": "contains",
+      "object": "10% FBS in CO2 at 37°C according to the recommendation by ATCC",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Medium contained 10% FBS; CO2 and 37°C are culture conditions, not medium contents.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 188,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Sp1",
+      "predicate": "amplified_by",
+      "object": "PCR",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 189,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "PCR",
+      "predicate": "uses",
+      "object": "cDNA from non-tumour colorectal mucosal tissues",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 190,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Sp1",
+      "predicate": "cloned_into",
+      "object": "pcDNA3.0 vectors",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 191,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "pcDNA3.0-anti-TINCR",
+      "predicate": "generates_with",
+      "object": "antisense of TINCR",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 192,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "TINCR promoter DNA fragment",
+      "predicate": "contains",
+      "object": "wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 193,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1",
+      "predicate": "subcloned_into",
+      "object": "pGL3-basic vectors",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The promoter fragment containing the target site was subcloned, not the target site by itself.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 194,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "PCR primers",
+      "predicate": "collected_in",
+      "object": "Supplementary Table S1",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 195,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "shRNA",
+      "predicate": "target",
+      "object": "TINCR",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 196,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "NC (5′-AACCTTACAATGAATCTAC-3′",
+      "predicate": "purchased_from",
+      "object": "GeneChem",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 197,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "NC (5′-AACCTTACAATGAATCTAC-3′",
+      "predicate": "purchased_from",
+      "object": "shanghai",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Shanghai identifies GeneChem location, not a separate supplier.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 198,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "western blotting",
+      "predicate": "described_in",
+      "object": "34–36",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Bare numeric 34–36 drops that these are prior-method references.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 199,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "antibodies",
+      "predicate": "listed_in",
+      "object": "Table",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Table S3 is the antibody list; generic Table loses the identifying suffix.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 200,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "antibodies",
+      "predicate": "listed_in",
+      "object": "Table S3",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 201,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Flow Cytometry",
+      "predicate": "described_in",
+      "object": "37",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Bare numeric 37 drops that this is a prior-method reference.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 202,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Cells",
+      "predicate": "cultured_for",
+      "object": "24 hours",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 203,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "pGL3-wt promoter vectors or pGL3-mut promoter vectors",
+      "predicate": "co_transfected_with",
+      "object": "pcDNA3.0-sp1 plasmids",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Co-transfection conditions HCT116/SW480 cells and lipofectamine 3000 are omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 204,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "SW480 cells",
+      "predicate": "uses",
+      "object": "lipofectamine 3000 (Invitrogen",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Lipofectamine was used for transfection; SW480 cells were not the user/agent.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 205,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Luciferase activity",
+      "predicate": "measured",
+      "object": "48 hours after transfection according to the Dual-luciferase Reporter Assay System (Promega, catalogue E1910",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 206,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Chromatin immunoprecipitation",
+      "predicate": "preformed",
+      "object": "according to the ChIP assay kit Millipore",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 207,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "cells",
+      "predicate": "lysed_by",
+      "object": "sodium dodecyl sulfate lysis buffer",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 208,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "length between 200 bp to 1000 bp",
+      "predicate": "uses",
+      "object": "sonication",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Cells were sheared by sonication to this length; a length range does not use sonication.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 209,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Sp1 or IgG antibody",
+      "predicate": "uses",
+      "object": "to immunoprecipitation with protein-DNA complex",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Antibodies were used to immunoprecipitate complexes; predicate and object do not express that action.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 228,
+      "source_unit": "DISCUSSION",
+      "subject": "expression",
+      "predicate": "downregulated_in",
+      "object": "CRC tissues",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Expression refers specifically to TINCR expression; the generic actor loses the entity.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 229,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "paraffin",
+      "predicate": "embedded_in",
+      "object": "paraffin",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Tumours and organs were paraffin embedded; paraffin is not the embedded actor.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 230,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "visceral organs",
+      "predicate": "stained_with",
+      "object": "hematoxylin",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 231,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "visceral organs",
+      "predicate": "stained_with",
+      "object": "eosin (H & E) for general histology",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 232,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Statistical analysis",
+      "predicate": "carried",
+      "object": "out",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Statistical analysis was carried out using SPSS 19.0; tool is omitted from this fragment.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 233,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "out",
+      "predicate": "uses",
+      "object": "SPSS 19.0",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Out is a fragment of carried out, not an entity using SPSS.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 234,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "Quantitative data",
+      "predicate": "presented_as",
+      "object": "mean ± SD",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 235,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "One-way ANOVA or the independent samples t test",
+      "predicate": "used_for",
+      "object": "comparisons independent experimental groups",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 236,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "spearman correlation coefficient",
+      "predicate": "uses",
+      "object": "to assess the degree of the linear relationship",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Spearman coefficient assessed TINCR–EpCAM expression correlation in CRC tissues; targets and setting are omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 237,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "three asterisks",
+      "predicate": "implied",
+      "object": "p < 0.001",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 238,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "associated_with",
+      "object": "metastasis of CRC",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Source says inversely associated with invasion/metastasis; direction is lost.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 239,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "upregulated_in",
+      "object": "human gastric carcinoma",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Gastric-carcinoma finding is cited prior evidence [22], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 240,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "promotes",
+      "object": "cell growth",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Growth effect belongs to gastric carcinoma and cited prior evidence [22]; both qualifiers are omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 241,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "regulate",
+      "object": "cell growth in CRC and GC",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 242,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "act",
+      "object": "together with specific proteins",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Prior reports concern lncRNAs generally, not TINCR specifically.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 243,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "perform",
+      "object": "its functions",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Its functions refers to lncRNAs generally; TINCR is substituted without support.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 244,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "specifically_bound_to",
+      "object": "EpCAM",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 245,
+      "source_unit": "DISCUSSION",
+      "subject": "loss of TINCR expression",
+      "predicate": "accelerates",
+      "object": "hydrolysis of EpCAM and release EpICD",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Object merges EpCAM hydrolysis and EpICD release into a non-atomic target.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 246,
+      "source_unit": "DISCUSSION",
+      "subject": "EpCAM",
+      "predicate": "type",
+      "object": "40 kd cell surface glycoprotein",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "EpCAM glycoprotein characterization is cited background [25–27], without cited-study attribution.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 247,
+      "source_unit": "DISCUSSION",
+      "subject": "epithelial cell adhesion molecular",
+      "predicate": "type",
+      "object": "40 kd cell surface glycoprotein",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Epithelial cell adhesion molecular is a descriptor of EpCAM, not a separate named glycoprotein.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 248,
+      "source_unit": "DISCUSSION",
+      "subject": "kd cell surface glycoprotein",
+      "predicate": "identified_as",
+      "object": "marker for epithelial cancers as well as a marker for cancer",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Subject loses EpCAM and object truncates cancer stem cells/hESC markers.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 249,
+      "source_unit": "DISCUSSION",
+      "subject": "hydrolysis of EpCAM regulated by TINCR",
+      "predicate": "implicate",
+      "object": "therapeutic value of TINCR for CRC",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 250,
+      "source_unit": "DISCUSSION",
+      "subject": "EpICD",
+      "predicate": "formed_complex_with",
+      "object": "β-catenin",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 251,
+      "source_unit": "DISCUSSION",
+      "subject": "downregulation of TINCR",
+      "predicate": "promotes",
+      "object": "expression of β-catenin",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 252,
+      "source_unit": "DISCUSSION",
+      "subject": "downregulation of TINCR",
+      "predicate": "promotes",
+      "object": "TCF4",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Coordinated object is TCF4 expression, not TCF4 itself.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 253,
+      "source_unit": "DISCUSSION",
+      "subject": "downregulation of TINCR",
+      "predicate": "promotes",
+      "object": "c-Myc",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Coordinated object is c-Myc expression, not c-Myc itself.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 254,
+      "source_unit": "DISCUSSION",
+      "subject": "downregulation of TINCR",
+      "predicate": "activates",
+      "object": "Wnt/β-catenin pathway in CRC",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 255,
+      "source_unit": "DISCUSSION",
+      "subject": "Wnt/β-catenin pathway in CRC",
+      "predicate": "explored",
+      "object": "novel mechanism for TINCR",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The pathway does not explore a mechanism; authors describe the pathway finding as a mechanism.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 256,
+      "source_unit": "DISCUSSION",
+      "subject": "novel mechanism for TINCR",
+      "predicate": "inhibits",
+      "object": "cell growth",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Novel mechanism is not the actor inhibiting growth; the source attributes inhibition to TINCR.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 257,
+      "source_unit": "DISCUSSION",
+      "subject": "Sp1",
+      "predicate": "promotes",
+      "object": "variety of cancer",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Sp1 promotes cancer-associated genes, not cancer itself.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 258,
+      "source_unit": "DISCUSSION",
+      "subject": "cancer",
+      "predicate": "associated",
+      "object": "genes",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Cancer-associated is a modifier of genes, not a claim that cancer is associated with genes.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 259,
+      "source_unit": "DISCUSSION",
+      "subject": "Sp1",
+      "predicate": "implicated_in",
+      "object": "cell growth",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The genes promoted by Sp1 are implicated in cell growth; the source does not attribute this to Sp1 itself.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 260,
+      "source_unit": "DISCUSSION",
+      "subject": "Sp1",
+      "predicate": "implicated_in",
+      "object": "differentiation",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The genes promoted by Sp1 are implicated in differentiation; the source does not attribute this to Sp1 itself.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 261,
+      "source_unit": "DISCUSSION",
+      "subject": "Sp1",
+      "predicate": "implicated_in",
+      "object": "apoptosis",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The genes promoted by Sp1 are implicated in apoptosis; the source does not attribute this to Sp1 itself.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 262,
+      "source_unit": "DISCUSSION",
+      "subject": "c-Myc",
+      "predicate": "repress",
+      "object": "expression of TINCR",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "Source specifies repression of TINCR by an Sp1-dependent mechanism; mechanism is omitted.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 263,
+      "source_unit": "DISCUSSION",
+      "subject": "Together these studies",
+      "predicate": "provides",
+      "object": "molecular model for c-Myc in suppressive regulation of TINCR promoter activity and expression",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 264,
+      "source_unit": "DISCUSSION",
+      "subject": "cell cycle arrest",
+      "predicate": "inhibits",
+      "object": "proliferation",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 265,
+      "source_unit": "DISCUSSION",
+      "subject": "TINCR",
+      "predicate": "type",
+      "object": "tumour suppressor",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 266,
+      "source_unit": "DISCUSSION",
+      "subject": "With regard to the fantastic potential applications",
+      "predicate": "targeted",
+      "object": "drugs for EpCAM",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Targeted drugs for EpCAM are contextual; the finding suggests therapeutic value of TINCR.",
+      "unsupported_critical": true
+    },
+    {
+      "output_index": 267,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "normal colorectal mucosa",
+      "predicate": "obtained_from",
+      "object": "Nanfang Hospital",
+      "verdict": "complete_supported",
+      "reason": "The source explicitly supports the atomic relation and its stated scope.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 268,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "normal colorectal mucosa",
+      "predicate": "obtained_from",
+      "object": "Southern Medical University",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Direct source was Nanfang Hospital; university is its affiliation, not a separate supplier.",
+      "unsupported_critical": false
+    },
+    {
+      "output_index": 269,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "subject": "CRC cell lines",
+      "predicate": "uses",
+      "object": "in this research",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Used in this research is an adjectival clause, not a CRC-cell-line uses relation.",
+      "unsupported_critical": false
+    }
+  ]
+}

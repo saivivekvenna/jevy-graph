@@ -1,0 +1,93 @@
+{
+  "id": "constitution-amendment-19",
+  "domain": "legal",
+  "source": "National Archives Constitution amendment XIX",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex rechecked the entire frozen Amendment XIX unit: one underlying voting right, four actor-by-action prohibitions with the sex condition, and Congress's enforcement power. The fixture remains development because these clauses informed extraction fixes.",
+  "text": "AMENDMENT XIX\nThe right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.\nCongress shall have power to enforce this article by appropriate legislation.",
+  "gold": [
+    {
+      "id": "a19-voting-right",
+      "subject": "citizens of the United States",
+      "predicate": "has_right_to",
+      "object": "vote",
+      "evidence": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true
+    },
+    {
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "on account of sex",
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true,
+      "evidence": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.",
+      "id": "denied_by-united-states",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "denied_by",
+      "object": "United States"
+    },
+    {
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "on account of sex",
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true,
+      "evidence": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.",
+      "id": "denied_by-state",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "denied_by",
+      "object": "State"
+    },
+    {
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "on account of sex",
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true,
+      "evidence": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.",
+      "id": "abridged_by-united-states",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "abridged_by",
+      "object": "United States"
+    },
+    {
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "on account of sex",
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true,
+      "evidence": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.",
+      "id": "abridged_by-state",
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "abridged_by",
+      "object": "State"
+    },
+    {
+      "id": "congress-enforces-article",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "enforce this article by appropriate legislation",
+      "evidence": "Congress shall have power to enforce this article by appropriate legislation.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_19",
+      "in_scope": true
+    }
+  ],
+  "forbidden": [
+    {
+      "subject": "right of citizens of the United States to vote",
+      "predicate": "denied_by",
+      "object": "State",
+      "polarity": "positive",
+      "critical": true
+    }
+  ]
+}

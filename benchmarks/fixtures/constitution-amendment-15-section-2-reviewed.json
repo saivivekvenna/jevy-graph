@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-15-section-2-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution AMENDMENT_15_SECTION_2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full short enforcement-power section against the frozen transcript; the single asserted claim is Congress's power to enforce this amendment by appropriate legislation. Repeated wording in several amendments is treated as development material.",
+  "text": "AMENDMENT XV\nSection 2.\nThe Congress shall have power to enforce this article by appropriate legislation.",
+  "gold": [
+    {
+      "id": "a15s2-congress-enforcement-power",
+      "subject": "Congress",
+      "predicate": "authorized_to",
+      "object": "enforce this article by appropriate legislation",
+      "evidence": "The Congress shall have power to enforce this article by appropriate legislation.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_15_SECTION_2",
+      "in_scope": true
+    }
+  ]
+}

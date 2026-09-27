@@ -1,0 +1,190 @@
+{
+  "id": "biomedical-wnt-pai1-mechanism-reviewed",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2915703/",
+  "source_locator": "Abstract findings and Experimental Procedures, Cell Culture and Treatment",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "instruction": "Only biological functions and supported causal findings; exclude routine procedures. Group by relation type.",
+  "review_notes": "Codex reviewed exactly the three selected abstract sentences and one noncontiguous experimental-procedure sentence, not the full paper. The source calls the Smad conclusion suggestive and the p38/JNK inhibition partial. The Western blot collection is a procedure and out of scope. \u03b2-catenin induction refers back to PAI-1; \u201cthem\u201d refers to Smad2 and Smad3. The PI3K/Akt and ERK1/2 blockade controls are explicit negative findings. These are Codex labels, not independent human labels.",
+  "text": "Surprisingly, overexpression of Smad2 or Smad3 in HKC-8 cells blocked PAI-1 induction by TGF-\u03b21, whereas knockdown of them sensitized the cells to TGF-\u03b21 stimulation, suggesting that Smad signaling is not responsible for PAI-1 induction. Blockade of several TGF-\u03b21 downstream pathways such as p38 MAPK or JNK, but not phosphatidylinositol 3-kinase/Akt and ERK1/2, only partially inhibited PAI-1 expression. TGF-\u03b21 stimulated \u03b2-catenin activation in tubular epithelial cells, and ectopic expression of \u03b2-catenin induced PAI-1 expression, whereas inhibition of \u03b2-catenin abolished its induction.\n\nThe cells were then collected for Western blot analyses.",
+  "gold": [
+    {
+      "id": "smad2-overexpression-blocks",
+      "subject": "overexpression of Smad2",
+      "predicate": "blocked",
+      "object": "PAI-1 induction by TGF-\u03b21",
+      "evidence": "overexpression of Smad2 or Smad3 in HKC-8 cells blocked PAI-1 induction by TGF-\u03b21",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "in HKC-8 cells",
+      "in_scope": true
+    },
+    {
+      "id": "smad2-knockdown-sensitizes",
+      "subject": "knockdown of Smad2",
+      "predicate": "sensitized",
+      "object": "HKC-8 cells to TGF-\u03b21 stimulation",
+      "evidence": "knockdown of them sensitized the cells to TGF-\u03b21 stimulation",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "in HKC-8 cells",
+      "in_scope": true
+    },
+    {
+      "id": "smad3-overexpression-blocks",
+      "subject": "overexpression of Smad3",
+      "predicate": "blocked",
+      "object": "PAI-1 induction by TGF-\u03b21",
+      "evidence": "overexpression of Smad2 or Smad3 in HKC-8 cells blocked PAI-1 induction by TGF-\u03b21",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "in HKC-8 cells",
+      "in_scope": true
+    },
+    {
+      "id": "smad3-knockdown-sensitizes",
+      "subject": "knockdown of Smad3",
+      "predicate": "sensitized",
+      "object": "HKC-8 cells to TGF-\u03b21 stimulation",
+      "evidence": "knockdown of them sensitized the cells to TGF-\u03b21 stimulation",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "in HKC-8 cells",
+      "in_scope": true
+    },
+    {
+      "id": "smad-not-responsible",
+      "subject": "Smad signaling",
+      "predicate": "responsible_for",
+      "object": "PAI-1 induction",
+      "evidence": "suggesting that Smad signaling is not responsible for PAI-1 induction",
+      "modality": "suggested",
+      "polarity": "negative",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "tgf-induces-pai1",
+      "subject": "TGF-\u03b21",
+      "predicate": "induces",
+      "object": "PAI-1 expression",
+      "evidence": "PAI-1 induction by TGF-\u03b21",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "p38-mapk-downstream",
+      "subject": "p38 MAPK",
+      "predicate": "downstream_of",
+      "object": "TGF-\u03b21",
+      "evidence": "TGF-\u03b21 downstream pathways such as p38 MAPK or JNK",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "p38-mapk-blockade",
+      "subject": "blockade of p38 MAPK",
+      "predicate": "partially_inhibited",
+      "object": "PAI-1 expression",
+      "evidence": "Blockade of several TGF-\u03b21 downstream pathways such as p38 MAPK or JNK, but not phosphatidylinositol 3-kinase/Akt and ERK1/2, only partially inhibited PAI-1 expression.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "jnk-downstream",
+      "subject": "JNK",
+      "predicate": "downstream_of",
+      "object": "TGF-\u03b21",
+      "evidence": "TGF-\u03b21 downstream pathways such as p38 MAPK or JNK",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "jnk-blockade",
+      "subject": "blockade of JNK",
+      "predicate": "partially_inhibited",
+      "object": "PAI-1 expression",
+      "evidence": "Blockade of several TGF-\u03b21 downstream pathways such as p38 MAPK or JNK, but not phosphatidylinositol 3-kinase/Akt and ERK1/2, only partially inhibited PAI-1 expression.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "phosphatidylinositol-3-kinase-akt-blockade",
+      "subject": "blockade of phosphatidylinositol 3-kinase/Akt",
+      "predicate": "inhibited",
+      "object": "PAI-1 expression",
+      "evidence": "Blockade of several TGF-\u03b21 downstream pathways such as p38 MAPK or JNK, but not phosphatidylinositol 3-kinase/Akt and ERK1/2, only partially inhibited PAI-1 expression.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "erk1-2-blockade",
+      "subject": "blockade of ERK1/2",
+      "predicate": "inhibited",
+      "object": "PAI-1 expression",
+      "evidence": "Blockade of several TGF-\u03b21 downstream pathways such as p38 MAPK or JNK, but not phosphatidylinositol 3-kinase/Akt and ERK1/2, only partially inhibited PAI-1 expression.",
+      "modality": null,
+      "polarity": "negative",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "tgf-activates-beta",
+      "subject": "TGF-\u03b21",
+      "predicate": "stimulated",
+      "object": "\u03b2-catenin activation",
+      "evidence": "TGF-\u03b21 stimulated \u03b2-catenin activation in tubular epithelial cells",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "in tubular epithelial cells",
+      "in_scope": true
+    },
+    {
+      "id": "beta-induces-pai1",
+      "subject": "ectopic expression of \u03b2-catenin",
+      "predicate": "induced",
+      "object": "PAI-1 expression",
+      "evidence": "ectopic expression of \u03b2-catenin induced PAI-1 expression",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "beta-inhibition-abolishes",
+      "subject": "inhibition of \u03b2-catenin",
+      "predicate": "abolished",
+      "object": "PAI-1 induction",
+      "evidence": "inhibition of \u03b2-catenin abolished its induction",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "cells-collected-for-western-blot",
+      "subject": "cells",
+      "predicate": "collected_for",
+      "object": "Western blot analyses",
+      "evidence": "The cells were then collected for Western blot analyses.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": false
+    }
+  ]
+}

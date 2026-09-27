@@ -1,0 +1,108 @@
+{
+  "id": "constitution-amendment-20-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11–27 transcript, Amendment XX Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section. The first four claims set the four offices' term-end times, and the next four set the corresponding successors' start times. The pre-ratification scheduled end-year qualifier applies to the transition. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XX\nSection 1.\n\nThe terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified; and the terms of their successors shall then begin.",
+  "gold": [
+    {
+      "id": "president-term-ends",
+      "subject": "term of President",
+      "predicate": "ends_at",
+      "object": "noon on the 20th day of January",
+      "evidence": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "president-successor-begins",
+      "subject": "term of successor to President",
+      "predicate": "begins_at",
+      "object": "noon on the 20th day of January",
+      "evidence": "and the terms of their successors shall then begin",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "vice-president-term-ends",
+      "subject": "term of Vice President",
+      "predicate": "ends_at",
+      "object": "noon on the 20th day of January",
+      "evidence": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "vice-president-successor-begins",
+      "subject": "term of successor to Vice President",
+      "predicate": "begins_at",
+      "object": "noon on the 20th day of January",
+      "evidence": "and the terms of their successors shall then begin",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "senator-term-ends",
+      "subject": "term of Senator",
+      "predicate": "ends_at",
+      "object": "noon on the 3d day of January",
+      "evidence": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "senator-successor-begins",
+      "subject": "term of successor to Senator",
+      "predicate": "begins_at",
+      "object": "noon on the 3d day of January",
+      "evidence": "and the terms of their successors shall then begin",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "representative-term-ends",
+      "subject": "term of Representative",
+      "predicate": "ends_at",
+      "object": "noon on the 3d day of January",
+      "evidence": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "representative-successor-begins",
+      "subject": "term of successor to Representative",
+      "predicate": "begins_at",
+      "object": "noon on the 3d day of January",
+      "evidence": "and the terms of their successors shall then begin",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in the years in which such terms would have ended if this article had not been ratified",
+      "source_unit": "AMENDMENT_20_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

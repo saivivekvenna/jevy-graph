@@ -1,0 +1,133 @@
+{
+  "review_status": "codex_reviewed_development",
+  "report_sha256": "40e011254422a49e56c7f6443e3e9310cbdaad47585d378d432fcfc98ebb0c6f",
+  "fixture_sha256": "69abade961c42884abeb1b9132cdd956f1e1e6ef598e21038567eb851c6de0b9",
+  "claims_expected": 15,
+  "claims_emitted": 15,
+  "complete_supported": 15,
+  "precision": 1.0,
+  "recall": 1.0,
+  "caveat": "Selected short-sentence development pilot refined on these cases. Different granularity and context scope from the full-paper 88-claim audit; scores must not be directly compared.",
+  "reviews": [
+    {
+      "case_id": "and_outcomes",
+      "expected_id": "and_outcomes:1",
+      "expected": "TINCR knockdown increased proliferation in CRC cells",
+      "output_index": 0,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "and_outcomes",
+      "expected_id": "and_outcomes:2",
+      "expected": "TINCR knockdown increased migration in CRC cells",
+      "output_index": 1,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "negation",
+      "expected_id": "negation:1",
+      "expected": "TINCR knockdown did not increase proliferation in CRC cells",
+      "output_index": 2,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "hedge",
+      "expected_id": "hedge:1",
+      "expected": "TINCR knockdown may increase proliferation in CRC cells",
+      "output_index": 3,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "passive",
+      "expected_id": "passive:1",
+      "expected": "c-Myc repressed TINCR expression in CRC cells",
+      "output_index": 4,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "collective",
+      "expected_id": "collective:1",
+      "expected": "Alice and Bob jointly founded Acme; do not assert either alone",
+      "output_index": 5,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "condition",
+      "expected_id": "condition:1",
+      "expected": "Drug A reduced tumor growth only in treated mice",
+      "output_index": 6,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_passive",
+      "expected_id": "tincr_passive:1",
+      "expected": "Sp1 transcribes TINCR",
+      "output_index": 7,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_passive",
+      "expected_id": "tincr_passive:2",
+      "expected": "c-Myc represses TINCR",
+      "output_index": 8,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_partial",
+      "expected_id": "tincr_partial:1",
+      "expected": "c-Myc partly suppresses Sp1-induced TINCR expression",
+      "output_index": 9,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_sp1",
+      "expected_id": "tincr_sp1:1",
+      "expected": "Sp1 overexpression significantly increases TINCR expression in HCT116 and SW480 cells; both settings must be preserved",
+      "output_index": 10,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_measurement",
+      "expected_id": "tincr_measurement:1",
+      "expected": "TINCR knockdown increases TOP-Flash reporter activity by 200%-300%",
+      "output_index": 11,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_two_predicates",
+      "expected_id": "tincr_two_predicates:1",
+      "expected": "TINCR knockdown did not change EpCAM mRNA in CRC cells",
+      "output_index": 12,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "tincr_two_predicates",
+      "expected_id": "tincr_two_predicates:2",
+      "expected": "TINCR knockdown downregulated EpCAM protein levels in CRC cells",
+      "output_index": 13,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    },
+    {
+      "case_id": "medication",
+      "expected_id": "medication:1",
+      "expected": "study medication successfully altered dopaminergic tone during conditioning",
+      "output_index": 14,
+      "verdict": "complete_supported",
+      "note": "Codex semantic review of the complete record against the frozen sentence; passive direction equivalents allowed. Context is in claim fields. No source-prose-only qualifier credit."
+    }
+  ]
+}

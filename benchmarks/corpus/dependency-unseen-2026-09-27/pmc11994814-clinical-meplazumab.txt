@@ -1,0 +1,5 @@
+RESULTS
+
+On day 28, 1 patient (1.96%, 95% CI: 0.05, 10.45) in the meplazumab group, and 4 (7.69%, 95% CI: 2.14, 18.54) in the placebo group had died. A decreased all-cause mortality was observed in the meplazumab group compared to the placebo group, with the difference not being statistically significant (P = 0.170) and the rate difference at 5.72% (95% CI: −2.46, 13.90).
+
+The assessment of other secondary endpoints also indicated potential benefits for patients treated with meplazumab, including a 5.58% increase in the discharge rate on day 28 in the meplazumab group compared to the placebo group (90.20% vs 84.62%). Additionally, the rate of sustained clinical improvement by day 28 was increased by 7.47% in the meplazumab group compared to the placebo group (88.24% vs 80.77%).

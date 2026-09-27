@@ -1,0 +1,84 @@
+{
+  "id": "constitution-amendment-11-reviewed",
+  "domain": "legal",
+  "source": "National Archives Amendments 11\u201327 transcript, Amendment XI",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete Eleventh Amendment. The prohibition covers suits in law and equity and the three stated plaintiff categories; \u201ccommenced or prosecuted\u201d remains a disjunction within each condition. It does not claim that the judicial power never reaches other kinds of suits. These are Codex labels, not independent human labels.",
+  "text": "AMENDMENT XI\n\nThe Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+  "gold": [
+    {
+      "id": "law-other-state",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in law against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Citizens of another State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    },
+    {
+      "id": "law-foreign-citizens",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in law against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Citizens of any Foreign State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    },
+    {
+      "id": "law-foreign-subjects",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in law against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Subjects of any Foreign State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    },
+    {
+      "id": "equity-other-state",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in equity against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Citizens of another State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    },
+    {
+      "id": "equity-foreign-citizens",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in equity against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Citizens of any Foreign State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    },
+    {
+      "id": "equity-foreign-subjects",
+      "subject": "Judicial power of the United States",
+      "predicate": "construed_to_extend_to",
+      "object": "suit in equity against one of the United States",
+      "evidence": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "commenced or prosecuted by Subjects of any Foreign State",
+      "source_unit": "AMENDMENT_11",
+      "in_scope": true
+    }
+  ]
+}

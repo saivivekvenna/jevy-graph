@@ -1,0 +1,120 @@
+{
+  "id": "constitution-article-2-section-4-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Article II Section 4",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed every word of Article II Section 4. The Article II heading is repeated in this standalone section excerpt to preserve its source locator. Removal applies to each of three officer categories for each of three named grounds only after both impeachment and conviction. These are Codex labels, not independent human labels.",
+  "text": "Article. II.\nSection. 4.\n\nThe President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+  "gold": [
+    {
+      "id": "president-treason",
+      "subject": "President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Treason",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "president-bribery",
+      "subject": "President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Bribery",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "president-other-high-crimes-and-misdemeanors",
+      "subject": "President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of other high Crimes and Misdemeanors",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "vice-president-treason",
+      "subject": "Vice President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Treason",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "vice-president-bribery",
+      "subject": "Vice President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Bribery",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "vice-president-other-high-crimes-and-misdemeanors",
+      "subject": "Vice President",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of other high Crimes and Misdemeanors",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "civil-officers-of-the-united-states-treason",
+      "subject": "civil Officers of the United States",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Treason",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "civil-officers-of-the-united-states-bribery",
+      "subject": "civil Officers of the United States",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of Bribery",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    },
+    {
+      "id": "civil-officers-of-the-united-states-other-high-crimes-and-misdemeanors",
+      "subject": "civil Officers of the United States",
+      "predicate": "removed_from",
+      "object": "Office",
+      "evidence": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "upon Impeachment for and Conviction of other high Crimes and Misdemeanors",
+      "source_unit": "ARTICLE_2_SECTION_4",
+      "in_scope": true
+    }
+  ]
+}

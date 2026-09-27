@@ -1,0 +1,56 @@
+{
+  "id": "constitution-amendment-8-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Amendment VIII",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed all three parallel prohibitions in the full amendment. A negative has_status claim encodes the omitted passive actor without inventing one. This section informed the parser fix and remains development.",
+  "text": "Amendment VIII\nExcessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.",
+  "gold": [
+    {
+      "id": "excessive-bail",
+      "subject": "Excessive bail",
+      "predicate": "has_status",
+      "object": "required",
+      "evidence": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_8",
+      "in_scope": true
+    },
+    {
+      "id": "excessive-fines",
+      "subject": "excessive fines",
+      "predicate": "has_status",
+      "object": "imposed",
+      "evidence": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_8",
+      "in_scope": true
+    },
+    {
+      "id": "cruel-punishments",
+      "subject": "cruel and unusual punishments",
+      "predicate": "has_status",
+      "object": "inflicted",
+      "evidence": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_8",
+      "in_scope": true
+    }
+  ],
+  "forbidden": [
+    {
+      "subject": "Excessive bail",
+      "predicate": "requires",
+      "object": "cruel and unusual punishments",
+      "critical": true
+    }
+  ]
+}

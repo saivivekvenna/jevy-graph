@@ -1,0 +1,108 @@
+{
+  "id": "constitution-amendment-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment I",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete frozen First Amendment sentence. Six clauses constrain laws Congress may enact; the text also expressly names the people\u2019s rights to assemble peaceably and petition for redress. The reference to \u201cthereof\u201d resolves to religion. These are Codex labels, not independent human labels.",
+  "text": "Amendment I\n\nCongress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
+  "gold": [
+    {
+      "id": "establishment",
+      "subject": "Congress",
+      "predicate": "enacts_law_respecting",
+      "object": "establishment of religion",
+      "evidence": "Congress shall make no law respecting an establishment of religion",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "free-exercise",
+      "subject": "Congress",
+      "predicate": "enacts_law_prohibiting",
+      "object": "free exercise of religion",
+      "evidence": "prohibiting the free exercise thereof",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "speech",
+      "subject": "Congress",
+      "predicate": "enacts_law_abridging",
+      "object": "freedom of speech",
+      "evidence": "abridging the freedom of speech",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "press",
+      "subject": "Congress",
+      "predicate": "enacts_law_abridging",
+      "object": "freedom of the press",
+      "evidence": "or of the press",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "assembly-law",
+      "subject": "Congress",
+      "predicate": "enacts_law_abridging",
+      "object": "right of the people to peaceably assemble",
+      "evidence": "right of the people peaceably to assemble",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "petition-law",
+      "subject": "Congress",
+      "predicate": "enacts_law_abridging",
+      "object": "right of the people to petition the Government for a redress of grievances",
+      "evidence": "to petition the Government for a redress of grievances",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "assembly-right",
+      "subject": "people",
+      "predicate": "has_right_to",
+      "object": "peaceably assemble",
+      "evidence": "right of the people peaceably to assemble",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    },
+    {
+      "id": "petition-right",
+      "subject": "people",
+      "predicate": "has_right_to",
+      "object": "petition the Government for a redress of grievances",
+      "evidence": "to petition the Government for a redress of grievances",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_1",
+      "in_scope": true
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-10-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment X",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete Tenth Amendment sentence as one conditional reservation rule. The two negated clauses limit which powers the rule covers; they do not assert that every power is undelegated or unprohibited. The recipients remain a source-level disjunction, States respectively or people. These are Codex labels, not independent human labels.",
+  "text": "Amendment X\n\nThe powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+  "gold": [
+    {
+      "id": "reserved-powers",
+      "subject": "powers",
+      "predicate": "reserved_to",
+      "object": "States respectively or people",
+      "evidence": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": "not delegated to the United States by the Constitution; not prohibited by the Constitution to the States",
+      "source_unit": "AMENDMENT_10",
+      "in_scope": true
+    }
+  ]
+}

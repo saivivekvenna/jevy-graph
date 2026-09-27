@@ -1,0 +1,48 @@
+{
+  "id": "constitution-article-1-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Article I Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "test",
+  "review_notes": "Codex reviewed the single substantive sentence and split the Congress composition into Senate and House claims.",
+  "text": "Article. I.\nSection. 1.\nAll legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+  "gold": [
+    {
+      "evidence": "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_1",
+      "in_scope": true,
+      "id": "powers-vested-in-congress",
+      "subject": "legislative Powers herein granted",
+      "predicate": "vested_in",
+      "object": "Congress of the United States"
+    },
+    {
+      "evidence": "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_1",
+      "in_scope": true,
+      "id": "congress-consists-of-senate",
+      "subject": "Congress of the United States",
+      "predicate": "consists_of",
+      "object": "Senate"
+    },
+    {
+      "evidence": "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "ARTICLE_1_SECTION_1",
+      "in_scope": true,
+      "id": "congress-consists-of-house",
+      "subject": "Congress of the United States",
+      "predicate": "consists_of",
+      "object": "House of Representatives"
+    }
+  ]
+}

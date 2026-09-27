@@ -1,0 +1,808 @@
+{
+  "id": "broad-literature-frozen-gold-2026-09-27",
+  "frozen_at": "2026-09-27T15:47:35.750700+00:00",
+  "frozen_before_extraction": true,
+  "reviewer": "Codex",
+  "documents": [
+    {
+      "pmcid": "PMC11502329",
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11502329-plant-drought-da6.txt",
+      "source_sha256": "6a44a600d061714d2467aad49810d86975461dd82359515222968a9337a0b9c0",
+      "scope": "All atomic physiological findings in the selected Results paragraph; procedures and figure references excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "foliar DA-6 application",
+          "predicate": "does_not_change",
+          "object": "leaf relative water content",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Under normal condition, foliar application of DA-6 exhibited no significant changes in RWC and OP in leaves, but white clover plants pretreated with DA-6 showed 28.48% higher RWC and 17.43% lower OP when compared with untreated plants under drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E002",
+          "subject": "foliar DA-6 application",
+          "predicate": "does_not_change",
+          "object": "leaf osmotic potential",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Under normal condition, foliar application of DA-6 exhibited no significant changes in RWC and OP in leaves, but white clover plants pretreated with DA-6 showed 28.48% higher RWC and 17.43% lower OP when compared with untreated plants under drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E003",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "leaf relative water content by 28.48%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "Under normal condition, foliar application of DA-6 exhibited no significant changes in RWC and OP in leaves, but white clover plants pretreated with DA-6 showed 28.48% higher RWC and 17.43% lower OP when compared with untreated plants under drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E004",
+          "subject": "DA-6 pretreatment",
+          "predicate": "decreases",
+          "object": "leaf osmotic potential by 17.43%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "Under normal condition, foliar application of DA-6 exhibited no significant changes in RWC and OP in leaves, but white clover plants pretreated with DA-6 showed 28.48% higher RWC and 17.43% lower OP when compared with untreated plants under drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E005",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "total chlorophyll content",
+          "modality": "asserted",
+          "condition": "in white clover under non-stress conditions",
+          "negation": false,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E006",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "chlorophyll a content",
+          "modality": "asserted",
+          "condition": "in white clover under non-stress conditions",
+          "negation": false,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E007",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "chlorophyll b content",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E008",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "chlorophyll a/b ratio",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E009",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "Fv/Fm",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E010",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "PIABS",
+          "modality": "asserted",
+          "condition": "in white clover under normal conditions",
+          "negation": true,
+          "evidence": "Exogenous DA-6 pretreatment significantly increased contents of total Chl and Chl a under non-stress condition, however, Chl b, Chl a/b, Fv/Fm, and PIABS remained unaffected by the DA-6 under normal condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E011",
+          "subject": "drought stress",
+          "predicate": "decreases",
+          "object": "total chlorophyll content",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": false,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E012",
+          "subject": "drought stress",
+          "predicate": "decreases",
+          "object": "chlorophyll a content",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": false,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E013",
+          "subject": "drought stress",
+          "predicate": "decreases",
+          "object": "chlorophyll b content",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": false,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E014",
+          "subject": "drought stress",
+          "predicate": "decreases",
+          "object": "Fv/Fm",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": false,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E015",
+          "subject": "drought stress",
+          "predicate": "decreases",
+          "object": "PIABS",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": false,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E016",
+          "subject": "drought stress",
+          "predicate": "does_not_change",
+          "object": "chlorophyll a/b ratio",
+          "modality": "asserted",
+          "condition": "in DA-6-treated and untreated white clover plants",
+          "negation": true,
+          "evidence": "Drought stress substantially reduced the total Chl content, Chl a content, Chl b content, Fv/Fm, and PIABS in both DA-6-treated and untreated plants, but did not affect the ratio of Chl a to Chl b.",
+          "in_scope": true
+        },
+        {
+          "id": "E017",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "total chlorophyll content by 16%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "DA-6-pretreated plants demonstrated a 16%, 16%, 7%, or 32% significantly higher total Chl content, Chl a content, Fv/Fm, or PIABS than non-treated plants exposed to drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E018",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "chlorophyll a content by 16%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "DA-6-pretreated plants demonstrated a 16%, 16%, 7%, or 32% significantly higher total Chl content, Chl a content, Fv/Fm, or PIABS than non-treated plants exposed to drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E019",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "Fv/Fm by 7%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "DA-6-pretreated plants demonstrated a 16%, 16%, 7%, or 32% significantly higher total Chl content, Chl a content, Fv/Fm, or PIABS than non-treated plants exposed to drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E020",
+          "subject": "DA-6 pretreatment",
+          "predicate": "increases",
+          "object": "PIABS by 32%",
+          "modality": "asserted",
+          "condition": "in white clover under drought stress; versus untreated plants",
+          "negation": false,
+          "evidence": "DA-6-pretreated plants demonstrated a 16%, 16%, 7%, or 32% significantly higher total Chl content, Chl a content, Fv/Fm, or PIABS than non-treated plants exposed to drought stress.",
+          "in_scope": true
+        },
+        {
+          "id": "E021",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "chlorophyll b content",
+          "modality": "asserted",
+          "condition": "in white clover under water-deficient conditions",
+          "negation": true,
+          "evidence": "The DA-6 had no significant effect on Chl b content and Chl a/b ratio under water deficient condition.",
+          "in_scope": true
+        },
+        {
+          "id": "E022",
+          "subject": "DA-6 pretreatment",
+          "predicate": "does_not_change",
+          "object": "chlorophyll a/b ratio",
+          "modality": "asserted",
+          "condition": "in white clover under water-deficient conditions",
+          "negation": true,
+          "evidence": "The DA-6 had no significant effect on Chl b content and Chl a/b ratio under water deficient condition.",
+          "in_scope": true
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC10634331",
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc10634331-cancer-pcmt1.txt",
+      "source_sha256": "2cfc020fc27886638a4b49b4aac555869d6e423b4e075b2eaefa8d702ef17974",
+      "scope": "All atomic biological findings in the selected Results paragraph; procedures excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "PCMT1 knockdown",
+          "predicate": "inhibits",
+          "object": "migration ability",
+          "modality": "asserted",
+          "condition": "in MDA-MB-231 cells",
+          "negation": false,
+          "evidence": "The results proved that PCMT1 knockdown significantly inhibited the migration and invasion ability of MDA-MB-231 cells (Figs. 2A–2D).",
+          "in_scope": true
+        },
+        {
+          "id": "E002",
+          "subject": "PCMT1 knockdown",
+          "predicate": "inhibits",
+          "object": "invasion ability",
+          "modality": "asserted",
+          "condition": "in MDA-MB-231 cells",
+          "negation": false,
+          "evidence": "The results proved that PCMT1 knockdown significantly inhibited the migration and invasion ability of MDA-MB-231 cells (Figs. 2A–2D).",
+          "in_scope": true
+        },
+        {
+          "id": "E003",
+          "subject": "PCMT1",
+          "predicate": "plays_role_in",
+          "object": "breast cancer progression, including TNBC",
+          "modality": "possible",
+          "condition": null,
+          "negation": false,
+          "evidence": "These results together indicate that PCMT1 may play an important role in the progression of breast cancer, including TNBC.",
+          "in_scope": true
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC11888539",
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11888539-respiratory-four-gene.txt",
+      "source_sha256": "b1fdbb199627775b9e93ac9cd999a584eaa103fe7709dfd054fd05597ffa5ebe",
+      "scope": "All atomic diagnostic findings in the selected Results paragraph; procedural setup excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "relaxed LASSO cross-validation",
+          "predicate": "produces",
+          "object": "a 4-gene diagnostic signature",
+          "modality": "asserted",
+          "condition": "for any bacterial infection",
+          "negation": false,
+          "evidence": "The cross-validation (CV) procedure relaxed LASSO parameters that resulted in a 4-gene diagnostic signature for any bacterial infection.",
+          "in_scope": true
+        },
+        {
+          "id": "E002",
+          "subject": "4-gene diagnostic signature",
+          "predicate": "includes",
+          "object": "weighted expression of ITGA7",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The final signature included weighted expression of ITGA7, IFI27, FAM20A and ITGB4.",
+          "in_scope": true
+        },
+        {
+          "id": "E003",
+          "subject": "4-gene diagnostic signature",
+          "predicate": "includes",
+          "object": "weighted expression of IFI27",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The final signature included weighted expression of ITGA7, IFI27, FAM20A and ITGB4.",
+          "in_scope": true
+        },
+        {
+          "id": "E004",
+          "subject": "4-gene diagnostic signature",
+          "predicate": "includes",
+          "object": "weighted expression of FAM20A",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The final signature included weighted expression of ITGA7, IFI27, FAM20A and ITGB4.",
+          "in_scope": true
+        },
+        {
+          "id": "E005",
+          "subject": "4-gene diagnostic signature",
+          "predicate": "includes",
+          "object": "weighted expression of ITGB4",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The final signature included weighted expression of ITGA7, IFI27, FAM20A and ITGB4.",
+          "in_scope": true
+        },
+        {
+          "id": "E006",
+          "subject": "4-gene diagnostic signature",
+          "predicate": "has_CV_AUC",
+          "object": "0.90",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Nested CV was used to estimate performance of the procedure via receiver operating characteristic (ROC) analysis (CV-area under the curve [AUC] = 0.90).",
+          "in_scope": true
+        },
+        {
+          "id": "E007",
+          "subject": "ITGA7 expression",
+          "predicate": "higher_in",
+          "object": "subjects with bacterial infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Density plots for the selected genes displayed separate, but overlapping expression patterns with ITGA7, ITGB4 and FAM20A exhibiting higher expression in subjects with bacterial infection and the interferon-related gene IFI27 exhibiting higher expression in subjects lacking a bacterial infection.",
+          "in_scope": true
+        },
+        {
+          "id": "E008",
+          "subject": "ITGB4 expression",
+          "predicate": "higher_in",
+          "object": "subjects with bacterial infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Density plots for the selected genes displayed separate, but overlapping expression patterns with ITGA7, ITGB4 and FAM20A exhibiting higher expression in subjects with bacterial infection and the interferon-related gene IFI27 exhibiting higher expression in subjects lacking a bacterial infection.",
+          "in_scope": true
+        },
+        {
+          "id": "E009",
+          "subject": "FAM20A expression",
+          "predicate": "higher_in",
+          "object": "subjects with bacterial infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Density plots for the selected genes displayed separate, but overlapping expression patterns with ITGA7, ITGB4 and FAM20A exhibiting higher expression in subjects with bacterial infection and the interferon-related gene IFI27 exhibiting higher expression in subjects lacking a bacterial infection.",
+          "in_scope": true
+        },
+        {
+          "id": "E010",
+          "subject": "IFI27 expression",
+          "predicate": "higher_in",
+          "object": "subjects lacking bacterial infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Density plots for the selected genes displayed separate, but overlapping expression patterns with ITGA7, ITGB4 and FAM20A exhibiting higher expression in subjects with bacterial infection and the interferon-related gene IFI27 exhibiting higher expression in subjects lacking a bacterial infection.",
+          "in_scope": true
+        },
+        {
+          "id": "E011",
+          "subject": "ITGA7 expression levels",
+          "predicate": "not_distinctly_different_between",
+          "object": "bacterial subjects with versus without viral co-infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": true,
+          "evidence": "Interestingly, ITGA7 and ITGB4 expression levels were not distinctly different between bacterial subjects with (VB) or without viral co-infection (B), but IFI27 and FAM20A showed clearly distinct patterns in the 3 underlying diagnosis groups.",
+          "in_scope": true
+        },
+        {
+          "id": "E012",
+          "subject": "ITGB4 expression levels",
+          "predicate": "not_distinctly_different_between",
+          "object": "bacterial subjects with versus without viral co-infection",
+          "modality": "asserted",
+          "condition": null,
+          "negation": true,
+          "evidence": "Interestingly, ITGA7 and ITGB4 expression levels were not distinctly different between bacterial subjects with (VB) or without viral co-infection (B), but IFI27 and FAM20A showed clearly distinct patterns in the 3 underlying diagnosis groups.",
+          "in_scope": true
+        },
+        {
+          "id": "E013",
+          "subject": "IFI27 expression",
+          "predicate": "shows_distinct_patterns_across",
+          "object": "three underlying diagnosis groups",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Interestingly, ITGA7 and ITGB4 expression levels were not distinctly different between bacterial subjects with (VB) or without viral co-infection (B), but IFI27 and FAM20A showed clearly distinct patterns in the 3 underlying diagnosis groups.",
+          "in_scope": true
+        },
+        {
+          "id": "E014",
+          "subject": "FAM20A expression",
+          "predicate": "shows_distinct_patterns_across",
+          "object": "three underlying diagnosis groups",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Interestingly, ITGA7 and ITGB4 expression levels were not distinctly different between bacterial subjects with (VB) or without viral co-infection (B), but IFI27 and FAM20A showed clearly distinct patterns in the 3 underlying diagnosis groups.",
+          "in_scope": true
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC11981942",
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc11981942-neural-foundation-model.txt",
+      "source_sha256": "511f50d926cd52eb652af3216213521d72fb3252f0d5a4cde2ed86634ee7b0b1",
+      "scope": "All atomic performance and generalization findings in the selected Results paragraph; training procedure details excluded except where material to the comparison.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "foundation models",
+          "predicate": "outperform",
+          "object": "individual models",
+          "modality": "asserted",
+          "condition": "when tested on natural videos",
+          "negation": false,
+          "evidence": "When tested on natural videos, foundation models outperformed individual models and required less training data from the new mice to achieve high levels of predictive accuracy.",
+          "in_scope": true
+        },
+        {
+          "id": "E002",
+          "subject": "foundation models",
+          "predicate": "require_less",
+          "object": "training data from new mice",
+          "modality": "asserted",
+          "condition": "to achieve high predictive accuracy on natural videos",
+          "negation": false,
+          "evidence": "When tested on natural videos, foundation models outperformed individual models and required less training data from the new mice to achieve high levels of predictive accuracy.",
+          "in_scope": true
+        },
+        {
+          "id": "E003",
+          "subject": "individual models",
+          "predicate": "require",
+          "object": "more than 60 minutes of training data",
+          "modality": "asserted",
+          "condition": "to surpass median CCnorm 0.65 for all mice",
+          "negation": false,
+          "evidence": "For instance, individual models required more than 60 min of training data to surpass a median CCnorm of 0.65 for all mice, whereas foundation models required less than 30 min.",
+          "in_scope": true
+        },
+        {
+          "id": "E004",
+          "subject": "foundation models",
+          "predicate": "require",
+          "object": "less than 30 minutes of training data",
+          "modality": "asserted",
+          "condition": "to surpass median CCnorm 0.65 for all mice",
+          "negation": false,
+          "evidence": "For instance, individual models required more than 60 min of training data to surpass a median CCnorm of 0.65 for all mice, whereas foundation models required less than 30 min.",
+          "in_scope": true
+        },
+        {
+          "id": "E005",
+          "subject": "foundation-model performance gain",
+          "predicate": "occurs_across",
+          "object": "all tested stimulus domains",
+          "modality": "asserted",
+          "condition": "including out-of-distribution stimulus domains",
+          "negation": false,
+          "evidence": "This performance gain was observed across all tested stimulus domains, including those that were in new stimulus domains—that is, out-of-distribution from the training domain of natural videos.",
+          "in_scope": true
+        },
+        {
+          "id": "E006",
+          "subject": "foundation models",
+          "predicate": "more_accurate_than",
+          "object": "individual models",
+          "modality": "asserted",
+          "condition": "when predicting responses to new stimulus domains",
+          "negation": false,
+          "evidence": "Nevertheless, foundation models were more accurate at predicting responses to new stimulus domains and required substantially less training data from the new mice.",
+          "in_scope": true
+        },
+        {
+          "id": "E007",
+          "subject": "foundation models",
+          "predicate": "require_less",
+          "object": "training data from new mice than individual models",
+          "modality": "asserted",
+          "condition": "when predicting responses to new stimulus domains",
+          "negation": false,
+          "evidence": "Nevertheless, foundation models were more accurate at predicting responses to new stimulus domains and required substantially less training data from the new mice.",
+          "in_scope": true
+        },
+        {
+          "id": "E008",
+          "subject": "foundation models",
+          "predicate": "achieve",
+          "object": "median CCnorm greater than 0.55",
+          "modality": "asserted",
+          "condition": "for drifting Gabor filters using 16 minutes of natural-video training data",
+          "negation": false,
+          "evidence": "For example, when predicting drifting Gabor filters, the foundation models were able to achieve a performance of median CCnorm greater than 0.55 using only 16 min of natural video training data.",
+          "in_scope": true
+        },
+        {
+          "id": "E009",
+          "subject": "individual models",
+          "predicate": "require",
+          "object": "more than one hour of training data",
+          "modality": "asserted",
+          "condition": "to achieve median CCnorm greater than 0.55 for drifting Gabor filters",
+          "negation": false,
+          "evidence": "In contrast, the individual models required more than an hour of training data to reach the same performance level.",
+          "in_scope": true
+        },
+        {
+          "id": "E010",
+          "subject": "training a foundation dynamic core on pooled natural-video data",
+          "predicate": "produces",
+          "object": "a robust and transferable representation of visual cortex",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Thus, training a foundation dynamic core on natural video data pooled from multiple cortical layers, areas and mice produces a robust and transferable representation of the visual cortex that generalizes to new mice and improves model performance for natural videos and for novel stimulus domains.",
+          "in_scope": true
+        },
+        {
+          "id": "E011",
+          "subject": "foundation-core representation",
+          "predicate": "generalizes_to",
+          "object": "new mice",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Thus, training a foundation dynamic core on natural video data pooled from multiple cortical layers, areas and mice produces a robust and transferable representation of the visual cortex that generalizes to new mice and improves model performance for natural videos and for novel stimulus domains.",
+          "in_scope": true
+        },
+        {
+          "id": "E012",
+          "subject": "foundation-core representation",
+          "predicate": "improves",
+          "object": "model performance for natural videos",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Thus, training a foundation dynamic core on natural video data pooled from multiple cortical layers, areas and mice produces a robust and transferable representation of the visual cortex that generalizes to new mice and improves model performance for natural videos and for novel stimulus domains.",
+          "in_scope": true
+        },
+        {
+          "id": "E013",
+          "subject": "foundation-core representation",
+          "predicate": "improves",
+          "object": "model performance for novel stimulus domains",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "Thus, training a foundation dynamic core on natural video data pooled from multiple cortical layers, areas and mice produces a robust and transferable representation of the visual cortex that generalizes to new mice and improves model performance for natural videos and for novel stimulus domains.",
+          "in_scope": true
+        }
+      ]
+    },
+    {
+      "pmcid": "PMC10728077",
+      "source": "benchmarks/corpus/broad-literature-2026-09-27/pmc10728077-global-fever-classifier.txt",
+      "source_sha256": "6a5f64972a9e7ece2ed24c74a4ba5bb96bf453fdcad13d20563c420653652ebd",
+      "scope": "All atomic diagnostic performance findings in the selected Results paragraphs; procedural details excluded.",
+      "gold": [
+        {
+          "id": "E001",
+          "subject": "GF-B/V model",
+          "predicate": "classifies",
+          "object": "bacterial versus viral disease with high accuracy",
+          "modality": "asserted",
+          "condition": "internal fivefold cross-validation",
+          "negation": false,
+          "evidence": "The Global Fever-Bacterial/Viral (GF-B/V) model classified bacterial from viral disease with high accuracy when internally validated using fivefold cross-validation: AUROC of 0.93, sensitivity of 84.2% (95% CI 75.6–90.7), specificity of 94.7% (95% CI 88.6–97.7), and overall accuracy of 89.7% (95% CI 85.0–93.4).",
+          "in_scope": true
+        },
+        {
+          "id": "E002",
+          "subject": "GF-B/V model",
+          "predicate": "has_AUROC",
+          "object": "0.93",
+          "modality": "asserted",
+          "condition": "internal fivefold cross-validation",
+          "negation": false,
+          "evidence": "The Global Fever-Bacterial/Viral (GF-B/V) model classified bacterial from viral disease with high accuracy when internally validated using fivefold cross-validation: AUROC of 0.93, sensitivity of 84.2% (95% CI 75.6–90.7), specificity of 94.7% (95% CI 88.6–97.7), and overall accuracy of 89.7% (95% CI 85.0–93.4).",
+          "in_scope": true
+        },
+        {
+          "id": "E003",
+          "subject": "GF-B/V model",
+          "predicate": "has_sensitivity",
+          "object": "84.2% (95% CI 75.6–90.7)",
+          "modality": "asserted",
+          "condition": "internal fivefold cross-validation",
+          "negation": false,
+          "evidence": "The Global Fever-Bacterial/Viral (GF-B/V) model classified bacterial from viral disease with high accuracy when internally validated using fivefold cross-validation: AUROC of 0.93, sensitivity of 84.2% (95% CI 75.6–90.7), specificity of 94.7% (95% CI 88.6–97.7), and overall accuracy of 89.7% (95% CI 85.0–93.4).",
+          "in_scope": true
+        },
+        {
+          "id": "E004",
+          "subject": "GF-B/V model",
+          "predicate": "has_specificity",
+          "object": "94.7% (95% CI 88.6–97.7)",
+          "modality": "asserted",
+          "condition": "internal fivefold cross-validation",
+          "negation": false,
+          "evidence": "The Global Fever-Bacterial/Viral (GF-B/V) model classified bacterial from viral disease with high accuracy when internally validated using fivefold cross-validation: AUROC of 0.93, sensitivity of 84.2% (95% CI 75.6–90.7), specificity of 94.7% (95% CI 88.6–97.7), and overall accuracy of 89.7% (95% CI 85.0–93.4).",
+          "in_scope": true
+        },
+        {
+          "id": "E005",
+          "subject": "GF-B/V model",
+          "predicate": "has_accuracy",
+          "object": "89.7% (95% CI 85.0–93.4)",
+          "modality": "asserted",
+          "condition": "internal fivefold cross-validation",
+          "negation": false,
+          "evidence": "The Global Fever-Bacterial/Viral (GF-B/V) model classified bacterial from viral disease with high accuracy when internally validated using fivefold cross-validation: AUROC of 0.93, sensitivity of 84.2% (95% CI 75.6–90.7), specificity of 94.7% (95% CI 88.6–97.7), and overall accuracy of 89.7% (95% CI 85.0–93.4).",
+          "in_scope": true
+        },
+        {
+          "id": "E006",
+          "subject": "GF-B/V model performance",
+          "predicate": "remains_similar_after_stratifying_by",
+          "object": "specific pathogen",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The model demonstrated similar performance after stratifying for specific pathogen, site, age, sex, or race.",
+          "in_scope": true
+        },
+        {
+          "id": "E007",
+          "subject": "GF-B/V model performance",
+          "predicate": "remains_similar_after_stratifying_by",
+          "object": "site",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The model demonstrated similar performance after stratifying for specific pathogen, site, age, sex, or race.",
+          "in_scope": true
+        },
+        {
+          "id": "E008",
+          "subject": "GF-B/V model performance",
+          "predicate": "remains_similar_after_stratifying_by",
+          "object": "age",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The model demonstrated similar performance after stratifying for specific pathogen, site, age, sex, or race.",
+          "in_scope": true
+        },
+        {
+          "id": "E009",
+          "subject": "GF-B/V model performance",
+          "predicate": "remains_similar_after_stratifying_by",
+          "object": "sex",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The model demonstrated similar performance after stratifying for specific pathogen, site, age, sex, or race.",
+          "in_scope": true
+        },
+        {
+          "id": "E010",
+          "subject": "GF-B/V model performance",
+          "predicate": "remains_similar_after_stratifying_by",
+          "object": "race",
+          "modality": "asserted",
+          "condition": null,
+          "negation": false,
+          "evidence": "The model demonstrated similar performance after stratifying for specific pathogen, site, age, sex, or race.",
+          "in_scope": true
+        },
+        {
+          "id": "E011",
+          "subject": "GF-B/V model",
+          "predicate": "has_AUROC",
+          "object": "0.84 (95% CI 0.76–0.9)",
+          "modality": "asserted",
+          "condition": "independent validation cohort",
+          "negation": false,
+          "evidence": "For the discrimination of bacterial and viral infection, the GF-B/V model an AUROC of 0.84 (95% CI 0.76–0.9), sensitivity of 78.8% (95% CI 65.3–88.9), specificity of 84.3% (95% CI 71.4–93.0), and overall accuracy of 81.6% (95% CI 72.7–88.5).",
+          "in_scope": true
+        },
+        {
+          "id": "E012",
+          "subject": "GF-B/V model",
+          "predicate": "has_sensitivity",
+          "object": "78.8% (95% CI 65.3–88.9)",
+          "modality": "asserted",
+          "condition": "independent validation cohort",
+          "negation": false,
+          "evidence": "For the discrimination of bacterial and viral infection, the GF-B/V model an AUROC of 0.84 (95% CI 0.76–0.9), sensitivity of 78.8% (95% CI 65.3–88.9), specificity of 84.3% (95% CI 71.4–93.0), and overall accuracy of 81.6% (95% CI 72.7–88.5).",
+          "in_scope": true
+        },
+        {
+          "id": "E013",
+          "subject": "GF-B/V model",
+          "predicate": "has_specificity",
+          "object": "84.3% (95% CI 71.4–93.0)",
+          "modality": "asserted",
+          "condition": "independent validation cohort",
+          "negation": false,
+          "evidence": "For the discrimination of bacterial and viral infection, the GF-B/V model an AUROC of 0.84 (95% CI 0.76–0.9), sensitivity of 78.8% (95% CI 65.3–88.9), specificity of 84.3% (95% CI 71.4–93.0), and overall accuracy of 81.6% (95% CI 72.7–88.5).",
+          "in_scope": true
+        },
+        {
+          "id": "E014",
+          "subject": "GF-B/V model",
+          "predicate": "has_accuracy",
+          "object": "81.6% (95% CI 72.7–88.5)",
+          "modality": "asserted",
+          "condition": "independent validation cohort",
+          "negation": false,
+          "evidence": "For the discrimination of bacterial and viral infection, the GF-B/V model an AUROC of 0.84 (95% CI 0.76–0.9), sensitivity of 78.8% (95% CI 65.3–88.9), specificity of 84.3% (95% CI 71.4–93.0), and overall accuracy of 81.6% (95% CI 72.7–88.5).",
+          "in_scope": true
+        },
+        {
+          "id": "E015",
+          "subject": "GF-B/V model",
+          "predicate": "discriminates",
+          "object": "spotted fever group rickettsiae",
+          "modality": "asserted",
+          "condition": "difficult-to-diagnose zoonotic pathogens absent from discovery cohort",
+          "negation": false,
+          "evidence": "Additionally, GF-B/V discriminated difficult-to-diagnose bacterial zoonotic pathogens not included in the discovery cohort, such as spotted fever group rickettsiae, B. pseudomallei, and Brucella spp.",
+          "in_scope": true
+        },
+        {
+          "id": "E016",
+          "subject": "GF-B/V model",
+          "predicate": "discriminates",
+          "object": "B. pseudomallei",
+          "modality": "asserted",
+          "condition": "difficult-to-diagnose zoonotic pathogens absent from discovery cohort",
+          "negation": false,
+          "evidence": "Additionally, GF-B/V discriminated difficult-to-diagnose bacterial zoonotic pathogens not included in the discovery cohort, such as spotted fever group rickettsiae, B. pseudomallei, and Brucella spp.",
+          "in_scope": true
+        },
+        {
+          "id": "E017",
+          "subject": "GF-B/V model",
+          "predicate": "discriminates",
+          "object": "Brucella spp.",
+          "modality": "asserted",
+          "condition": "difficult-to-diagnose zoonotic pathogens absent from discovery cohort",
+          "negation": false,
+          "evidence": "Additionally, GF-B/V discriminated difficult-to-diagnose bacterial zoonotic pathogens not included in the discovery cohort, such as spotted fever group rickettsiae, B. pseudomallei, and Brucella spp.",
+          "in_scope": true
+        }
+      ]
+    }
+  ],
+  "total_gold": 69
+}

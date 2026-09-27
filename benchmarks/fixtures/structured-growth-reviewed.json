@@ -1,0 +1,14 @@
+{
+  "id": "structured-growth-reviewed",
+  "domain": "structured",
+  "source": "synthetic held-out measurement table",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "test",
+  "review_notes": "Codex labeled both measured cells before running the extractor. The unit cm is part of the header and the predicate's meaning.",
+  "text": "Table 7: Plant growth measurements\n\nSpecies        Height cm\nOak            42.1\nPine           38.4\n\n8 Discussion",
+  "gold": [
+    {"id": "oak-height", "subject": "Oak", "predicate": "has_height_cm", "object": "42.1", "evidence": "Oak            42.1", "modality": null, "polarity": "positive", "condition": null, "source_unit": "TABLE_7", "in_scope": true},
+    {"id": "pine-height", "subject": "Pine", "predicate": "has_height_cm", "object": "38.4", "evidence": "Pine           38.4", "modality": null, "polarity": "positive", "condition": null, "source_unit": "TABLE_7", "in_scope": true}
+  ]
+}

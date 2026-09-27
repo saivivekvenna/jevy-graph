@@ -1,0 +1,785 @@
+{
+  "id": "jev-oracle-choice-packets-2026-09-26",
+  "packets": [
+    {
+      "id": "bio-group-comparison",
+      "error_type": "group_vs_pairwise_comparison",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "the expression level of TINCR in the high malignant potential cell lines LoVo, RKO, and SW620 was significantly decreased compared with low malignant potential cell lines HCT116, SW480 and LS174T",
+      "source_locator": "Results line 27; Codex gold R007; UTF-8 byte span [6165,6360) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "TINCR expression in LoVo cells",
+            "predicate": "lower_than",
+            "object": "TINCR expression in HCT116 cells",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "asserted pairwise comparison of two CRC cell lines; LoVo versus HCT116 individually, rather than a group-level comparison",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR expression in HCT116, SW480, and LS174T cells",
+            "predicate": "lower_than",
+            "object": "TINCR expression in LoVo, RKO, and SW620 cells",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "high malignant potential CRC cell-line group versus low malignant potential CRC cell-line group; group-level comparison",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "TINCR expression in LoVo, RKO, and SW620 cells",
+            "predicate": "lower_than",
+            "object": "TINCR expression in HCT116, SW480, and LS174T cells",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "high malignant potential CRC cell-line group versus adjacent normal tissues",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "TINCR expression in LoVo, RKO, and SW620 cells",
+            "predicate": "lower_than",
+            "object": "TINCR expression in HCT116, SW480, and LS174T cells",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "high malignant potential CRC cell-line group versus low malignant potential CRC cell-line group; group-level comparison",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "rationale": "The sentence compares two named groups. It does not assert each individual high-potential line is below each individual low-potential line, and it does not compare cell lines with normal tissue.",
+      "cached_proposal_index": 151
+    },
+    {
+      "id": "bio-control-actor-negation",
+      "error_type": "wrong_actor_and_negation",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "All (5/5) of the mice in HCT116-shTINCR group displayed metastatic foci in the lung and 4/5 of these mice had metastasis foci in the liver. However, only 1/5 of mice in HCT116-NC group had lung metastasis foci and no mice in HCT116-NC group develop hepatic metastasis foci",
+      "source_locator": "Results line 37; Codex gold R025; UTF-8 byte span [8544,8816) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "HCT116-NC mice",
+            "predicate": "developed",
+            "object": "lung metastasis foci",
+            "polarity": "negative",
+            "modality": "observed",
+            "condition": "0/5 control mice; HCT116-NC group",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "HCT116-NC mice",
+            "predicate": "developed",
+            "object": "hepatic metastasis foci",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "0/5 control mice; HCT116-NC group",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "HCT116-NC mice",
+            "predicate": "developed",
+            "object": "hepatic metastasis foci",
+            "polarity": "negative",
+            "modality": "observed",
+            "condition": "0/5 control mice; HCT116-NC group",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "HCT116-shTINCR mice",
+            "predicate": "developed",
+            "object": "hepatic metastasis foci",
+            "polarity": "negative",
+            "modality": "observed",
+            "condition": "0/5 TINCR-knockdown mice; HCT116-shTINCR group",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "rationale": "The negative hepatic finding belongs to HCT116-NC controls; shTINCR mice and lung foci have different outcomes in the surrounding Results sentence.",
+      "cached_proposal_index": 220
+    },
+    {
+      "id": "bio-mrna-negation",
+      "error_type": "negation_and_molecular_level",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells",
+      "source_locator": "Results line 49; Codex gold R043 and R044; UTF-8 byte span [11250,11354) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "TINCR knockdown",
+            "predicate": "changed",
+            "object": "EpCAM mRNA level",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "CRC cells; mRNA level",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR knockdown",
+            "predicate": "changed",
+            "object": "EpCAM protein level",
+            "polarity": "negative",
+            "modality": "observed",
+            "condition": "CRC cells; protein level",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "TINCR knockdown",
+            "predicate": "changed",
+            "object": "EpCAM mRNA level",
+            "polarity": "negative",
+            "modality": "observed",
+            "condition": "CRC cells; mRNA level",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "TINCR knockdown",
+            "predicate": "decreased",
+            "object": "EpCAM mRNA level",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "CRC cells; mRNA level",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "rationale": "The sentence says knockdown did not change EpCAM mRNA, while the protein level decreased. A positive mRNA change or a negative protein change reverses the finding.",
+      "cached_proposal_index": 273
+    },
+    {
+      "id": "bio-may-cleavage",
+      "error_type": "modality",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "Considering the intracytoplasmic location of TINCR, these results indicate that the inhibition of TINCR may accelerate the cleavage of EpCAM and release EpICD.",
+      "source_locator": "Results line 49; Codex gold R055; UTF-8 byte span [12031,12190) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "TINCR inhibition",
+            "predicate": "inhibited",
+            "object": "EpCAM cleavage",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "authors' interpretation of these results; intracytoplasmic TINCR location",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR inhibition",
+            "predicate": "accelerated",
+            "object": "EpCAM cleavage",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "authors' interpretation of these results; intracytoplasmic TINCR location",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "TINCR inhibition",
+            "predicate": "accelerated",
+            "object": "EpICD degradation",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "authors' interpretation of these results; intracytoplasmic TINCR location",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "TINCR inhibition",
+            "predicate": "accelerated",
+            "object": "EpCAM cleavage",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "authors' interpretation of these results; intracytoplasmic TINCR location",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "rationale": "The authors infer a possible acceleration of EpCAM cleavage. The word may must survive; the passage does not directly establish the mechanism or degradation of EpICD.",
+      "cached_proposal_index": 291
+    },
+    {
+      "id": "bio-separate-psen2-arm",
+      "error_type": "joint_vs_separate_cause",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM",
+      "source_locator": "Results line 49; Codex gold R048 and R050; UTF-8 byte span [11589,11722) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "PSEN2 overexpression together with TINCR knockdown",
+            "predicate": "increased",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "combined intervention required in HCT116 cells",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+            "predicate": "increased",
+            "object": "EpCAM expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "PSEN2 overexpression in HCT116/sh-TINCR cells; separate experimental arm",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "PSEN2 overexpression alone",
+            "predicate": "increased",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "PSEN2 overexpression alone in SW480 cells; separate experimental arm",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+            "predicate": "increased",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "HCT116/sh-TINCR cells; one of two stated PSEN2-overexpression arms",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "rationale": "This packet targets the PSEN2-alone arm and its EpICD increase. The sentence reports a second shTINCR arm separately; it does not require a joint intervention for the alone-arm finding.",
+      "cached_proposal_index": 280
+    },
+    {
+      "id": "bio-prior-study-attribution",
+      "error_type": "attribution",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19]",
+      "source_locator": "Results line 67; Codex gold R076; UTF-8 byte span [15311,15496) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "c-Myc",
+            "predicate": "bound_to",
+            "object": "Sp1 transcription factor",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "via c-Myc central region",
+            "attribution": "cited prior study [19]",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "c-Myc",
+            "predicate": "bound_to",
+            "object": "Sp1 transcription factor",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "via Sp1 central region",
+            "attribution": "cited prior study [19]",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "c-Myc",
+            "predicate": "bound_to",
+            "object": "TINCR promoter",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "via c-Myc central region",
+            "attribution": "cited prior study [19]",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "c-Myc",
+            "predicate": "bound_to",
+            "object": "Sp1 transcription factor",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "via c-Myc central region",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "rationale": "The authors explicitly cite report [19] for c-Myc binding to Sp1 through the c-Myc central region. Their own experiments in the same paragraph address TINCR regulation.",
+      "cached_proposal_index": 359
+    },
+    {
+      "id": "bio-tissue-comparator",
+      "error_type": "comparator",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "EpICD was upregulated in the CRC tissues compared with their normal mucous",
+      "source_locator": "Results line 55; Codex gold R057; UTF-8 byte span [13220,13294) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "EpICD expression",
+            "predicate": "higher_in",
+            "object": "CRC tissues",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "compared with other CRC tissues",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR expression",
+            "predicate": "higher_in",
+            "object": "CRC tissues",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "compared with their paired normal mucosa",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "EpICD expression",
+            "predicate": "higher_in",
+            "object": "CRC tissues",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "compared with their paired normal mucosa",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "EpICD expression",
+            "predicate": "higher_in",
+            "object": "paired normal mucosa",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "compared with CRC tissues",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "rationale": "The measured entity is EpICD and the high side is CRC tissue; its comparator is the associated normal mucosa. Reversing sides or substituting TINCR changes the finding.",
+      "cached_proposal_index": 321
+    },
+    {
+      "id": "bio-correlation-reject",
+      "error_type": "missing_context_or_wrong_direction",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H). Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I)",
+      "source_locator": "Results line 55 plus preceding 44-paired-CRC-tissues sentence; Codex gold R058; UTF-8 byte span [13296,13522) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "TINCR expression",
+            "predicate": "positively_correlated_with",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "44 paired CRC tissues; Spearman correlation; p = 0.005; r = −0.478",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR expression",
+            "predicate": "inversely_correlated_with",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "CRC cells in culture; Spearman correlation; p = 0.005; r = −0.478",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "TINCR expression",
+            "predicate": "inversely_correlated_with",
+            "object": "EpICD expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "44 unpaired CRC tissues; Spearman correlation; p = 0.005; r = −0.478",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "TINCR expression",
+            "predicate": "inversely_correlated_with",
+            "object": "EpCAM expression",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "44 paired CRC tissues; Spearman correlation; p = 0.005; r = −0.478",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": null,
+      "rationale": "Reject: no option preserves both the inverse TINCR–EpICD relation and the 44 paired CRC tissue context. The excerpt follows a sentence specifying the same 44 paired tissues.",
+      "cached_proposal_index": 322
+    },
+    {
+      "id": "bio-rko-context",
+      "error_type": "missing_or_wrong_context",
+      "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+      "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+      "source_excerpt": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells",
+      "source_locator": "Results line 31; Codex gold R011 and R012; UTF-8 byte span [6849,7048) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "stable ectopic TINCR expression",
+            "predicate": "decreased",
+            "object": "cell proliferation",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "RKO cells; p < 0.001",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "TINCR knockdown",
+            "predicate": "decreased",
+            "object": "cell proliferation",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "RKO cells; p < 0.001",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "stable ectopic TINCR expression",
+            "predicate": "decreased",
+            "object": "cell proliferation",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "RKO cells; p = 0.001",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "stable ectopic TINCR expression",
+            "predicate": "decreased",
+            "object": "cell proliferation",
+            "polarity": "positive",
+            "modality": "observed",
+            "condition": "HCT116 cells; p < 0.001",
+            "attribution": "this study",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "rationale": "This target is the RKO proliferation finding. The overexpression arm names RKO and LoVo, and the proliferation statistic is p < 0.001; HCT116 appears in the distinct knockdown arm.",
+      "cached_proposal_index": 174
+    },
+    {
+      "id": "legal-presidential-term-anchor",
+      "error_type": "time_anchor",
+      "source_path": "benchmarks/fixtures/constitution-amendment-20-section-1-reviewed.json",
+      "source_sha256": "b07acf8dcd2ee3ac69d1a5ca0db6f5a1b635059c688a943bd6e2c30d80c1cf2d",
+      "source_excerpt": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified",
+      "source_locator": "Amendment XX Section 1; fixture gold term-end claims; UTF-8 byte span [25,284) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "terms of the President and Vice President",
+            "predicate": "end_at",
+            "object": "noon on the 20th day of January",
+            "polarity": "positive",
+            "modality": "shall",
+            "condition": "every year, regardless of when the unratified terms would have ended",
+            "attribution": "U.S. Constitution, Amendment XX, Section 1",
+            "time_anchor": "noon on January 20 of every calendar year, even outside a term-ending year"
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "terms of the President and Vice President",
+            "predicate": "end_at",
+            "object": "noon on the 20th day of January",
+            "polarity": "positive",
+            "modality": "shall",
+            "condition": "in the years in which the terms would otherwise have ended",
+            "attribution": "U.S. Constitution, Amendment XX, Section 1",
+            "time_anchor": "noon on January 20 of the year in which the terms would otherwise have ended"
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "terms of the President and Vice President",
+            "predicate": "end_at",
+            "object": "noon on the 3d day of January",
+            "polarity": "positive",
+            "modality": "shall",
+            "condition": "in the years in which the terms would otherwise have ended",
+            "attribution": "U.S. Constitution, Amendment XX, Section 1",
+            "time_anchor": "noon on January 3 of the year in which the terms would otherwise have ended"
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "terms of Senators and Representatives",
+            "predicate": "end_at",
+            "object": "noon on the 20th day of January",
+            "polarity": "positive",
+            "modality": "shall",
+            "condition": "in the years in which the terms would otherwise have ended",
+            "attribution": "U.S. Constitution, Amendment XX, Section 1",
+            "time_anchor": "noon on January 20 of the year in which the terms would otherwise have ended"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "rationale": "The twentieth of January applies to the President and Vice President in the years their terms would have ended. Senators and Representatives have a distinct third-of-January anchor.",
+      "source_field": "text"
+    },
+    {
+      "id": "legal-double-vacancy",
+      "error_type": "joint_vs_same_cause",
+      "source_path": "benchmarks/fixtures/constitution-article-2-section-1-codex-reviewed-2026-09-26.json",
+      "source_sha256": "ad042252b371ae175f165da99988aa304f75a8277148b99540fe75d32945d879",
+      "source_excerpt": "the Congress may by Law provide for the Case of Removal, Death, Resignation or Inability, both of the President and Vice President",
+      "source_locator": "Article II Section 1; Codex gold ii1-congress-double-vacancy-law; UTF-8 byte span [2916,3046) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "Congress",
+            "predicate": "provide_by_law_for",
+            "object": "case of Removal, Death, Resignation or Inability of both President and Vice President",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "both offices affected by one or more listed causes",
+            "attribution": "U.S. Constitution, Article II, Section 1",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "Congress",
+            "predicate": "provide_by_law_for",
+            "object": "case of Removal, Death, Resignation or Inability of both President and Vice President",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "both offices affected by the same listed cause",
+            "attribution": "U.S. Constitution, Article II, Section 1",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "Congress",
+            "predicate": "provide_by_law_for",
+            "object": "case of Removal, Death, Resignation or Inability of both President and Vice President",
+            "polarity": "positive",
+            "modality": "shall",
+            "condition": "both offices affected by one or more listed causes",
+            "attribution": "U.S. Constitution, Article II, Section 1",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "Vice President",
+            "predicate": "provide_by_law_for",
+            "object": "case of Removal, Death, Resignation or Inability of both President and Vice President",
+            "polarity": "positive",
+            "modality": "may",
+            "condition": "both offices affected by one or more listed causes",
+            "attribution": "U.S. Constitution, Article II, Section 1",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "rationale": "The phrase both of the President and Vice President attaches to the vacancy or inability of both offices. It does not say that the same listed cause must apply to each officer; Congress may provide by law.",
+      "source_field": "text"
+    },
+    {
+      "id": "legal-joint-declaration-reject",
+      "error_type": "wrong_actor_or_missing_context",
+      "source_path": "benchmarks/fixtures/constitution-amendment-25-section-4-codex-reviewed-2026-09-27.json",
+      "source_sha256": "37eb3a3a9d625beaf07720c201e8163dc8ac16f3d7057d6f61af3e2ef9f44ae7",
+      "source_excerpt": "Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office",
+      "source_locator": "Amendment XXV Section 4, first sentence; Codex gold a25s4-initial-principal-officers-to-senate-president-pro-tempore and -to-house-speaker; UTF-8 byte span [26,388) in source_path",
+      "options": [
+        {
+          "id": "A",
+          "record": {
+            "subject": "Vice President and a majority of principal officers of the executive departments",
+            "predicate": "transmit_written_declaration_to",
+            "object": "Senate majority leader",
+            "polarity": "positive",
+            "modality": "",
+            "condition": "declaration states President is unable to discharge powers and duties of office",
+            "attribution": "U.S. Constitution, Amendment XXV, Section 4",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "B",
+          "record": {
+            "subject": "Vice President and a majority of Congress",
+            "predicate": "transmit_written_declaration_to",
+            "object": "President pro tempore of the Senate and Speaker of the House of Representatives",
+            "polarity": "positive",
+            "modality": "",
+            "condition": "declaration states President is unable to discharge powers and duties of office",
+            "attribution": "U.S. Constitution, Amendment XXV, Section 4",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "C",
+          "record": {
+            "subject": "majority of principal officers of the executive departments",
+            "predicate": "transmit_written_declaration_to",
+            "object": "President pro tempore of the Senate and Speaker of the House of Representatives",
+            "polarity": "positive",
+            "modality": "",
+            "condition": "declaration states President is unable to discharge powers and duties of office",
+            "attribution": "U.S. Constitution, Amendment XXV, Section 4",
+            "time_anchor": ""
+          }
+        },
+        {
+          "id": "D",
+          "record": {
+            "subject": "Vice President and a majority of principal officers of the executive departments",
+            "predicate": "transmit_written_declaration_to",
+            "object": "President pro tempore of the Senate and Speaker of the House of Representatives",
+            "polarity": "positive",
+            "modality": "",
+            "condition": "declaration states President is able to discharge powers and duties of office",
+            "attribution": "U.S. Constitution, Amendment XXV, Section 4",
+            "time_anchor": ""
+          }
+        }
+      ],
+      "correct_option_id": null,
+      "rationale": "Reject: the triggering declaration requires the Vice President jointly with an authorized majority, a written inability declaration, and delivery to both named congressional officers. Every option corrupts at least one of those elements.",
+      "source_field": "text"
+    }
+  ]
+}

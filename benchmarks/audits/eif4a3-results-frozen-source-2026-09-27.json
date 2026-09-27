@@ -1,0 +1,14 @@
+{
+  "id": "eif4a3-cdc5l-results-blind-2026-09-27",
+  "pmcid": "PMC11905404",
+  "doi": "10.7150/jca.108895",
+  "title": "EIF4A3 Promotes Cell Proliferation via CDC5L Upregulation in Human Breast Cancer Cells",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11905404/",
+  "bioc_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC11905404/unicode",
+  "license": "CC BY 4.0",
+  "frozen_at": "2026-09-27T14:47:42.861958+00:00",
+  "frozen_before_extraction": true,
+  "source_path": "benchmarks/corpus/eif4a3-cdc5l-results.txt",
+  "source_sha256": "acfa6924c7abbb667c2f4cc99c8a3c7acecc0a89d0a61bd78c137456d82d1274",
+  "results_passages": 16
+}

@@ -1,47 +1,37 @@
-# Jevy Graph v0.1 launch checklist
+# Jevy Graph release checklist
 
-Nothing in this directory has been posted or sent.
+## Verified locally
 
-## Ready locally
+- [x] 233 core tests pass with one expected skip.
+- [x] Five optional scientific-parser tests pass.
+- [x] The frozen offline benchmark reaches all 1,267 reviewed claims.
+- [x] All 74 substantive Constitution units have exhaustive Codex review.
+- [x] Wheel and source distribution build in an isolated environment.
+- [x] The installed wheel passes the CLI smoke test and bundles the demo.
+- [x] The source distribution excludes benchmarks, tests, scripts, media, and
+  generated output.
+- [x] The demo exposes `/healthz` and reads `HOST` and `PORT` from the environment.
+- [x] The container definition installs Poppler and runs as a network service.
+- [x] CI tests Python 3.11 and 3.13 and builds release artifacts.
+- [x] The release workflow uses PyPI Trusted Publishing.
 
-- [x] Wheel and source distribution build from a clean temporary environment.
-- [x] Installed wheel passes all 37 tests and the CLI smoke test.
-- [x] Installed `jevy-graph-demo` serves its bundled frontend.
-- [x] Source distribution reduced from about 7.9 MB to about 52 KB by excluding
-  repository-only demo media.
-- [x] 19-second launch clip and thumbnail generated.
-- [x] Release notes and a PyPI Trusted Publishing workflow prepared.
+The Docker daemon was unavailable during the final local pass. CI or the target
+container builder must complete the image build before deployment.
 
-## Owner-only steps before launch
+## Release steps
 
-1. Review and commit the local changes.
-2. Push them to GitHub.
-3. On PyPI, create a pending Trusted Publisher for:
-   - owner: `saivivekvenna`
-   - repository: `jevy-graph`
-   - workflow: `release.yml`
-   - environment: `pypi`
-4. In GitHub, create an environment named `pypi` and require manual approval.
-5. Create tag `v0.1.0`, then publish the matching GitHub release. Publishing the
-   release will run `.github/workflows/release.yml` and upload to PyPI.
-6. Verify from a new environment:
+1. Push the prepared commit and confirm both CI matrix jobs pass.
+2. Build the container and verify `/healthz` plus one real upload with a server
+   `TYPESAFE_API_KEY`.
+3. Create the protected GitHub environment `pypi` if it does not exist.
+4. Configure PyPI Trusted Publishing for repository `saivivekvenna/jevy-graph`,
+   workflow `release.yml`, and environment `pypi`.
+5. Create a version tag and publish the matching GitHub release.
+6. Install the published wheel in a new environment and run:
 
    ```bash
-   python -m venv /tmp/jevy-verify
-   /tmp/jevy-verify/bin/python -m pip install jevy-graph
-   printf 'Alice founded Acme.' | /tmp/jevy-verify/bin/jevy-graph --no-verify
+   printf 'Alice founded Acme.' | jevy-graph --no-verify
    ```
 
-7. Only after that succeeds, replace the README clone-based install block with
-   `python -m pip install jevy-graph`.
-8. Add the repository homepage and these GitHub topics:
-   `knowledge-graph`, `rdf`, `semantic-web`, `information-extraction`,
-   `document-ai`, `nlp`, `python`, `provenance`, `text-to-graph`,
-   `neuro-symbolic-ai`, `llm`.
-
-## Do not combine these events
-
-Publish to PyPI before making the GitHub release public if using a manual upload,
-or use the release workflow above and wait for it to complete before sharing the
-release. Do not announce the release until the public install path has been tested
-from a clean machine.
+7. Confirm that the public README benchmark table matches the attached benchmark
+   report before announcing the release.

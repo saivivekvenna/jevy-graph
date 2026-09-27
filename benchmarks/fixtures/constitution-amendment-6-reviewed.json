@@ -1,0 +1,132 @@
+{
+  "id": "constitution-amendment-6-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment VI",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full Sixth Amendment. Trial speed and publicity, jury State and district, previously lawful district ascertainment, two accusation details, confrontation, compulsory process, and counsel are annotated separately. Every claim is conditioned on criminal prosecutions; none asserts that a specific accused was tried or a crime committed. These are Codex labels, not independent human labels.",
+  "text": "Amendment VI\n\nIn all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.",
+  "gold": [
+    {
+      "id": "speedy-trial",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "speedy trial",
+      "evidence": "the accused shall enjoy the right to a speedy and public trial",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "public-trial",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "public trial",
+      "evidence": "the accused shall enjoy the right to a speedy and public trial",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "impartial-jury-state",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "trial by an impartial jury of the State wherein the crime was committed",
+      "evidence": "by an impartial jury of the State and district wherein the crime shall have been committed",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "impartial-jury-district",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "trial by an impartial jury of the district wherein the crime was committed",
+      "evidence": "by an impartial jury of the State and district wherein the crime shall have been committed",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "jury-district-law",
+      "subject": "district of the impartial jury",
+      "predicate": "ascertained_by",
+      "object": "law",
+      "evidence": "which district shall have been previously ascertained by law",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "previously; in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "accusation-nature",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "be informed of the nature of the accusation",
+      "evidence": "to be informed of the nature and cause of the accusation",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "accusation-cause",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "be informed of the cause of the accusation",
+      "evidence": "to be informed of the nature and cause of the accusation",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "confrontation",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "confront witnesses against him",
+      "evidence": "to be confronted with the witnesses against him",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "compulsory-process",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "compulsory process for obtaining witnesses in his favor",
+      "evidence": "to have compulsory process for obtaining witnesses in his favor",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    },
+    {
+      "id": "assistance-counsel",
+      "subject": "accused",
+      "predicate": "has_right_to",
+      "object": "Assistance of Counsel for his defence",
+      "evidence": "to have the Assistance of Counsel for his defence",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in all criminal prosecutions",
+      "source_unit": "AMENDMENT_6",
+      "in_scope": true
+    }
+  ]
+}

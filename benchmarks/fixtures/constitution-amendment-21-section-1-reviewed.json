@@ -1,0 +1,24 @@
+{
+  "id": "constitution-amendment-21-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution AMENDMENT_21_SECTION_1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the full short section against the frozen National Archives transcript. This section was inspected during development and is not a held-out test.",
+  "text": "AMENDMENT XXI\nSection 1.\nThe eighteenth article of amendment to the Constitution of the United States is hereby repealed.",
+  "gold": [
+    {
+      "id": "repeals",
+      "subject": "Amendment 21 Section 1",
+      "predicate": "repeals",
+      "object": "eighteenth article of amendment to the Constitution of the United States",
+      "evidence": "The eighteenth article of amendment to the Constitution of the United States is hereby repealed.",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_21_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

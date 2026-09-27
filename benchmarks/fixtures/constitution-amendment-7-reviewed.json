@@ -1,0 +1,36 @@
+{
+  "id": "constitution-amendment-7-reviewed",
+  "domain": "legal",
+  "source": "National Archives Bill of Rights transcript, Amendment VII",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the entire Seventh Amendment. The jury-trial preservation rule is conditioned on common-law suits above the stated amount. The re-examination rule carries its common-law exception; the dollar threshold is not copied onto that separate rule. These are Codex labels, not independent human labels.",
+  "text": "Amendment VII\n\nIn Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.",
+  "gold": [
+    {
+      "id": "jury-trial-preserved",
+      "subject": "right of trial by jury",
+      "predicate": "has_status",
+      "object": "preserved",
+      "evidence": "In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in Suits at common law; value in controversy exceeds twenty dollars",
+      "source_unit": "AMENDMENT_7",
+      "in_scope": true
+    },
+    {
+      "id": "jury-fact-reexamination",
+      "subject": "fact tried by a jury",
+      "predicate": "re_examined_in",
+      "object": "Court of the United States",
+      "evidence": "no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "except according to the rules of the common law",
+      "source_unit": "AMENDMENT_7",
+      "in_scope": true
+    }
+  ]
+}

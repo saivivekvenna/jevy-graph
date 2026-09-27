@@ -1,0 +1,1747 @@
+{
+  "id": "tincr-deterministic-current-coverage",
+  "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "gold_path": "benchmarks/audits/tincr-results-complete-gold-2026-09-27-v2.json",
+  "gold_sha256": "e1e3f2431bde6f9d8e0c908cb75864087652e750597ef924624fbfef1b48ff16",
+  "extractor_path": "src/jevy_graph/extract.py",
+  "extractor_sha256": "52586fe8d0c18c6436168d2fa4a7e6771d301ea335a2c01f3e7ef96f8e64f56a",
+  "option_generator_path": "src/jevy_graph/jev.py",
+  "option_generator_sha256": "e89657b9b2d2d038fe6dbd23572230894b5f229a734c6042a24c5987171144dc",
+  "method": "Offline extract_frames(source) followed by _triple_options(frame) with default limit=32. Frame and option indexes are zero-based in that ordered run. Complete requires one option and its explicit frame fields, including attribution to preserve actor, relation, target, polarity, modality, material context/condition, and attribution. Source evidence/context serves as a locator only; it does not repair omitted graph fields. Null modality is accepted for unhedged observed or author assertions. CRC-cell context is material when specified by gold, unless a named CRC cell line or explicit CRC setting appears in the offered graph fields. Trailing adverbs in subject options are treated as actor-boundary errors.",
+  "scope": "88 unambiguous in-scope Results gold IDs; excludes out-of-scope R041/R093 and source-disputed R085/R086/R091.",
+  "summary": {
+    "gold_unambiguous_in_scope": 88,
+    "complete": 47,
+    "partial": 41,
+    "missing": 0,
+    "single_option_coverage": 0.534091,
+    "full_document_frame_count": 437,
+    "full_document_option_count": 7003
+  },
+  "claims": [
+    {
+      "gold_id": "R001",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 100,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "decreased_in",
+          "colorectal cancer tissues"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "relative to adjacent tissues; Oncomine analysis",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R002",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 108,
+        "option_index": 0,
+        "triple": [
+          "qRT-PCR analysis",
+          "revealed",
+          "significantly lower TINCR expression in 38 of 44 CRC specimens"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes qRT-PCR the actor; it does not assert a TINCR decrease relative to paired non-tumour tissue."
+    },
+    {
+      "gold_id": "R003",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 117,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "inversely_correlated_with",
+          "serosal invasion"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option now preserves TINCR expression, inverse correlation, serosal invasion, and p = 0.001, but its condition says only tumour tissue samples and omits the CRC tumour cohort."
+    },
+    {
+      "gold_id": "R004",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 118,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "inversely_correlated_with",
+          "lymph metastasis"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.037",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option now preserves TINCR expression, inverse correlation, lymph metastasis, and p = 0.037, but its condition says only tumour tissue samples and omits the CRC tumour cohort."
+    },
+    {
+      "gold_id": "R005",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 119,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "inversely_correlated_with",
+          "TNM classification"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.016",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option now preserves TINCR expression, inverse correlation, TNM classification, and p = 0.016, but its condition says only tumour tissue samples and omits the CRC tumour cohort."
+    },
+    {
+      "gold_id": "R006",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 120,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "positively_correlated_with",
+          "differentiation degree"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.017",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option now preserves TINCR expression, positive correlation, differentiation degree, and p = 0.017, but its condition says only tumour tissue samples and omits the CRC tumour cohort."
+    },
+    {
+      "gold_id": "R007",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 121,
+        "option_index": 0,
+        "triple": [
+          "TINCR expression",
+          "lower_in",
+          "LoVo, RKO, and SW620 cells"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "compared with HCT116, SW480, and LS174T; high malignant potential cell lines versus low malignant potential cell lines",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R008",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 122,
+        "option_index": 0,
+        "triple": [
+          "transcript for TINCR was mainly",
+          "located_in",
+          "cytoplasm of HCT116"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The offered actor includes was mainly as part of its entity boundary; the option with a clean transcript actor drops the mainly qualifier."
+    },
+    {
+      "gold_id": "R009",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 122,
+        "option_index": 0,
+        "triple": [
+          "transcript for TINCR was mainly",
+          "located_in",
+          "cytoplasm of HCT116"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The location option names HCT116 only; it does not encode SW480 cells."
+    },
+    {
+      "gold_id": "R010",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 125,
+        "option_index": 0,
+        "triple": [
+          "SW480 cells",
+          "decreased",
+          "TINCR expression is clinically relevant to the metastasis of CRC"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes SW480 cells the actor of decreased; it loses the suggested association between low TINCR and CRC metastasis."
+    },
+    {
+      "gold_id": "R011",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 130,
+        "option_index": 0,
+        "triple": [
+          "Stable ectopic expression of TINCR",
+          "decreased",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells; p < 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R012",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 131,
+        "option_index": 0,
+        "triple": [
+          "Stable ectopic expression of TINCR",
+          "decreased",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells; p < 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R013",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 132,
+        "option_index": 0,
+        "triple": [
+          "Stable ectopic expression of TINCR",
+          "decreased",
+          "migration"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R014",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 133,
+        "option_index": 0,
+        "triple": [
+          "Stable ectopic expression of TINCR",
+          "decreased",
+          "migration"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R015",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 134,
+        "option_index": 0,
+        "triple": [
+          "knockdown of TINCR",
+          "increased",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R016",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 135,
+        "option_index": 0,
+        "triple": [
+          "knockdown of TINCR",
+          "increased",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R017",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 136,
+        "option_index": 0,
+        "triple": [
+          "knockdown of TINCR",
+          "increased",
+          "migration"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R018",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 137,
+        "option_index": 0,
+        "triple": [
+          "knockdown of TINCR",
+          "increased",
+          "migration"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R019",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 150,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "xenograft tumour size"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R020",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 151,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "xenograft tumour growth rate"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R021",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 154,
+        "option_index": 5,
+        "triple": [
+          "sh-TINCR cells",
+          "displayed",
+          "higher ki-67 proliferation index"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option concerns sh-TINCR cells displaying a higher index; it omits the xenograft tumour actor and control comparator."
+    },
+    {
+      "gold_id": "R022",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 155,
+        "option_index": 15,
+        "triple": [
+          "5/5 of the mice in HCT116-shTINCR group",
+          "displayed",
+          "metastatic foci in the lung"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R023",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 156,
+        "option_index": 0,
+        "triple": [
+          "4/5 of these mice",
+          "has",
+          "metastasis foci in the liver"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The actor is anaphoric 4/5 of these mice, with no HCT116-shTINCR group in the option."
+    },
+    {
+      "gold_id": "R024",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 157,
+        "option_index": 0,
+        "triple": [
+          "only 1/5 of mice in HCT116-NC group",
+          "has",
+          "lung metastasis foci"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R025",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 159,
+        "option_index": 0,
+        "triple": [
+          "mice in HCT116-NC group",
+          "developed",
+          "hepatic metastasis foci"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The option asserts hepatic metastasis development with positive polarity; the source states zero control mice developed it."
+    },
+    {
+      "gold_id": "R026",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 160,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "metastatic nodule count"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "lung nodules; TINCR knockdown versus control cells; 4:1; mice",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R027",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 161,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "metastatic nodule count"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "liver nodules; TINCR knockdown versus control cells; 2:0; mice",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R028",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 163,
+        "option_index": 26,
+        "triple": [
+          "loss of TINCR expression profoundly",
+          "promotes",
+          "tumour growth"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The offered actor ends with the adverb profoundly, so no option within the default 32 has a clean TINCR-loss actor."
+    },
+    {
+      "gold_id": "R029",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 164,
+        "option_index": 10,
+        "triple": [
+          "loss of TINCR expression profoundly",
+          "promotes",
+          "metastasis"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The offered actor ends with the adverb profoundly, so no option within the default 32 has a clean TINCR-loss actor."
+    },
+    {
+      "gold_id": "R030",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 168,
+        "option_index": 0,
+        "triple": [
+          "downregulation of TINCR in HCT116 cells significantly",
+          "decreased",
+          "proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The offered actor ends with significantly, and the target contains an unclosed measurement parenthesis; no default-limit option cleanly preserves the actor and measured fraction."
+    },
+    {
+      "gold_id": "R031",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 169,
+        "option_index": 0,
+        "triple": [
+          "proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while",
+          "increased",
+          "proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes the G0/G1 fraction the actor, rather than TINCR downregulation in HCT116 cells."
+    },
+    {
+      "gold_id": "R032",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 170,
+        "option_index": 0,
+        "triple": [
+          "TINCR overexpression",
+          "increased",
+          "G2/M-phase cell fraction"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "RKO cells; 14.51% ± 1.35 versus Vector 8.59% ± 0.87",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R033",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 171,
+        "option_index": 0,
+        "triple": [
+          "TINCR upregulation",
+          "increased",
+          "early apoptosis"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO cells; 2.77% ± 1.05 to 10.27% ± 1.29",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R034",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 172,
+        "option_index": 0,
+        "triple": [
+          "TINCR upregulation",
+          "increased",
+          "early apoptosis"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in LoVo cells; 4.75% ± 0.82 to 7.50% ± 1.33",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R035",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 175,
+        "option_index": 0,
+        "triple": [
+          "TINCR upregulation",
+          "activated",
+          "caspase 3"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R036",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 176,
+        "option_index": 0,
+        "triple": [
+          "TINCR upregulation",
+          "activated",
+          "caspase 9"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R037",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 177,
+        "option_index": 0,
+        "triple": [
+          "TINCR overexpression",
+          "induced",
+          "cell cycle arrest"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R038",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 178,
+        "option_index": 0,
+        "triple": [
+          "TINCR overexpression",
+          "induced",
+          "apoptosis"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R039",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 177,
+        "option_index": 0,
+        "triple": [
+          "TINCR overexpression",
+          "induced",
+          "cell cycle arrest"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes induced cell-cycle arrest, but no option encodes its joint contribution with apoptosis to growth inhibition."
+    },
+    {
+      "gold_id": "R040",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 189,
+        "option_index": 1,
+        "triple": [
+          "EpCAM",
+          "disrupted",
+          "genes"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes EpCAM the actor of disrupted genes; TINCR depletion and prior-study attribution are absent."
+    },
+    {
+      "gold_id": "R042",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 193,
+        "option_index": 0,
+        "triple": [
+          "TINCR",
+          "directly_interacted_with",
+          "EpCAM"
+        ],
+        "polarity": "positive",
+        "modality": "suggested",
+        "condition": "biotin RNA pull-down assay",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R043",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 194,
+        "option_index": 0,
+        "triple": [
+          "Knockdown of TINCR",
+          "change",
+          "EpCAM mRNA"
+        ],
+        "polarity": "negative",
+        "modality": null,
+        "condition": "in CRC cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R044",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 195,
+        "option_index": 0,
+        "triple": [
+          "Knockdown of TINCR",
+          "downregulated",
+          "EpCAM protein levels"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in CRC cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R045",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 196,
+        "option_index": 0,
+        "triple": [
+          "psen2",
+          "catalyzed",
+          "EpCAM hydrolysis"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [17]"
+      }
+    },
+    {
+      "gold_id": "R046",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 197,
+        "option_index": 0,
+        "triple": [
+          "EpCAM hydrolysis",
+          "released",
+          "EpICD"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [17]"
+      }
+    },
+    {
+      "gold_id": "R047",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 198,
+        "option_index": 0,
+        "triple": [
+          "downregulation of TINCR",
+          "increased",
+          "expression of EpICD"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "EpICD increase is retained, but CRC-cell context is absent from the option and explicit frame condition."
+    },
+    {
+      "gold_id": "R048",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 199,
+        "option_index": 0,
+        "triple": [
+          "PSEN2 overexpression alone",
+          "increased",
+          "EpICD expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R049",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 201,
+        "option_index": 0,
+        "triple": [
+          "PSEN2 overexpression alone",
+          "decreased",
+          "EpCAM expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R050",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 200,
+        "option_index": 0,
+        "triple": [
+          "PSEN2 overexpression in HCT116/sh-TINCR cells",
+          "increased",
+          "EpICD expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R051",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 202,
+        "option_index": 0,
+        "triple": [
+          "PSEN2 overexpression in HCT116/sh-TINCR cells",
+          "decreased",
+          "EpCAM expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R052",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 203,
+        "option_index": 2,
+        "triple": [
+          "TINCR",
+          "re_expressed_in",
+          "HCT116 NC or sh-TINCR cells"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes TINCR re-expression in cells, but not reversal of the PSEN2-associated EpICD increase."
+    },
+    {
+      "gold_id": "R053",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 206,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "decreased",
+          "EpCAM protein half-life"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R054",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 207,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "decreased",
+          "EpCAM protein half-life"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R055",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 210,
+        "option_index": 4,
+        "triple": [
+          "intracytoplasmic location of TINCR",
+          "accelerate",
+          "cleavage of EpCAM"
+        ],
+        "polarity": "positive",
+        "modality": "may",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "modal",
+        "attribution": null
+      },
+      "gap_reason": "The modal may is retained, but the actor is TINCR location rather than TINCR inhibition."
+    },
+    {
+      "gold_id": "R056",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 210,
+        "option_index": 19,
+        "triple": [
+          "intracytoplasmic location of TINCR",
+          "accelerate",
+          "release EpICD"
+        ],
+        "polarity": "positive",
+        "modality": "may",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "modal",
+        "attribution": null
+      },
+      "gap_reason": "The modal may and EpICD release are retained, but the actor is TINCR location rather than TINCR inhibition."
+    },
+    {
+      "gold_id": "R057",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 225,
+        "option_index": 0,
+        "triple": [
+          "EpICD expression",
+          "increased_in",
+          "CRC tissues"
+        ],
+        "polarity": "positive",
+        "modality": "observed",
+        "condition": "relative to their normal mucous",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R058",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 229,
+        "option_index": 0,
+        "triple": [
+          "EpICD were inversely",
+          "related_in",
+          "expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option says EpICD is inversely related to expression; TINCR, the paired CRC cohort, and inverse expression relation are not joined."
+    },
+    {
+      "gold_id": "R059",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 231,
+        "option_index": 0,
+        "triple": [
+          "EpICD",
+          "component_of",
+          "Wnt pathway"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R060",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 232,
+        "option_index": 0,
+        "triple": [
+          "EpICD",
+          "colocalized_with",
+          "FHL2"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "gold_id": "R061",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 233,
+        "option_index": 0,
+        "triple": [
+          "EpICD",
+          "colocalized_with",
+          "β-catenin"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "gold_id": "R062",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 234,
+        "option_index": 0,
+        "triple": [
+          "EpICD–FHL2–β-catenin complex",
+          "formed_in",
+          "nucleus"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "gold_id": "R063",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 235,
+        "option_index": 0,
+        "triple": [
+          "EpICD–FHL2–β-catenin complex",
+          "promoted",
+          "gene transcription"
+        ],
+        "polarity": "positive",
+        "modality": "general_mechanism",
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": "cited prior report [18]"
+      }
+    },
+    {
+      "gold_id": "R064",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 236,
+        "option_index": 0,
+        "triple": [
+          "EpICD",
+          "formed_complex_with",
+          "β-catenin"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "HCT116 cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R065",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 237,
+        "option_index": 0,
+        "triple": [
+          "knockdown of TINCR",
+          "resulted_in",
+          "200%−300% increment of TOP-Flash reporter gene activity"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R066",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 238,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "β-catenin expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes TINCR-knockdown cells but omits the CRC-cell context specified by the gold claim."
+    },
+    {
+      "gold_id": "R067",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 239,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "TCF4 expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes TINCR-knockdown cells but omits the CRC-cell context specified by the gold claim."
+    },
+    {
+      "gold_id": "R068",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 240,
+        "option_index": 0,
+        "triple": [
+          "TINCR knockdown",
+          "increased",
+          "c-Myc expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes TINCR-knockdown cells but omits the CRC-cell context specified by the gold claim."
+    },
+    {
+      "gold_id": "R069",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 241,
+        "option_index": 0,
+        "triple": [
+          "activation of WNT/β-catenin pathway",
+          "mediated_by",
+          "TINCR depletion in CRC"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "In conclusion",
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R070",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 243,
+        "option_index": 8,
+        "triple": [
+          "Co-IP assay indicate that sh-TINCR",
+          "promotes",
+          "formation of EpICD and β-catenin complex in HCT116 cell"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The option makes a Co-IP assay clause the actor; sh-TINCR is embedded there rather than represented as the causal actor."
+    },
+    {
+      "gold_id": "R071",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 250,
+        "option_index": 0,
+        "triple": [
+          "TF with one",
+          "bind",
+          "site on the TINCR promoter"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The actor is generic TF, and the option does not encode Sp1 prediction or database attribution."
+    },
+    {
+      "gold_id": "R072",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 253,
+        "option_index": 0,
+        "triple": [
+          "obvious",
+          "increas",
+          "Sp1-binding activity on the TINCR promoter"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes obvious the actor of increas; it does not encode Sp1 as the actor with luciferase assay condition."
+    },
+    {
+      "gold_id": "R073",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 257,
+        "option_index": 0,
+        "triple": [
+          "Sp1",
+          "bind_to",
+          "TINCR promoter"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R074",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 258,
+        "option_index": 0,
+        "triple": [
+          "Sp1 overexpression",
+          "increased",
+          "TINCR expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R075",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 259,
+        "option_index": 0,
+        "triple": [
+          "Sp1 overexpression",
+          "increased",
+          "TINCR expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    },
+    {
+      "gold_id": "R076",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 261,
+        "option_index": 27,
+        "triple": [
+          "Sp1",
+          "bind_to",
+          "c-Myc"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option reverses the binding participants and omits the c-Myc central-region condition and cited-prior-study [19] attribution."
+    },
+    {
+      "gold_id": "R077",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 246,
+        "option_index": 3,
+        "triple": [
+          "C-Myc",
+          "inhibits",
+          "transcriptive activity of Sp1"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The heading option gives c-Myc inhibition of Sp1 activity but omits the cited prior study and binding mechanism."
+    },
+    {
+      "gold_id": "R078",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 262,
+        "option_index": 0,
+        "triple": [
+          "TINCR",
+          "transcribed_by",
+          "Sp1"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "Sp1 transcription of TINCR is retained, but CRC-cell context is absent from the option and explicit frame condition."
+    },
+    {
+      "gold_id": "R079",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 263,
+        "option_index": 0,
+        "triple": [
+          "Sp1",
+          "repressed_by",
+          "c-Myc"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option asserts Sp1 is repressed by c-Myc; it does not say TINCR expression is repressed."
+    },
+    {
+      "gold_id": "R080",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 265,
+        "option_index": 0,
+        "triple": [
+          "expression of TINCR by Sp1 was partly",
+          "suppresses",
+          "by c-Myc"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The option reverses the causal direction and lacks the partial suppression of Sp1-induced TINCR expression."
+    },
+    {
+      "gold_id": "R081",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 268,
+        "option_index": 0,
+        "triple": [
+          "Collectively",
+          "inhibits",
+          "proliferation may be due to the suppression of c-Myc"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The option makes Collectively the actor and does not encode c-Myc suppression as a possible mediator of arrest."
+    },
+    {
+      "gold_id": "R082",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 268,
+        "option_index": 1,
+        "triple": [
+          "Collectively",
+          "inhibits",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "pattern",
+        "attribution": null
+      },
+      "gap_reason": "The option makes Collectively the actor and does not encode c-Myc suppression as a possible mediator of proliferation inhibition."
+    },
+    {
+      "gold_id": "R083",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 269,
+        "option_index": 3,
+        "triple": [
+          "positive feedback loop",
+          "control",
+          "c-Myc"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The actor is an unspecified positive feedback loop; the option does not identify it as the TINCR–c-Myc loop."
+    },
+    {
+      "gold_id": "R084",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 270,
+        "option_index": 8,
+        "triple": [
+          "positive feedback loop",
+          "control",
+          "TINCR expression"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The actor is an unspecified positive feedback loop; the option does not identify it as the TINCR–c-Myc loop."
+    },
+    {
+      "gold_id": "R087",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 279,
+        "option_index": 0,
+        "triple": [
+          "EpCAM",
+          "regulates",
+          "proliferation"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes EpCAM alone the regulator and omits the reciprocal TINCR–EpCAM model and its proposed status."
+    },
+    {
+      "gold_id": "R088",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 280,
+        "option_index": 0,
+        "triple": [
+          "EpCAM",
+          "regulates",
+          "invasion"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes EpCAM alone the regulator and omits the reciprocal TINCR–EpCAM model and its proposed status."
+    },
+    {
+      "gold_id": "R089",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 281,
+        "option_index": 0,
+        "triple": [
+          "EpCAM",
+          "regulates",
+          "metastasis in colorectal cancer"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option makes EpCAM alone the regulator and omits the reciprocal TINCR–EpCAM model and its proposed status."
+    },
+    {
+      "gold_id": "R090",
+      "status": "partial",
+      "candidate": {
+        "frame_index": 203,
+        "option_index": 2,
+        "triple": [
+          "TINCR",
+          "re_expressed_in",
+          "HCT116 NC or sh-TINCR cells"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "open_verb",
+        "attribution": null
+      },
+      "gap_reason": "The option encodes TINCR re-expression in cells, but not reversal of the PSEN2-associated EpCAM decrease."
+    },
+    {
+      "gold_id": "R092",
+      "status": "complete",
+      "candidate": {
+        "frame_index": 187,
+        "option_index": 1,
+        "triple": [
+          "TINCR",
+          "specifically_bound_to",
+          "EpCAM"
+        ],
+        "polarity": "positive",
+        "modality": null,
+        "condition": null,
+        "source_unit": "RESULTS",
+        "origin": "semantic",
+        "attribution": null
+      }
+    }
+  ],
+  "review_notes": [
+    "R064 remains complete: frame 237 option 0 names EpICD, β-catenin, complex formation, and HCT116 cells.",
+    "R092 remains complete: frame 188 option 1 explicitly offers TINCR specifically_bound_to EpCAM; null modality is interpreted as an unhedged author assertion.",
+    "R026–R027 describe nodules in mice; the condition uses control cells to identify the injected comparator cells, not an in-vitro endpoint.",
+    "R069 remains complete: the inverse passive triple activation of WNT/β-catenin pathway mediated_by TINCR depletion in CRC preserves actor, causal relation, target, and CRC setting. In conclusion is an extraneous discourse marker in frame.condition, not a false biological qualifier.",
+    "R045–R046 and R060–R063 now have explicit cited prior report [17]/[18] attribution in their frame fields. R076–R077 remain partial because the [19] attribution and binding mechanism are absent from offered graph fields.",
+    "R003–R006 now have single options with TINCR expression, the association direction, measured target, and p-value. Their condition says tumour tissue samples but omits the material CRC cohort, so they remain partial."
+  ],
+  "models_path": "src/jevy_graph/models.py",
+  "models_sha256": "b36b797a0469923095f3859026b4bfd47c53ca2ba3530e6e02219588c164340e"
+}

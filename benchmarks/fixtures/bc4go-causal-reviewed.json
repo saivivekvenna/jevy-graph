@@ -1,0 +1,14 @@
+{
+  "id": "bc4go-causal-reviewed",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4112614/#example-2",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "instruction": "Extract biological functions and causal findings; exclude routine procedures and entity type descriptions.",
+  "review_notes": "Codex labeled the asserted causal relation before probing. The first offline probe found zero frames, so this case moved to development before parser changes.",
+  "text": "Combinatorial regulation of a single splice site by two tissue-specific splicing regulators determines the binary fate of the entire transcript.",
+  "gold": [
+    {"id": "regulation-determines-transcript-fate", "subject": "Combinatorial regulation of a single splice site by two tissue-specific splicing regulators", "predicate": "determines", "object": "binary fate of the entire transcript", "evidence": "Combinatorial regulation of a single splice site by two tissue-specific splicing regulators determines the binary fate of the entire transcript", "modality": null, "polarity": "positive", "condition": null, "in_scope": true}
+  ]
+}

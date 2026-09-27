@@ -1,0 +1,80 @@
+{
+  "id": "constitution-amendment-22",
+  "domain": "legal",
+  "source": "National Archives Constitution amendment XXII section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex rechecked the entire frozen Amendment XXII Section 1: the ordinary and prior-service limits plus three effective-date exceptions. Subordinate service descriptions are conditions, not standalone claims. This remains development because it informed extraction fixes.",
+  "text": "AMENDMENT XXII\nSection 1.\nNo person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once. But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.",
+  "gold": [
+    {
+      "subject": "person",
+      "predicate": "elected_to",
+      "object": "office of the President",
+      "modality": "shall",
+      "polarity": "negative",
+      "source_unit": "AMENDMENT_22_SECTION_1",
+      "in_scope": true,
+      "evidence": "No person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once.",
+      "id": "ordinary-term-limit",
+      "condition": "more than twice"
+    },
+    {
+      "subject": "person",
+      "predicate": "elected_to",
+      "object": "office of the President",
+      "modality": "shall",
+      "polarity": "negative",
+      "source_unit": "AMENDMENT_22_SECTION_1",
+      "in_scope": true,
+      "evidence": "No person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once.",
+      "id": "long-prior-service-term-limit",
+      "condition": "who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President; more than once"
+    },
+    {
+      "id": "incumbent-exception",
+      "subject": "Amendment 22",
+      "predicate": "applies_to",
+      "object": "person holding the office of President",
+      "evidence": "But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "when this Article was proposed by the Congress",
+      "source_unit": "AMENDMENT_22_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "holding-remainder-exception",
+      "subject": "Amendment 22",
+      "predicate": "prevents",
+      "object": "holding the office of President",
+      "evidence": "But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "during the term within which this Article becomes operative; during the remainder of such term",
+      "source_unit": "AMENDMENT_22_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "acting-remainder-exception",
+      "subject": "Amendment 22",
+      "predicate": "prevents",
+      "object": "acting as President",
+      "evidence": "But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "during the term within which this Article becomes operative; during the remainder of such term",
+      "source_unit": "AMENDMENT_22_SECTION_1",
+      "in_scope": true
+    }
+  ],
+  "forbidden": [
+    {
+      "subject": "person",
+      "predicate": "elected_to",
+      "object": "person",
+      "critical": true
+    }
+  ]
+}

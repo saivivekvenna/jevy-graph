@@ -1,0 +1,120 @@
+{
+  "id": "constitution-article-4-section-1-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution transcript, Article IV Section 1",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete section. Every other State qualifies the three credit objects; Congress may prescribe both proof manner and legal effect for each kind of record by general Laws. These are Codex labels, not independent human labels.",
+  "text": "Article. IV.\nSection. 1.\nFull Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State. And the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+  "gold": [
+    {
+      "id": "credit-acts",
+      "subject": "State",
+      "predicate": "gives_full_faith_and_credit_to",
+      "object": "public Acts of every other State",
+      "evidence": "Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in each State",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "credit-records",
+      "subject": "State",
+      "predicate": "gives_full_faith_and_credit_to",
+      "object": "Records of every other State",
+      "evidence": "Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in each State",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "credit-proceedings",
+      "subject": "State",
+      "predicate": "gives_full_faith_and_credit_to",
+      "object": "judicial Proceedings of every other State",
+      "evidence": "Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "in each State",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "proof-acts",
+      "subject": "Congress",
+      "predicate": "may_prescribe_manner_of_proof_for",
+      "object": "public Acts",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "effect-acts",
+      "subject": "Congress",
+      "predicate": "may_prescribe_effect_of",
+      "object": "public Acts",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "proof-records",
+      "subject": "Congress",
+      "predicate": "may_prescribe_manner_of_proof_for",
+      "object": "Records",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "effect-records",
+      "subject": "Congress",
+      "predicate": "may_prescribe_effect_of",
+      "object": "Records",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "proof-proceedings",
+      "subject": "Congress",
+      "predicate": "may_prescribe_manner_of_proof_for",
+      "object": "judicial Proceedings",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    },
+    {
+      "id": "effect-proceedings",
+      "subject": "Congress",
+      "predicate": "may_prescribe_effect_of",
+      "object": "judicial Proceedings",
+      "evidence": "the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+      "modality": "may",
+      "polarity": "positive",
+      "condition": "by general Laws",
+      "source_unit": "ARTICLE_4_SECTION_1",
+      "in_scope": true
+    }
+  ]
+}

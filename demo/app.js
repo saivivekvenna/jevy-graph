@@ -6,6 +6,8 @@ const tripleText = document.querySelector("#triple-text");
 const edgeCount = document.querySelector("#edge-count");
 const nodeCount = document.querySelector("#node-count");
 const elapsedTime = document.querySelector("#elapsed-time");
+const graphInstruction = document.querySelector("#graph-instruction");
+const profileStatus = document.querySelector("#profile-status");
 const MEDIUM_GRAPH_NODES = 900;
 const LARGE_GRAPH_NODES = 2500;
 
@@ -47,6 +49,21 @@ const cy = cytoscape({
         "text-wrap": "wrap",
         "line-height": 1.15,
         "z-index": 11
+      }
+    },
+    {
+      selector: "node.graph-group",
+      style: {
+        "background-color": "#f3f3f3",
+        "background-opacity": 0.8,
+        "border-color": "#bbb",
+        "border-style": "dashed",
+        "border-width": 1,
+        "font-size": 13,
+        "font-weight": 700,
+        "text-valign": "top",
+        "text-margin-y": -8,
+        padding: 24
       }
     },
     {
@@ -164,8 +181,13 @@ function addClaims(items, requestId) {
   const elements = [];
 
   for (const { claim, index } of items) {
-    const subjectId = idFor(claim.subject);
-    const objectId = idFor(claim.object);
+    const groupId = claim.group ? idFor(`group:${claim.group}`) : null;
+    if (groupId && !nodeIds.has(groupId)) {
+      elements.push({ group: "nodes", classes: "graph-group", data: { id: groupId, label: claim.group } });
+      nodeIds.add(groupId);
+    }
+    const subjectId = idFor(`${groupId || "all"}:${claim.subject}`);
+    const objectId = idFor(`${groupId || "all"}:${claim.object}`);
     for (const [id, label] of [
       [subjectId, claim.subject],
       [objectId, claim.object]
@@ -176,6 +198,7 @@ function addClaims(items, requestId) {
         data: {
           id,
           label,
+          ...(groupId ? { parent: groupId } : {}),
           width: widthFor(label),
           height: heightFor(label)
         },
@@ -190,7 +213,13 @@ function addClaims(items, requestId) {
         source: subjectId,
         target: objectId,
         label: claim.predicate.replaceAll("_", " "),
-        evidence: claim.evidence
+        evidence: claim.evidence,
+        claimType: claim.claim_type || "",
+        comparison: claim.comparison || "",
+        conditions: claim.conditions || [],
+        measurements: claim.measurements || [],
+        modality: claim.modality || "",
+        polarity: claim.polarity || "positive"
       }
     });
   }
@@ -308,13 +337,16 @@ async function compile(file) {
   updateGraphStats();
   setSourceText("Hover over an edge or leaf node to see its source sentence.");
   drop.classList.add("busy");
+  const instruction = graphInstruction.value.trim();
+  profileStatus.textContent = instruction ? "Interpreting graph instruction…" : "No instruction: include all supported claims.";
 
   try {
     const response = await fetch("/api/compile", {
       method: "POST",
       headers: {
         "Content-Type": "application/octet-stream",
-        "X-Filename": encodeURIComponent(file.name)
+        "X-Filename": encodeURIComponent(file.name),
+        "X-Graph-Instruction": encodeURIComponent(instruction)
       },
       signal: uploadController.signal,
       body: file
@@ -339,6 +371,8 @@ async function compile(file) {
           enqueueClaim(event.claim, requestId);
         } else if (event.type === "graph") {
           enqueueClaims(event.claims, requestId);
+        } else if (event.type === "profile") {
+          profileStatus.textContent = `Focus: ${event.instruction} · Group by: ${event.group_by}`;
         } else if (event.type === "error") {
           throw new Error(event.message);
         } else if (event.type === "done") {
@@ -356,6 +390,7 @@ async function compile(file) {
   } catch (error) {
     if (requestId !== activeRequest || error.name === "AbortError") return;
     setSourceText(error.message || "The document could not be compiled.");
+    profileStatus.textContent = error.message || "The instruction could not be applied.";
     if (requestId === activeRequest) drop.classList.remove("busy");
   } finally {
     window.clearInterval(timer);
@@ -369,7 +404,16 @@ function handleFiles(files) {
 }
 
 function showEdgeDetails(edge) {
-  setSourceText(edge.data("evidence"), `${edge.source().data("label")} — ${edge.data("label")} → ${edge.target().data("label")}`);
+  const qualifiers = [
+    edge.data("claimType") && `type: ${edge.data("claimType").replaceAll("_", " ")}`,
+    edge.data("comparison") && `compared with: ${edge.data("comparison")}`,
+    ...(edge.data("conditions") || []).map((value) => `condition: ${value}`),
+    ...(edge.data("measurements") || []).map((value) => `measurement: ${value}`),
+    edge.data("modality") && `modality: ${edge.data("modality")}`,
+    edge.data("polarity") === "negative" && "negated"
+  ].filter(Boolean);
+  const triple = `${edge.source().data("label")} — ${edge.data("label")} → ${edge.target().data("label")}`;
+  setSourceText(edge.data("evidence"), qualifiers.length ? `${triple} · ${qualifiers.join(" · ")}` : triple);
 }
 
 function setSourceText(text, triple = "") {

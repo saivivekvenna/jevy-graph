@@ -1,0 +1,69 @@
+{
+  "id": "constitution-amendment-2-reviewed",
+  "domain": "legal",
+  "source": "National Archives Constitution Amendment II",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Codex reviewed the complete amendment: the militia purpose, the two coordinated arms rights, and the negative infringement rule. The clause informed a parser correction and remains development.",
+  "text": "Amendment II\nA well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
+  "gold": [
+    {
+      "id": "militia-purpose",
+      "subject": "well regulated Militia",
+      "predicate": "necessary_to",
+      "object": "security of a free State",
+      "evidence": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_2",
+      "in_scope": true
+    },
+    {
+      "id": "right-keep-arms",
+      "subject": "people",
+      "predicate": "has_right_to",
+      "object": "keep Arms",
+      "evidence": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_2",
+      "in_scope": true
+    },
+    {
+      "id": "right-bear-arms",
+      "subject": "people",
+      "predicate": "has_right_to",
+      "object": "bear Arms",
+      "evidence": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "source_unit": "AMENDMENT_2",
+      "in_scope": true
+    },
+    {
+      "id": "right-not-infringed",
+      "subject": "right of the people to keep and bear Arms",
+      "predicate": "has_status",
+      "object": "infringed",
+      "evidence": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": null,
+      "source_unit": "AMENDMENT_2",
+      "in_scope": true
+    }
+  ],
+  "forbidden": [
+    {
+      "subject": "right of the people to keep and bear Arms",
+      "predicate": "has_status",
+      "object": "infringed",
+      "polarity": "positive",
+      "critical": true
+    }
+  ]
+}

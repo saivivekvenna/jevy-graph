@@ -1,0 +1,1793 @@
+{
+  "id": "tincr-event-candidate-coverage",
+  "method": "Exact subject, predicate, object, evidence, polarity, modality, condition, source-unit, and attribution match using the frozen benchmark evaluator. Offline deterministic extraction only.",
+  "source": "benchmarks/corpus/tincr-epcam-full.txt",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "gold": "benchmarks/audits/tincr-results-complete-gold-2026-09-27-v2.json",
+  "gold_sha256": "e1e3f2431bde6f9d8e0c908cb75864087652e750597ef924624fbfef1b48ff16",
+  "denominator": 88,
+  "covered": 88,
+  "missing": 0,
+  "coverage": 1.0,
+  "full_document_frames": 462,
+  "full_document_options": 6472,
+  "event_frames": 91,
+  "frame_sha256": "7b5e6e99057c79851ff41fb5b6b9b8e5d5c3eefc68f1b4eb109d6ea7b5e35db6",
+  "option_sha256": "adde3313d1da4ee188a0119ce0dedc3f19a9ff6a3578697fee454426f1c98ce7",
+  "claims": [
+    {
+      "gold_id": "R001",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 100,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "decreased_in",
+            "CRC tissues"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "relative to adjacent tissues; Oncomine analysis",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R002",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 109,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "decreased_in",
+            "38 of 44 CRC specimens"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "paired non-tumour tissues; 44 CRC patients; p < 0.0001",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R003",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 117,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "inversely_correlated_with",
+            "serosal invasion"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC tumour tissue samples; p = 0.001",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R004",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 118,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "inversely_correlated_with",
+            "lymph metastasis"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC tumour tissue samples; p = 0.037",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R005",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 119,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "inversely_correlated_with",
+            "TNM classification"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC tumour tissue samples; p = 0.016",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R006",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 120,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "positively_correlated_with",
+            "differentiation degree"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC tumour tissue samples; p = 0.017",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R007",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 121,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "lower_in",
+            "LoVo, RKO, and SW620 cells"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "compared with HCT116, SW480, and LS174T; high versus low malignant potential CRC cell lines",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R008",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 122,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR transcript",
+            "mainly_located_in",
+            "cytoplasm"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R009",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 123,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR transcript",
+            "mainly_located_in",
+            "cytoplasm"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "SW480 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R010",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 126,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "decreased TINCR expression",
+            "associated_with",
+            "CRC metastasis"
+          ],
+          "modality": "suggested",
+          "polarity": "positive",
+          "condition": "clinical CRC samples",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R011",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 128,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "stable ectopic TINCR expression",
+            "decreased",
+            "cell proliferation"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO cells; p < 0.001",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R012",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 129,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "stable ectopic TINCR expression",
+            "decreased",
+            "cell proliferation"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "LoVo cells; p < 0.001",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R013",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 130,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "stable ectopic TINCR expression",
+            "decreased",
+            "cell migration"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R014",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 131,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "stable ectopic TINCR expression",
+            "decreased",
+            "cell migration"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "LoVo cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R015",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 136,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "cell proliferation"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells; p = 0.001; opposite to TINCR overexpression",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R016",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 137,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "cell proliferation"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "SW480 cells; p = 0.001; opposite to TINCR overexpression",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R017",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 138,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "cell migration"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells; p = 0.001; opposite to TINCR overexpression",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R018",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 139,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "cell migration"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "SW480 cells; p = 0.001; opposite to TINCR overexpression",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R019",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 153,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "xenograft tumour size"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "sh-TINCR xenograft group versus control mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R020",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 154,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "xenograft tumour growth rate"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "sh-TINCR xenograft group versus control mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R021",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 155,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "tumour ki-67 proliferation index"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "xenograft tumours versus control",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R022",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 158,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "HCT116-shTINCR mice",
+            "developed",
+            "lung metastatic foci"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "5/5 mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R023",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 159,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "HCT116-shTINCR mice",
+            "developed",
+            "liver metastatic foci"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "4/5 mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R024",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 161,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "HCT116-NC mice",
+            "developed",
+            "lung metastatic foci"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "1/5 control mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R025",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 162,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "HCT116-NC mice",
+            "developed",
+            "hepatic metastatic foci"
+          ],
+          "modality": "observed",
+          "polarity": "negative",
+          "condition": "0/5 control mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R026",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 166,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "metastatic nodule count"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "lung nodules; sh-TINCR versus control; 4:1; mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R027",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 167,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "metastatic nodule count"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "liver nodules; sh-TINCR versus control; 2:0; mice",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R028",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 169,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR loss",
+            "promoted",
+            "tumour growth"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R029",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 170,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR loss",
+            "promoted",
+            "metastasis"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R030",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 174,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR downregulation",
+            "decreased",
+            "G0/G1-phase cell fraction"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells; 71.31% ± 1.57 to 39.96% ± 1.21",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R031",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 175,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR downregulation",
+            "increased",
+            "S-phase cell fraction"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells; 20.52% ± 0.97 to 51.97% ± 1.68",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R032",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 176,
+          "option_index": 0,
+          "origin": "semantic",
+          "triple": [
+            "TINCR overexpression",
+            "increased",
+            "G2/M-phase cell fraction"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO cells; 14.51% ± 1.35 versus Vector 8.59% ± 0.87",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R033",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 177,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR upregulation",
+            "increased",
+            "early apoptosis"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO cells; 2.77% ± 1.05 to 10.27% ± 1.29",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R034",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 178,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR upregulation",
+            "increased",
+            "early apoptosis"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "LoVo cells; 4.75% ± 0.82 to 7.50% ± 1.33",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R035",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 181,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR upregulation",
+            "activated",
+            "caspase 3"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO and LoVo CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R036",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 182,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR upregulation",
+            "activated",
+            "caspase 9"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "RKO and LoVo CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R037",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 184,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR overexpression",
+            "induced",
+            "cell-cycle arrest"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R038",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 185,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR overexpression",
+            "induced",
+            "apoptosis"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R039",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 183,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR-induced cell-cycle arrest and apoptosis",
+            "contributed_to",
+            "growth inhibition"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R040",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 197,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR depletion",
+            "disrupted",
+            "EpCAM gene expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "transcript profiling; prior report [13]",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R042",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 201,
+          "option_index": 0,
+          "origin": "semantic",
+          "triple": [
+            "TINCR",
+            "directly_interacted_with",
+            "EpCAM"
+          ],
+          "modality": "suggested",
+          "polarity": "positive",
+          "condition": "biotin RNA pull-down assay",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R043",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 202,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "changed",
+            "EpCAM mRNA level"
+          ],
+          "modality": "observed",
+          "polarity": "negative",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R044",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 203,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "decreased",
+            "EpCAM protein level"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R045",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 206,
+          "option_index": 0,
+          "origin": "semantic",
+          "triple": [
+            "psen2",
+            "catalyzed",
+            "EpCAM hydrolysis"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": "psen2 catalysis; cited prior report [17]",
+          "attribution": "cited prior report [17]"
+        }
+      ]
+    },
+    {
+      "gold_id": "R046",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 207,
+          "option_index": 0,
+          "origin": "semantic",
+          "triple": [
+            "EpCAM hydrolysis",
+            "released",
+            "EpICD"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": "psen2 catalysis; cited prior report [17]",
+          "attribution": "cited prior report [17]"
+        }
+      ]
+    },
+    {
+      "gold_id": "R047",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 209,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR downregulation",
+            "increased",
+            "EpICD expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R048",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 210,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "PSEN2 overexpression alone",
+            "increased",
+            "EpICD expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 context; PSEN2 overexpression alone",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R049",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 211,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "PSEN2 overexpression alone",
+            "decreased",
+            "EpCAM expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 context; PSEN2 overexpression alone",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R050",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 212,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "PSEN2 overexpression in HCT116/sh-TINCR cells",
+            "increased",
+            "EpICD expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 context; PSEN2 overexpression in HCT116/sh-TINCR cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R051",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 213,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "PSEN2 overexpression in HCT116/sh-TINCR cells",
+            "decreased",
+            "EpCAM expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 context; PSEN2 overexpression in HCT116/sh-TINCR cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R052",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 214,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR re-expression",
+            "reversed",
+            "PSEN2-associated EpICD increase"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116-NC or HCT116/sh-TINCR cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R053",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 220,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "decreased",
+            "EpCAM protein half-life"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R054",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 221,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "decreased",
+            "EpCAM protein half-life"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "SW480 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R055",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 222,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR inhibition",
+            "accelerated",
+            "EpCAM cleavage"
+          ],
+          "modality": "may",
+          "polarity": "positive",
+          "condition": "inferred from intracytoplasmic TINCR and protein/EpICD results",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R056",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 223,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR inhibition",
+            "increased",
+            "EpICD release"
+          ],
+          "modality": "may",
+          "polarity": "positive",
+          "condition": "inferred from intracytoplasmic TINCR and protein/EpICD results",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R057",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 242,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD expression",
+            "increased_in",
+            "CRC tissues"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "relative to paired normal mucosa",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R058",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 245,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR expression",
+            "inversely_correlated_with",
+            "EpICD expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "44 paired CRC tissues; p = 0.005; r = −0.478",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R059",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 248,
+          "option_index": 0,
+          "origin": "semantic",
+          "triple": [
+            "EpICD",
+            "component_of",
+            "Wnt pathway"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R060",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 249,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD",
+            "colocalized_with",
+            "FHL2"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R061",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 250,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD",
+            "colocalized_with",
+            "β-catenin"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R062",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 251,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD–FHL2–β-catenin complex",
+            "formed_in",
+            "nucleus"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R063",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 252,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD–FHL2–β-catenin complex",
+            "promoted",
+            "gene transcription"
+          ],
+          "modality": "general_mechanism",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R064",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 253,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "EpICD",
+            "formed_complex_with",
+            "β-catenin"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R065",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 254,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "TOP-Flash reporter activity"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "200%–300% increase; Wnt reporter assay",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R066",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 255,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "β-catenin expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "TINCR-knockdown CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R067",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 256,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "TCF4 expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "TINCR-knockdown CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R068",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 257,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "increased",
+            "c-Myc expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "TINCR-knockdown CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R069",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 258,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR depletion",
+            "activated",
+            "WNT/β-catenin pathway"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R070",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 260,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR knockdown",
+            "promoted",
+            "EpICD–β-catenin complex formation"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells; Co-IP finding",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R071",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 265,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1",
+            "predicted_binding_site_on",
+            "TINCR promoter"
+          ],
+          "modality": "predicted",
+          "polarity": "positive",
+          "condition": "one promoter site; JARSPAR and PROMO",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R072",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 270,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1",
+            "increased_binding_activity_on",
+            "TINCR promoter"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "dual luciferase reporter assay",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R073",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 272,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1",
+            "bound_to",
+            "TINCR promoter"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R074",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 276,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1 overexpression",
+            "increased",
+            "TINCR expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R075",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 277,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1 overexpression",
+            "increased",
+            "TINCR expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "SW480 cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R076",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 278,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc",
+            "bound_to",
+            "Sp1"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "via c-Myc central region; prior report [19]",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R077",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 279,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc",
+            "inhibited",
+            "Sp1 transcriptional activity"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "via c-Myc–Sp1 binding; prior report [19]",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R078",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 281,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "Sp1",
+            "transcribed",
+            "TINCR"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R079",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 282,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc",
+            "repressed",
+            "TINCR expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R080",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 284,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc",
+            "partly_suppressed",
+            "Sp1-induced TINCR expression"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "Sp1 overexpression; partial suppression",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R081",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 286,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc suppression",
+            "may_mediate",
+            "TINCR-induced cell-cycle arrest"
+          ],
+          "modality": "may",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R082",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 287,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "c-Myc suppression",
+            "may_mediate",
+            "TINCR-induced proliferation inhibition"
+          ],
+          "modality": "may",
+          "polarity": "positive",
+          "condition": "CRC cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R083",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 291,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR–c-Myc feedback loop",
+            "controlled",
+            "TINCR expression"
+          ],
+          "modality": "inferred",
+          "polarity": "positive",
+          "condition": "CRC cells; reciprocal TINCR/c-Myc regulation",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R084",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 292,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR–c-Myc feedback loop",
+            "controlled",
+            "c-Myc expression"
+          ],
+          "modality": "inferred",
+          "polarity": "positive",
+          "condition": "CRC cells; reciprocal TINCR/c-Myc regulation",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R087",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 300,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "proposed reciprocal TINCR–EpCAM model",
+            "regulates",
+            "CRC cell proliferation"
+          ],
+          "modality": "proposed_model",
+          "polarity": "positive",
+          "condition": "colorectal cancer",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R088",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 301,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "proposed reciprocal TINCR–EpCAM model",
+            "regulates",
+            "CRC invasion"
+          ],
+          "modality": "proposed_model",
+          "polarity": "positive",
+          "condition": "colorectal cancer",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R089",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 302,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "proposed reciprocal TINCR–EpCAM model",
+            "regulates",
+            "CRC metastasis"
+          ],
+          "modality": "proposed_model",
+          "polarity": "positive",
+          "condition": "colorectal cancer",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R090",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 215,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR re-expression",
+            "reversed",
+            "PSEN2-associated EpCAM decrease"
+          ],
+          "modality": "observed",
+          "polarity": "positive",
+          "condition": "HCT116-NC or HCT116/sh-TINCR cells",
+          "attribution": null
+        }
+      ]
+    },
+    {
+      "gold_id": "R092",
+      "covered": true,
+      "matches": [
+        {
+          "frame_index": 194,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR",
+            "specifically_binds_to",
+            "EpCAM"
+          ],
+          "modality": "author_asserted",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        },
+        {
+          "frame_index": 227,
+          "option_index": 0,
+          "origin": "event",
+          "triple": [
+            "TINCR",
+            "specifically_binds_to",
+            "EpCAM"
+          ],
+          "modality": "author_asserted",
+          "polarity": "positive",
+          "condition": null,
+          "attribution": null
+        }
+      ]
+    }
+  ]
+}

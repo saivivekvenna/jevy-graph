@@ -1,0 +1,2000 @@
+{
+  "id": "tincr-discovery-recall-2026-09-26",
+  "gold_path": "benchmarks/audits/tincr-results-complete-gold-2026-09-27-v2.json",
+  "gold_sha256": "e1e3f2431bde6f9d8e0c908cb75864087652e750597ef924624fbfef1b48ff16",
+  "proposal_path": "out/full-tincr-model-discovery-2026-09-26.json",
+  "proposal_sha256": "719155e18779608e3ad34c7cce5e11185da72119e604b44f5db0f874f719b13a",
+  "source_path": "benchmarks/corpus/tincr-epcam-full.txt",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "scope": "Results section lines 17–72; 88 unambiguous in-scope gold claims only. R041 and R093 are out-of-scope assay observations; R085, R086, and R091 are source-disputed. Proposals are partitioned by source character offsets, regardless of candidate.source_unit.",
+  "scoring_rule": "Complete requires one individual proposed record to preserve actor, relation, target, polarity, modality, material condition, temporal setting, and attribution. Separate proposal records cannot be combined for single-record complete recall. Candidate evidence is a locator and does not fill omitted graph fields. Null proposal modality is treated as an observed assertion when source evidence is an unhedged study result.",
+  "summary": {
+    "gold_unambiguous_in_scope": 88,
+    "complete_single_record": 44,
+    "partial": 44,
+    "missing": 0,
+    "single_record_recall": 0.5,
+    "multi_record_reconstructable_partial_count": 19,
+    "multi_record_reconstructable_partial_gold_ids": [
+      "R003",
+      "R004",
+      "R005",
+      "R006",
+      "R007",
+      "R011",
+      "R012",
+      "R015",
+      "R016",
+      "R017",
+      "R018",
+      "R032",
+      "R035",
+      "R036",
+      "R039",
+      "R058",
+      "R071",
+      "R072",
+      "R077"
+    ],
+    "proposals_total": 650,
+    "accepted_proposals": 645,
+    "rejected_proposals": 5,
+    "results_accepted_proposals": 302,
+    "results_rejected_proposals": 0
+  },
+  "claims": [
+    {
+      "gold_id": "R001",
+      "source_section": "RESULTS",
+      "source_line": 21,
+      "source_line_start": 4449,
+      "source_line_end": 5025,
+      "gold_evidence_start": 4648,
+      "gold_evidence_end": 4746,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 108,
+          "start": 4449,
+          "end": 4747
+        }
+      ],
+      "error_category": null,
+      "reason": "Oncomine comparison with adjacent tissue is retained."
+    },
+    {
+      "gold_id": "R002",
+      "source_section": "RESULTS",
+      "source_line": 21,
+      "source_line_start": 4449,
+      "source_line_end": 5025,
+      "gold_evidence_start": 4929,
+      "gold_evidence_end": 5004,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 115,
+          "start": 4899,
+          "end": 5004
+        }
+      ],
+      "error_category": "missing_comparator",
+      "reason": "Lower expression and p-value are retained, but the paired non-tumour comparator is absent from this record."
+    },
+    {
+      "gold_id": "R003",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 5903,
+      "gold_evidence_end": 6073,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 137,
+          "start": 5899,
+          "end": 5982
+        },
+        {
+          "collection": "claims",
+          "index": 138,
+          "start": 5899,
+          "end": 5982
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "Correlation and its p-value occur in separate proposal records."
+    },
+    {
+      "gold_id": "R004",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 5903,
+      "gold_evidence_end": 6073,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 139,
+          "start": 5899,
+          "end": 6012
+        },
+        {
+          "collection": "claims",
+          "index": 140,
+          "start": 5899,
+          "end": 6012
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "Correlation and its p-value occur in separate proposal records."
+    },
+    {
+      "gold_id": "R005",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 5903,
+      "gold_evidence_end": 6073,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 141,
+          "start": 5899,
+          "end": 6073
+        },
+        {
+          "collection": "claims",
+          "index": 142,
+          "start": 5899,
+          "end": 6073
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "Correlation and its p-value occur in separate proposal records."
+    },
+    {
+      "gold_id": "R006",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 6081,
+      "gold_evidence_end": 6142,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 143,
+          "start": 5899,
+          "end": 6143
+        },
+        {
+          "collection": "claims",
+          "index": 144,
+          "start": 6075,
+          "end": 6143
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "Correlation and its p-value occur in separate proposal records."
+    },
+    {
+      "gold_id": "R007",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 6158,
+      "gold_evidence_end": 6349,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 151,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 152,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 153,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 154,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 155,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 156,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 157,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 158,
+          "start": 6144,
+          "end": 6362
+        },
+        {
+          "collection": "claims",
+          "index": 159,
+          "start": 6144,
+          "end": 6362
+        }
+      ],
+      "error_category": "split_cell_line_groups",
+      "reason": "No single proposal covers all three high-potential lines against all three low-potential lines."
+    },
+    {
+      "gold_id": "R008",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 6367,
+      "gold_evidence_end": 6449,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 160,
+          "start": 6363,
+          "end": 6513
+        }
+      ],
+      "error_category": null,
+      "reason": "Cytoplasmic localization in HCT116 is retained."
+    },
+    {
+      "gold_id": "R009",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 6367,
+      "gold_evidence_end": 6449,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 161,
+          "start": 6363,
+          "end": 6513
+        }
+      ],
+      "error_category": null,
+      "reason": "Cytoplasmic localization in SW480 is retained."
+    },
+    {
+      "gold_id": "R010",
+      "source_section": "RESULTS",
+      "source_line": 27,
+      "source_line_start": 5724,
+      "source_line_end": 6621,
+      "gold_evidence_start": 6545,
+      "gold_evidence_end": 6619,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 164,
+          "start": 6514,
+          "end": 6620
+        }
+      ],
+      "error_category": null,
+      "reason": "Clinical relevance to CRC metastasis preserves the suggested association."
+    },
+    {
+      "gold_id": "R011",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 6838,
+      "gold_evidence_end": 6905,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 174,
+          "start": 6838,
+          "end": 7038
+        },
+        {
+          "collection": "claims",
+          "index": 178,
+          "start": 6838,
+          "end": 6954
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "RKO proliferation decrease and p-value are separate records."
+    },
+    {
+      "gold_id": "R012",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 6838,
+      "gold_evidence_end": 6905,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 175,
+          "start": 6838,
+          "end": 7038
+        },
+        {
+          "collection": "claims",
+          "index": 178,
+          "start": 6838,
+          "end": 6954
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "LoVo proliferation decrease and p-value are separate records."
+    },
+    {
+      "gold_id": "R013",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 6955,
+      "gold_evidence_end": 6977,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 176,
+          "start": 6838,
+          "end": 7038
+        }
+      ],
+      "error_category": null,
+      "reason": "RKO migration reduction is retained."
+    },
+    {
+      "gold_id": "R014",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 6955,
+      "gold_evidence_end": 6977,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 177,
+          "start": 6838,
+          "end": 7038
+        }
+      ],
+      "error_category": null,
+      "reason": "LoVo migration reduction is retained."
+    },
+    {
+      "gold_id": "R015",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 7052,
+      "gold_evidence_end": 7121,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 181,
+          "start": 6838,
+          "end": 7178
+        },
+        {
+          "collection": "claims",
+          "index": 185,
+          "start": 7039,
+          "end": 7178
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "HCT116 proliferation increase and reported p-value are separate records."
+    },
+    {
+      "gold_id": "R016",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 7052,
+      "gold_evidence_end": 7121,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 182,
+          "start": 6838,
+          "end": 7178
+        },
+        {
+          "collection": "claims",
+          "index": 185,
+          "start": 7039,
+          "end": 7178
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "SW480 proliferation increase and reported p-value are separate records."
+    },
+    {
+      "gold_id": "R017",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 7052,
+      "gold_evidence_end": 7121,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 183,
+          "start": 6838,
+          "end": 7178
+        },
+        {
+          "collection": "claims",
+          "index": 185,
+          "start": 7039,
+          "end": 7178
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "HCT116 migration increase and reported p-value are separate records."
+    },
+    {
+      "gold_id": "R018",
+      "source_section": "RESULTS",
+      "source_line": 31,
+      "source_line_start": 6688,
+      "source_line_end": 7179,
+      "gold_evidence_start": 7052,
+      "gold_evidence_end": 7121,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 184,
+          "start": 6838,
+          "end": 7178
+        },
+        {
+          "collection": "claims",
+          "index": 185,
+          "start": 7039,
+          "end": 7178
+        }
+      ],
+      "error_category": "split_significance",
+      "reason": "SW480 migration increase and reported p-value are separate records."
+    },
+    {
+      "gold_id": "R019",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8197,
+      "gold_evidence_end": 8293,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 213,
+          "start": 8197,
+          "end": 8293
+        }
+      ],
+      "error_category": null,
+      "reason": "Larger sh-TINCR xenografts relative to controls preserve size effect and setting."
+    },
+    {
+      "gold_id": "R020",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8307,
+      "gold_evidence_end": 8403,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 215,
+          "start": 8307,
+          "end": 8403
+        }
+      ],
+      "error_category": null,
+      "reason": "Faster sh-TINCR xenograft growth than controls is retained."
+    },
+    {
+      "gold_id": "R021",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8435,
+      "gold_evidence_end": 8515,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 216,
+          "start": 8431,
+          "end": 8515
+        }
+      ],
+      "error_category": "missing_comparator",
+      "reason": "Higher Ki-67 is retained, but the control comparator is not explicit in the record."
+    },
+    {
+      "gold_id": "R022",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8529,
+      "gold_evidence_end": 8612,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 217,
+          "start": 8529,
+          "end": 8612
+        }
+      ],
+      "error_category": null,
+      "reason": "Lung foci in all five HCT116-shTINCR mice are retained."
+    },
+    {
+      "gold_id": "R023",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8617,
+      "gold_evidence_end": 8667,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 218,
+          "start": 8529,
+          "end": 8668
+        }
+      ],
+      "error_category": null,
+      "reason": "Liver foci in four of five HCT116-shTINCR mice are retained."
+    },
+    {
+      "gold_id": "R024",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8678,
+      "gold_evidence_end": 8738,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 219,
+          "start": 8678,
+          "end": 8738
+        }
+      ],
+      "error_category": null,
+      "reason": "Lung foci in one of five HCT116-NC controls are retained."
+    },
+    {
+      "gold_id": "R025",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8743,
+      "gold_evidence_end": 8801,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 220,
+          "start": 8743,
+          "end": 8801
+        }
+      ],
+      "error_category": "missing_count",
+      "reason": "Negative hepatic metastasis is retained, but the zero-of-five denominator is absent."
+    },
+    {
+      "gold_id": "R026",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8903,
+      "gold_evidence_end": 9014,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 223,
+          "start": 8903,
+          "end": 9014
+        }
+      ],
+      "error_category": "wrong_study_context",
+      "reason": "Lung 4:1 increase is retained, but record says control cells where gold concerns mouse nodules."
+    },
+    {
+      "gold_id": "R027",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 8903,
+      "gold_evidence_end": 9014,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 224,
+          "start": 8815,
+          "end": 9015
+        }
+      ],
+      "error_category": "wrong_study_context",
+      "reason": "Liver 2:0 increase is retained, but record says control cells where gold concerns mouse nodules."
+    },
+    {
+      "gold_id": "R028",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 9058,
+      "gold_evidence_end": 9131,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 225,
+          "start": 9016,
+          "end": 9132
+        }
+      ],
+      "error_category": null,
+      "reason": "Author synthesis that TINCR loss promotes tumour growth is retained."
+    },
+    {
+      "gold_id": "R029",
+      "source_section": "RESULTS",
+      "source_line": 37,
+      "source_line_start": 8158,
+      "source_line_end": 9133,
+      "gold_evidence_start": 9058,
+      "gold_evidence_end": 9131,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 226,
+          "start": 9016,
+          "end": 9132
+        }
+      ],
+      "error_category": null,
+      "reason": "Author synthesis that TINCR loss promotes metastasis is retained."
+    },
+    {
+      "gold_id": "R030",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 9312,
+      "gold_evidence_end": 9452,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 231,
+          "start": 9308,
+          "end": 9543
+        }
+      ],
+      "error_category": null,
+      "reason": "HCT116 G0/G1 reduction and both measured fractions are retained."
+    },
+    {
+      "gold_id": "R031",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 9460,
+      "gold_evidence_end": 9542,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 232,
+          "start": 9308,
+          "end": 9543
+        }
+      ],
+      "error_category": null,
+      "reason": "HCT116 S-phase increase and both measured fractions are retained."
+    },
+    {
+      "gold_id": "R032",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 9640,
+      "gold_evidence_end": 9775,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 237,
+          "start": 9636,
+          "end": 9775
+        },
+        {
+          "collection": "claims",
+          "index": 235,
+          "start": 9636,
+          "end": 9775
+        },
+        {
+          "collection": "claims",
+          "index": 236,
+          "start": 9636,
+          "end": 9775
+        }
+      ],
+      "error_category": "split_measured_values",
+      "reason": "Comparison is one record but the two measured G2/M fractions are separate records."
+    },
+    {
+      "gold_id": "R033",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 9793,
+      "gold_evidence_end": 9955,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 238,
+          "start": 9789,
+          "end": 9955
+        }
+      ],
+      "error_category": null,
+      "reason": "RKO early-apoptosis increase and both values are retained."
+    },
+    {
+      "gold_id": "R034",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 9793,
+      "gold_evidence_end": 9955,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 239,
+          "start": 9789,
+          "end": 9955
+        }
+      ],
+      "error_category": null,
+      "reason": "LoVo early-apoptosis increase and both values are retained."
+    },
+    {
+      "gold_id": "R035",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 10064,
+      "gold_evidence_end": 10141,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 241,
+          "start": 10060,
+          "end": 10141
+        },
+        {
+          "collection": "claims",
+          "index": 243,
+          "start": 10060,
+          "end": 10141
+        }
+      ],
+      "error_category": "split_cell_lines",
+      "reason": "Caspase-3 activation is split into RKO and LoVo records."
+    },
+    {
+      "gold_id": "R036",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 10064,
+      "gold_evidence_end": 10141,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 242,
+          "start": 10060,
+          "end": 10141
+        },
+        {
+          "collection": "claims",
+          "index": 244,
+          "start": 10060,
+          "end": 10141
+        }
+      ],
+      "error_category": "split_cell_lines",
+      "reason": "Caspase-9 activation is split into RKO and LoVo records."
+    },
+    {
+      "gold_id": "R037",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 10188,
+      "gold_evidence_end": 10264,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 245,
+          "start": 10155,
+          "end": 10329
+        }
+      ],
+      "error_category": null,
+      "reason": "TINCR overexpression inducing CRC cell-cycle arrest is retained."
+    },
+    {
+      "gold_id": "R038",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 10188,
+      "gold_evidence_end": 10264,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 246,
+          "start": 10155,
+          "end": 10329
+        }
+      ],
+      "error_category": null,
+      "reason": "TINCR overexpression inducing CRC-cell apoptosis is retained."
+    },
+    {
+      "gold_id": "R039",
+      "source_section": "RESULTS",
+      "source_line": 41,
+      "source_line_start": 9181,
+      "source_line_end": 10330,
+      "gold_evidence_start": 10266,
+      "gold_evidence_end": 10328,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 247,
+          "start": 10155,
+          "end": 10329
+        },
+        {
+          "collection": "claims",
+          "index": 248,
+          "start": 10155,
+          "end": 10329
+        }
+      ],
+      "error_category": "split_joint_cause",
+      "reason": "Cell-cycle arrest and apoptosis contributing to growth inhibition are separate records."
+    },
+    {
+      "gold_id": "R040",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 10828,
+      "gold_evidence_end": 10888,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 265,
+          "start": 10828,
+          "end": 10888
+        }
+      ],
+      "error_category": "object_and_attribution",
+      "reason": "Proposal says EpCAM gene disrupted, not gene expression, and omits the prior-report attribution."
+    },
+    {
+      "gold_id": "R042",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11132,
+      "gold_evidence_end": 11184,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 272,
+          "start": 11079,
+          "end": 11184
+        }
+      ],
+      "error_category": null,
+      "reason": "Suggested direct TINCR–EpCAM interaction from pull-down is retained."
+    },
+    {
+      "gold_id": "R043",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11223,
+      "gold_evidence_end": 11271,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 273,
+          "start": 11223,
+          "end": 11327
+        }
+      ],
+      "error_category": null,
+      "reason": "No EpCAM mRNA change under TINCR knockdown in CRC cells is retained."
+    },
+    {
+      "gold_id": "R044",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11276,
+      "gold_evidence_end": 11327,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 274,
+          "start": 11223,
+          "end": 11327
+        }
+      ],
+      "error_category": null,
+      "reason": "EpCAM protein reduction under TINCR knockdown in CRC cells is retained."
+    },
+    {
+      "gold_id": "R045",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11348,
+      "gold_evidence_end": 11466,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 275,
+          "start": 11348,
+          "end": 11472
+        }
+      ],
+      "error_category": "missing_attribution",
+      "reason": "PSEN2-catalyzed EpCAM hydrolysis is retained, but cited-prior-study attribution is absent from claim fields."
+    },
+    {
+      "gold_id": "R046",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11348,
+      "gold_evidence_end": 11405,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 276,
+          "start": 11348,
+          "end": 11472
+        }
+      ],
+      "error_category": "missing_attribution",
+      "reason": "EpICD release after PSEN2-catalyzed hydrolysis is retained, but cited-prior-study attribution is absent from claim fields."
+    },
+    {
+      "gold_id": "R047",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11477,
+      "gold_evidence_end": 11534,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 279,
+          "start": 11473,
+          "end": 11534
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "EpICD increase is retained, but CRC-cell context is absent from this record."
+    },
+    {
+      "gold_id": "R048",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11566,
+      "gold_evidence_end": 11659,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 280,
+          "start": 11562,
+          "end": 11695
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "PSEN2-alone arm is retained, but HCT116 context is absent."
+    },
+    {
+      "gold_id": "R049",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11566,
+      "gold_evidence_end": 11695,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 281,
+          "start": 11562,
+          "end": 11695
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "PSEN2-alone arm is retained, but HCT116 context is absent."
+    },
+    {
+      "gold_id": "R050",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11566,
+      "gold_evidence_end": 11659,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 282,
+          "start": 11562,
+          "end": 11695
+        }
+      ],
+      "error_category": null,
+      "reason": "PSEN2 overexpression in HCT116/sh-TINCR cells increasing EpICD is retained."
+    },
+    {
+      "gold_id": "R051",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11566,
+      "gold_evidence_end": 11695,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 283,
+          "start": 11562,
+          "end": 11695
+        }
+      ],
+      "error_category": null,
+      "reason": "PSEN2 overexpression in HCT116/sh-TINCR cells reducing EpCAM is retained."
+    },
+    {
+      "gold_id": "R052",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11757,
+      "gold_evidence_end": 11845,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 284,
+          "start": 11473,
+          "end": 11878
+        },
+        {
+          "collection": "claims",
+          "index": 285,
+          "start": 11473,
+          "end": 11878
+        }
+      ],
+      "error_category": "split_context_and_antecedent",
+      "reason": "Rescue is split by cell arm, and the PSEN2-associated EpICD antecedent is not bound in either record."
+    },
+    {
+      "gold_id": "R053",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11893,
+      "gold_evidence_end": 11990,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 288,
+          "start": 11879,
+          "end": 11990
+        }
+      ],
+      "error_category": null,
+      "reason": "EpCAM protein half-life reduction in HCT116 is retained."
+    },
+    {
+      "gold_id": "R054",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11893,
+      "gold_evidence_end": 11990,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 289,
+          "start": 11879,
+          "end": 11990
+        }
+      ],
+      "error_category": null,
+      "reason": "EpCAM protein half-life reduction in SW480 is retained."
+    },
+    {
+      "gold_id": "R055",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 12088,
+      "gold_evidence_end": 12162,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 291,
+          "start": 12056,
+          "end": 12163
+        }
+      ],
+      "error_category": null,
+      "reason": "Hedged TINCR-inhibition acceleration of EpCAM cleavage is retained; gold inference basis is evidential, not a biological condition."
+    },
+    {
+      "gold_id": "R056",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 12088,
+      "gold_evidence_end": 12162,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 292,
+          "start": 12056,
+          "end": 12163
+        }
+      ],
+      "error_category": null,
+      "reason": "Hedged TINCR-inhibition promotion of EpICD release is retained; gold inference basis is evidential, not a biological condition."
+    },
+    {
+      "gold_id": "R057",
+      "source_section": "RESULTS",
+      "source_line": 55,
+      "source_line_start": 13168,
+      "source_line_end": 13493,
+      "gold_evidence_start": 13191,
+      "gold_evidence_end": 13265,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 321,
+          "start": 13168,
+          "end": 13266
+        }
+      ],
+      "error_category": null,
+      "reason": "CRC-versus-normal-mucosa EpICD expression comparison is retained."
+    },
+    {
+      "gold_id": "R058",
+      "source_section": "RESULTS",
+      "source_line": 55,
+      "source_line_start": 13168,
+      "source_line_end": 13493,
+      "gold_evidence_start": 13404,
+      "gold_evidence_end": 13479,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 322,
+          "start": 13362,
+          "end": 13492
+        },
+        {
+          "collection": "claims",
+          "index": 323,
+          "start": 13362,
+          "end": 13492
+        },
+        {
+          "collection": "claims",
+          "index": 324,
+          "start": 13362,
+          "end": 13492
+        },
+        {
+          "collection": "claims",
+          "index": 318,
+          "start": 13267,
+          "end": 13361
+        }
+      ],
+      "error_category": "split_statistics_and_cohort",
+      "reason": "Inverse correlation, p-value, r, and paired 44-tissue cohort are in separate records."
+    },
+    {
+      "gold_id": "R059",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13558,
+      "gold_evidence_end": 13603,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 326,
+          "start": 13558,
+          "end": 13604
+        }
+      ],
+      "error_category": null,
+      "reason": "General EpICD membership in Wnt pathway is retained."
+    },
+    {
+      "gold_id": "R060",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13605,
+      "gold_evidence_end": 13632,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 327,
+          "start": 13605,
+          "end": 13717
+        }
+      ],
+      "error_category": "missing_attribution",
+      "reason": "EpICD–FHL2 colocalization is retained without cited-prior-study attribution."
+    },
+    {
+      "gold_id": "R061",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13605,
+      "gold_evidence_end": 13646,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 328,
+          "start": 13605,
+          "end": 13717
+        }
+      ],
+      "error_category": "missing_attribution",
+      "reason": "EpICD–beta-catenin colocalization is retained without cited-prior-study attribution."
+    },
+    {
+      "gold_id": "R062",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13647,
+      "gold_evidence_end": 13680,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 332,
+          "start": 13605,
+          "end": 13717
+        }
+      ],
+      "error_category": "relation_and_attribution",
+      "reason": "Nuclear location is retained, but formation in nucleus and cited-prior-study attribution are not explicit."
+    },
+    {
+      "gold_id": "R063",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13682,
+      "gold_evidence_end": 13711,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 333,
+          "start": 13605,
+          "end": 13717
+        }
+      ],
+      "error_category": "missing_attribution",
+      "reason": "Complex-to-transcription relation is retained without cited-prior-study attribution."
+    },
+    {
+      "gold_id": "R064",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13732,
+      "gold_evidence_end": 13805,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 334,
+          "start": 13718,
+          "end": 13818
+        }
+      ],
+      "error_category": null,
+      "reason": "EpICD–beta-catenin complex in HCT116 cells is retained."
+    },
+    {
+      "gold_id": "R065",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13823,
+      "gold_evidence_end": 13909,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 335,
+          "start": 13819,
+          "end": 13922
+        }
+      ],
+      "error_category": null,
+      "reason": "TINCR-knockdown TOP-Flash increase of 200–300 percent is retained."
+    },
+    {
+      "gold_id": "R066",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13937,
+      "gold_evidence_end": 14061,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 336,
+          "start": 13923,
+          "end": 14074
+        }
+      ],
+      "error_category": null,
+      "reason": "Induction of beta-catenin expression in TINCR-knockdown cells is retained."
+    },
+    {
+      "gold_id": "R067",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13937,
+      "gold_evidence_end": 14061,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 337,
+          "start": 13923,
+          "end": 14074
+        }
+      ],
+      "error_category": null,
+      "reason": "Induction of TCF4 expression in TINCR-knockdown cells is retained."
+    },
+    {
+      "gold_id": "R068",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 13937,
+      "gold_evidence_end": 14061,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 338,
+          "start": 13923,
+          "end": 14074
+        }
+      ],
+      "error_category": null,
+      "reason": "Induction of c-Myc expression in TINCR-knockdown cells is retained."
+    },
+    {
+      "gold_id": "R069",
+      "source_section": "RESULTS",
+      "source_line": 59,
+      "source_line_start": 13558,
+      "source_line_end": 14169,
+      "gold_evidence_start": 14094,
+      "gold_evidence_end": 14167,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 325,
+          "start": 14075,
+          "end": 14168
+        }
+      ],
+      "error_category": null,
+      "reason": "TINCR-depletion activation of WNT/beta-catenin in CRC is retained."
+    },
+    {
+      "gold_id": "R070",
+      "source_section": "RESULTS",
+      "source_line": 63,
+      "source_line_start": 14234,
+      "source_line_end": 14575,
+      "gold_evidence_start": 14264,
+      "gold_evidence_end": 14340,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 342,
+          "start": 14238,
+          "end": 14341
+        },
+        {
+          "collection": "claims",
+          "index": 343,
+          "start": 14238,
+          "end": 14341
+        }
+      ],
+      "error_category": "split_assay_context",
+      "reason": "HCT116 complex-formation effect and its Co-IP assay attribution are in separate records."
+    },
+    {
+      "gold_id": "R071",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 14786,
+      "gold_evidence_end": 14854,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 351,
+          "start": 14786,
+          "end": 14942
+        },
+        {
+          "collection": "claims",
+          "index": 352,
+          "start": 14786,
+          "end": 14942
+        }
+      ],
+      "error_category": "split_databases",
+      "reason": "One predicted promoter site is retained separately for JARSPAR and PROMO; neither record names both."
+    },
+    {
+      "gold_id": "R072",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 14954,
+      "gold_evidence_end": 15059,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 353,
+          "start": 14943,
+          "end": 15072
+        },
+        {
+          "collection": "claims",
+          "index": 354,
+          "start": 14943,
+          "end": 15072
+        }
+      ],
+      "error_category": "split_assay_context",
+      "reason": "Increased Sp1 promoter-binding activity and luciferase assay are in separate relations."
+    },
+    {
+      "gold_id": "R073",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15087,
+      "gold_evidence_end": 15142,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 355,
+          "start": 15073,
+          "end": 15155
+        }
+      ],
+      "error_category": null,
+      "reason": "Sp1 binding to the TINCR promoter is retained."
+    },
+    {
+      "gold_id": "R074",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15160,
+      "gold_evidence_end": 15255,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 357,
+          "start": 15156,
+          "end": 15268
+        }
+      ],
+      "error_category": null,
+      "reason": "Sp1-overexpression effect in HCT116 is retained."
+    },
+    {
+      "gold_id": "R075",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15160,
+      "gold_evidence_end": 15255,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 358,
+          "start": 15156,
+          "end": 15268
+        }
+      ],
+      "error_category": null,
+      "reason": "Sp1-overexpression effect in SW480 is retained."
+    },
+    {
+      "gold_id": "R076",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15286,
+      "gold_evidence_end": 15360,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 359,
+          "start": 15269,
+          "end": 15455
+        }
+      ],
+      "error_category": null,
+      "reason": "Reported c-Myc–Sp1 binding via central region retains prior attribution."
+    },
+    {
+      "gold_id": "R077",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15365,
+      "gold_evidence_end": 15449,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 360,
+          "start": 15269,
+          "end": 15455
+        },
+        {
+          "collection": "claims",
+          "index": 359,
+          "start": 15269,
+          "end": 15455
+        }
+      ],
+      "error_category": "split_mediation",
+      "reason": "Reported Sp1 inhibition and c-Myc–Sp1 binding mediation are separate records."
+    },
+    {
+      "gold_id": "R078",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15456,
+      "gold_evidence_end": 15481,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 361,
+          "start": 15456,
+          "end": 15518
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "Sp1 transcription of TINCR is retained but CRC-cell context is absent."
+    },
+    {
+      "gold_id": "R079",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15456,
+      "gold_evidence_end": 15505,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 348,
+          "start": 14576,
+          "end": 14668
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "Heading preserves c-Myc repression through Sp1, but CRC-cell context is absent."
+    },
+    {
+      "gold_id": "R080",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15533,
+      "gold_evidence_end": 15601,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 362,
+          "start": 15519,
+          "end": 15614
+        }
+      ],
+      "error_category": "missing_intervention",
+      "reason": "Partial suppression of Sp1-induced TINCR increase is retained without explicit Sp1-overexpression intervention."
+    },
+    {
+      "gold_id": "R081",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15629,
+      "gold_evidence_end": 15726,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 365,
+          "start": 15615,
+          "end": 15727
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "Hedged mediation of cell-cycle arrest is retained without CRC-cell context."
+    },
+    {
+      "gold_id": "R082",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15629,
+      "gold_evidence_end": 15726,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 366,
+          "start": 15615,
+          "end": 15727
+        }
+      ],
+      "error_category": "missing_context",
+      "reason": "Hedged mediation of proliferation inhibition is retained without CRC-cell context."
+    },
+    {
+      "gold_id": "R083",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15774,
+      "gold_evidence_end": 15835,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 368,
+          "start": 15728,
+          "end": 15848
+        }
+      ],
+      "error_category": "unspecified_actor",
+      "reason": "Generic positive feedback loop is not explicitly identified as the TINCR–c-Myc loop or scoped to CRC cells."
+    },
+    {
+      "gold_id": "R084",
+      "source_section": "RESULTS",
+      "source_line": 67,
+      "source_line_start": 14670,
+      "source_line_end": 15849,
+      "gold_evidence_start": 15774,
+      "gold_evidence_end": 15835,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 367,
+          "start": 15728,
+          "end": 15848
+        }
+      ],
+      "error_category": "unspecified_actor",
+      "reason": "Generic positive feedback loop is not explicitly identified as the TINCR–c-Myc loop or scoped to CRC cells."
+    },
+    {
+      "gold_id": "R087",
+      "source_section": "RESULTS",
+      "source_line": 71,
+      "source_line_start": 15938,
+      "source_line_end": 16960,
+      "gold_evidence_start": 16777,
+      "gold_evidence_end": 16906,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 401,
+          "start": 16773,
+          "end": 16907
+        }
+      ],
+      "error_category": null,
+      "reason": "Proposed TINCR–EpCAM reciprocity model regulating CRC proliferation is retained."
+    },
+    {
+      "gold_id": "R088",
+      "source_section": "RESULTS",
+      "source_line": 71,
+      "source_line_start": 15938,
+      "source_line_end": 16960,
+      "gold_evidence_start": 16777,
+      "gold_evidence_end": 16906,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 402,
+          "start": 16773,
+          "end": 16907
+        }
+      ],
+      "error_category": null,
+      "reason": "Proposed TINCR–EpCAM reciprocity model regulating CRC invasion is retained."
+    },
+    {
+      "gold_id": "R089",
+      "source_section": "RESULTS",
+      "source_line": 71,
+      "source_line_start": 15938,
+      "source_line_end": 16960,
+      "gold_evidence_start": 16777,
+      "gold_evidence_end": 16906,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 403,
+          "start": 16773,
+          "end": 16907
+        }
+      ],
+      "error_category": null,
+      "reason": "Proposed TINCR–EpCAM reciprocity model regulating CRC metastasis is retained."
+    },
+    {
+      "gold_id": "R090",
+      "source_section": "RESULTS",
+      "source_line": 49,
+      "source_line_start": 10828,
+      "source_line_end": 12164,
+      "gold_evidence_start": 11757,
+      "gold_evidence_end": 11845,
+      "status": "partial",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 286,
+          "start": 11562,
+          "end": 11878
+        },
+        {
+          "collection": "claims",
+          "index": 287,
+          "start": 11562,
+          "end": 11878
+        }
+      ],
+      "error_category": "split_context_and_antecedent",
+      "reason": "Rescue is split by cell arm, and PSEN2-associated EpCAM decrease is not bound in either record."
+    },
+    {
+      "gold_id": "R092",
+      "source_section": "RESULTS",
+      "source_line": 47,
+      "source_line_start": 10763,
+      "source_line_end": 10827,
+      "gold_evidence_start": 10763,
+      "gold_evidence_end": 10826,
+      "status": "complete",
+      "matched_proposals": [
+        {
+          "collection": "claims",
+          "index": 262,
+          "start": 10763,
+          "end": 10826
+        }
+      ],
+      "error_category": null,
+      "reason": "Results heading states specific TINCR–EpCAM binding; proposal preserves assertion."
+    }
+  ],
+  "offset_convention": "Zero-based character offsets into source_path; end offsets are exclusive."
+}

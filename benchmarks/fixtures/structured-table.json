@@ -1,0 +1,33 @@
+{
+  "id": "structured-table",
+  "domain": "structured",
+  "source": "synthetic regression fixture",
+  "review_status": "provisional",
+  "annotation_scope": "targeted",
+  "text": "Table 1: Evaluation results\n\nModel        Accuracy\nAlpha        91.5\nBeta         88.2\n\n3 Conclusion",
+  "gold": [
+    {
+      "id": "alpha-accuracy",
+      "subject": "Alpha",
+      "predicate": "has_accuracy",
+      "object": "91.5",
+      "evidence": "Alpha        91.5",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    },
+    {
+      "id": "beta-accuracy",
+      "subject": "Beta",
+      "predicate": "has_accuracy",
+      "object": "88.2",
+      "evidence": "Beta         88.2",
+      "modality": null,
+      "polarity": "positive",
+      "condition": null,
+      "in_scope": true
+    }
+  ],
+  "split": "development"
+}

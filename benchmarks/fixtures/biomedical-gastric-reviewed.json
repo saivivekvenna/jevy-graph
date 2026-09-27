@@ -1,0 +1,16 @@
+{
+  "id": "biomedical-gastric-reviewed",
+  "domain": "biomedical",
+  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7832082/",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "test",
+  "instruction": "Extract biological functions, causal changes, and clinically relevant predictions; exclude routine procedures.",
+  "review_notes": "Codex annotated all three findings asserted by the paper title before running the extractor. The shared gastric-cancer-cell complement applies to both promoted effects.",
+  "text": "Scinderin promotes the invasion and metastasis of gastric cancer cells and predicts the outcome of patients.",
+  "gold": [
+    {"id": "scinderin-promotes-invasion", "subject": "Scinderin", "predicate": "promotes", "object": "invasion of gastric cancer cells", "evidence": "Scinderin promotes the invasion and metastasis of gastric cancer cells and predicts the outcome of patients", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "scinderin-promotes-metastasis", "subject": "Scinderin", "predicate": "promotes", "object": "metastasis of gastric cancer cells", "evidence": "Scinderin promotes the invasion and metastasis of gastric cancer cells and predicts the outcome of patients", "modality": null, "polarity": "positive", "condition": null, "in_scope": true},
+    {"id": "scinderin-predicts-outcome", "subject": "Scinderin", "predicate": "predicts", "object": "outcome of patients", "evidence": "Scinderin promotes the invasion and metastasis of gastric cancer cells and predicts the outcome of patients", "modality": null, "polarity": "positive", "condition": null, "in_scope": true}
+  ]
+}

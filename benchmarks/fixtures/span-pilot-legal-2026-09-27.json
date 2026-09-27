@@ -1,0 +1,88 @@
+{
+  "id": "span-pilot-legal-2026-09-27",
+  "domain": "legal",
+  "source": "https://www.copyright.gov/title17/92chap1.html#107",
+  "source_locator": "17 U.S.C. § 107, statutory text only (heading and footnote excluded)",
+  "source_accessed_utc": "2026-09-26",
+  "text_sha256": "a8f7cb3528b639b681754d15021482019b2bf7e113390d301e3e1f0cd113c603",
+  "review_status": "codex_reviewed",
+  "annotation_scope": "exhaustive",
+  "split": "development",
+  "review_notes": "Fresh selected-passage pilot from the U.S. Copyright Office statutory text. Codex reviewed every operative assertion in the frozen § 107 passage. Illustrative purposes and reproduction modes are examples within the fair-use rule, not independent guarantees of fair use. The four listed considerations are nonexclusive (\"shall include\"). Unpublished status alone does not bar a finding, provided all listed factors are considered. Codex labels are not independent human review or held-out evidence. The excerpt contains no section heading in the input text, so extractor-visible source_unit is DOCUMENT; the original source locator is stored above as provenance.",
+  "text": "Notwithstanding the provisions of sections 106 and 106A, the fair use of a copyrighted work, including such use by reproduction in copies or phonorecords or by any other means specified by that section, for purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright. In determining whether the use made of a work in any particular case is a fair use the factors to be considered shall include—\n\n(1) the purpose and character of the use, including whether such use is of a commercial nature or is for nonprofit educational purposes;\n\n(2) the nature of the copyrighted work;\n\n(3) the amount and substantiality of the portion used in relation to the copyrighted work as a whole; and\n\n(4) the effect of the use upon the potential market for or value of the copyrighted work.\n\nThe fact that a work is unpublished shall not itself bar a finding of fair use if such finding is made upon consideration of all the above factors.",
+  "instruction": "Extract the legal rules and required considerations in this selected statutory passage, preserving negation, examples, and conditions.",
+  "gold": [
+    {
+      "id": "fair-use-noninfringement",
+      "subject": "fair use of a copyrighted work",
+      "predicate": "constitutes",
+      "object": "copyright infringement",
+      "evidence": "the fair use of a copyrighted work, including such use by reproduction in copies or phonorecords or by any other means specified by that section, for purposes such as criticism, comment, news reporting, teaching (including multiple copies for classroom use), scholarship, or research, is not an infringement of copyright",
+      "modality": null,
+      "polarity": "negative",
+      "condition": "Notwithstanding sections 106 and 106A; purposes and reproduction modes are illustrative, not automatic fair-use determinations",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "fair-use-purpose-character",
+      "subject": "fair-use determination",
+      "predicate": "considers",
+      "object": "purpose and character of the use",
+      "evidence": "(1) the purpose and character of the use, including whether such use is of a commercial nature or is for nonprofit educational purposes",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "including whether use is commercial or for nonprofit educational purposes; listed factors are nonexclusive",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "fair-use-nature",
+      "subject": "fair-use determination",
+      "predicate": "considers",
+      "object": "nature of the copyrighted work",
+      "evidence": "(2) the nature of the copyrighted work",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "listed factors are nonexclusive",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "fair-use-amount",
+      "subject": "fair-use determination",
+      "predicate": "considers",
+      "object": "amount and substantiality of the portion used in relation to the copyrighted work as a whole",
+      "evidence": "(3) the amount and substantiality of the portion used in relation to the copyrighted work as a whole",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "listed factors are nonexclusive",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "fair-use-market",
+      "subject": "fair-use determination",
+      "predicate": "considers",
+      "object": "effect of the use upon the potential market for or value of the copyrighted work",
+      "evidence": "(4) the effect of the use upon the potential market for or value of the copyrighted work",
+      "modality": "shall",
+      "polarity": "positive",
+      "condition": "listed factors are nonexclusive",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    },
+    {
+      "id": "unpublished-not-bar",
+      "subject": "unpublished status of a work",
+      "predicate": "bars",
+      "object": "a finding of fair use",
+      "evidence": "The fact that a work is unpublished shall not itself bar a finding of fair use if such finding is made upon consideration of all the above factors.",
+      "modality": "shall",
+      "polarity": "negative",
+      "condition": "unpublished status alone; finding made upon consideration of all the above factors",
+      "source_unit": "DOCUMENT",
+      "in_scope": true
+    }
+  ]
+}

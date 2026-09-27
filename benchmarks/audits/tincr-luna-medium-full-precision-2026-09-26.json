@@ -1,0 +1,4904 @@
+{
+  "id": "tincr-luna-medium-full-paper-precision-2026-09-26",
+  "review_status": "codex_reviewed_development",
+  "source_sha256": "1d964bd20973ac7f57bd36ec6128640d37c2a7d3c884740e4808919b1313b00c",
+  "baseline_report": "out/full-tincr-default-live-2026-09-26.json",
+  "live_report": "out/full-tincr-luna-medium-onecall-live-2026-09-26.json",
+  "live_report_sha256": "9960f9c1156f28e80333e576c76ddea8b02f3d4ca6989b6a8bcb0687b7f68d17",
+  "method": "Exact unchanged claim signatures reuse the prior Codex audit; every new final claim was reviewed against its source evidence. Ambiguous stays separate.",
+  "summary": {
+    "accepted": 276,
+    "verdict_counts": {
+      "incomplete_or_wrong_qualifier": 38,
+      "wrong_boundary_or_relation": 80,
+      "complete_supported": 150,
+      "source_ambiguous": 5,
+      "unsupported": 3
+    },
+    "complete_precision": 0.5434782608695652,
+    "results_accepted": 131,
+    "results_verdict_counts": {
+      "incomplete_or_wrong_qualifier": 13,
+      "complete_supported": 87,
+      "wrong_boundary_or_relation": 28,
+      "unsupported": 3
+    },
+    "results_complete_precision": 0.6641221374045801,
+    "unchanged_prior_claims": 253,
+    "new_claims_reviewed": 23,
+    "removed_prior_claims": 17,
+    "same_run_precision_gain_percentage_points": 2.0012556898446054,
+    "same_run_results_precision_gain_percentage_points": 4.291001619245893,
+    "strict_results_recall_complete": 45,
+    "strict_results_recall_denominator": 88,
+    "strict_results_recall": 0.5113636363636364,
+    "strict_results_recall_baseline": 0.48863636363636365,
+    "strict_results_recall_gain_percentage_points": 2.2727272727272707
+  },
+  "removed": [
+    {
+      "baseline_output_index": 71,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 86,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 87,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 88,
+      "verdict": "incomplete_or_wrong_qualifier"
+    },
+    {
+      "baseline_output_index": 89,
+      "verdict": "incomplete_or_wrong_qualifier"
+    },
+    {
+      "baseline_output_index": 90,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 119,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 152,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 185,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 199,
+      "verdict": "incomplete_or_wrong_qualifier"
+    },
+    {
+      "baseline_output_index": 205,
+      "verdict": "complete_supported"
+    },
+    {
+      "baseline_output_index": 210,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 214,
+      "verdict": "incomplete_or_wrong_qualifier"
+    },
+    {
+      "baseline_output_index": 216,
+      "verdict": "incomplete_or_wrong_qualifier"
+    },
+    {
+      "baseline_output_index": 248,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 257,
+      "verdict": "wrong_boundary_or_relation"
+    },
+    {
+      "baseline_output_index": 266,
+      "verdict": "wrong_boundary_or_relation"
+    }
+  ],
+  "items": [
+    {
+      "output_index": 0,
+      "source_unit": "RESULTS",
+      "origin": "equation",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 0,
+      "claim": {
+        "subject": "n",
+        "predicate": "equals",
+        "object": "5",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay. Shown data are mean ± SD from 3 independent experiment. (B, C) The migration capacity was determined by colony formation assay after oe-TINCR (B) or sh-TINCR (C). Data shown are mean ± SD of 3 independent experiments. (D) Effects of HCT116 cell line sh-TINCR on subcutaneous tumor generation (n = 5). (E) Tumor sizes were measured on the indicated days. Data, tumor volume mean ± SD. (F) Ki-67 index was analyzed to evaluate the capacity of proliferation in subcutaneous tumor cells. HE (up) and IHC images (down), The Ki-67 index was calculated as the number of Ki-67 positive cells divided by the number of total cells × 100%. (G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group)."
+      }
+    },
+    {
+      "output_index": 1,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "measurement",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 1,
+      "claim": {
+        "subject": "Luciferase reporter assay Cells",
+        "predicate": "has_duration_hours",
+        "object": "24",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Luciferase reporter assay Cells were seeds in 24-wells plates (1 × 105/well) and cultured for 24 hours."
+      }
+    },
+    {
+      "output_index": 2,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 2,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "involved_in",
+        "object": "kinds of human diseases",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Long non-coding RNAs (lncRNAs) are involved in kinds of human diseases, including colorectal cancer (CRC)."
+      }
+    },
+    {
+      "output_index": 3,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 3,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "involved_in",
+        "object": "CRC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Long non-coding RNAs (lncRNAs) are involved in kinds of human diseases, including colorectal cancer (CRC)."
+      }
+    },
+    {
+      "output_index": 4,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 4,
+      "claim": {
+        "subject": "RNA",
+        "predicate": "associated_with",
+        "object": "cell differentiation in keratinocyte and gastric cancer cells",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR, a 3.7 kb long non coding RNA, was associated with cell differentiation in keratinocyte and gastric cancer cells."
+      }
+    },
+    {
+      "output_index": 5,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 5,
+      "claim": {
+        "subject": "RNA",
+        "predicate": "associated_with",
+        "object": "CRC proliferation",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Here, we showed that lncRNA TINCR was associated with CRC proliferation and metastasis."
+      }
+    },
+    {
+      "output_index": 6,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 6,
+      "claim": {
+        "subject": "RNA",
+        "predicate": "associated_with",
+        "object": "metastasis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Here, we showed that lncRNA TINCR was associated with CRC proliferation and metastasis."
+      }
+    },
+    {
+      "output_index": 7,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 7,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "downregulated_in",
+        "object": "CRC tissues",
+        "modality": null,
+        "condition": "compared with their counterparts",
+        "attribution": null,
+        "evidence": "TINCR was statistically downregulated in CRC tissues and metastatic CRC cell lines compared with their counterparts."
+      }
+    },
+    {
+      "output_index": 8,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 8,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "downregulated_in",
+        "object": "metastatic CRC cell lines",
+        "modality": null,
+        "condition": "compared with their counterparts",
+        "attribution": null,
+        "evidence": "TINCR was statistically downregulated in CRC tissues and metastatic CRC cell lines compared with their counterparts."
+      }
+    },
+    {
+      "output_index": 9,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 9,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inversely_correlated_with",
+        "object": "CRC progression and promoted tumor cells growth",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 10,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source correlates TINCR with CRC progression; metastasis is part of a different clause.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inversely_correlated_with",
+        "object": "metastasis in vivo and in vitro",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 11,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 10,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inversely_correlated_with",
+        "object": "CRC progression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 12,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "source_ambiguous",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 11,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "promoted",
+        "object": "tumor cell growth",
+        "modality": null,
+        "condition": "in vivo",
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 13,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "source_ambiguous",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 12,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "promoted",
+        "object": "tumor cell growth",
+        "modality": null,
+        "condition": "in vitro",
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 14,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "source_ambiguous",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 13,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "promoted",
+        "object": "metastasis",
+        "modality": null,
+        "condition": "in vivo",
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 15,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "source_ambiguous",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 14,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "promoted",
+        "object": "metastasis",
+        "modality": null,
+        "condition": "in vitro",
+        "attribution": null,
+        "evidence": "TINCR was reversely correlated with CRC progression and promoted tumor cells growth, metastasis in vivo and in vitro."
+      }
+    },
+    {
+      "output_index": 16,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "source_ambiguous",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 15,
+      "claim": {
+        "subject": "overexpression of TINCR",
+        "predicate": "had_opposite_effect_to",
+        "object": "TINCR-promoted tumor cell growth and metastasis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "While overexpression of TINCR had opposite effect."
+      }
+    },
+    {
+      "output_index": 17,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 16,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "specifically_bound_to",
+        "object": "EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "In addition, we also found that TINCR specifically bound to EpCAM through RNA IP and RNA pull down assays."
+      }
+    },
+    {
+      "output_index": 18,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 17,
+      "claim": {
+        "subject": "RNA IP assay",
+        "predicate": "used_to_detect",
+        "object": "TINCR binding to EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "In addition, we also found that TINCR specifically bound to EpCAM through RNA IP and RNA pull down assays."
+      }
+    },
+    {
+      "output_index": 19,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 18,
+      "claim": {
+        "subject": "RNA pull down assay",
+        "predicate": "used_to_detect",
+        "object": "TINCR binding to EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "In addition, we also found that TINCR specifically bound to EpCAM through RNA IP and RNA pull down assays."
+      }
+    },
+    {
+      "output_index": 20,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 19,
+      "claim": {
+        "subject": "Loss of TINCR",
+        "predicate": "promoted",
+        "object": "EpCAM hydrolysis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 21,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 20,
+      "claim": {
+        "subject": "EpCAM hydrolysis",
+        "predicate": "released",
+        "object": "EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 22,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 21,
+      "claim": {
+        "subject": "Loss of TINCR",
+        "predicate": "released",
+        "object": "EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 23,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 22,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "activated",
+        "object": "Wnt/β-catenin pathway",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 24,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 23,
+      "claim": {
+        "subject": "Loss of TINCR",
+        "predicate": "activated",
+        "object": "Wnt/β-catenin pathway",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Loss of TINCR promoted hydrolysis of EpCAM and then released EpICD, subsequently, activated the Wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 25,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 111,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "metastatic nodule count",
+        "modality": "observed",
+        "condition": "lung nodules; TINCR knockdown versus control cells; 4:1; mice",
+        "attribution": null,
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1"
+      }
+    },
+    {
+      "output_index": 26,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 112,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "metastatic nodule count",
+        "modality": "observed",
+        "condition": "liver nodules; TINCR knockdown versus control cells; 2:0; mice",
+        "attribution": null,
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1"
+      }
+    },
+    {
+      "output_index": 27,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 113,
+      "claim": {
+        "subject": "researchers",
+        "predicate": "counted",
+        "object": "number of metastatic nodules in each liver and lung",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also counted the number of metastatic nodules in each liver and lung, and found that TINCR knockdown increased the number of metastatic nodules compared to the control cells (lung: 4:1"
+      }
+    },
+    {
+      "output_index": 28,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 114,
+      "claim": {
+        "subject": "Collectively, these results indicate that loss of TINCR expression profoundly",
+        "predicate": "promotes",
+        "object": "tumour growth",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis."
+      }
+    },
+    {
+      "output_index": 29,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 115,
+      "claim": {
+        "subject": "loss of TINCR expression profoundly",
+        "predicate": "promotes",
+        "object": "metastasis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Collectively, these results indicate that loss of TINCR expression profoundly promotes tumour growth and metastasis."
+      }
+    },
+    {
+      "output_index": 30,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 116,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "cell cycle arrest",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR induces cell cycle arrest and apoptosis"
+      }
+    },
+    {
+      "output_index": 31,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 117,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "apoptosis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR induces cell cycle arrest and apoptosis"
+      }
+    },
+    {
+      "output_index": 32,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 118,
+      "claim": {
+        "subject": "downregulation of TINCR in HCT116 cells significantly",
+        "predicate": "decreased",
+        "object": "proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The downregulation of TINCR in HCT116 cells significantly decreased the proportion of cells in G0/G1 phase (from 71.31% ± 1.57 to 39.96% ± 1.21), while increased the proportion of cells in S phase (from 20.52% ± 0.97 to 51.97% ± 1.68)."
+      }
+    },
+    {
+      "output_index": 33,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 120,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "increased",
+        "object": "G2/M-phase cell fraction",
+        "modality": "observed",
+        "condition": "RKO cells; 14.51% ± 1.35 versus Vector 8.59% ± 0.87",
+        "attribution": null,
+        "evidence": "The percentage of cells in G2/M phase in RKO/oe-TINCR (14.51% ± 1.35) was significantly higher than that in RKO/Vector cells (8.59% ± 0.87) (Figure 3A)."
+      }
+    },
+    {
+      "output_index": 34,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 121,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "increased",
+        "object": "early apoptosis",
+        "modality": null,
+        "condition": "in RKO cells; 2.77% ± 1.05 to 10.27% ± 1.29",
+        "attribution": null,
+        "evidence": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B)."
+      }
+    },
+    {
+      "output_index": 35,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 122,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "increased",
+        "object": "early apoptosis",
+        "modality": null,
+        "condition": "in LoVo cells; 4.75% ± 0.82 to 7.50% ± 1.33",
+        "attribution": null,
+        "evidence": "The upregulation of TINCR induced a significant increase of early apoptosis in RKO cells (2.77% ± 1.05 to 10.27% ± 1.29) and LoVo cells (4.75% ± 0.82 to 7.50% ± 1.33) (Figure 3B)."
+      }
+    },
+    {
+      "output_index": 36,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 123,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "proteins",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Furthermore, the expression levels of some of apoptosis associated proteins were detected."
+      }
+    },
+    {
+      "output_index": 37,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 124,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "activated",
+        "object": "caspase 3",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "attribution": null,
+        "evidence": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C)."
+      }
+    },
+    {
+      "output_index": 38,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 125,
+      "claim": {
+        "subject": "TINCR upregulation",
+        "predicate": "activated",
+        "object": "caspase 9",
+        "modality": null,
+        "condition": "in RKO and LoVo cells",
+        "attribution": null,
+        "evidence": "The upregulation of TINCR activated caspase 3 and caspase 9 in RKO and LoVo cells (Figure 3C)."
+      }
+    },
+    {
+      "output_index": 39,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 126,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "induced",
+        "object": "cell cycle arrest",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null,
+        "evidence": "These results indicated that the overexpression of TINCR induces cell cycle arrest and apoptosis in CRC cells, which contributes to the growth inhibition properties of TINCR."
+      }
+    },
+    {
+      "output_index": 40,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 127,
+      "claim": {
+        "subject": "TINCR overexpression",
+        "predicate": "induced",
+        "object": "apoptosis",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null,
+        "evidence": "These results indicated that the overexpression of TINCR induces cell cycle arrest and apoptosis in CRC cells, which contributes to the growth inhibition properties of TINCR."
+      }
+    },
+    {
+      "output_index": 41,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 128,
+      "claim": {
+        "subject": "Cell cycle arrest after oe-TINCR or sh-TINCR",
+        "predicate": "measured_by",
+        "object": "flow cytometry",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(A) Cell cycle arrest after oe-TINCR or sh-TINCR measured by flow cytometry."
+      }
+    },
+    {
+      "output_index": 42,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 129,
+      "claim": {
+        "subject": "Overexpression of TINCR",
+        "predicate": "promotes",
+        "object": "apoptosis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry."
+      }
+    },
+    {
+      "output_index": 43,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 130,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "analyzed_by",
+        "object": "flow cytometry",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(B) Overexpression of TINCR promotes apoptosis as analyzed by flow cytometry."
+      }
+    },
+    {
+      "output_index": 44,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 131,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "proteins caspase 3",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) Western blotting analyze the expression of apoptosis associated proteins caspase 3 and caspase 9 after oe-TINCR."
+      }
+    },
+    {
+      "output_index": 45,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 132,
+      "claim": {
+        "subject": "apoptosis",
+        "predicate": "associated",
+        "object": "caspase 9",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) Western blotting analyze the expression of apoptosis associated proteins caspase 3 and caspase 9 after oe-TINCR."
+      }
+    },
+    {
+      "output_index": 46,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 59,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "specifically_bound_to",
+        "object": "EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis"
+      }
+    },
+    {
+      "output_index": 47,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 133,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "disrupted",
+        "object": "genes",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpCAM was one of the disrupted genes when TINCR was depleted and had the highest score by transcript profiling [13]."
+      }
+    },
+    {
+      "output_index": 48,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 134,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "has",
+        "object": "highest score by transcript",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpCAM was one of the disrupted genes when TINCR was depleted and had the highest score by transcript profiling [13]."
+      }
+    },
+    {
+      "output_index": 49,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 68,
+      "claim": {
+        "subject": "H IHC",
+        "predicate": "associated",
+        "object": "normal colorectal tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(H) IHC evaluated the expression level of EpICD in 44 CRC tissues and associated normal colorectal tissues."
+      }
+    },
+    {
+      "output_index": 50,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 69,
+      "claim": {
+        "subject": "EpICD expression",
+        "predicate": "increased_in",
+        "object": "CRC tissues",
+        "modality": "observed",
+        "condition": "relative to their normal mucous",
+        "attribution": null,
+        "evidence": "As shown in Figure 4G, EpICD was upregulated in the CRC tissues compared with their normal mucous."
+      }
+    },
+    {
+      "output_index": 51,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 70,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "analyzed",
+        "object": "expression of EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H)."
+      }
+    },
+    {
+      "output_index": 52,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The study analyzed EpICD expression in 44 paired CRC tissues; same 44 is not a valid actor.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "same 44",
+        "predicate": "paired",
+        "object": "CRC tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We next analyzed the expression of EpICD in the same 44 paired CRC tissues by IHC (Figure 4H)."
+      }
+    },
+    {
+      "output_index": 53,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 72,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "related_in",
+        "object": "expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Spearman correlation analyses showed that TINCR and EpICD were inversely related in expression (p = 0.005, r = −0.478, Figure 4I)."
+      }
+    },
+    {
+      "output_index": 54,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 73,
+      "claim": {
+        "subject": "Downregulation of TINCR",
+        "predicate": "activates",
+        "object": "WNT/β-catenin pathway in CRC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Downregulation of TINCR activates WNT/β-catenin pathway in CRC"
+      }
+    },
+    {
+      "output_index": 55,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 74,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "component_of",
+        "object": "Wnt pathway",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpICD is one of the components of Wnt pathway."
+      }
+    },
+    {
+      "output_index": 56,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 75,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "colocalized_with",
+        "object": "FHL2",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18]."
+      }
+    },
+    {
+      "output_index": 57,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 76,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "colocalized_with",
+        "object": "β-catenin",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18]."
+      }
+    },
+    {
+      "output_index": 58,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 77,
+      "claim": {
+        "subject": "EpICD–FHL2–β-catenin complex",
+        "predicate": "formed_in",
+        "object": "nucleus",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18]."
+      }
+    },
+    {
+      "output_index": 59,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 78,
+      "claim": {
+        "subject": "EpICD–FHL2–β-catenin complex",
+        "predicate": "led_to",
+        "object": "gene transcription",
+        "modality": "general_mechanism",
+        "condition": null,
+        "attribution": "cited prior report [18]",
+        "evidence": "EpICD colocalized with FHL2 and β-catenin to form a nuclear protein complex, leading to gene transcription [18]."
+      }
+    },
+    {
+      "output_index": 60,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 79,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "formed_complex_with",
+        "object": "β-catenin",
+        "modality": null,
+        "condition": "HCT116 cells",
+        "attribution": null,
+        "evidence": "Consistently, in HCT116 cells which showed the formation of EpICD and β-catenin complex (Figure 5A)."
+      }
+    },
+    {
+      "output_index": 61,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 80,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "resulted_in",
+        "object": "200%−300% increment of TOP-Flash reporter gene activity",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The knockdown of TINCR resulted in 200%−300% increment of TOP-Flash reporter gene activity (Figure 5B)."
+      }
+    },
+    {
+      "output_index": 62,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 81,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "β-catenin expression",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null,
+        "evidence": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C)."
+      }
+    },
+    {
+      "output_index": 63,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 82,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "TCF4 expression",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null,
+        "evidence": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C)."
+      }
+    },
+    {
+      "output_index": 64,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 83,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "c-Myc expression",
+        "modality": null,
+        "condition": "in TINCR-knockdown cells",
+        "attribution": null,
+        "evidence": "Moreover, the expression of β-catenin, as well as the Wnt target genes TCF4, and c-Myc were significantly induced in TINCR-knockdown cells (Figure 5C)."
+      }
+    },
+    {
+      "output_index": 65,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 84,
+      "claim": {
+        "subject": "activation of WNT/β-catenin pathway",
+        "predicate": "mediated_by",
+        "object": "TINCR depletion in CRC",
+        "modality": null,
+        "condition": "In conclusion",
+        "attribution": null,
+        "evidence": "In conclusion, the activation of WNT/β-catenin pathway is mediated by TINCR depletion in CRC."
+      }
+    },
+    {
+      "output_index": 66,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 85,
+      "claim": {
+        "subject": "B TOP-FOP flash assay",
+        "predicate": "performed_to",
+        "object": "evaluate the effect of sh-TINCR on the wnt/β-catenin pathway",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(B) TOP-FOP flash assay was performed to evaluate the effect of sh-TINCR on the wnt/β-catenin pathway."
+      }
+    },
+    {
+      "output_index": 67,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 91,
+      "claim": {
+        "subject": "Sp1-binding activity on the TINCR promoter",
+        "predicate": "observed_by",
+        "object": "dual luciferase reporter assays",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B)."
+      }
+    },
+    {
+      "output_index": 68,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 92,
+      "claim": {
+        "subject": "Downregulation of LncRNA-TINCR",
+        "predicate": "correlated_with",
+        "object": "CRC progression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Downregulation of LncRNA-TINCR correlated with CRC progression"
+      }
+    },
+    {
+      "output_index": 69,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 93,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "decreased_in",
+        "object": "colorectal cancer tissues",
+        "modality": "observed",
+        "condition": "relative to adjacent tissues; Oncomine analysis",
+        "attribution": null,
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues."
+      }
+    },
+    {
+      "output_index": 70,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 94,
+      "claim": {
+        "subject": "result",
+        "predicate": "indicated",
+        "object": "TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We relied on Oncomine, a cancer microarray database and web-based data-mining platform [15, 16], to identify the expression level of TINCR in colorectal cancer tissues, and the result indicated that TINCR was significantly downregulated in colorectal cancer tissues comparing with adjacent tissues."
+      }
+    },
+    {
+      "output_index": 71,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 95,
+      "claim": {
+        "subject": "non-tumour tissues",
+        "predicate": "obtained_from",
+        "object": "44 patients with CRC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also analyzed the expression of TINCR in tumour and paired non-tumour tissues obtained from 44 patients with CRC."
+      }
+    },
+    {
+      "output_index": 72,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 96,
+      "claim": {
+        "subject": "qRT-PCR analysis",
+        "predicate": "revealed",
+        "object": "significantly lower TINCR expression in 38 of 44 CRC specimens",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The qRT-PCR analysis revealed significantly lower TINCR expression in 38 of 44 CRC specimens (p < 0.0001) (Figure 1A and 1B)."
+      }
+    },
+    {
+      "output_index": 73,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 97,
+      "claim": {
+        "subject": "qRT-PCR analysis of lnc-TINCR expression in 44",
+        "predicate": "paired",
+        "object": "colorectal cancer tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(A) qRT-PCR analysis of lnc-TINCR expression in 44 paired colorectal cancer tissues"
+      }
+    },
+    {
+      "output_index": 74,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 98,
+      "claim": {
+        "subject": "relative to",
+        "predicate": "matched",
+        "object": "adjacent no tumor tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR was quantified relative to the matched adjacent no tumor tissues."
+      }
+    },
+    {
+      "output_index": 75,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 99,
+      "claim": {
+        "subject": "B",
+        "predicate": "paired",
+        "object": "CRC tissues with adjacent tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(B) Comparison of TINCR expression in 44 paired CRC tissues with adjacent tissues."
+      }
+    },
+    {
+      "output_index": 76,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 100,
+      "claim": {
+        "subject": "C",
+        "predicate": "uses",
+        "object": "to analysis TINCR expression in CRC cell lines",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) qRT-PCR was used to analysis TINCR expression in CRC cell lines."
+      }
+    },
+    {
+      "output_index": 77,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 101,
+      "claim": {
+        "subject": "C",
+        "predicate": "examined",
+        "object": "relationship between TINCR expression levels",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We next examined the relationship between TINCR expression levels and the clinicopathological characteristics of the tumour tissue samples."
+      }
+    },
+    {
+      "output_index": 78,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 102,
+      "claim": {
+        "subject": "C",
+        "predicate": "examined",
+        "object": "clinicopathological characteristics of the tumour tissue samples",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We next examined the relationship between TINCR expression levels and the clinicopathological characteristics of the tumour tissue samples."
+      }
+    },
+    {
+      "output_index": 79,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 103,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "serosal invasion",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.001",
+        "attribution": null,
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017)."
+      }
+    },
+    {
+      "output_index": 80,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 104,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "lymph metastasis",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.037",
+        "attribution": null,
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017)."
+      }
+    },
+    {
+      "output_index": 81,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 105,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "inversely_correlated_with",
+        "object": "TNM classification",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.016",
+        "attribution": null,
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017)."
+      }
+    },
+    {
+      "output_index": 82,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 106,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "positively_correlated_with",
+        "object": "differentiation degree",
+        "modality": "observed",
+        "condition": "in tumour tissue samples; p = 0.017",
+        "attribution": null,
+        "evidence": "As shown in Supplementary Table 4, the TINCR expression level was reversely correlated to serosal invasion (p = 0.001), lymph metastasis (p = 0.037), and tumour node metastasis (TNM) classification (p = 0.016), while positively correlated with differentiation degree (p = 0.017)."
+      }
+    },
+    {
+      "output_index": 83,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 107,
+      "claim": {
+        "subject": "TINCR expression",
+        "predicate": "lower_in",
+        "object": "LoVo, RKO, and SW620 cells",
+        "modality": "observed",
+        "condition": "compared with HCT116, SW480, and LS174T; high malignant potential cell lines versus low malignant potential cell lines",
+        "attribution": null,
+        "evidence": "Moreover, the expression level of TINCR in the high malignant potential cell lines LoVo, RKO, and SW620 was significantly decreased compared with low malignant potential cell lines HCT116, SW480 and LS174T (Figure 1C)."
+      }
+    },
+    {
+      "output_index": 84,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 108,
+      "claim": {
+        "subject": "transcript for TINCR",
+        "predicate": "located_in",
+        "object": "cytoplasm of HCT116",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The transcript for TINCR was mainly located in the cytoplasm of HCT116 and SW480 cells by separating nuclear and cytoplasmic RNA fraction (Figure 1D)."
+      }
+    },
+    {
+      "output_index": 85,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 109,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "CRC cells proliferation",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis"
+      }
+    },
+    {
+      "output_index": 86,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 110,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "migration",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis"
+      }
+    },
+    {
+      "output_index": 87,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 24,
+      "claim": {
+        "subject": "c-Myc",
+        "predicate": "repressed",
+        "object": "TINCR expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "output_index": 88,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 25,
+      "claim": {
+        "subject": "c-Myc",
+        "predicate": "repressed",
+        "object": "sp1 transcriptive activity",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "output_index": 89,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 26,
+      "claim": {
+        "subject": "c-Myc repression of TINCR expression",
+        "predicate": "mediated_by",
+        "object": "repression of sp1 transcriptive activity",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "output_index": 90,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 27,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "controls",
+        "object": "c-Myc expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "output_index": 91,
+      "source_unit": "ABSTRACT",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 28,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "controls",
+        "object": "TINCR expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Further studies shown that c-Myc repressed the expression of TINCR through repressing sp1 transcriptive activity, which established a positive feedback loop controlling c-Myc and TINCR expression."
+      }
+    },
+    {
+      "output_index": 92,
+      "source_unit": "ABSTRACT",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 29,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "considered_as",
+        "object": "potential cancer suppressor gene",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "These findings elucidate that loss of TINCR expression promotes proliferation and metastasis in CRC and it could be considered as a potential cancer suppressor gene."
+      }
+    },
+    {
+      "output_index": 93,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 30,
+      "claim": {
+        "subject": "third most commonly",
+        "predicate": "diagnosed",
+        "object": "cancer in males and the second in females worldwide",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Colorectal cancer (CRC) is the third most commonly diagnosed cancer in males and the second in females worldwide [1]."
+      }
+    },
+    {
+      "output_index": 94,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 31,
+      "claim": {
+        "subject": "transcripts",
+        "predicate": "rang_in",
+        "object": "200 bp to tens of kilobases",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "output_index": 95,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 32,
+      "claim": {
+        "subject": "evidences",
+        "predicate": "has",
+        "object": "shown that lncRNAs",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "output_index": 96,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 33,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "promotes",
+        "object": "formation of colorectal cancer",
+        "modality": "may",
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "output_index": 97,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 34,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "promotes",
+        "object": "progression of colorectal cancer",
+        "modality": "may",
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNAs, a subgroup of non-protein coding transcripts, ranging in length from 200 bp to tens of kilobases (kb), and accumulating evidences have shown that lncRNAs may promote the formation and progression of colorectal cancer [4–6]."
+      }
+    },
+    {
+      "output_index": 98,
+      "source_unit": "INTRODUCTION",
+      "origin": "modal",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 35,
+      "claim": {
+        "subject": "lncRNAs",
+        "predicate": "increase",
+        "object": "stability of chromatin",
+        "modality": "can",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Firstly, lncRNAs can increase the stability of chromatin."
+      }
+    },
+    {
+      "output_index": 99,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 36,
+      "claim": {
+        "subject": "HOTAIR",
+        "predicate": "cooperate_with",
+        "object": "Polycomb complex PRC2",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "HOTAIR cooperating with Polycomb complex PRC2 could reprogram chromatin organization and promote cancer metastasis in breast cancer, and colorectal cancer [7]."
+      }
+    },
+    {
+      "output_index": 100,
+      "source_unit": "INTRODUCTION",
+      "origin": "modal",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 37,
+      "claim": {
+        "subject": "Polycomb complex PRC2",
+        "predicate": "reprogram",
+        "object": "chromatin organization",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "HOTAIR cooperating with Polycomb complex PRC2 could reprogram chromatin organization and promote cancer metastasis in breast cancer, and colorectal cancer [7]."
+      }
+    },
+    {
+      "output_index": 101,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 38,
+      "claim": {
+        "subject": "Polycomb complex PRC2",
+        "predicate": "promotes",
+        "object": "cancer metastasis in breast cancer",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "HOTAIR cooperating with Polycomb complex PRC2 could reprogram chromatin organization and promote cancer metastasis in breast cancer, and colorectal cancer [7]."
+      }
+    },
+    {
+      "output_index": 102,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source attributes the possibility to HOTAIR cooperating with PRC2, not PRC2 alone.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Polycomb complex PRC2",
+        "predicate": "promotes",
+        "object": "colorectal cancer",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "HOTAIR cooperating with Polycomb complex PRC2 could reprogram chromatin organization and promote cancer metastasis in breast cancer, and colorectal cancer [7]."
+      }
+    },
+    {
+      "output_index": 103,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 39,
+      "claim": {
+        "subject": "CCAT2",
+        "predicate": "overexpressed_in",
+        "object": "microsatellite-stable colorectal cancer",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "CCAT2 is highly overexpressed in microsatellite-stable colorectal cancer, and promotes tumour growth, metastasis and chromosomal instability [8]."
+      }
+    },
+    {
+      "output_index": 104,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 40,
+      "claim": {
+        "subject": "CCAT2",
+        "predicate": "promotes",
+        "object": "tumour growth",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "CCAT2 is highly overexpressed in microsatellite-stable colorectal cancer, and promotes tumour growth, metastasis and chromosomal instability [8]."
+      }
+    },
+    {
+      "output_index": 105,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 41,
+      "claim": {
+        "subject": "CCAT2",
+        "predicate": "promotes",
+        "object": "metastasis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "CCAT2 is highly overexpressed in microsatellite-stable colorectal cancer, and promotes tumour growth, metastasis and chromosomal instability [8]."
+      }
+    },
+    {
+      "output_index": 106,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 42,
+      "claim": {
+        "subject": "CCAT2",
+        "predicate": "promotes",
+        "object": "chromosomal instability",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "CCAT2 is highly overexpressed in microsatellite-stable colorectal cancer, and promotes tumour growth, metastasis and chromosomal instability [8]."
+      }
+    },
+    {
+      "output_index": 107,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 43,
+      "claim": {
+        "subject": "LncRNA-CCAT1",
+        "predicate": "promotes",
+        "object": "long-range chromatin interactions at the MYC locus",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNA-CCAT1 promotes long-range chromatin interactions at the MYC locus and dramatically increases the expression of MYC [9]."
+      }
+    },
+    {
+      "output_index": 108,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 44,
+      "claim": {
+        "subject": "LncRNA-CCAT1",
+        "predicate": "promotes",
+        "object": "dramatically increases the expression of MYC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "LncRNA-CCAT1 promotes long-range chromatin interactions at the MYC locus and dramatically increases the expression of MYC [9]."
+      }
+    },
+    {
+      "output_index": 109,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 211,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "bind_to",
+        "object": "TINCR promoter",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C)."
+      }
+    },
+    {
+      "output_index": 110,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 212,
+      "claim": {
+        "subject": "Sp1 overexpression",
+        "predicate": "increased",
+        "object": "TINCR expression",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "attribution": null,
+        "evidence": "The overexpression of Sp1 significantly increases the expression of TINCR in HCT116 and SW480 cells (Figure 6D)."
+      }
+    },
+    {
+      "output_index": 111,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 213,
+      "claim": {
+        "subject": "Sp1 overexpression",
+        "predicate": "increased",
+        "object": "TINCR expression",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "attribution": null,
+        "evidence": "The overexpression of Sp1 significantly increases the expression of TINCR in HCT116 and SW480 cells (Figure 6D)."
+      }
+    },
+    {
+      "output_index": 112,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 215,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "transcribed_by",
+        "object": "Sp1",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR, transcribed by Sp1, was repressed by c-Myc (Figure 6E)."
+      }
+    },
+    {
+      "output_index": 113,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "The source asserts that TINCR induces cell-cycle arrest; may hedges the proposed c-Myc explanation.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "induces",
+        "object": "cell cycle arrest",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Collectively, TINCR induces cell cycle arrest and inhibits proliferation may be due to the suppression of c-Myc."
+      }
+    },
+    {
+      "output_index": 114,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 217,
+      "claim": {
+        "subject": "positive feedback loop",
+        "predicate": "control",
+        "object": "TINCR expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "On the other hand, these findings establish a positive feedback loop controlling c-Myc and TINCR expression (Figure 6G)."
+      }
+    },
+    {
+      "output_index": 115,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 218,
+      "claim": {
+        "subject": "C-myc",
+        "predicate": "inhibits",
+        "object": "transcriptive activity of sp1",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "C-myc repress the expression of TINCR through inhibiting transcriptive activity of sp1"
+      }
+    },
+    {
+      "output_index": 116,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 219,
+      "claim": {
+        "subject": "SW480 cells",
+        "predicate": "transfected",
+        "object": "sp1 plasmid or empty vectors",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(B) Relative luciferase activity of the wt TINCR promoter or the mut promoter in the HEK292A, HCT116 and SW480 cells transfected sp1 plasmid or empty vectors."
+      }
+    },
+    {
+      "output_index": 117,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 220,
+      "claim": {
+        "subject": "ChIP assay",
+        "predicate": "uses",
+        "object": "to confirm",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) ChIP assay was used to confirm the binding of sp1 with the TINCR promoter."
+      }
+    },
+    {
+      "output_index": 118,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 221,
+      "claim": {
+        "subject": "confirm",
+        "predicate": "bind_of",
+        "object": "sp1 with the TINCR promoter",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) ChIP assay was used to confirm the binding of sp1 with the TINCR promoter."
+      }
+    },
+    {
+      "output_index": 119,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 222,
+      "claim": {
+        "subject": "SW480",
+        "predicate": "co_infected_with",
+        "object": "sp1",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(F) Relative expression of TINCR in HCT116 and SW480 cell lines which co-infected with sp1 and c-Myc."
+      }
+    },
+    {
+      "output_index": 120,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 223,
+      "claim": {
+        "subject": "SW480",
+        "predicate": "co_infected_with",
+        "object": "c-Myc",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(F) Relative expression of TINCR in HCT116 and SW480 cell lines which co-infected with sp1 and c-Myc."
+      }
+    },
+    {
+      "output_index": 121,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 224,
+      "claim": {
+        "subject": "G",
+        "predicate": "proposed",
+        "object": "model of reciprocity",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer."
+      }
+    },
+    {
+      "output_index": 122,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "unsupported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 225,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "proliferation",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer."
+      }
+    },
+    {
+      "output_index": 123,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "unsupported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 226,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "invasion",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer."
+      }
+    },
+    {
+      "output_index": 124,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "unsupported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 227,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "regulates",
+        "object": "metastasis in colorectal cancer",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) A proposed model of reciprocity between lnc-TINCR and EpCAM regulates proliferation, invasion and metastasis in colorectal cancer."
+      }
+    },
+    {
+      "output_index": 125,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 228,
+      "claim": {
+        "subject": "expression",
+        "predicate": "downregulated_in",
+        "object": "CRC tissues",
+        "modality": null,
+        "condition": "In this study",
+        "attribution": null,
+        "evidence": "In this study, we ascertained that the expression of TINCR was downregulated in CRC tissues, and TINCR is significantly reversely associated with the invasion and metastasis of CRC as well as a more advanced TNM stage."
+      }
+    },
+    {
+      "output_index": 126,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 156,
+      "claim": {
+        "subject": "Colorectal",
+        "predicate": "cancer_associated",
+        "object": "lncRNA CCAL",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Colorectal cancer-associated lncRNA (CCAL) promotes CRC progression by targeting AP-2α, and then activated the Wnt/β-catenin pathway [11]."
+      }
+    },
+    {
+      "output_index": 127,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 157,
+      "claim": {
+        "subject": "lncRNA CCAL",
+        "predicate": "promotes",
+        "object": "CRC progression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Colorectal cancer-associated lncRNA (CCAL) promotes CRC progression by targeting AP-2α, and then activated the Wnt/β-catenin pathway [11]."
+      }
+    },
+    {
+      "output_index": 128,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 158,
+      "claim": {
+        "subject": "Terminal",
+        "predicate": "differentiation_induced",
+        "object": "lncRNA TINCR",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Terminal differentiation-induced lncRNA (TINCR) is a 3.7 kb lncRNA which is isolated from human well differentiated somatic tissues."
+      }
+    },
+    {
+      "output_index": 129,
+      "source_unit": "INTRODUCTION",
+      "origin": "modal",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 159,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "type",
+        "object": "3.7 kb lncRNA",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Terminal differentiation-induced lncRNA (TINCR) is a 3.7 kb lncRNA which is isolated from human well differentiated somatic tissues."
+      }
+    },
+    {
+      "output_index": 130,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The source gives high, middle, and poor differentiated groups with could; this claim retains only high.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "colorectal cancer",
+        "predicate": "categorized_as",
+        "object": "high",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Morphologically, colorectal cancer could be categorized as high, middle, and poor differentiated groups."
+      }
+    },
+    {
+      "output_index": 131,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 160,
+      "claim": {
+        "subject": "loss of TINCR",
+        "predicate": "accelerate",
+        "object": "hydrolysis of EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically bind to EpCAM, and loss of TINCR accelerating the hydrolysis of EpCAM and released EpICD, then activate the EpICD-Wnt/β-catenin signaling in CRC."
+      }
+    },
+    {
+      "output_index": 132,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 161,
+      "claim": {
+        "subject": "loss of TINCR",
+        "predicate": "released",
+        "object": "EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically bind to EpCAM, and loss of TINCR accelerating the hydrolysis of EpCAM and released EpICD, then activate the EpICD-Wnt/β-catenin signaling in CRC."
+      }
+    },
+    {
+      "output_index": 133,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 162,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "activates",
+        "object": "EpICD-Wnt/β-catenin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically bind to EpCAM, and loss of TINCR accelerating the hydrolysis of EpCAM and released EpICD, then activate the EpICD-Wnt/β-catenin signaling in CRC."
+      }
+    },
+    {
+      "output_index": 134,
+      "source_unit": "INTRODUCTION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Then is not the actor; the source attributes pathway activation to loss of TINCR and EpICD release.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "then",
+        "predicate": "activates",
+        "object": "EpICD-Wnt/β-catenin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically bind to EpCAM, and loss of TINCR accelerating the hydrolysis of EpCAM and released EpICD, then activate the EpICD-Wnt/β-catenin signaling in CRC."
+      }
+    },
+    {
+      "output_index": 135,
+      "source_unit": "INTRODUCTION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 163,
+      "claim": {
+        "subject": "EpICD-Wnt/β-catenin",
+        "predicate": "signal_in",
+        "object": "CRC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically bind to EpCAM, and loss of TINCR accelerating the hydrolysis of EpCAM and released EpICD, then activate the EpICD-Wnt/β-catenin signaling in CRC."
+      }
+    },
+    {
+      "output_index": 136,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 135,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR inhibits CRC cells proliferation, migration and metastasis"
+      }
+    },
+    {
+      "output_index": 137,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 136,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "silenced_in",
+        "object": "CRC cell lines",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "To gain insight into the function of TINCR in CRC progression, TINCR was overexpressed or silenced in CRC cell lines (Supplementary Figure S2A, S2B)."
+      }
+    },
+    {
+      "output_index": 138,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 137,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "proliferation",
+        "modality": null,
+        "condition": "in RKO cells; p < 0.001",
+        "attribution": null,
+        "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells."
+      }
+    },
+    {
+      "output_index": 139,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 138,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "proliferation",
+        "modality": null,
+        "condition": "in LoVo cells; p < 0.001",
+        "attribution": null,
+        "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells."
+      }
+    },
+    {
+      "output_index": 140,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 139,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "migration",
+        "modality": null,
+        "condition": "in RKO cells",
+        "attribution": null,
+        "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells."
+      }
+    },
+    {
+      "output_index": 141,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 140,
+      "claim": {
+        "subject": "Stable ectopic expression of TINCR",
+        "predicate": "decreased",
+        "object": "migration",
+        "modality": null,
+        "condition": "in LoVo cells",
+        "attribution": null,
+        "evidence": "Stable ectopic expression of TINCR decreased not only proliferation (p < 0.001, Figure 2A, Supplementary Figure S2C) but also the migration (Figure 2B, Supplementary Figure S2D) of RKO and LoVo cells."
+      }
+    },
+    {
+      "output_index": 142,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 141,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "proliferation",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "attribution": null,
+        "evidence": "In contrast, knockdown of TINCR in HCT116 and SW480 cells had the opposite effects (p = 0.001. Figure 2A, 2C and Supplementary Figure S2E)."
+      }
+    },
+    {
+      "output_index": 143,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 142,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "proliferation",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "attribution": null,
+        "evidence": "In contrast, knockdown of TINCR in HCT116 and SW480 cells had the opposite effects (p = 0.001. Figure 2A, 2C and Supplementary Figure S2E)."
+      }
+    },
+    {
+      "output_index": 144,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 143,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "migration",
+        "modality": null,
+        "condition": "in HCT116 cells; p = 0.001",
+        "attribution": null,
+        "evidence": "In contrast, knockdown of TINCR in HCT116 and SW480 cells had the opposite effects (p = 0.001. Figure 2A, 2C and Supplementary Figure S2E)."
+      }
+    },
+    {
+      "output_index": 145,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 144,
+      "claim": {
+        "subject": "knockdown of TINCR",
+        "predicate": "increased",
+        "object": "migration",
+        "modality": null,
+        "condition": "in SW480 cells; p = 0.001",
+        "attribution": null,
+        "evidence": "In contrast, knockdown of TINCR in HCT116 and SW480 cells had the opposite effects (p = 0.001. Figure 2A, 2C and Supplementary Figure S2E)."
+      }
+    },
+    {
+      "output_index": 146,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 145,
+      "claim": {
+        "subject": "sh-TINCR on cell proliferation",
+        "predicate": "determines",
+        "object": "by CCK8 cell proliferation assay",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(A) Effects of oe-TINCR and sh-TINCR on cell proliferation were determined by CCK8 cell proliferation assay."
+      }
+    },
+    {
+      "output_index": 147,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 146,
+      "claim": {
+        "subject": "F Ki-67 index",
+        "predicate": "analyzed_to",
+        "object": "evaluate the capacity of proliferation in subcutaneous tumor cells",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(F) Ki-67 index was analyzed to evaluate the capacity of proliferation in subcutaneous tumor cells."
+      }
+    },
+    {
+      "output_index": 148,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 147,
+      "claim": {
+        "subject": "number of Ki-67 positive cells",
+        "predicate": "divided_by",
+        "object": "number of total cells × 100%",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "HE (up) and IHC images (down), The Ki-67 index was calculated as the number of Ki-67 positive cells divided by the number of total cells × 100%."
+      }
+    },
+    {
+      "output_index": 149,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 148,
+      "claim": {
+        "subject": "mice in the tail vein",
+        "predicate": "injected",
+        "object": "metastasis assay (n = 5 per group",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) Images of the hepatic and lung metastases, and the HE stain of the metastatic livers and lungs of the mice in the tail vein injected metastasis assay (n = 5 per group)."
+      }
+    },
+    {
+      "output_index": 150,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 149,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "xenograft tumour size",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "attribution": null,
+        "evidence": "Consistent with in vitro observations, xenograft tumours formed in sh-TINCR group were generally larger than those in the control group (Figure 2D)."
+      }
+    },
+    {
+      "output_index": 151,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 150,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "increased",
+        "object": "xenograft tumour growth rate",
+        "modality": "observed",
+        "condition": "sh-TINCR xenograft group versus control mice",
+        "attribution": null,
+        "evidence": "Tumours growth in the sh-TINCR group was significantly more rapid than that in the control group (Figure 2E)."
+      }
+    },
+    {
+      "output_index": 152,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 151,
+      "claim": {
+        "subject": "tumours",
+        "predicate": "developed",
+        "object": "from sh-TINCR cells",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F)."
+      }
+    },
+    {
+      "output_index": 153,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The higher Ki-67 index is in tumours developed from sh-TINCR cells, not the cells themselves.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "sh-TINCR cells",
+        "predicate": "displayed",
+        "object": "higher ki-67 proliferation index",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Additionally, the tumours developed from sh-TINCR cells displayed higher ki-67 proliferation index (Figure 2F)."
+      }
+    },
+    {
+      "output_index": 154,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 153,
+      "claim": {
+        "subject": "5/5 of the mice in HCT116-shTINCR group",
+        "predicate": "displayed",
+        "object": "metastatic foci in the lung",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "All (5/5) of the mice in HCT116-shTINCR group displayed metastatic foci in the lung and 4/5 of these mice had metastasis foci in the liver."
+      }
+    },
+    {
+      "output_index": 155,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 154,
+      "claim": {
+        "subject": "4/5 of these mice",
+        "predicate": "has",
+        "object": "metastasis foci in the liver",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "All (5/5) of the mice in HCT116-shTINCR group displayed metastatic foci in the lung and 4/5 of these mice had metastasis foci in the liver."
+      }
+    },
+    {
+      "output_index": 156,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 155,
+      "claim": {
+        "subject": "only 1/5 of mice in HCT116-NC group",
+        "predicate": "has",
+        "object": "lung metastasis foci",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "However, only 1/5 of mice in HCT116-NC group had lung metastasis foci and no mice in HCT116-NC group develop hepatic metastasis foci (Figure 2G)."
+      }
+    },
+    {
+      "output_index": 157,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 238,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "associated_with",
+        "object": "metastasis of CRC",
+        "modality": null,
+        "condition": "In this study",
+        "attribution": null,
+        "evidence": "In this study, we ascertained that the expression of TINCR was downregulated in CRC tissues, and TINCR is significantly reversely associated with the invasion and metastasis of CRC as well as a more advanced TNM stage."
+      }
+    },
+    {
+      "output_index": 158,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 239,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "upregulated_in",
+        "object": "human gastric carcinoma",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "However, TINCR is strongly upregulated in human gastric carcinoma (GC) and promoted cell growth [22]."
+      }
+    },
+    {
+      "output_index": 159,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 240,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "promotes",
+        "object": "cell growth",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "However, TINCR is strongly upregulated in human gastric carcinoma (GC) and promoted cell growth [22]."
+      }
+    },
+    {
+      "output_index": 160,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 241,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "regulate",
+        "object": "cell growth in CRC and GC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The inconsistency of TINCR in regulating cell growth in CRC and GC may be due to the differential expression phenotype."
+      }
+    },
+    {
+      "output_index": 161,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 242,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "act",
+        "object": "together with specific proteins",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "It reported that lncRNAs could act together with specific proteins when performing its functions [23–24]."
+      }
+    },
+    {
+      "output_index": 162,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 243,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "perform",
+        "object": "its functions",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "It reported that lncRNAs could act together with specific proteins when performing its functions [23–24]."
+      }
+    },
+    {
+      "output_index": 163,
+      "source_unit": "DISCUSSION",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 244,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "specifically_bound_to",
+        "object": "EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "In the present work, we confirm that TINCR specifically binds to EpCAM and protects it from been cleaved, and loss of TINCR expression accelerates the hydrolysis of EpCAM and release EpICD."
+      }
+    },
+    {
+      "output_index": 164,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 245,
+      "claim": {
+        "subject": "loss of TINCR expression",
+        "predicate": "accelerates",
+        "object": "hydrolysis of EpCAM and release EpICD",
+        "modality": null,
+        "condition": "In the present work",
+        "attribution": null,
+        "evidence": "In the present work, we confirm that TINCR specifically binds to EpCAM and protects it from been cleaved, and loss of TINCR expression accelerates the hydrolysis of EpCAM and release EpICD."
+      }
+    },
+    {
+      "output_index": 165,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 246,
+      "claim": {
+        "subject": "EpCAM",
+        "predicate": "type",
+        "object": "40 kd cell surface glycoprotein",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpCAM, the epithelial cell adhesion molecular, is a 40 kd cell surface glycoprotein identified as a marker for epithelial cancers, as well as a marker for cancer stem cells and hESCs [25–27]."
+      }
+    },
+    {
+      "output_index": 166,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 247,
+      "claim": {
+        "subject": "epithelial cell adhesion molecular",
+        "predicate": "type",
+        "object": "40 kd cell surface glycoprotein",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpCAM, the epithelial cell adhesion molecular, is a 40 kd cell surface glycoprotein identified as a marker for epithelial cancers, as well as a marker for cancer stem cells and hESCs [25–27]."
+      }
+    },
+    {
+      "output_index": 167,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The subject loses EpCAM and the 40-kd cell-surface-glycoprotein boundary.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "kd cell surface glycoprotein",
+        "predicate": "identified_as",
+        "object": "marker for epithelial cancers as well as a marker for cancer stem",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "EpCAM, the epithelial cell adhesion molecular, is a 40 kd cell surface glycoprotein identified as a marker for epithelial cancers, as well as a marker for cancer stem cells and hESCs [25–27]."
+      }
+    },
+    {
+      "output_index": 168,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 249,
+      "claim": {
+        "subject": "hydrolysis of EpCAM regulated by TINCR",
+        "predicate": "implicate",
+        "object": "therapeutic value of TINCR for CRC",
+        "modality": "may",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Taken together, the hydrolysis of EpCAM regulated by TINCR may implicate the therapeutic value of TINCR for CRC."
+      }
+    },
+    {
+      "output_index": 169,
+      "source_unit": "DISCUSSION",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 250,
+      "claim": {
+        "subject": "EpICD",
+        "predicate": "formed_complex_with",
+        "object": "β-catenin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also confirmed the formation of EpICD and β-catenin complex and shown that the downregulation of TINCR promoted the expression of β-catenin, TCF4 and c-Myc."
+      }
+    },
+    {
+      "output_index": 170,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 251,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "promotes",
+        "object": "expression of β-catenin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also confirmed the formation of EpICD and β-catenin complex and shown that the downregulation of TINCR promoted the expression of β-catenin, TCF4 and c-Myc."
+      }
+    },
+    {
+      "output_index": 171,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 252,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "promotes",
+        "object": "TCF4",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also confirmed the formation of EpICD and β-catenin complex and shown that the downregulation of TINCR promoted the expression of β-catenin, TCF4 and c-Myc."
+      }
+    },
+    {
+      "output_index": 172,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 253,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "promotes",
+        "object": "c-Myc",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "We also confirmed the formation of EpICD and β-catenin complex and shown that the downregulation of TINCR promoted the expression of β-catenin, TCF4 and c-Myc."
+      }
+    },
+    {
+      "output_index": 173,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 254,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "activates",
+        "object": "Wnt/β-catenin pathway in CRC",
+        "modality": null,
+        "condition": "In other words",
+        "attribution": null,
+        "evidence": "In other words, downregulation of TINCR activates Wnt/β-catenin pathway in CRC, which explored a novel mechanism for TINCR inhibited cell growth and metastasis."
+      }
+    },
+    {
+      "output_index": 174,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 255,
+      "claim": {
+        "subject": "Wnt/β-catenin pathway in CRC",
+        "predicate": "explored",
+        "object": "novel mechanism for TINCR",
+        "modality": null,
+        "condition": "In other words",
+        "attribution": null,
+        "evidence": "In other words, downregulation of TINCR activates Wnt/β-catenin pathway in CRC, which explored a novel mechanism for TINCR inhibited cell growth and metastasis."
+      }
+    },
+    {
+      "output_index": 175,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 256,
+      "claim": {
+        "subject": "novel mechanism for TINCR",
+        "predicate": "inhibits",
+        "object": "cell growth",
+        "modality": null,
+        "condition": "In other words",
+        "attribution": null,
+        "evidence": "In other words, downregulation of TINCR activates Wnt/β-catenin pathway in CRC, which explored a novel mechanism for TINCR inhibited cell growth and metastasis."
+      }
+    },
+    {
+      "output_index": 176,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The novel mechanism does not inhibit metastasis; TINCR is the claimed inhibitor.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "novel mechanism for TINCR",
+        "predicate": "inhibits",
+        "object": "metastasis",
+        "modality": null,
+        "condition": "In other words",
+        "attribution": null,
+        "evidence": "In other words, downregulation of TINCR activates Wnt/β-catenin pathway in CRC, which explored a novel mechanism for TINCR inhibited cell growth and metastasis."
+      }
+    },
+    {
+      "output_index": 177,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 258,
+      "claim": {
+        "subject": "cancer",
+        "predicate": "associated",
+        "object": "genes",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 promotes a variety of cancer associated genes that are implicated in cell growth, differentiation, and apoptosis [31–33]."
+      }
+    },
+    {
+      "output_index": 178,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 259,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "implicated_in",
+        "object": "cell growth",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 promotes a variety of cancer associated genes that are implicated in cell growth, differentiation, and apoptosis [31–33]."
+      }
+    },
+    {
+      "output_index": 179,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 260,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "implicated_in",
+        "object": "differentiation",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 promotes a variety of cancer associated genes that are implicated in cell growth, differentiation, and apoptosis [31–33]."
+      }
+    },
+    {
+      "output_index": 180,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 261,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "implicated_in",
+        "object": "apoptosis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 promotes a variety of cancer associated genes that are implicated in cell growth, differentiation, and apoptosis [31–33]."
+      }
+    },
+    {
+      "output_index": 181,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 262,
+      "claim": {
+        "subject": "c-Myc",
+        "predicate": "repress",
+        "object": "expression of TINCR",
+        "modality": "could",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Moreover, c-Myc could repress the expression of TINCR by a sp1-dependent way."
+      }
+    },
+    {
+      "output_index": 182,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 263,
+      "claim": {
+        "subject": "Together these studies",
+        "predicate": "provides",
+        "object": "molecular model for c-Myc in suppressive regulation of TINCR promoter activity and expression",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Together these studies provide a molecular model for c-Myc in suppressive regulation of TINCR promoter activity and expression."
+      }
+    },
+    {
+      "output_index": 183,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 264,
+      "claim": {
+        "subject": "cell cycle arrest",
+        "predicate": "inhibits",
+        "object": "proliferation",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "These results will help to better understand the role of TINCR in inducing cell cycle arrest to inhibit proliferation."
+      }
+    },
+    {
+      "output_index": 184,
+      "source_unit": "DISCUSSION",
+      "origin": "modal",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 265,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "type",
+        "object": "tumour suppressor",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Taken together, our results indicate that TINCR is a tumour suppressor that, when downregulated, may promote CRC growth and metastasis, and accelerate hydrolysis of EpCAM."
+      }
+    },
+    {
+      "output_index": 185,
+      "source_unit": "DISCUSSION",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "Taken together is not the biological actor of metastasis promotion.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Taken together",
+        "predicate": "promotes",
+        "object": "metastasis",
+        "modality": "may",
+        "condition": "when downregulated",
+        "attribution": null,
+        "evidence": "Taken together, our results indicate that TINCR is a tumour suppressor that, when downregulated, may promote CRC growth and metastasis, and accelerate hydrolysis of EpCAM."
+      }
+    },
+    {
+      "output_index": 186,
+      "source_unit": "DISCUSSION",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source discusses potential targeted drugs; it does not assert that applications targeted drugs.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "fantastic potential applications",
+        "predicate": "targeted",
+        "object": "drugs for EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "With regard to the fantastic potential applications of targeted drugs for EpCAM, this finding suggests the considerable therapeutic value of TINCR for CRC."
+      }
+    },
+    {
+      "output_index": 187,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 267,
+      "claim": {
+        "subject": "normal colorectal mucosa",
+        "predicate": "obtained_from",
+        "object": "Nanfang Hospital",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Total 44 human colorectal cancer tissues and their paired normal colorectal mucosa were obtained from Nanfang Hospital, Southern Medical University (Guangzhou, China)."
+      }
+    },
+    {
+      "output_index": 188,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 268,
+      "claim": {
+        "subject": "normal colorectal mucosa",
+        "predicate": "obtained_from",
+        "object": "Southern Medical University",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Total 44 human colorectal cancer tissues and their paired normal colorectal mucosa were obtained from Nanfang Hospital, Southern Medical University (Guangzhou, China)."
+      }
+    },
+    {
+      "output_index": 189,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 269,
+      "claim": {
+        "subject": "CRC cell lines",
+        "predicate": "uses",
+        "object": "in this research",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The CRC cell lines used in this research were obtained from ATCC, and cultured in RMPI-1640 medium containing 10% FBS in CO2 at 37°C according to the recommendation by ATCC."
+      }
+    },
+    {
+      "output_index": 190,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 45,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "associated_with",
+        "object": "EpCAM",
+        "modality": null,
+        "condition": "EpCAM antibody RIP positive; IgG control negative",
+        "attribution": null,
+        "evidence": "RNA immunoprecipitation (RIP) assays demonstrated that EpCAM Ab precipitated the lncRNA-TINCR while the IgG Ab could not (Figure 4A)."
+      }
+    },
+    {
+      "output_index": 191,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 46,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "directly_interacted_with",
+        "object": "EpCAM",
+        "modality": "suggested",
+        "condition": "biotin RNA pull-down assay",
+        "attribution": null,
+        "evidence": "Secondary, biotin RNA pull-down assay was performed, suggesting that TINCR directly interacted with EpCAM (Figure 4B, Supplementary Figure S3)."
+      }
+    },
+    {
+      "output_index": 192,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 47,
+      "claim": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "change",
+        "object": "EpCAM mRNA",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null,
+        "evidence": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D)."
+      }
+    },
+    {
+      "output_index": 193,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 48,
+      "claim": {
+        "subject": "Knockdown of TINCR",
+        "predicate": "downregulated",
+        "object": "EpCAM protein levels",
+        "modality": null,
+        "condition": "in CRC cells",
+        "attribution": null,
+        "evidence": "Knockdown of TINCR did not change the EpCAM mRNA but downregulated the EpCAM protein levels in CRC cells (Figure 4C and 4D)."
+      }
+    },
+    {
+      "output_index": 194,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 49,
+      "claim": {
+        "subject": "psen2",
+        "predicate": "catalyzed",
+        "object": "EpCAM hydrolysis",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "attribution": "cited prior report [17]",
+        "evidence": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17]."
+      }
+    },
+    {
+      "output_index": 195,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 50,
+      "claim": {
+        "subject": "EpCAM hydrolysis",
+        "predicate": "released",
+        "object": "EpICD",
+        "modality": "general_mechanism",
+        "condition": "psen2 catalysis; cited prior report [17]",
+        "attribution": "cited prior report [17]",
+        "evidence": "EpCAM would be hydrolyzed and consecutively release EpICD (EpCAM c-term, intracellular domain) when catalyzed by psen2 [17]."
+      }
+    },
+    {
+      "output_index": 196,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 51,
+      "claim": {
+        "subject": "downregulation of TINCR",
+        "predicate": "increased",
+        "object": "expression of EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The downregulation of TINCR increased the expression of EpICD (Figure 4E, line1, line4)."
+      }
+    },
+    {
+      "output_index": 197,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 52,
+      "claim": {
+        "subject": "PSEN2 overexpression alone",
+        "predicate": "increased",
+        "object": "EpICD expression",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "attribution": null,
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4"
+      }
+    },
+    {
+      "output_index": 198,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 53,
+      "claim": {
+        "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+        "predicate": "increased",
+        "object": "EpICD expression",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "attribution": null,
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4"
+      }
+    },
+    {
+      "output_index": 199,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 54,
+      "claim": {
+        "subject": "PSEN2 overexpression alone",
+        "predicate": "decreased",
+        "object": "EpCAM expression",
+        "modality": null,
+        "condition": "in HCT116 context; alone",
+        "attribution": null,
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4"
+      }
+    },
+    {
+      "output_index": 200,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 55,
+      "claim": {
+        "subject": "PSEN2 overexpression in HCT116/sh-TINCR cells",
+        "predicate": "decreased",
+        "object": "EpCAM expression",
+        "modality": null,
+        "condition": "in HCT116/sh-TINCR cells",
+        "attribution": null,
+        "evidence": "The overexpression of psen2 alone or in HCT116/sh-TINCR cells upregulated the expression of EpICD and reduced the expression of EpCAM (Figure 4E, line2, line4"
+      }
+    },
+    {
+      "output_index": 201,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 56,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "re_expressed_in",
+        "object": "HCT116 NC or sh-TINCR cells",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "However, all these effects disappeared when TINCR was re-expressed in HCT116 NC or sh-TINCR cells (Figure 4E, line2, 3"
+      }
+    },
+    {
+      "output_index": 202,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 57,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "decreased",
+        "object": "EpCAM protein half-life",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "attribution": null,
+        "evidence": "Moreover, the knockdown of TINCR led to a robust decreased in EpCAM protein half-life in HCT116 and SW480 cells (Figure 4F)."
+      }
+    },
+    {
+      "output_index": 203,
+      "source_unit": "RESULTS",
+      "origin": "semantic",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 58,
+      "claim": {
+        "subject": "TINCR knockdown",
+        "predicate": "decreased",
+        "object": "EpCAM protein half-life",
+        "modality": null,
+        "condition": "in SW480 cells",
+        "attribution": null,
+        "evidence": "Moreover, the knockdown of TINCR led to a robust decreased in EpCAM protein half-life in HCT116 and SW480 cells (Figure 4F)."
+      }
+    },
+    {
+      "output_index": 204,
+      "source_unit": "RESULTS",
+      "origin": "modal",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The tentative cause is inhibition of TINCR, not its intracytoplasmic location.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "intracytoplasmic location of TINCR",
+        "predicate": "accelerate",
+        "object": "cleavage of EpCAM and release EpICD",
+        "modality": "may",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Considering the intracytoplasmic location of TINCR, these results indicate that the inhibition of TINCR may accelerate the cleavage of EpCAM and release EpICD."
+      }
+    },
+    {
+      "output_index": 205,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 60,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "regulates",
+        "object": "its proteolysis",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR specifically binds to EpCAM and regulates its proteolysis"
+      }
+    },
+    {
+      "output_index": 206,
+      "source_unit": "RESULTS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 61,
+      "claim": {
+        "subject": "RNA pull down B assay",
+        "predicate": "uses",
+        "object": "to evaluate the bind of TINCR and EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(A, B) RNA IP assay (A) and RNA pull down (B) assay were used to evaluate the bind of TINCR and EpCAM."
+      }
+    },
+    {
+      "output_index": 207,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 62,
+      "claim": {
+        "subject": "E Western",
+        "predicate": "blot",
+        "object": "analysis the effect of oe-TINCR on the proteolysis function of PSEN2 towards the EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(E) Western blotting analysis the effect of oe-TINCR on the proteolysis function of PSEN2 towards the EpCAM in HCT116 cell line."
+      }
+    },
+    {
+      "output_index": 208,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 63,
+      "claim": {
+        "subject": "Cells",
+        "predicate": "treated_with",
+        "object": "cycloheximide",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Cells were treated with cycloheximide (CHX, 20 mg/ml) for the indicated periods of time."
+      }
+    },
+    {
+      "output_index": 209,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 64,
+      "claim": {
+        "subject": "G Western",
+        "predicate": "blot",
+        "object": "EpICD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) Western blotting analysis of EpICD in 8 paired CRC tissues and their counterpart normal tissues."
+      }
+    },
+    {
+      "output_index": 210,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 65,
+      "claim": {
+        "subject": "analysis of EpICD",
+        "predicate": "paired",
+        "object": "CRC tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) Western blotting analysis of EpICD in 8 paired CRC tissues and their counterpart normal tissues."
+      }
+    },
+    {
+      "output_index": 211,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 66,
+      "claim": {
+        "subject": "analysis of EpICD in 8",
+        "predicate": "paired",
+        "object": "their counterpart normal tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(G) Western blotting analysis of EpICD in 8 paired CRC tissues and their counterpart normal tissues."
+      }
+    },
+    {
+      "output_index": 212,
+      "source_unit": "RESULTS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 67,
+      "claim": {
+        "subject": "H",
+        "predicate": "evaluates",
+        "object": "expression level of EpICD in 44 CRC tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(H) IHC evaluated the expression level of EpICD in 44 CRC tissues and associated normal colorectal tissues."
+      }
+    },
+    {
+      "output_index": 213,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 186,
+      "claim": {
+        "subject": "CRC cell lines",
+        "predicate": "cultured_in",
+        "object": "RMPI-1640 medium",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The CRC cell lines used in this research were obtained from ATCC, and cultured in RMPI-1640 medium containing 10% FBS in CO2 at 37°C according to the recommendation by ATCC."
+      }
+    },
+    {
+      "output_index": 214,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 187,
+      "claim": {
+        "subject": "RMPI-1640 medium",
+        "predicate": "contains",
+        "object": "10% FBS in CO2 at 37°C according to the recommendation by ATCC",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The CRC cell lines used in this research were obtained from ATCC, and cultured in RMPI-1640 medium containing 10% FBS in CO2 at 37°C according to the recommendation by ATCC."
+      }
+    },
+    {
+      "output_index": 215,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 188,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "amplified_by",
+        "object": "PCR",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The full length of TINCR, psen2, c-Myc and Sp1 were amplified by PCR using cDNA from non-tumour colorectal mucosal tissues, and cloned into pcDNA3.0 vectors respectively."
+      }
+    },
+    {
+      "output_index": 216,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 189,
+      "claim": {
+        "subject": "PCR",
+        "predicate": "uses",
+        "object": "cDNA from non-tumour colorectal mucosal tissues",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The full length of TINCR, psen2, c-Myc and Sp1 were amplified by PCR using cDNA from non-tumour colorectal mucosal tissues, and cloned into pcDNA3.0 vectors respectively."
+      }
+    },
+    {
+      "output_index": 217,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 190,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "cloned_into",
+        "object": "pcDNA3.0 vectors",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The full length of TINCR, psen2, c-Myc and Sp1 were amplified by PCR using cDNA from non-tumour colorectal mucosal tissues, and cloned into pcDNA3.0 vectors respectively."
+      }
+    },
+    {
+      "output_index": 218,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 191,
+      "claim": {
+        "subject": "pcDNA3.0-anti-TINCR",
+        "predicate": "generates_with",
+        "object": "antisense of TINCR",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The pcDNA3.0-anti-TINCR was generated with the antisense of TINCR."
+      }
+    },
+    {
+      "output_index": 219,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 192,
+      "claim": {
+        "subject": "TINCR promoter DNA fragment",
+        "predicate": "contains",
+        "object": "wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The TINCR promoter DNA fragment containing the wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1 were subcloned into the pGL3-basic vectors."
+      }
+    },
+    {
+      "output_index": 220,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 193,
+      "claim": {
+        "subject": "wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1",
+        "predicate": "subcloned_into",
+        "object": "pGL3-basic vectors",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The TINCR promoter DNA fragment containing the wild-type (wt) or mutant (mut) putative target site of the transcription factor Sp1 were subcloned into the pGL3-basic vectors."
+      }
+    },
+    {
+      "output_index": 221,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 194,
+      "claim": {
+        "subject": "PCR primers",
+        "predicate": "collected_in",
+        "object": "Supplementary Table S1",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "All the PCR primers were collected in Supplementary Table S1."
+      }
+    },
+    {
+      "output_index": 222,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 195,
+      "claim": {
+        "subject": "shRNA",
+        "predicate": "target",
+        "object": "TINCR",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "shRNA targeting TINCR(5′-AATACCTGCTACTTCATGC-3′), and NC (5′-AACCTTACAATGAATCTAC-3′) were purchased from GeneChem, shanghai."
+      }
+    },
+    {
+      "output_index": 223,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 196,
+      "claim": {
+        "subject": "NC (5′-AACCTTACAATGAATCTAC-3′",
+        "predicate": "purchased_from",
+        "object": "GeneChem",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "shRNA targeting TINCR(5′-AATACCTGCTACTTCATGC-3′), and NC (5′-AACCTTACAATGAATCTAC-3′) were purchased from GeneChem, shanghai."
+      }
+    },
+    {
+      "output_index": 224,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 197,
+      "claim": {
+        "subject": "NC (5′-AACCTTACAATGAATCTAC-3′",
+        "predicate": "purchased_from",
+        "object": "shanghai",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "shRNA targeting TINCR(5′-AATACCTGCTACTTCATGC-3′), and NC (5′-AACCTTACAATGAATCTAC-3′) were purchased from GeneChem, shanghai."
+      }
+    },
+    {
+      "output_index": 225,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 198,
+      "claim": {
+        "subject": "western blotting",
+        "predicate": "described_in",
+        "object": "34–36",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "RNA isolation, qRT-PCR and western blotting were performed as previously described [34–36]."
+      }
+    },
+    {
+      "output_index": 226,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 200,
+      "claim": {
+        "subject": "antibodies",
+        "predicate": "listed_in",
+        "object": "Table S3",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The qRT-PCR primers and antibodies were listed in the Supplementary Table S2 and Table S3 respectively."
+      }
+    },
+    {
+      "output_index": 227,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 201,
+      "claim": {
+        "subject": "Flow Cytometry",
+        "predicate": "described_in",
+        "object": "37",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The cell proliferation, plate colony formation, cell migration, invasion assays and Flow Cytometry were performed as previously described [37]."
+      }
+    },
+    {
+      "output_index": 228,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 202,
+      "claim": {
+        "subject": "Cells",
+        "predicate": "cultured_for",
+        "object": "24 hours",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Cells were seeds in 24-wells plates (1 × 105/well) and cultured for 24 hours."
+      }
+    },
+    {
+      "output_index": 229,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 203,
+      "claim": {
+        "subject": "pGL3-wt promoter vectors or pGL3-mut promoter vectors",
+        "predicate": "co_transfected_with",
+        "object": "pcDNA3.0-sp1 plasmids",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Then, either pGL3-wt promoter vectors or pGL3-mut promoter vectors were co-transfected with pcDNA3.0-sp1 plasmids in HCT116 and SW480 cells using lipofectamine 3000 (Invitrogen, USA)."
+      }
+    },
+    {
+      "output_index": 230,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 204,
+      "claim": {
+        "subject": "SW480 cells",
+        "predicate": "uses",
+        "object": "lipofectamine 3000 (Invitrogen",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Then, either pGL3-wt promoter vectors or pGL3-mut promoter vectors were co-transfected with pcDNA3.0-sp1 plasmids in HCT116 and SW480 cells using lipofectamine 3000 (Invitrogen, USA)."
+      }
+    },
+    {
+      "output_index": 231,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "The source says luciferase activity was measured 48 hours after transfection using the named system.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Luciferase activity",
+        "predicate": "measured",
+        "object": "48 hours after transfection according to the Dual-luciferase Reporter Assay System",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Luciferase activity was measured 48 hours after transfection according to the Dual-luciferase Reporter Assay System (Promega, catalogue E1910)."
+      }
+    },
+    {
+      "output_index": 232,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 206,
+      "claim": {
+        "subject": "Chromatin immunoprecipitation",
+        "predicate": "preformed",
+        "object": "according to the ChIP assay kit Millipore",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Chromatin immunoprecipitation was preformed according to the ChIP assay kit (Millipore, catalogue EZ17-371)."
+      }
+    },
+    {
+      "output_index": 233,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 207,
+      "claim": {
+        "subject": "cells",
+        "predicate": "lysed_by",
+        "object": "sodium dodecyl sulfate lysis buffer",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Briefly, 1 × 106 cells were lysed by sodium dodecyl sulfate lysis buffer, and sheared to length between 200 bp to 1000 bp using sonication."
+      }
+    },
+    {
+      "output_index": 234,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 208,
+      "claim": {
+        "subject": "length between 200 bp to 1000 bp",
+        "predicate": "uses",
+        "object": "sonication",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Briefly, 1 × 106 cells were lysed by sodium dodecyl sulfate lysis buffer, and sheared to length between 200 bp to 1000 bp using sonication."
+      }
+    },
+    {
+      "output_index": 235,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 209,
+      "claim": {
+        "subject": "Sp1 or IgG antibody",
+        "predicate": "uses",
+        "object": "to immunoprecipitation with protein-DNA complex",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 or IgG antibody was used to immunoprecipitation with protein-DNA complex, and then elution the DNA from the antibody."
+      }
+    },
+    {
+      "output_index": 236,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 167,
+      "claim": {
+        "subject": "PCR",
+        "predicate": "performed_with",
+        "object": "primers specific for TINCR promoter",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "PCR was performed with primers specific for TINCR promoter (Supplementary Table S2)."
+      }
+    },
+    {
+      "output_index": 237,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 164,
+      "claim": {
+        "subject": "RNA immunoprecipitation (RIP) experiments",
+        "predicate": "performed",
+        "object": "according to the instruction",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "RNA immunoprecipitation (RIP) experiments were performed according to the instruction provided by the kit (Millipore"
+      }
+    },
+    {
+      "output_index": 238,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 165,
+      "claim": {
+        "subject": "cells",
+        "predicate": "lysed_by",
+        "object": "RIP lysis buffer",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "1 × 106 cells were lysed by RIP lysis buffer, immunoprecipitate with EpCAM antibody or lg G antibody with protein A/G magnetic beads overnight."
+      }
+    },
+    {
+      "output_index": 239,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 166,
+      "claim": {
+        "subject": "magnetic beads bound complexes",
+        "predicate": "collected",
+        "object": "and then extract RNA",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The immobilized magnetic beads bound complexes were collected and then extract RNA."
+      }
+    },
+    {
+      "output_index": 240,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 168,
+      "claim": {
+        "subject": "In vitro transcription",
+        "predicate": "biotinylated",
+        "object": "LncRNA-TINCR",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "In vitro transcription of biotinylated LncRNA-TINCR and RNA pull down"
+      }
+    },
+    {
+      "output_index": 241,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 169,
+      "claim": {
+        "subject": "In vitro transcription",
+        "predicate": "uses",
+        "object": "forward primers",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "To synthesize TINCR and anti-TINCR transcripts, RT-PCR was conducted using forward primers containing the T7 RNA polymerase promoter sequence."
+      }
+    },
+    {
+      "output_index": 242,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 170,
+      "claim": {
+        "subject": "forward primers",
+        "predicate": "contains",
+        "object": "T7 RNA polymerase promoter sequence",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "To synthesize TINCR and anti-TINCR transcripts, RT-PCR was conducted using forward primers containing the T7 RNA polymerase promoter sequence."
+      }
+    },
+    {
+      "output_index": 243,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 171,
+      "claim": {
+        "subject": "PCR products",
+        "predicate": "purified",
+        "object": "according to the protocol of Biomiga DNA gel/PCR Extraction Kit (catalogue DC3511-01",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "PCR products were purified according to the protocol of Biomiga DNA gel/PCR Extraction Kit (catalogue DC3511-01)."
+      }
+    },
+    {
+      "output_index": 244,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 172,
+      "claim": {
+        "subject": "TINCR",
+        "predicate": "biotinylated",
+        "object": "according to the protocols of T7 RNA polymerase kit Beyotime Biotechnology catalogue D7069",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "TINCR and anti-TINCR were biotinylated according to the protocols of T7 RNA polymerase kit (Beyotime Biotechnology, catalogue D7069) and PierceTM RNA 3′ End Desthiobiotinylation Kit (Thermoscientific catalogue 20163)."
+      }
+    },
+    {
+      "output_index": 245,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 173,
+      "claim": {
+        "subject": "RNA pull down assay",
+        "predicate": "conducted",
+        "object": "according to the instruction of PierceTM Magnetic RNA-Protein Pull-Down Kit (Thermoscientific catalogue 20164",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "RNA pull down assay was conducted according to the instruction of PierceTM Magnetic RNA-Protein Pull-Down Kit (Thermoscientific catalogue 20164)."
+      }
+    },
+    {
+      "output_index": 246,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 174,
+      "claim": {
+        "subject": "TINCR or anti-TINCR",
+        "predicate": "bound_to",
+        "object": "streptavidin magnetic beads",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Briefly, labeled TINCR or anti-TINCR was bound to streptavidin magnetic beads, and then incubated the RNA with cell lysate."
+      }
+    },
+    {
+      "output_index": 247,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 175,
+      "claim": {
+        "subject": "RNA",
+        "predicate": "incubated",
+        "object": "with cell lysate",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Briefly, labeled TINCR or anti-TINCR was bound to streptavidin magnetic beads, and then incubated the RNA with cell lysate."
+      }
+    },
+    {
+      "output_index": 248,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 176,
+      "claim": {
+        "subject": "protein complexes",
+        "predicate": "washed",
+        "object": "and eluted",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "RNA binding protein complexes were washed and eluted."
+      }
+    },
+    {
+      "output_index": 249,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 177,
+      "claim": {
+        "subject": "Western blotting",
+        "predicate": "performed_with",
+        "object": "specific antibody for EpCAM",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Western blotting was performed with specific antibody for EpCAM."
+      }
+    },
+    {
+      "output_index": 250,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 178,
+      "claim": {
+        "subject": "Four to 5 weeks old athymic nude mice",
+        "predicate": "obtained_from",
+        "object": "Central Laboratory of Animal Science",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Four to 5 weeks old athymic nude mice were obtained from the Central Laboratory of Animal Science, Southern Medical University."
+      }
+    },
+    {
+      "output_index": 251,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 179,
+      "claim": {
+        "subject": "Four to 5 weeks old athymic nude mice",
+        "predicate": "obtained_from",
+        "object": "Southern Medical University",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Four to 5 weeks old athymic nude mice were obtained from the Central Laboratory of Animal Science, Southern Medical University."
+      }
+    },
+    {
+      "output_index": 252,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 180,
+      "claim": {
+        "subject": "experimental procedures",
+        "predicate": "involves",
+        "object": "animals",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "All experimental procedures involving animals were performed in accordance with animal protocols approved by the Animal Care and Use Committee of Southern Medical University."
+      }
+    },
+    {
+      "output_index": 253,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 181,
+      "claim": {
+        "subject": "total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were subcutaneously",
+        "predicate": "injected_into",
+        "object": "BALB/c nude mice",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "A total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were subcutaneously injected into the BALB/c nude mice respectively."
+      }
+    },
+    {
+      "output_index": 254,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 182,
+      "claim": {
+        "subject": "size of the tumors",
+        "predicate": "measured_by",
+        "object": "caliper as length × width2 × 1/2 every 2 days",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The size of the tumors was measured by a caliper as length × width2 × 1/2 every 2 days."
+      }
+    },
+    {
+      "output_index": 255,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 183,
+      "claim": {
+        "subject": "total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also",
+        "predicate": "injected_into",
+        "object": "tail veins of the mice",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "A total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also injected into the tail veins of the mice, which were sacrificed 6 weeks after injection."
+      }
+    },
+    {
+      "output_index": 256,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 184,
+      "claim": {
+        "subject": "mice",
+        "predicate": "sacrificed",
+        "object": "6 weeks after injection",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "A total of 2 × 106 HCT116-NC or HCT116-shTINCR cells per animal were also injected into the tail veins of the mice, which were sacrificed 6 weeks after injection."
+      }
+    },
+    {
+      "output_index": 257,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The source says lungs and livers were removed and photographed; livers did not photograph livers.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "livers",
+        "predicate": "photographed",
+        "object": "livers",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The lungs and livers were removed and photographed, and visible tumors on the lungs and livers surface were counted."
+      }
+    },
+    {
+      "output_index": 258,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 229,
+      "claim": {
+        "subject": "paraffin",
+        "predicate": "embedded_in",
+        "object": "paraffin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "For histology and immunostaining experiments, subcutaneous tumours, lungs, livers, and the other visceral organs were excised, fixed in formalin, paraffin embedded in paraffin."
+      }
+    },
+    {
+      "output_index": 259,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 230,
+      "claim": {
+        "subject": "visceral organs",
+        "predicate": "stained_with",
+        "object": "hematoxylin",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sections from the tumours and visceral organs were stained with hematoxylin and eosin (H & E) for general histology, or immunostained with specific antibodies (anti-Ki67 for proliferation) [38]."
+      }
+    },
+    {
+      "output_index": 260,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 231,
+      "claim": {
+        "subject": "visceral organs",
+        "predicate": "stained_with",
+        "object": "eosin (H & E) for general histology",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sections from the tumours and visceral organs were stained with hematoxylin and eosin (H & E) for general histology, or immunostained with specific antibodies (anti-Ki67 for proliferation) [38]."
+      }
+    },
+    {
+      "output_index": 261,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "The sections, not H, were immunostained with antibodies.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "H",
+        "predicate": "immunostained_with",
+        "object": "specific antibodies (anti-Ki67 for proliferation) [38",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sections from the tumours and visceral organs were stained with hematoxylin and eosin (H & E) for general histology, or immunostained with specific antibodies (anti-Ki67 for proliferation) [38]."
+      }
+    },
+    {
+      "output_index": 262,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 232,
+      "claim": {
+        "subject": "Statistical analysis",
+        "predicate": "carried",
+        "object": "out",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Statistical analysis was carried out using SPSS 19.0 to assess the differences between experimental groups."
+      }
+    },
+    {
+      "output_index": 263,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "wrong_boundary_or_relation",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 233,
+      "claim": {
+        "subject": "out",
+        "predicate": "uses",
+        "object": "SPSS 19.0",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Statistical analysis was carried out using SPSS 19.0 to assess the differences between experimental groups."
+      }
+    },
+    {
+      "output_index": 264,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 234,
+      "claim": {
+        "subject": "Quantitative data",
+        "predicate": "presented_as",
+        "object": "mean ± SD",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Quantitative data were presented as mean ± SD."
+      }
+    },
+    {
+      "output_index": 265,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 235,
+      "claim": {
+        "subject": "One-way ANOVA or the independent samples t test",
+        "predicate": "used_for",
+        "object": "comparisons independent experimental groups",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "One-way ANOVA or the independent samples t test were used for comparisons independent experimental groups."
+      }
+    },
+    {
+      "output_index": 266,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "pattern",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 236,
+      "claim": {
+        "subject": "spearman correlation coefficient",
+        "predicate": "uses",
+        "object": "to assess the degree of the linear relationship",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "The spearman correlation coefficient was used to assess the degree of the linear relationship between the expression level of TINCR and EpCAM in colorectal cancer tissues."
+      }
+    },
+    {
+      "output_index": 267,
+      "source_unit": "MATERIALS_AND_METHODS",
+      "origin": "open_verb",
+      "verdict": "complete_supported",
+      "reason": "carried from exact-match Jev-only claim audit",
+      "baseline_output_index": 237,
+      "claim": {
+        "subject": "three asterisks",
+        "predicate": "implied",
+        "object": "p < 0.001",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "One asterisk, two asterisks, and three asterisks implied p < 0.05, p < 0.01, and p < 0.001, respectively."
+      }
+    },
+    {
+      "output_index": 268,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The source proposes a c-Myc explanation for two effects; this combines both effects into one non-atomic target.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Suppression of c-Myc",
+        "predicate": "may explain",
+        "object": "TINCR-induced cell cycle arrest and inhibition of proliferation",
+        "modality": "may",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Collectively, TINCR induces cell cycle arrest and inhibits proliferation may be due to the suppression of c-Myc."
+      }
+    },
+    {
+      "output_index": 269,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "complete_supported",
+      "reason": "The Co-IP caption supports sh-TINCR promoting EpICD–beta-catenin complex formation in HCT116 cells.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "sh-TINCR",
+        "predicate": "promotes formation of",
+        "object": "EpICD and β-catenin complex",
+        "modality": null,
+        "condition": "in HCT116 cells",
+        "attribution": null,
+        "evidence": "(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell."
+      }
+    },
+    {
+      "output_index": 270,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "complete_supported",
+      "reason": "The caption says Western blot analysis examined expression of Wnt-pathway-associated genes.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Western blot analysis",
+        "predicate": "analyzed",
+        "object": "expression of Wnt pathway-associated genes",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "(C) Western blot analysis the expression of wnt pathway associated genes."
+      }
+    },
+    {
+      "output_index": 271,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "complete_supported",
+      "reason": "The source says potential TINCR-promoting transcription factors were analyzed by bioinformatics algorithms.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Potential transcription factors promoting TINCR expression",
+        "predicate": "were analyzed by",
+        "object": "bioinformatics algorithms",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms."
+      }
+    },
+    {
+      "output_index": 272,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The prediction is preserved, but the JARSPAR and PROMO basis is not represented in the claim.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Sp1",
+        "predicate": "was predicted to have",
+        "object": "one binding site on the TINCR promoter",
+        "modality": "predicted",
+        "condition": null,
+        "attribution": null,
+        "evidence": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6)."
+      }
+    },
+    {
+      "output_index": 273,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "incomplete_or_wrong_qualifier",
+      "reason": "The claim omits the luciferase-assay context and gives an ungrounded amount label.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "Sp1-binding activity on the TINCR promoter",
+        "predicate": "increased",
+        "object": "an obvious amount",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B)."
+      }
+    },
+    {
+      "output_index": 274,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "complete_supported",
+      "reason": "The source says ChIP assays confirmed Sp1 binding to the TINCR promoter.",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "ChIP assays",
+        "predicate": "confirmed binding of",
+        "object": "Sp1 to the TINCR promoter",
+        "modality": null,
+        "condition": null,
+        "attribution": null,
+        "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C)."
+      }
+    },
+    {
+      "output_index": 275,
+      "source_unit": "RESULTS",
+      "origin": "luna_repair",
+      "verdict": "complete_supported",
+      "reason": "The source attributes c-Myc binding to Sp1 via its central region to prior report [19].",
+      "baseline_output_index": null,
+      "claim": {
+        "subject": "c-Myc",
+        "predicate": "binds to",
+        "object": "the Sp1 transcription factor via the c-Myc central region",
+        "modality": null,
+        "condition": null,
+        "attribution": "cited prior report [19]",
+        "evidence": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19]."
+      }
+    }
+  ],
+  "pre_luna_reconstruction": {
+    "method": "The same live run contains the final old-origin accepted claims plus nine saved baseline claims dropped by the repair pass. All dropped claims were audited; eight match prior verdicts, and the Co-IP actor boundary was reviewed here.",
+    "dropped_verdicts": [
+      {
+        "index": 0,
+        "verdict": "wrong_boundary_or_relation",
+        "claim": {
+          "subject": "Co-IP assay indicate that sh-TINCR",
+          "predicate": "promotes",
+          "object": "formation of EpICD and β-catenin complex in HCT116 cell",
+          "evidence": "(A) Co-IP assay indicate that sh-TINCR promote the formation of EpICD and β-catenin complex in HCT116 cell."
+        }
+      },
+      {
+        "index": 1,
+        "verdict": "wrong_boundary_or_relation",
+        "claim": {
+          "subject": "wnt pathway",
+          "predicate": "associated",
+          "object": "genes",
+          "evidence": "(C) Western blot analysis the expression of wnt pathway associated genes."
+        }
+      },
+      {
+        "index": 2,
+        "verdict": "wrong_boundary_or_relation",
+        "claim": {
+          "subject": "expression of TINCR",
+          "predicate": "analyzed_by",
+          "object": "bioinformatics algorithms",
+          "evidence": "Potential transcription factors (TFs) promoting the expression of TINCR were analyzed by bioinformatics algorithms."
+        }
+      },
+      {
+        "index": 3,
+        "verdict": "incomplete_or_wrong_qualifier",
+        "claim": {
+          "subject": "site on the TINCR promoter",
+          "predicate": "showed_by",
+          "object": "JARSPAR",
+          "evidence": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6)."
+        }
+      },
+      {
+        "index": 4,
+        "verdict": "incomplete_or_wrong_qualifier",
+        "claim": {
+          "subject": "site on the TINCR promoter",
+          "predicate": "showed_by",
+          "object": "PROMO databases",
+          "evidence": "Sp1 was the predicted TF with one binding site on the TINCR promoter showed by the JARSPAR, and PROMO databases (Figure 6A and Supplementary Figure S5, S6)."
+        }
+      },
+      {
+        "index": 5,
+        "verdict": "wrong_boundary_or_relation",
+        "claim": {
+          "subject": "obvious",
+          "predicate": "increas",
+          "object": "Sp1-binding activity on the TINCR promoter",
+          "evidence": "An obvious increasing Sp1-binding activity on the TINCR promoter was observed by the dual luciferase reporter assays (Figure 6B)."
+        }
+      },
+      {
+        "index": 6,
+        "verdict": "wrong_boundary_or_relation",
+        "claim": {
+          "subject": "ChIP assays",
+          "predicate": "confirmed",
+          "object": "Sp1",
+          "evidence": "Additionally, ChIP assays confirmed the Sp1 binding to TINCR promoter (Figure 6C)."
+        }
+      },
+      {
+        "index": 7,
+        "verdict": "incomplete_or_wrong_qualifier",
+        "claim": {
+          "subject": "Sp1",
+          "predicate": "bind_to",
+          "object": "c-Myc",
+          "evidence": "It reported that c-Myc binding to the Sp1 transcription factor via the c-Myc central region and inhibition of Sp1 transcriptional activity on the cell cycle/growth arrest mechanism [19]."
+        }
+      },
+      {
+        "index": 8,
+        "verdict": "incomplete_or_wrong_qualifier",
+        "claim": {
+          "subject": "positive feedback loop",
+          "predicate": "control",
+          "object": "c-Myc",
+          "evidence": "On the other hand, these findings establish a positive feedback loop controlling c-Myc and TINCR expression (Figure 6G)."
+        }
+      }
+    ],
+    "accepted_before_repair": 277,
+    "complete_supported_before_repair": 145,
+    "complete_precision_before_repair": 0.5234657039711191,
+    "results_accepted_before_repair": 132,
+    "results_complete_supported_before_repair": 82,
+    "results_complete_precision_before_repair": 0.6212121212121212
+  },
+  "recall_review_note": "R070 (sh-TINCR promotes EpICD-beta-catenin complex formation with Co-IP/HCT116 context) and R076 (prior c-Myc-Sp1 binding through central region) move from partial to complete. Other newly added claims do not complete additional gold facts under the single-atomic-claim rule; c-Myc repression and partial suppression proposals were rejected by Jev support verification."
+}

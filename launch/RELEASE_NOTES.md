@@ -1,30 +1,33 @@
-# Jevy Graph v0.1.0
+# Jevy Graph
 
-Jevy Graph compiles documents into source-grounded RDF. It deterministically
-generates candidate relationships, uses Jev to resolve ambiguity, independently
-verifies each selected claim, and emits RDF with evidence and provenance.
+Jevy Graph compiles documents into evidence-linked knowledge graphs and RDF. It
+creates deterministic source-derived choices, uses Jev only for ambiguity and
+verification, and retains boundaries, qualifiers, attribution, and provenance.
 
-The first release includes:
+## Included
 
-- CLI and Python API with no runtime Python dependencies
-- extraction from prose, lists, tables, equations, and measurements
-- source spans, modality, negation, conditions, sections, and page context
-- direct semantic edges plus reified provenance statements
-- a local streaming graph demo for PDF, DOCX, Markdown, CSV, and text files
-- cancellation-aware parallel processing for large documents
+- dependency-free core CLI and Python API;
+- ordinary prose assembly with pronoun continuity, coordinated predicates,
+  negation, time, price, deadline, and condition handling;
+- typed scientific claims for attributes, effects, comparisons, causality,
+  associations, and null results;
+- legal provision assembly and complete Codex-reviewed Constitution fixtures;
+- structured tables, measurements, equations, PDF, DOCX, Markdown, CSV, and
+  UTF-8 text input;
+- natural-language graph scope plus grouping by source, entity, or relation;
+- source-grounded RDF with evidence and verification scores;
+- a streaming upload demo, container definition, and health endpoint; and
+- a frozen cross-domain benchmark with stage-level loss and usage reporting.
 
-Install after the PyPI release is live:
+The current offline benchmark reaches all 1,267 reviewed claims across 104
+active fixtures. This is deterministic candidate coverage. Final precision and
+recall remain gated on sufficient independently human-reviewed held-out data.
 
 ```bash
 python -m pip install jevy-graph
-```
-
-Jev-backed verification requires a TypeSafe API key. Deterministic extraction can
-be tried without a key:
-
-```bash
 printf 'Alice founded Acme.' | jevy-graph --no-verify
 ```
 
-Known limits: no external entity linking, ontology alignment, OCR, or scanned-PDF
-support. The demo is local-only and is not hardened for public uploads.
+Jev verification requires `TYPESAFE_API_KEY`. Scanned PDFs require an OCR step
+before upload. External entity linking and ontology alignment are outside this
+release.
